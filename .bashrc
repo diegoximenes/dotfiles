@@ -120,3 +120,6 @@ fi
 if command -v tmux>/dev/null; then
    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && TERM=xterm-256color && exec tmux
 fi
+
+#open vim with tabs
+alias vim='vim -p'

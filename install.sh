@@ -1,7 +1,7 @@
-cp ./.bashrc ~/
-cp ./.tmux.conf ~/
+full_path=$(pwd)/$0
+dir=$(dirname $full_path)/
 
-#if kde
-#cp ./.local/share/konsole/* ~/.local/share/konsole 
-#if unity
-cp ./.local/share/konsole/*  ~/.kde/share/apps/konsole/
+rm ~/.bashrc
+ln -s $dir/.bashrc ~/.bashrc
+rm ~/.tmux.conf
+ln -s $dir/.tmux.conf ~/.tmux.conf

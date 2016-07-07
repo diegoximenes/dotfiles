@@ -117,8 +117,10 @@ if ! shopt -oq posix; then
 fi
 
 # alias tmux="TERM=screen-256color-bce tmux"
-if command -v tmux>/dev/null; then
-   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && TERM=xterm-256color && exec tmux
+if [ "$(tmux -V)" = "tmux 2.2" ]; then
+    if command -v tmux>/dev/null; then
+       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && TERM=xterm-256color && exec tmux
+    fi
 fi
 
 #open vim with tabs

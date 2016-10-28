@@ -116,13 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# alias tmux="TERM=screen-256color-bce tmux"
-if [ "$(tmux -V)" = "tmux 2.2" ]; then
-    if command -v tmux>/dev/null; then
-       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && TERM=xterm-256color && exec tmux
-    fi
-fi
-
 # alias to nvim
 path_to_nvim=$(which nvim)
 if [ -x "$path_to_nvim" ]; then
@@ -130,4 +123,14 @@ if [ -x "$path_to_nvim" ]; then
 else
     # open vim with tabs
     alias vim='vim -p'
+fi
+
+# tmux
+if [ -z "$TMUX" ] && [ "$(tmux -V)" = "tmux 2.2" ]; then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    if [[ -z "$ID" ]]; then # if not available create a new one
+        TERM=xterm-256color exec tmux new-session
+    else
+        TERM=xterm-256color exec tmux attach-session -t "$ID" # if available attach to it
+    fi
 fi

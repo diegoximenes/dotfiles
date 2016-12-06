@@ -126,7 +126,7 @@ else
 fi
 
 # tmux
-if [ -z "$TMUX" ] && [ "$(tmux -V)" = "tmux 2.2" ]; then
+if [ -z "$TMUX" ] && [ "$(tmux -V)" = "tmux 2.3" ]; then
     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
     if [[ -z "$ID" ]]; then # if not available create a new one
         TERM=xterm-256color exec tmux new-session

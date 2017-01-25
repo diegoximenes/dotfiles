@@ -1,0 +1,56 @@
+URxvt.font:     xft:Ubuntu mono:size=13:antialias=true
+URxvt.boldFont: xft:Ubuntu mono:bold:size=13:antialias=true
+URxvt.letterSpace: -1
+
+URxvt.scrollBar: false
+URxvt.cursorBlink: true
+! start maximized
+URxvt.geometry: 256x96
+
+! disable the ctrl+shift picture mode
+URxvt*iso14755: false
+URxvt.iso14755_52: false
+
+URxvt*iconFile: ./Humanity/apps/32/terminal.svg
+
+URxvt.perl-ext-common: fullscreen,font-size,clipboard
+
+! fullscreen switch
+URxvt.keysym.F11: perl:fullscreen:switch
+
+! font-size
+URxvt.keysym.C-plus:     font-size:increase
+URxvt.keysym.C-minus:   font-size:decrease
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
+! clipboard
+URxvt.keysym.C-c:   perl:clipboard:copy
+URxvt.keysym.C-v:   perl:clipboard:paste
+
+URxvt.background: #1C1C1C
+URxvt.foreground: #DEDEDE
+! black
+URxvt.color0  : #2E3436
+URxvt.color8  : #555753
+! red
+URxvt.color1  : #CC0000
+URxvt.color9  : #EF2929
+! green
+URxvt.color2  : #4E9A06
+URxvt.color10 : #8AE234
+! yellow
+URxvt.color3  : #C4A000
+URxvt.color11 : #FCE94F
+! blue
+URxvt.color4  : #3465A4
+URxvt.color12 : #729FCF
+! magenta
+URxvt.color5  : #75507B
+URxvt.color13 : #AD7FA8
+! cyan
+URxvt.color6  : #06989A
+URxvt.color14 : #34E2E2
+! white
+URxvt.color7  : #D3D7CF
+URxvt.color15 : #EEEEEC

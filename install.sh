@@ -1,11 +1,13 @@
-full_path=$(pwd)/$0
-dir=$(dirname $full_path)/
+dir_file="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+dir_home=$(realpath ~)
 
-rm ~/.bashrc
-ln -s $dir/.bashrc ~/.bashrc
+ln -snf $dir_file/.bashrc $dir_home/bashrc
 
-rm ~/.tmux.conf
-ln -s $dir/tmux/.tmux.conf ~/.tmux.conf
+ln -snf $dir_file/tmux/.tmux.conf $dir_home/.tmux.conf
 
-rm ~/.inputrc
-ln -s $dir/.inputrc ~/.inputrc
+ln -snf $dir_file/.inputrc $dir_home/.inputrc
+
+ln -snf $dir_file/.Xresources $dir_home/.Xresources
+xrdb ~/.Xresources
+
+ln -snf $dir_file/rxvt-unicode-256color $dir_home/.urxvt

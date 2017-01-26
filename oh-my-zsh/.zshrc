@@ -3,6 +3,15 @@ export KEYTIMEOUT=1
 
 ZSH_TMUX_AUTOSTART="true"
 
+# alias to nvim
+path_to_nvim=$(which nvim)
+if [ -x "$path_to_nvim" ]; then
+    alias vim="nvim -p"
+else
+    # open vim with tabs
+    alias vim='vim -p'
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

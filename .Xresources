@@ -1,6 +1,6 @@
 URxvt.font:     xft:Ubuntu mono:size=13:antialias=true
 URxvt.boldFont: xft:Ubuntu mono:bold:size=13:antialias=true
-URxvt.letterSpace: -1
+URxvt.letterSpace: -2
 
 URxvt.scrollBar: false
 URxvt.cursorBlink: true
@@ -10,6 +10,12 @@ URxvt.geometry: 256x96
 ! disable the ctrl+shift picture mode
 URxvt*iso14755: false
 URxvt.iso14755_52: false
+
+! fix home and end keys
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
 
 URxvt.iconFile: /usr/share/icons/Humanity/apps/32/terminal.svg
 

@@ -1,6 +1,6 @@
-URxvt.font:     xft:Ubuntu mono:size=13:antialias=true
-URxvt.boldFont: xft:Ubuntu mono:bold:size=13:antialias=true
-URxvt.letterSpace: -2
+URxvt.font:     xft:Ubuntu mono:size=13.5:antialias=true
+URxvt.boldFont: xft:Ubuntu mono:bold:size=13.5:antialias=true
+URxvt.letterSpace: -1
 
 URxvt.scrollBar: false
 URxvt.cursorBlink: true

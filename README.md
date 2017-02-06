@@ -14,7 +14,8 @@
     prefix + alt + u  
 
 - rxvt-unicode-256color:  
-    - in case that the maximized window is not fully maximized: Right Click on 
+    - in case that the maximized window is not fully maximized in KDE: 
+    Right Click on 
     window title bar > More Actions > Special Applications Settings > Size and 
     Position > Obey geometry restrictions > Choose Force and leave check mark 
     to No. Voila! all size problems go away.  

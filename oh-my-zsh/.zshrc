@@ -2,6 +2,11 @@
 export KEYTIMEOUT=1
 
 ZSH_TMUX_AUTOSTART="true"
+if which tmux &> /dev/null
+then
+    tmux start-server
+fi
+tmux start-server
 
 # alias to nvim
 path_to_nvim=$(which nvim)

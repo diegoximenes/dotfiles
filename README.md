@@ -1,8 +1,11 @@
 - Requeriments  
     - tmux version 2.2  
     - xclip  
-    - wmctrl, xsel  
+    - wmctrl  
+    - xsel  
     - autojump  
+    - zsh  
+    - oh-my-zsh  
 
 - pull  
     - git pull && git submodule init && git submodule update  

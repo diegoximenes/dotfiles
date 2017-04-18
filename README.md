@@ -1,4 +1,4 @@
-- Requeriments  
+- Requirements  
     - tmux version 2.2  
     - xclip  
     - wmctrl  

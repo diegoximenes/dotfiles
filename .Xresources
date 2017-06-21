@@ -17,6 +17,8 @@ URxvt.keysym.End: \033[4~
 URxvt.keysym.KP_Home: \033[1~
 URxvt.keysym.KP_End:  \033[4~
 
+URxvt.iconFile: /usr/share/icons/Humanity/apps/32/terminal.svg
+
 URxvt.perl-ext-common: fullscreen,font-size,clipboard
 
 ! fullscreen switch

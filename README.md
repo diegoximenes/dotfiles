@@ -1,7 +1,11 @@
 - Requirements  
--   - sudo apt-get install xclip wmctrl xsel autojump zsh  
+    - sudo apt-get install xclip wmctrl xsel autojump zsh rxvt-unicode-256color  
     - tmux version 2.5  
     - oh-my-zsh  
+
+- clone  
+    - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git  
+    - ./install.sh  
 
 - pull  
     - git pull && git submodule init && git submodule update  

@@ -8,6 +8,8 @@ then
 fi
 tmux start-server
 
+alias pip="pip2"
+
 # alias to nvim
 path_to_nvim=$(which nvim)
 if [ -x "$path_to_nvim" ]; then

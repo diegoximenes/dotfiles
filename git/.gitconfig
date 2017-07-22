@@ -1,0 +1,8 @@
+[user]
+    name = Diego Ximenes Mendes
+    email = dxmendes1@gmail.com
+
+[alias]
+    # stage deleted files
+    stagedelete = "!git ls-files --deleted -z | xargs -0 git rm"
+    undolastcommit = reset HEAD~

@@ -5,7 +5,7 @@
         - sudo apt-get install libevent-dev libncurses5-dev  
     - rxvt-unicode 9.22  
         - http://software.schmorp.de/pkg/rxvt-unicode.html  
-        - sudo apt-get install libperl-dev libx11-dev  
+        - sudo apt-get install libperl-dev libx11-dev libxft-dev  
         - ./configure --enable-everything --enable-256-color --enable-xft  
     - oh-my-zsh  
         - https://github.com/robbyrussell/oh-my-zsh  

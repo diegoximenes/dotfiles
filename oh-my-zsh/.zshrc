@@ -8,6 +8,7 @@ then
 fi
 tmux start-server
 
+alias sudo="sudo "
 alias pip="pip2"
 
 # alias to nvim

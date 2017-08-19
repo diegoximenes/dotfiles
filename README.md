@@ -12,7 +12,7 @@
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git  
-    - ./install.sh  
+    - bash install.sh  
 
 - pull  
     - git pull && git submodule init && git submodule update  
@@ -30,5 +30,5 @@
     Position > Obey geometry restrictions > Choose Force and leave check mark 
     to No.  
     - to change icon: right click on "Application Menu" -> "Edit Applications",
-      add "New Item" with command urxvt. Change icon to 
-      /usr/share/icons/Humanity/apps/32/terminal.svg  
+    add "New Item" with command urxvt. Change icon to 
+    /usr/share/icons/Humanity/apps/32/terminal.svg  

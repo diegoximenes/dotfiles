@@ -17,6 +17,9 @@
 - pull  
     - git pull && git submodule init && git submodule update  
 
+- zsh  
+    - chsh -s $(which zsh)  
+
 - tmux  
     - don't include plugin directory on git since tpm doesn't add git submodules  
     - installing plugins: prefix + I  

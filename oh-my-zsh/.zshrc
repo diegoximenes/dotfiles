@@ -10,6 +10,8 @@ tmux start-server
 
 alias sudo="sudo "
 alias pip="pip2"
+alias cpp="rsync -ah --progress"
+alias mvp="rsync -ah --progress --remove-source-files"
 
 # alias to nvim
 path_to_nvim=$(which nvim)

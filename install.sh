@@ -3,9 +3,6 @@
 dir_file="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 dir_home=$(realpath ~)
 
-ln -snf $dir_file/.bashrc $dir_home/.bashrc
-source $dir_home/.bashrc
-
 ln -snf $dir_file/git/.gitconfig $dir_home/.gitconfig
 
 ln -snf $dir_file/tmux/.tmux.conf $dir_home/.tmux.conf

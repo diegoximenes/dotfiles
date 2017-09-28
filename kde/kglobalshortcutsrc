@@ -31,6 +31,7 @@ _k_friendly_name=KDE Daemon
 {4731040a-03e7-4b6c-b52c-6cc725327be0}=Shift+Print,none,Take Full Screen Screenshot
 {b3458a50-fa19-4b9d-8720-b7e4b9ed213d}=Print,none,Start Screenshot Tool
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+{e9f6e866-a858-4c52-bdb4-dd219a55517c}=Meta+Alt+;,none,urxvt
 
 [kmix]
 _k_friendly_name=Audio Volume

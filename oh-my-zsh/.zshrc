@@ -11,6 +11,8 @@ tmux start-server
 alias sudo="sudo "
 alias cpp="rsync -ah --progress"
 alias mvp="rsync -ah --progress --remove-source-files"
+# avoid problems when opening ipython in virtualenvs
+alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 # alias to nvim
 path_to_nvim=$(which nvim)
@@ -20,6 +22,10 @@ else
     # open vim with tabs
     alias vim='vim -p'
 fi
+
+# virtualenvwrapper configs
+export WORKON_HOME=$HOME/Documents/python_virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH

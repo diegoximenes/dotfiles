@@ -17,6 +17,9 @@ ln -snf $dir_file/rxvt-unicode-256color $dir_home/.urxvt
 ln -snf $dir_file/oh-my-zsh/.zshrc $dir_home/.zshrc
 ln -snf $dir_file/oh-my-zsh/my_gentoo.zsh-theme $dir_home/.oh-my-zsh/themes/my_gentoo.zsh-theme
 
+# set default shell to zsh
+sudo chsh -s $(which zsh)
+
 de=$(echo $DESKTOP_SESSION)
 if [ "$de" == "/usr/share/xsessions/plasma" ]; then
     ln -snf $dir_file/kde/kglobalshortcutsrc $dir_home/.config/kglobalshortcutsrc

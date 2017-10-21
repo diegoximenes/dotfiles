@@ -44,7 +44,7 @@ function mytop {
     if [[ "$pids" == "" ]]; then
         echo "command pattern not found."
     else
-        top -p $(pgrep -d',' -f $cmd)
+        top -p $pids
     fi
 }
 

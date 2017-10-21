@@ -30,10 +30,10 @@ source /usr/local/bin/virtualenvwrapper.sh
 function myps {
     local cmd=$1
     local cols="ppid,%cpu,%mem,etime,start,user,pid,cmd"
-    ps -e -o $cols | head -n 1
     if [[ "$cmd" == "" ]]; then
         ps -e -o $cols
     else
+        ps -e -o $cols | head -n 1
         ps -e -o $cols | grep $cmd
     fi
 }

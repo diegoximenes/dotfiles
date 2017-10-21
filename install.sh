@@ -9,6 +9,8 @@ ln -snf $dir_file/tmux/.tmux.conf $dir_home/.tmux.conf
 
 ln -snf $dir_file/.inputrc $dir_home/.inputrc
 
+ln -snf $dir_file/.toprc $dir_home/.toprc
+
 ln -snf $dir_file/.Xresources $dir_home/.Xresources
 xrdb ~/.Xresources
 

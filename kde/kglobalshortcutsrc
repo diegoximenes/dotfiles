@@ -10,7 +10,7 @@ _k_friendly_name=kaccess
 Disable Touchpad=Touchpad Off,Touchpad Off,Disable Touchpad
 Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
 Toggle Touchpad=Touchpad Toggle,Touchpad Toggle,Toggle Touchpad
-_k_friendly_name=KDE Daemon
+_k_friendly_name=kcm_touchpad
 
 [kded5]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
@@ -22,16 +22,15 @@ PowerOff=Power Off,Power Off,Power Off
 Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
 Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
-_k_friendly_name=Power Management
-display=Display,Display\tMeta+P,Switch Display
+_k_friendly_name=KDE Daemon
+display=Display,Display,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
-{07cc151f-67fe-441f-bc03-dce852af2b24}=Meta+Print,none,Take Active Window Screenshot
-{4731040a-03e7-4b6c-b52c-6cc725327be0}=Shift+Print,none,Take Full Screen Screenshot
-{b3458a50-fa19-4b9d-8720-b7e4b9ed213d}=Print,none,Start Screenshot Tool
+{3e6956fe-6666-427f-b19e-47cd1935f5e7}=,none,Take Full Screen Screenshot
+{b031d5e3-acbb-41a4-8a70-b29b160437c2}=,none,Take Active Window Screenshot
+{b945622f-c70b-4f06-a1c6-3c5c63e321a6}=,none,Start Screenshot Tool
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
-{e9f6e866-a858-4c52-bdb4-dd219a55517c}=Meta+Alt+;,none,urxvt
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -43,7 +42,7 @@ mic_mute=Microphone Mute,Microphone Mute,Mute Microphone
 mute=Volume Mute,Volume Mute,Mute
 
 [krunner]
-_k_friendly_name=Run Command
+_k_friendly_name=krunner
 run command=Alt+Space\tAlt+F2\tSearch,Alt+Space,Run Command
 run command on clipboard contents=Alt+Shift+F2,Alt+Shift+F2,Run Command on clipboard contents
 
@@ -56,7 +55,7 @@ Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
 _k_friendly_name=ksmserver
 
 [ktorrent]
-_k_friendly_name=KTorrent
+_k_friendly_name=ktorrent
 queue_suspend=Alt+Shift+P,Alt+Shift+P,Suspend Torrents
 show_kt=Alt+Shift+T,Alt+Shift+T,Show/Hide KTorrent
 
@@ -203,13 +202,13 @@ Window to Screen 4=none,none,Window to Screen 4
 Window to Screen 5=none,none,Window to Screen 5
 Window to Screen 6=none,none,Window to Screen 6
 Window to Screen 7=none,none,Window to Screen 7
-_k_friendly_name=KWin
+_k_friendly_name=KDE Control Module
 view_actual_size=Meta+0,Meta+0,Actual Size
 view_zoom_in=Meta+=,Meta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
-_k_friendly_name=Media Controller
+_k_friendly_name=mediacontrol
 nextmedia=Media Next,Media Next,Media playback next
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous

@@ -1,6 +1,6 @@
 - Requirements  
     - sudo apt-get install xclip wmctrl xsel autojump zsh  
-    - tmux version 2.5  
+    - tmux version 2.6  
         - https://github.com/tmux/tmux/wiki  
         - sudo apt-get install libevent-dev libncurses5-dev  
     - rxvt-unicode 9.22  
@@ -9,6 +9,11 @@
         - ./configure --enable-everything --enable-256-color --enable-xft  
     - oh-my-zsh  
         - https://github.com/robbyrussell/oh-my-zsh  
+    - python configs  
+        - sudo apt-get install python-pip python3-pip  
+        - sudo pip install --upgrade pip  
+        - sudo pip3 install --upgrade pip  
+        - sudo pip install virtualenvwrapper  
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git  

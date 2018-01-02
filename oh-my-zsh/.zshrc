@@ -40,11 +40,15 @@ function myps {
 
 function mytop {
     local cmd=$1
-    local pids=$(pgrep -d',' -f $cmd)
-    if [[ "$pids" == "" ]]; then
-        echo "command pattern not found."
+    if [[ "$cmd" == "" ]]; then
+        top
     else
-        top -p $pids
+        local pids=$(pgrep -d',' -f $cmd)
+        if [[ "$pids" == "" ]]; then
+            echo "command pattern not found."
+        else
+            top -p $pids
+        fi
     fi
 }
 

@@ -11,9 +11,10 @@
         - https://github.com/robbyrussell/oh-my-zsh  
     - python configs  
         - sudo apt-get install python-pip python3-pip  
-        - sudo pip install --upgrade pip  
+        - sudo pip2 install --upgrade pip  
         - sudo pip3 install --upgrade pip  
-        - sudo pip install virtualenvwrapper  
+        - sudo pip2 install virtualenvwrapper  
+        - sudo pip3 install virtualenvwrapper  
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git  

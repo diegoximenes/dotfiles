@@ -28,6 +28,7 @@
     - installing plugins: prefix + I  
     - uninstalling plugins: remove plugin line from tmux.conf && 
     prefix + alt + u  
+    - to reset tmux configurations: tmux kill-server  
 
 - rxvt-unicode:  
     - in case that the maximized window is not fully maximized in KDE: 

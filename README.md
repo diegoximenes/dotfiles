@@ -15,6 +15,10 @@
         - sudo pip3 install --upgrade pip  
         - sudo pip2 install virtualenvwrapper  
         - sudo pip3 install virtualenvwrapper  
+    - the fuck:  
+        - sudo pip3 install thefuck  
+    - fzf:  
+        - https://github.com/junegunn/fzf  
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git  
@@ -38,4 +42,4 @@
     to No.  
     - to change icon: right click on "Application Menu" -> "Edit Applications",
     add "New Item" with command urxvt. Change icon to 
-    /usr/share/icons/Humanity/apps/32/terminal.svg  
+    /usr/share/icons/Humanity/apps/32/terminal.svg    

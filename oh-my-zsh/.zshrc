@@ -8,6 +8,8 @@ then
 fi
 tmux start-server
 
+alias c="clear"
+alias f="fuck"
 alias sudo="sudo "
 alias cpp="rsync -ah --progress"
 alias mvp="rsync -ah --progress --remove-source-files"

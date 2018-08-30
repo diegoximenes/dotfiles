@@ -27,7 +27,7 @@ fi
 
 # adds global yarn bin path to PATH
 if [ -x "$(which yarn)" ]; then
-    path_to_yarn_bins=$(yarn global bin)
+    path_to_yarn_bins=$(yarn global bin 2> /dev/null)
     export PATH=$PATH:$path_to_yarn_bins
 fi
 

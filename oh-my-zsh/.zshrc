@@ -25,6 +25,12 @@ else
     alias vim='vim -p'
 fi
 
+# adds global yarn bin path to PATH
+if [ -x "$(which yarn)" ]; then
+    path_to_yarn_bins=$(yarn global bin)
+    export PATH=$PATH:$path_to_yarn_bins
+fi
+
 # virtualenvwrapper configs
 export WORKON_HOME=$HOME/Documents/python_virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh

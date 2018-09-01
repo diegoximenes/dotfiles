@@ -3,6 +3,8 @@
 dir_file="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 dir_home=$(realpath ~)
 
+ln -snf $dir_file/terminator $dir_home/.config/terminator
+
 ln -snf $dir_file/git/.gitconfig $dir_home/.gitconfig
 
 ln -snf $dir_file/tmux/.tmux.conf $dir_home/.tmux.conf
@@ -23,7 +25,7 @@ ln -snf $dir_file/oh-my-zsh/my_gentoo.zsh-theme $dir_home/.oh-my-zsh/themes/my_g
 sudo chsh -s $(which zsh)
 
 de=$(echo $DESKTOP_SESSION)
-if [ "$de" == "/usr/share/xsessions/plasma" ]; then
+if [ "$de" == "plasma" ]; then
     ln -snf $dir_file/kde/kglobalshortcutsrc $dir_home/.config/kglobalshortcutsrc
     # TODO: find how to reload configs without logout/reboot
     sudo reboot

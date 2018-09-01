@@ -1,8 +1,10 @@
 - Requirements  
-    - sudo apt-get install xclip wmctrl xsel autojump zsh  
-    - tmux version 2.6  
+    - sudo apt-get install git xclip wmctrl xsel autojump zsh  
+    - tmux version 2.7  
         - https://github.com/tmux/tmux/wiki  
         - sudo apt-get install libevent-dev libncurses5-dev  
+    - terminator  
+        - sudo apt-get install terminator  
     - rxvt-unicode 9.22  
         - http://software.schmorp.de/pkg/rxvt-unicode.html  
         - sudo apt-get install libperl-dev libx11-dev libxft-dev  
@@ -21,7 +23,7 @@
         - https://github.com/junegunn/fzf  
 
 - clone  
-    - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git  
+    - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/Documents/dotfiles  
     - bash install.sh  
 
 - pull  

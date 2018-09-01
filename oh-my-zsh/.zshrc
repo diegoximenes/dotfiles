@@ -68,7 +68,7 @@ export FZF_DEFAULT_COMMAND='find .'
 
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="my_gentoo"
+ZSH_THEME="diegoximenes"
 
 plugins=(git vi-mode autojump tmux extract fuck)
 

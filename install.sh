@@ -19,7 +19,7 @@ ln -snf "$dir_file/terminator" "$dir_home/.config/terminator"
 ln -snf "$dir_file/rxvt-unicode-256color" "$dir_home/.urxvt"
 
 ln -snf "$dir_file/oh-my-zsh/.zshrc" "$dir_home/.zshrc"
-ln -snf "$dir_file/oh-my-zsh/my_gentoo.zsh-theme" "$dir_home/.oh-my-zsh/themes/my_gentoo.zsh-theme"
+ln -snf "$dir_file/oh-my-zsh/diegoximenes.zsh-theme" "$dir_home/.oh-my-zsh/themes/diegoximenes.zsh-theme"
 
 # set default shell to zsh
 sudo chsh -s "$(which zsh)"

@@ -1,5 +1,5 @@
 - Requirements  
-    - sudo apt-get install git xclip wmctrl xsel autojump zsh  
+    - sudo apt-get install build-essential git xclip wmctrl xsel autojump zsh  
     - tmux version 2.7  
         - https://github.com/tmux/tmux/wiki  
         - sudo apt-get install libevent-dev libncurses5-dev  

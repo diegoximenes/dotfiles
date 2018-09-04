@@ -30,5 +30,5 @@ sudo chsh -s "$(which zsh)"
 if [ "$DESKTOP_SESSION" == "plasma" ]; then
     ln -snf "$dir_file/kde/kglobalshortcutsrc" "$dir_home/.config/kglobalshortcutsrc"
     # TODO: find how to reload configs without logout/reboot
-    # sudo reboot
+    sudo reboot
 fi

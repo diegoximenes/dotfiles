@@ -3,6 +3,9 @@
 dir_file="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 dir_home=$(realpath ~)
 
+ln -snf "$dir_file/python/flake8" "$dir_home/.config/flake8"
+ln -snf "$dir_file/python/pycodestyle" "$dir_home/.config/pycodestyle"
+
 ln -snf "$dir_file/git/.gitconfig" "$dir_home/.gitconfig"
 
 ln -snf "$dir_file/tmux/.tmux.conf" "$dir_home/.tmux.conf"
@@ -27,5 +30,5 @@ sudo chsh -s "$(which zsh)"
 if [ "$DESKTOP_SESSION" == "plasma" ]; then
     ln -snf "$dir_file/kde/kglobalshortcutsrc" "$dir_home/.config/kglobalshortcutsrc"
     # TODO: find how to reload configs without logout/reboot
-    sudo reboot
+    # sudo reboot
 fi

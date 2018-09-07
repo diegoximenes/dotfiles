@@ -1,5 +1,5 @@
 - Requirements  
-    - sudo apt-get install build-essential git xclip wmctrl xsel autojump zsh  
+    - sudo apt-get install build-essential git curl xclip wmctrl xsel autojump zsh  
     - tmux version 2.7  
         - https://github.com/tmux/tmux/wiki  
         - sudo apt-get install libevent-dev libncurses5-dev  
@@ -27,7 +27,9 @@
     - bash install.sh  
 
 - pull  
-    - git pull && git submodule init && git submodule update  
+    - git pull  
+    - git submodule update --init --remote  
+    - git submodule foreach 'git submodule update --init --recursive'  
 
 - tmux  
     - don't include plugin directory on git since tpm doesn't add git submodules  

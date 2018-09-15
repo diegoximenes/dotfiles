@@ -54,6 +54,10 @@ function mytop {
     fi
 }
 
+function clip () {
+    xclip -selection clipboard
+}
+
 # color in man pages
 export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode - red
 export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode - bold, magenta

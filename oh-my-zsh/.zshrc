@@ -55,7 +55,7 @@ function mytop {
 }
 
 function clip () {
-    xclip -selection clipboard
+    xclip -selection clipboard && xclip -o -selection clipboard
 }
 
 # color in man pages

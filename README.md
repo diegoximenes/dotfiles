@@ -1,6 +1,6 @@
 - Requirements  
     - sudo apt-get install build-essential git curl xclip wmctrl xsel autojump zsh  
-    - tmux version 2.7  
+    - tmux version 2.8  
         - https://github.com/tmux/tmux/wiki  
         - sudo apt-get install libevent-dev libncurses5-dev  
     - terminator  

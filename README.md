@@ -1,5 +1,5 @@
 - Requirements  
-    - sudo apt-get install build-essential git curl xclip wmctrl xsel autojump zsh  
+    - sudo apt-get install build-essential git curl xclip wmctrl xsel autojump zsh htop  
     - tmux version 2.8  
         - https://github.com/tmux/tmux/wiki  
         - sudo apt-get install libevent-dev libncurses5-dev  

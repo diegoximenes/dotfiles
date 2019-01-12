@@ -10,6 +10,7 @@ alias cpp="rsync -ah --progress"
 alias mvp="rsync -ah --progress --remove-source-files"
 # avoid problems when opening ipython in virtualenvs
 alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 # alias to nvim with tabs
 if [ -x "$(which nvim)" ]; then

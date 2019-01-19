@@ -26,6 +26,8 @@ ln -snf "$dir_file/oh-my-zsh/diegoximenes.zsh-theme" "$dir_home/.oh-my-zsh/theme
 
 ln -snf "$dir_file/i3/"/* "$dir_home/.config/i3/"
 
+ln -snf "$dir_file/polybar/config" "$dir_home/.config/polybar"
+
 # set default shell to zsh
 sudo chsh -s "$(which zsh)"
 

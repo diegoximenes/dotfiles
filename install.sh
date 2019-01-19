@@ -24,6 +24,8 @@ ln -snf "$dir_file/rxvt-unicode-256color" "$dir_home/.urxvt"
 ln -snf "$dir_file/oh-my-zsh/.zshrc" "$dir_home/.zshrc"
 ln -snf "$dir_file/oh-my-zsh/diegoximenes.zsh-theme" "$dir_home/.oh-my-zsh/themes/diegoximenes.zsh-theme"
 
+ln -snf "$dir_file/i3/config" "$dir_home/.config/i3/config"
+
 # set default shell to zsh
 sudo chsh -s "$(which zsh)"
 

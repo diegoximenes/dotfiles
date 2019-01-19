@@ -21,6 +21,8 @@
         - sudo pip3 install thefuck  
     - fzf:  
         - https://github.com/junegunn/fzf  
+    - i3:  
+        - sudo apt-get install i3  
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/Documents/dotfiles  

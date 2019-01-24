@@ -7,6 +7,7 @@
     stagedelete = "!git ls-files --deleted -z | xargs -0 git rm"
     undolastcommit = reset HEAD~
     mylog = log --graph --decorate
+    deleteuselessbranches = "!f() { git branch | grep -v 'master' | grep -v '^*' | xargs git branch -d; }; f;"
 
 [core]
     editor = vim

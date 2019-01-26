@@ -59,7 +59,7 @@ font-2 = siji:size=10
 font-3 = "Noto Sans Symbols 2:size=11"
 
 modules-left = bspwm i3 xwindow
-modules-right = system-usb-mount xbacklight pulseaudio-rofi-output pulseaudio-rofi-input powermenu wlan eth battery date
+modules-right = system-usb-mount xbacklight pulseaudio-rofi-output pulseaudio-rofi-input powermenu wifi eth battery date
 
 tray-position = center
 ;tray-padding = 2
@@ -167,14 +167,6 @@ interval = 3.0
 
 label-connected = E: %ifname%
 label-disconnected = E: down
-
-[module/wlan]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-
-label-connected = W: %essid% %signal%
-format-disconnected = W: down
 
 [module/date]
 type = internal/date
@@ -303,6 +295,11 @@ click-right = exec pavucontrol &
 click-left = ~/.config/polybar/scripts/pulseaudio-tail.sh --mute
 scroll-up = ~/.config/polybar/scripts/pulseaudio-tail.sh --up
 scroll-down = ~/.config/polybar/scripts/pulseaudio-tail.sh --down
+
+[module/wifi]
+type = custom/script
+exec = ~/.config/polybar/scripts/wifi.sh
+interval = 5
 
 [settings]
 screenchange-reload = true

@@ -13,6 +13,8 @@ alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_inst
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias cal="cal -B 1 -A 1"
 alias i3restart="i3-msg restart"
+alias mypoweroff="systemctl poweroff"
+alias myreboot="systemctl reboot"
 
 # alias to nvim with tabs
 if [ -x "$(which nvim)" ]; then

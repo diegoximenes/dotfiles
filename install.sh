@@ -26,13 +26,16 @@ ln -snf "$dir_file/oh-my-zsh/diegoximenes.zsh-theme" "$dir_home/.oh-my-zsh/theme
 
 ln -snf "$dir_file/i3/"/* "$dir_home/.config/i3/"
 
-ln -snf "$dir_file/polybar/config" "$dir_home/.config/polybar"
+ln -snf "$dir_file/polybar/"/* "$dir_home/.config/polybar"
 
 # set default shell to zsh
 sudo chsh -s "$(which zsh)"
 
+# set xbacklight to work in notebook
+sudo cp "$dir_file/dell/20-intel.conf" /usr/share/X11/xorg.conf.d/20-intel.conf
+
 if [ "$DESKTOP_SESSION" == "plasma" ]; then
     ln -snf "$dir_file/kde/kglobalshortcutsrc" "$dir_home/.config/kglobalshortcutsrc"
     # TODO: find how to reload configs without logout/reboot
-    sudo reboot
+    # sudo reboot
 fi

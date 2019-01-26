@@ -1,11 +1,11 @@
 - Requirements  
-    - sudo apt-get install build-essential git curl xclip wmctrl xsel autojump zsh htop  
+    - sudo apt-get install neofetch build-essential git curl xclip wmctrl xsel autojump zsh htop  
     - tmux version 2.8  
         - https://github.com/tmux/tmux/wiki  
         - sudo apt-get install libevent-dev libncurses5-dev  
-    - terminator  
+    - (deprecated) terminator  
         - sudo apt-get install terminator  
-    - rxvt-unicode 9.22  
+    - (deprecated) rxvt-unicode 9.22  
         - http://software.schmorp.de/pkg/rxvt-unicode.html  
         - sudo apt-get install libperl-dev libx11-dev libxft-dev  
         - ./configure --enable-everything --enable-256-color --enable-xft  
@@ -22,11 +22,17 @@
     - fzf:  
         - https://github.com/junegunn/fzf  
     - i3:  
-        - sudo apt-get install i3  
+        - sudo apt-get install i3 py3status  
         - polybar 3.3.0  
             - https://github.com/jaagr/polybar/wiki/Compiling  
             - sudo apt-get install build-essential git cmake cmake-data pkg-config libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libiw-dev libnl-genl-3-dev  
             - mkdir build && cd build && cmake .. && make && make install (TODO: install with stow)  
+            - sudo apt-get install rofi
+            - sudo apt-get install jq  
+#            - git clone https://github.com/stark/siji && cd siji && ./install.sh  
+# - sudo ln -s /etc/fonts/conf.avail/70-force-bitmaps.conf /etc/fonts/conf.d/  
+#            - sudo unlink /etc/fonts/conf.d/70-no-bitmaps.conf # For disabling no-bitmap setting  
+#            - sudo apt-get install unifont  
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/Documents/dotfiles  

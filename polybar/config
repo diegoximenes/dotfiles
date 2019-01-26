@@ -53,15 +53,17 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:size=10
-font-1 = unifont:fontformat=truetype:size=8:antialias=false
-font-2 = siji:size=10
-font-3 = "Noto Sans Symbols 2:size=11"
+font-0 = "Monospace:size=10:antialias=true"
+font-1 = "DejaVu Sans:size=12:antialias=true"
+font-2 = "Noto Sans Symbols 2:size=12:antialias=true"
+font-3 = "Unifont Upper:size=12:antialias=true"
+font-4 = "siji:size=20"
+font-5 = "FontAwesome:size=10:antialias=true"
 
 modules-left = bspwm i3 xwindow
-modules-right = system-usb-mount xbacklight pulseaudio-rofi-output pulseaudio-rofi-input powermenu wifi eth battery date
+modules-right = system-usb-mount powermenu xbacklight audio-output audio-input wifi eth battery date
 
-tray-position = center
+tray-position = left
 ;tray-padding = 2
 ;tray-background = #0063ff
 
@@ -149,96 +151,30 @@ interval = 5
 click-left = ~/.config/polybar/scripts/system-usb-mount.sh --mount
 click-right = ~/.config/polybar/scripts/system-usb-mount.sh --unmount
 
-[module/system-usb-udev]
-type = custom/script
-exec = ~/.config/polybar/scripts/system-usb-udev.sh
-tail = true
-click-left = ~/.config/polybar/scripts/system-usb-udev.sh --mount
-click-right = ~/.config/polybar/scripts/system-usb-udev.sh --unmount
-
 [module/xbacklight]
 type = internal/xbacklight
-label = BL: %percentage%%
+label = 🔆 %percentage%%
 
 [module/eth]
 type = internal/network
 interface = eno1
-interval = 3.0
-
-label-connected = E: %ifname%
-label-disconnected = E: down
+interval = 5
+label-connected =  %ifname%
+label-disconnected =  down
 
 [module/date]
 type = internal/date
 interval = 5
 date = %a %d-%b-%Y %H:%M
 
-[module/pulseaudio]
-type = internal/pulseaudio
-
-; format-volume = <label-volume> <bar-volume>
-; label-volume = VOL %percentage%%
-; label-volume-foreground = ${root.foreground}
-;
-label-volume = 🔊 %percentage%%
-label-muted = 🔇 muted
-; label-muted-foreground = #666
-;
-; bar-volume-width = 10
-; bar-volume-foreground-0 = #55aa55
-; bar-volume-foreground-1 = #55aa55
-; bar-volume-foreground-2 = #55aa55
-; bar-volume-foreground-3 = #55aa55
-; bar-volume-foreground-4 = #55aa55
-; bar-volume-foreground-5 = #f5a70a
-; bar-volume-foreground-6 = #ff5555
-; bar-volume-gradient = false
-; bar-volume-indicator = |
-; bar-volume-indicator-font = 2
-; bar-volume-fill = ─
-; bar-volume-fill-font = 2
-; bar-volume-empty = ─
-; bar-volume-empty-font = 2
-; bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = AC
-
 time-format = %H:%M
-
-label-charging = ⚡ %percentage%% %time%
+label-charging =  %percentage%% %time%
 label-discharging = 🌗 %percentage%% %time%
-label-full= ☻ %percentage%%
+label-full= 🔋 %percentage%%
 
 [module/powermenu]
 type = custom/menu
@@ -269,32 +205,23 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-[module/pulseaudio-rofi-output]
+[module/audio-output]
 type = custom/script
-exec = ~/.config/polybar/scripts/pulseaudio-rofi.sh --output_volume_listener
+exec = ~/.config/polybar/scripts/audio.sh --sink_volume_listener
 tail = true
-click-right = ~/.config/polybar/scripts/pulseaudio-rofi.sh --output
-click-left = ~/.config/polybar/scripts/pulseaudio-rofi.sh --mute
-scroll-up =  ~/.config/polybar/scripts/pulseaudio-rofi.sh --volume_up
-scroll-down = ~/.config/polybar/scripts/pulseaudio-rofi.sh --volume_down
+click-right = pavucontrol
+click-left = ~/.config/polybar/scripts/audio.sh --mute_sink
+scroll-up =  ~/.config/polybar/scripts/audio.sh --volume_sink_up
+scroll-down = ~/.config/polybar/scripts/audio.sh --volume_sink_down
 
-[module/pulseaudio-rofi-input]
+[module/audio-input]
 type = custom/script
-exec = ~/.config/polybar/scripts/pulseaudio-rofi.sh --input_volume_listener
+exec = ~/.config/polybar/scripts/audio.sh --source_volume_listener
 tail = true
-click-right = ~/.config/polybar/scripts/pulseaudio-rofi.sh --input
-click-left = ~/.config/polybar/scripts/pulseaudio-rofi.sh --mute_source
-scroll-up = ~/.config/polybar/scripts/pulseaudio-rofi.sh --volume_source_up
-scroll-down = ~/.config/polybar/scripts/pulseaudio-rofi.sh --volume_source_down
-
-[module/pulseaudio-tail]
-type = custom/script
-exec = ~/.config/polybar/scripts/pulseaudio-tail.sh
-tail = true
-click-right = exec pavucontrol &
-click-left = ~/.config/polybar/scripts/pulseaudio-tail.sh --mute
-scroll-up = ~/.config/polybar/scripts/pulseaudio-tail.sh --up
-scroll-down = ~/.config/polybar/scripts/pulseaudio-tail.sh --down
+click-right = pavucontrol
+click-left = ~/.config/polybar/scripts/audio.sh --mute_source
+scroll-up = ~/.config/polybar/scripts/audio.sh --volume_source_up
+scroll-down = ~/.config/polybar/scripts/audio.sh --volume_source_down
 
 [module/wifi]
 type = custom/script
@@ -303,14 +230,7 @@ interval = 5
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
 
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-; vim:ft=dosini

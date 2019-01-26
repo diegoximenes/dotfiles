@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 volume_sink_up() {
     pactl set-sink-volume @DEFAULT_SINK@ +3%
@@ -58,7 +58,8 @@ source_volume() {
 
 sink_volume_listener() {
     pactl subscribe | while read -r event; do
-        if echo "$event" | grep "'change' on sink"; then
+        match=$(echo "$event" | grep "'change' on sink")
+        if [ "$match" != "" ]; then
             sink_volume
         fi
     done
@@ -66,7 +67,8 @@ sink_volume_listener() {
 
 source_volume_listener() {
     pactl subscribe | while read -r event; do
-        if echo "$event" | grep "'change' on source"; then
+        match=$(echo "$event" | grep "'change' on source")
+        if [ "$match" != "" ]; then
             source_volume
         fi
     done

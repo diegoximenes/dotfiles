@@ -62,11 +62,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
 bindsym $mod+m split h
-
-# split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+n split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -86,7 +83,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+z focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -149,10 +146,19 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command py3status -c ~/.config/i3/i3status.conf
-# }
+bindsym $mod+c exec google-chrome
+bindsym $mod+x exec vlc
+bindsym $mod+v exec firefox
+bindsym $mod+i exec pactl set-sink-volume @DEFAULT_SINK@ +8%
+bindsym $mod+u exec pactl set-sink-volume @DEFAULT_SINK@ -8%
+bindsym $mod+o exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id urxvt -name scratchpad_terminator
+for_window [instance="scratchpad_terminator"] floating enable
+for_window [instance="scratchpad_terminator"] resize set 800 500
+for_window [instance="scratchpad_terminator"] move scratchpad
+for_window [instance="scratchpad_terminator"] border pixel 10
+bindsym $mod+p [instance="scratchpad_terminator"] scratchpad show; [instance="scratchpad_terminator"] move position center
+
+exec_always setxkbmap br abnt2
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

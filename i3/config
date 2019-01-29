@@ -32,7 +32,7 @@ floating_modifier $mod
 for_window [class="Yad"] floating enable
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator -x tmux new -A -s general
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -153,7 +153,8 @@ bindsym $mod+i exec pactl set-sink-volume @DEFAULT_SINK@ +8%
 bindsym $mod+u exec pactl set-sink-volume @DEFAULT_SINK@ -8%
 bindsym $mod+o exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-exec_always --no-startup-id urxvt -name scratchpad_terminator
+# TODO: change to terminator and kill before launching new one
+exec_always --no-startup-id urxvt -name scratchpad_terminator -e tmux new -A -s scratchpad
 for_window [instance="scratchpad_terminator"] floating enable
 for_window [instance="scratchpad_terminator"] resize set 800 500
 for_window [instance="scratchpad_terminator"] move scratchpad

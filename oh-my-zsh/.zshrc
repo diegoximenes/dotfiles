@@ -1,7 +1,7 @@
 # default is bigger, in case of problems remove this line
 export KEYTIMEOUT=1
 
-ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART="false"
 
 alias c="clear"
 alias f="fuck"

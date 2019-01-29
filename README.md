@@ -29,6 +29,7 @@
             - mkdir build && cd build && cmake .. && make && make install (TODO: install with stow)  
             - sudo apt-get install rofi
             - sudo apt-get install jq  
+            - sudo apt-get install nitrogen  
 #            - git clone https://github.com/stark/siji && cd siji && ./install.sh  
 # - sudo ln -s /etc/fonts/conf.avail/70-force-bitmaps.conf /etc/fonts/conf.d/  
 #            - sudo unlink /etc/fonts/conf.d/70-no-bitmaps.conf # For disabling no-bitmap setting  

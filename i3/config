@@ -152,6 +152,7 @@ bindsym $mod+v exec firefox
 bindsym $mod+i exec pactl set-sink-volume @DEFAULT_SINK@ +8%
 bindsym $mod+u exec pactl set-sink-volume @DEFAULT_SINK@ -8%
 bindsym $mod+o exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+y exec gnome-screensaver-command --lock
 
 # TODO: change to terminator and kill before launching new one
 exec_always --no-startup-id urxvt -name scratchpad_terminator -e tmux new -A -s scratchpad

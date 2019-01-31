@@ -29,6 +29,7 @@
             - sudo apt-get install build-essential git cmake cmake-data pkg-config libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libiw-dev libnl-genl-3-dev  
             - mkdir build && cd build && cmake .. && make && make install (TODO: install with stow)  
             - sudo apt-get install jq  
+            - sudo pip3 install i3ipc  
             - git clone https://github.com/stark/siji && cd siji && ./install.sh  
                 - sudo ln -s /etc/fonts/conf.avail/70-force-bitmaps.conf /etc/fonts/conf.d/  
                 - sudo unlink /etc/fonts/conf.d/70-no-bitmaps.conf # For disabling no-bitmap setting  

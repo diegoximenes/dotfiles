@@ -35,8 +35,8 @@ font-3 = "Unifont Upper:size=12:antialias=true"
 font-4 = "siji:size=20"
 font-5 = "FontAwesome:size=10:antialias=true"
 
-modules-left = i3 xwindow
-modules-right = system-usb-mount powermenu xbacklight audio-sink audio-source wifi eth battery date
+modules-left = i3 i3_split_mode xwindow
+modules-right = system_usb_mount xbacklight audio_sink audio_source wifi eth battery date
 
 [settings]
 screenchange-reload = true
@@ -69,12 +69,12 @@ label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-[module/system-usb-mount]
+[module/system_usb_mount]
 type = custom/script
-exec = ~/.config/polybar/scripts/system-usb-mount.sh
+exec = ~/.config/polybar/scripts/system_usb_mount.sh
 interval = 5
-click-left = ~/.config/polybar/scripts/system-usb-mount.sh --mount
-click-right = ~/.config/polybar/scripts/system-usb-mount.sh --unmount
+click-left = ~/.config/polybar/scripts/system_usb_mount.sh --mount
+click-right = ~/.config/polybar/scripts/system_usb_mount.sh --unmount
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -101,7 +101,7 @@ label-charging =  %percentage%% %time%
 label-discharging = 🌗 %percentage%% %time%
 label-full= 🔋 %percentage%%
 
-[module/audio-sink]
+[module/audio_sink]
 type = custom/script
 exec = ~/.config/polybar/scripts/audio.sh --sink_volume_listener
 tail = true
@@ -110,7 +110,7 @@ click-left = ~/.config/polybar/scripts/audio.sh --mute_sink
 scroll-up =  ~/.config/polybar/scripts/audio.sh --volume_sink_up
 scroll-down = ~/.config/polybar/scripts/audio.sh --volume_sink_down
 
-[module/audio-source]
+[module/audio_source]
 type = custom/script
 exec = ~/.config/polybar/scripts/audio.sh --source_volume_listener
 tail = true
@@ -123,3 +123,8 @@ scroll-down = ~/.config/polybar/scripts/audio.sh --volume_source_down
 type = custom/script
 exec = ~/.config/polybar/scripts/wifi.sh
 interval = 5
+
+[module/i3_split_mode]
+type = custom/script
+exec = python3 -u ~/.config/polybar/scripts/i3_split_mode.py
+tail = true

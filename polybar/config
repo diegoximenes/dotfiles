@@ -35,16 +35,8 @@ font-3 = "Unifont Upper:size=12:antialias=true"
 font-4 = "siji:size=20"
 font-5 = "FontAwesome:size=10:antialias=true"
 
-modules-left = bspwm i3 xwindow
+modules-left = i3 xwindow
 modules-right = system-usb-mount powermenu xbacklight audio-sink audio-source wifi eth battery date
-
-;wm-restack = bspwm
-;wm-restack = i3
-;override-redirect = true
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 [settings]
 screenchange-reload = true
@@ -57,61 +49,25 @@ margin-bottom = 0
 type = internal/xwindow
 label = %title:0:40:...%
 
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
-
-; unfocused = Inactive workspace on any monitor
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 2
 label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
-; visible = Active workspace on unfocused monitor
+label-unfocused-padding = 2
 label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-background = ${colors.background-alt}
+label-visible-underline = ${colors.primary}
 label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
-; Separator in between workspaces
-; label-separator = |
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
 
 [module/system-usb-mount]
 type = custom/script

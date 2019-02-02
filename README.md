@@ -34,6 +34,24 @@
                 - sudo ln -s /etc/fonts/conf.avail/70-force-bitmaps.conf /etc/fonts/conf.d/  
                 - sudo unlink /etc/fonts/conf.d/70-no-bitmaps.conf # For disabling no-bitmap setting  
                 - sudo apt-get install unifont  
+        - betterlock
+            - i3lock-color
+                - sudo apt install bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev  
+                - git clone https://github.com/PandorasFox/i3lock-color.git  
+                - cd i3lock-color  
+                - autoreconf -i  
+                - ./configure --prefix=/usr/local  
+                - sudo make install prefix=/usr/local/stow/i3lock-color  
+                - cd /usr/local/stow  
+                - sudo stow i3lock-color  
+            - curl -o betterlockscreen https://raw.githubusercontent.com/pavanjadhaw/betterlockscreen/master/betterlockscreen  
+            - chmod +x betterlockscreen  
+            - sudo mkdir -p /usr/local/stow/betterlockscreen/bin  
+            - sudo cp betterlockscreen /usr/local/stow/betterlockscreen/bin  
+            - cd /usr/local/stow  
+            - sudo stow betterlockscreen  
+            - betterlockscreen -u ~/.config/i3/wallpapers/tarantino.jpg  
+
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/Documents/dotfiles  

@@ -124,14 +124,14 @@ bindsym $mod+o exec ~/.config/polybar/scripts/audio.sh --mute_sink
 bindsym $mod+t workspace back_and_forth
 bindsym $mod+Shift+t move container to workspace back_and_forth
 
-# TODO: change to terminator and kill before launching new one
-exec_always --no-startup-id urxvt -name scratchpad_terminator -e tmux new -A -s scratchpad
-for_window [instance="scratchpad_terminator"] floating enable
-for_window [instance="scratchpad_terminator"] sticky enable
-for_window [instance="scratchpad_terminator"] resize set 800 500
-for_window [instance="scratchpad_terminator"] move scratchpad
-for_window [instance="scratchpad_terminator"] border pixel 10
-bindsym $mod+p [instance="scratchpad_terminator"] scratchpad show; [instance="scratchpad_terminator"] move position center
+# scratchpad terminal
+exec --no-startup-id urxvt -name scratchpad_terminal -e tmux new -A -s scratchpad
+for_window [instance="scratchpad_terminal"] floating enable
+for_window [instance="scratchpad_terminal"] sticky enable
+for_window [instance="scratchpad_terminal"] resize set 800 500
+for_window [instance="scratchpad_terminal"] move scratchpad
+for_window [instance="scratchpad_terminal"] border pixel 10
+bindsym $mod+p [instance="scratchpad_terminal"] scratchpad show; [instance="scratchpad_terminal"] move position center
 
 # set window title
 for_window [class=".*"] title_format "%class: %title"

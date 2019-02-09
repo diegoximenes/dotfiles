@@ -36,7 +36,7 @@ font-4 = "siji:size=20"
 font-5 = "FontAwesome:size=10:antialias=true"
 
 modules-left = i3 i3_split_mode xwindow
-modules-right = removable_devices xbacklight audio_sink audio_source wifi eth battery date
+modules-right = removable_devices xbacklight audio_sink audio_source network battery date
 
 [settings]
 screenchange-reload = true
@@ -78,13 +78,6 @@ interval = 2
 type = internal/xbacklight
 label = 🔆 %percentage%%
 
-[module/eth]
-type = internal/network
-interface = eno1
-interval = 5
-label-connected =  %ifname%
-label-disconnected =  down
-
 [module/date]
 type = internal/date
 interval = 5
@@ -117,9 +110,9 @@ click-left = ~/.config/polybar/scripts/audio.sh --mute_source
 scroll-up = ~/.config/polybar/scripts/audio.sh --volume_source_up
 scroll-down = ~/.config/polybar/scripts/audio.sh --volume_source_down
 
-[module/wifi]
+[module/network]
 type = custom/script
-exec = ~/.config/polybar/scripts/wifi.sh
+exec = ~/.config/polybar/scripts/network.sh
 interval = 5
 
 [module/i3_split_mode]

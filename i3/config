@@ -133,7 +133,7 @@ bindsym $mod+p [instance="scratchpad_terminator"] scratchpad show; [instance="sc
 # set window title
 for_window [class=".*"] title_format "%class: %title"
 
-# new workspaces start with this layout
+# new containers on workspace level default layout
 workspace_layout tabbed
 
 # keyboard layout

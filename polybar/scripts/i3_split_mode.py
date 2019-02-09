@@ -9,6 +9,8 @@ def get_split_mode():
         print("V")
     elif parent.layout == "splith":
         print("H")
+    else:
+        print("")
 
 
 def on_event(self, _):
@@ -18,7 +20,9 @@ def on_event(self, _):
 if __name__ == "__main__":
     get_split_mode()
 
-    i3.on("window::focus", on_event)
     i3.on("binding", on_event)
+    i3.on("window::focus", on_event)
+    i3.on("window::close", on_event)
+    i3.on("workspace::focus", on_event)
 
     i3.main()

@@ -158,7 +158,4 @@ case "$1" in
         print_source_info
         source_volume_listener
     ;;
-    *)
-        echo "Wrong argument"
-    ;;
 esac

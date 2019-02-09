@@ -35,7 +35,7 @@ font-3 = "Unifont Upper:size=12:antialias=true"
 font-4 = "siji:size=20"
 font-5 = "FontAwesome:size=10:antialias=true"
 
-modules-left = i3 i3_split_mode xwindow
+modules-left = i3 i3_split_mode focused_window
 modules-right = removable_devices xbacklight audio_sink audio_source network battery date
 
 [settings]
@@ -44,10 +44,6 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:15:...%
 
 [module/i3]
 type = internal/i3
@@ -118,4 +114,9 @@ interval = 5
 [module/i3_split_mode]
 type = custom/script
 exec = python3 -u ~/.config/polybar/scripts/i3_split_mode.py
+tail = true
+
+[module/focused_window]
+type = custom/script
+exec = python3 -u ~/.config/polybar/scripts/focused_window.py
 tail = true

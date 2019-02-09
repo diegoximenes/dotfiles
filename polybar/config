@@ -36,7 +36,7 @@ font-4 = "siji:size=20"
 font-5 = "FontAwesome:size=10:antialias=true"
 
 modules-left = i3 i3_split_mode xwindow
-modules-right = system_usb_mount xbacklight audio_sink audio_source wifi eth battery date
+modules-right = removable_devices xbacklight audio_sink audio_source wifi eth battery date
 
 [settings]
 screenchange-reload = true
@@ -47,7 +47,7 @@ margin-bottom = 0
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:40:...%
+label = %title:0:15:...%
 
 [module/i3]
 type = internal/i3
@@ -58,23 +58,21 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline = ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 label-visible = %index%
 label-visible-background = ${colors.background-alt}
 label-visible-underline = ${colors.primary}
 label-visible-padding = ${self.label-focused-padding}
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
-[module/system_usb_mount]
+[module/removable_devices]
 type = custom/script
-exec = ~/.config/polybar/scripts/system_usb_mount.sh
-interval = 5
-click-left = ~/.config/polybar/scripts/system_usb_mount.sh --mount
-click-right = ~/.config/polybar/scripts/system_usb_mount.sh --unmount
+exec = ~/.config/polybar/scripts/removable_devices.sh
+interval = 2
 
 [module/xbacklight]
 type = internal/xbacklight

@@ -6,6 +6,9 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# disable focus cycle
+focus_wrapping no
+
 # start a terminal
 bindsym $mod+Return exec terminator -x tmux new -A -s general
 
@@ -32,6 +35,11 @@ bindsym $mod+Shift+l move right
 # split mode
 bindsym $mod+m split h
 bindsym $mod+n split v
+
+# default windows splitter for 3 or 4 windows: move last two windows to the right
+bindsym $mod+g layout splitv; focus down; focus down; focus down; move right; split v; focus left; move right; move up
+# inverse of default windows splitter for 3 or 4 windows
+bindsym $mod+b focus right; focus up; move left; focus right; move left; layout tabbed
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -123,6 +131,9 @@ exec_always setxkbmap br abnt2
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# default programs startup
+exec google-chrome
 
 # lock screen by inactivity
 exec_always --no-startup-id xautolock -time 10 -locker "betterlockscreen -l -t $USER"

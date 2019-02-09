@@ -21,9 +21,26 @@
         - sudo pip3 install thefuck  
     - fzf:  
         - https://github.com/junegunn/fzf  
-    - i3:  
+    - i3 4.16.1:  
         - sudo apt-get install i3 py3status  
         - sudo apt-get install gdm3  
+        - sudo apt-get install libnotify-bin  
+        - sudo apt-get install xautolock  
+        sudo apt-get install libxcb1-dev 
+sudo apt-get install libxcb-keysyms1-dev 
+sudo apt-get install libxcb-util0-dev 
+sudo apt-get install libxcb-icccm4-dev 
+sudo apt-get install libyajl-dev 
+sudo apt-get install libstartup-notification0-dev  
+sudo apt-get install libxcb-randr0-dev 
+sudo apt-get install libev-dev 
+sudo apt-get install libxcb-xinerama0-dev 
+sudo apt-get install libpango1.0-dev 
+sudo apt-get install libxcursor-dev 
+sudo apt-get install libxcb-cursor-dev
+sudo apt-get install libxcb-xkb-dev
+sudo apt-get install libxkbcommon-dev
+sudo apt-get install libxkbcommon-x11-dev
         - polybar 3.3.0  
             - https://github.com/jaagr/polybar/wiki/Compiling  
             - sudo apt-get install build-essential git cmake cmake-data pkg-config libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libiw-dev libnl-genl-3-dev  
@@ -51,6 +68,12 @@
             - cd /usr/local/stow  
             - sudo stow betterlockscreen  
             - betterlockscreen -u ~/.config/i3/wallpapers/tarantino.jpg  
+        - simple simple-mtpfs 0.3.0  
+            - sudo apt-get install libfuse-dev libmtp-dev  
+            - https://github.com/phatina/simple-mtpfs/releases/tag/simple-mtpfs-0.3.0  
+            - ./autogen.sh  
+            - mkdir build  
+            - stow...  
 
 
 - clone  

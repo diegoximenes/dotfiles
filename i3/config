@@ -117,6 +117,10 @@ bindsym $mod+u exec pactl set-sink-volume @DEFAULT_SINK@ -8%
 bindsym $mod+i exec pactl set-sink-volume @DEFAULT_SINK@ +8%
 bindsym $mod+o exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# back and forth between workspaces
+bindsym $mod+t workspace back_and_forth
+bindsym $mod+Shift+t move container to workspace back_and_forth
+
 # TODO: change to terminator and kill before launching new one
 exec_always --no-startup-id urxvt -name scratchpad_terminator -e tmux new -A -s scratchpad
 for_window [instance="scratchpad_terminator"] floating enable
@@ -125,6 +129,9 @@ for_window [instance="scratchpad_terminator"] resize set 800 500
 for_window [instance="scratchpad_terminator"] move scratchpad
 for_window [instance="scratchpad_terminator"] border pixel 10
 bindsym $mod+p [instance="scratchpad_terminator"] scratchpad show; [instance="scratchpad_terminator"] move position center
+
+# new workspaces start with this layout
+workspace_layout tabbed
 
 # keyboard layout
 exec_always setxkbmap br abnt2

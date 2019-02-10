@@ -1,6 +1,9 @@
 # default is bigger, in case of problems remove this line
 export KEYTIMEOUT=1
 
+export EDITOR="nvim"
+export BROWSER="google-chrome"
+
 ZSH_TMUX_AUTOSTART="false"
 
 alias c="clear"

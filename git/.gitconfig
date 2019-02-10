@@ -6,7 +6,7 @@
     # stage deleted files
     stagedelete = "!git ls-files --deleted -z | xargs -0 git rm"
     undolastcommit = reset HEAD~
-    mylog = log --graph --decorate
+    l = log --graph --decorate
 
 [core]
     editor = vim

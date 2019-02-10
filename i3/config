@@ -120,6 +120,9 @@ bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_down
 bindsym $mod+i exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
 bindsym $mod+o exec ~/.config/polybar/scripts/audio.sh --mute_sink
 
+# show clipboard
+bindsym $mod+y exec ~/.config/i3/scripts/clipboard.sh
+
 # back and forth between workspaces
 bindsym $mod+t workspace back_and_forth
 bindsym $mod+Shift+t move container to workspace back_and_forth
@@ -148,6 +151,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # default programs startup
 exec google-chrome
 exec nm-applet
+exec dunst
 
 # lock screen by inactivity
 exec_always --no-startup-id xautolock -time 10 -locker "betterlockscreen -l -t $USER"

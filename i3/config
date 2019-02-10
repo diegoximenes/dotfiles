@@ -1,6 +1,6 @@
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font is used in the bar {} block below.
+# font for window titles
 font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -8,6 +8,11 @@ floating_modifier $mod
 
 # disable focus cycle
 focus_wrapping no
+
+focus_follows_mouse no
+
+# new containers on workspace level default layout
+workspace_layout tabbed
 
 # start a terminal
 bindsym $mod+Return exec terminator -x tmux new -A -s general
@@ -17,8 +22,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -37,14 +40,14 @@ bindsym $mod+m split h
 bindsym $mod+n split v
 
 # default windows splitter for 3 or 4 windows: move last two windows to the right
-bindsym $mod+g layout splitv; focus down; focus down; focus down; move right; split v; focus left; move right; move up
+bindsym $mod+g layout splitv; focus down; focus down; focus down; move right; layout splitv; focus left; move right; move up
 # inverse of default windows splitter for 3 or 4 windows
 bindsym $mod+b focus right; focus up; move left; focus right; move left; layout tabbed
 
-# enter fullscreen mode for the focused container
+# enter fullscreen mode
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+# change container layout
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -139,9 +142,6 @@ bindsym $mod+p [instance="scratchpad_terminal"] scratchpad show; [instance="scra
 # set window title
 for_window [class=".*"] title_format "%class: %title"
 
-# new containers on workspace level default layout
-workspace_layout tabbed
-
 # keyboard layout
 exec_always setxkbmap br abnt2
 
@@ -154,4 +154,4 @@ exec nm-applet
 exec dunst
 
 # lock screen by inactivity
-exec_always --no-startup-id xautolock -time 10 -locker "betterlockscreen -l -t $USER"
+exec_always --no-startup-id xautolock -time 15 -locker "betterlockscreen -l -t $USER"

@@ -49,6 +49,7 @@
             - cd /usr/local/stow  
             - sudo stow betterlockscreen  
             - betterlockscreen -u ~/.config/i3/wallpapers/tarantino.jpg  
+        - (crontab -l 2>/dev/null; echo "*/10 * * * * ~/.config/i3/scripts/low_battery.sh") | crontab -  
 
 - clone  
     - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/Documents/dotfiles  

@@ -11,6 +11,8 @@ alias v="nvim -p"
 alias r="ranger"
 alias c="clear"
 alias f="fuck"
+alias s="sudo "
+alias z="zathura"
 alias sudo="sudo "
 alias cpp="rsync -ah --progress"
 alias mvp="rsync -ah --progress --remove-source-files"
@@ -18,7 +20,6 @@ alias mvp="rsync -ah --progress --remove-source-files"
 alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias cal="cal -B 1 -A 1"
-alias i3restart="i3-msg restart"
 
 # adds global yarn bin path to PATH
 if [ -x "$(which yarn)" ]; then

@@ -6,6 +6,9 @@ export BROWSER="google-chrome"
 
 ZSH_TMUX_AUTOSTART="false"
 
+alias vim="nvim -p"
+alias v="nvim -p"
+alias r="ranger"
 alias c="clear"
 alias f="fuck"
 alias sudo="sudo "
@@ -16,13 +19,6 @@ alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_inst
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias cal="cal -B 1 -A 1"
 alias i3restart="i3-msg restart"
-
-# alias to nvim with tabs
-if [ -x "$(which nvim)" ]; then
-    alias vim="nvim -p"
-else
-    alias vim='vim -p'
-fi
 
 # adds global yarn bin path to PATH
 if [ -x "$(which yarn)" ]; then

@@ -1,23 +1,26 @@
 # default is bigger, in case of problems remove this line
 export KEYTIMEOUT=1
 
-ZSH_TMUX_AUTOSTART="true"
+export EDITOR="nvim"
+export BROWSER="google-chrome"
 
+ZSH_TMUX_AUTOSTART="false"
+
+alias g="git"
+alias v="nvim -p"
+alias r="ranger"
 alias c="clear"
 alias f="fuck"
+alias s="sudo "
+alias z="zathura"
+alias vim="nvim -p"
 alias sudo="sudo "
 alias cpp="rsync -ah --progress"
 alias mvp="rsync -ah --progress --remove-source-files"
 # avoid problems when opening ipython in virtualenvs
 alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-
-# alias to nvim with tabs
-if [ -x "$(which nvim)" ]; then
-    alias vim="nvim -p"
-else
-    alias vim='vim -p'
-fi
+alias cal="cal -B 1 -A 1"
 
 # adds global yarn bin path to PATH
 if [ -x "$(which yarn)" ]; then

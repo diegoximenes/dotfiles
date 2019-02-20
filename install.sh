@@ -33,6 +33,7 @@ elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
     ln -snf "$dir_file/i3/"/* "$dir_home/.config/i3/"
     ln -snf "$dir_file/polybar/"/* "$dir_home/.config/polybar"
     sudo ln -snf "$dir_file/systemd/logind.conf" "/etc/systemd/logind.conf"
+    sudo xdg-settings set default-web-browser google-chrome.desktop
 
     # set xbacklight to work in notebook
     sudo cp "$dir_file/dell/20-intel.conf" /usr/share/X11/xorg.conf.d/20-intel.conf

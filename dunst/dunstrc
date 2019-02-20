@@ -1,0 +1,34 @@
+[global]
+    follow = keyboard
+    geometry = "350x5-30+30"
+    padding = 5
+    horizontal_padding = 5
+    notification_height = 0
+    frame_width = 3
+    font = Monospace 14
+    markup = full
+    format = "%a:\n%s\n%b"
+    word_wrap = true
+    icon_position = left
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+period
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#282828"
+    foreground = "#928374"
+    timeout = 5
+
+[urgency_normal]
+    background = "#458588"
+    foreground = "#ebdbb2"
+    timeout = 5
+
+[urgency_critical]
+    background = "#cc2421"
+    foreground = "#ebdbb2"
+    frame_color = "#fabd2f"
+    timeout = 0

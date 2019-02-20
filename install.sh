@@ -32,6 +32,7 @@ if [[ "$DESKTOP_SESSION" == "plasma" ]]; then
 elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
     ln -snf "$dir_file/i3/"/* "$dir_home/.config/i3/"
     ln -snf "$dir_file/polybar/"/* "$dir_home/.config/polybar"
+    ln -snf "$dir_file/dunst/dunstrc" "$dir_home/.config/dunst/dunstrc"
     sudo ln -snf "$dir_file/systemd/logind.conf" "/etc/systemd/logind.conf"
     sudo xdg-settings set default-web-browser google-chrome.desktop
 

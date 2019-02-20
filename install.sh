@@ -12,6 +12,7 @@ ln -snf "$dir_file/tmux/.tmux.conf" "$dir_home/.tmux.conf"
 
 ln -snf "$dir_file/.inputrc" "$dir_home/.inputrc"
 
+mkdir -p "$dir_home/.config/htop/"
 ln -snf "$dir_file/htoprc" "$dir_home/.config/htop/htoprc"
 
 ln -snf "$dir_file/.Xresources" "$dir_home/.Xresources"
@@ -30,10 +31,17 @@ sudo chsh -s "$(which zsh)"
 if [[ "$DESKTOP_SESSION" == "plasma" ]]; then
     ln -snf "$dir_file/kde/kglobalshortcutsrc" "$dir_home/.config/kglobalshortcutsrc"
 elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
+    mkdir -p "$dir_home/.config/i3/"
     ln -snf "$dir_file/i3/"/* "$dir_home/.config/i3/"
+
+    mkdir -p "$dir_home/.config/polybar"
     ln -snf "$dir_file/polybar/"/* "$dir_home/.config/polybar"
-    ln -snf "$dir_file/dunst/dunstrc" "$dir_home/.config/dunst/dunstrc"
+
+    mkdir -p "$dir_home/.config/dunst/"
+    ln -snf "$dir_file/dunst/"/* "$dir_home/.config/dunst/"
+
     sudo ln -snf "$dir_file/systemd/logind.conf" "/etc/systemd/logind.conf"
+
     sudo xdg-settings set default-web-browser google-chrome.desktop
 
     # set xbacklight to work in notebook

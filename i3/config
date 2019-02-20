@@ -56,10 +56,10 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+q focus parent
 
 # focus the child container
-bindsym $mod+z focus child
+bindsym $mod+a focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -114,6 +114,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym Print exec deepin-screenshot
 
 # softwares
+bindsym $mod+z exec zathura
 bindsym $mod+x exec vlc
 bindsym $mod+c exec google-chrome
 bindsym $mod+v exec firefox
@@ -157,4 +158,4 @@ exec nm-applet
 exec dunst
 
 # lock screen by inactivity
-exec_always --no-startup-id xautolock -time 15 -locker "betterlockscreen -l -t $USER"
+# exec_always --no-startup-id xautolock -time 15 -locker "betterlockscreen -l -t $USER"

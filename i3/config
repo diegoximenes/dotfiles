@@ -135,7 +135,7 @@ bindsym $mod+t workspace back_and_forth
 bindsym $mod+Shift+t move container to workspace back_and_forth
 
 # scratchpad terminal
-exec --no-startup-id urxvt -name scratchpad_terminal -e tmux new -A -s scratchpad
+exec --no-startup-id urxvt -name scratchpad_terminal
 for_window [instance="scratchpad_terminal"] floating enable
 for_window [instance="scratchpad_terminal"] sticky enable
 for_window [instance="scratchpad_terminal"] resize set 800 500

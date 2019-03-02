@@ -4,8 +4,6 @@ export KEYTIMEOUT=1
 export EDITOR="nvim"
 export BROWSER="google-chrome"
 
-ZSH_TMUX_AUTOSTART="false"
-
 alias g="git"
 alias v="nvim -p"
 alias r="ranger"
@@ -78,7 +76,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="diegoximenes"
 
-plugins=(git vi-mode autojump tmux extract fuck)
+plugins=(git vi-mode autojump extract fuck)
 
 source $ZSH/oh-my-zsh.sh
 

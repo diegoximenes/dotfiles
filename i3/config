@@ -136,6 +136,7 @@ bindsym $mod+Shift+t move container to workspace back_and_forth
 
 # scratchpad terminal
 exec --no-startup-id urxvt -name scratchpad_terminal
+bindsym $mod+Shift+d exec --no-startup-id urxvt -name scratchpad_terminal
 for_window [instance="scratchpad_terminal"] floating enable
 for_window [instance="scratchpad_terminal"] sticky enable
 for_window [instance="scratchpad_terminal"] resize set 800 500

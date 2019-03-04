@@ -1,5 +1,5 @@
 [global_config]
-  title_font = Ubuntu Mono 13.5
+  title_font = sans 12
 [keybindings]
   broadcast_all = None
   broadcast_group = None
@@ -88,7 +88,7 @@
     background_color = "#1c1c1c"
     cursor_color = "#dedede"
     cursor_color_fg = False
-    font = Monospace 12
+    font = sans 12
     foreground_color = "#f3f3f3"
     scrollbar_position = hidden
     show_titlebar = False

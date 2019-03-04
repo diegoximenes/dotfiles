@@ -29,12 +29,9 @@ tray-maxsize = 23
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-font-0 = "Monospace:size=10:antialias=true"
-font-1 = "DejaVu Sans:size=12:antialias=true"
+font-0 = "monospace:size=10:antialias=true"
+font-1 = "Noto Color Emoji:scale=10"
 font-2 = "Noto Sans Symbols 2:size=12:antialias=true"
-font-3 = "Unifont Upper:size=12:antialias=true"
-font-4 = "siji:size=20"
-font-5 = "FontAwesome:size=10:antialias=true"
 
 modules-left = i3 i3_split_mode focused_window
 modules-right = removable_devices xbacklight audio_sink audio_source network battery date
@@ -85,7 +82,7 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 time-format = %H:%M
-label-charging =  %percentage%% %time%
+label-charging = ⚡ %percentage%% %time%
 label-discharging = 🌗 %percentage%% %time%
 label-full= 🔋 %percentage%%
 

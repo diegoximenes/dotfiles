@@ -90,7 +90,7 @@ get_sink_info() {
 }
 
 print_sink_info() {
-    print_info "$(get_sink_info)" '🔉'
+    print_info "$(get_sink_info)" '🔊'
 }
 
 get_source_info() {
@@ -104,7 +104,7 @@ get_source_info() {
 }
 
 print_source_info() {
-    print_info "$(get_source_info)" '🔬'
+    print_info "$(get_source_info)" '🎤'
 }
 
 sink_volume_listener() {

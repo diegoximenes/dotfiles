@@ -1,7 +1,7 @@
 set $mod Mod4
 
 # font for window titles
-font pango:monospace 8
+font pango:mono 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -116,7 +116,7 @@ bindsym Print exec deepin-screenshot
 # softwares
 bindsym $mod+z exec zathura
 bindsym $mod+x exec vlc
-bindsym $mod+c exec google-chrome
+bindsym $mod+c exec google-chrome-stable
 bindsym $mod+v exec firefox
 
 # audio
@@ -154,7 +154,7 @@ exec_always setxkbmap br abnt2
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # default programs startup
-exec google-chrome
+exec google-chrome-stable
 exec nm-applet
 exec dunst
 

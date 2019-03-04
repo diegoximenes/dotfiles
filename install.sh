@@ -40,6 +40,9 @@ elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
     mkdir -p "$dir_home/.config/dunst/"
     ln -snf "$dir_file/dunst/"/* "$dir_home/.config/dunst/"
 
+    mkdir -p "$dir_home/.config/fontconfig"
+    ln -snf "$dir_file/fontconfig/"/* "$dir_home/.config/fontconfig"
+
     sudo ln -snf "$dir_file/systemd/logind.conf" "/etc/systemd/logind.conf"
 
     sudo xdg-settings set default-web-browser google-chrome.desktop

@@ -90,9 +90,9 @@ bindsym $mod+Shift+r restart
 
 # power management
 bindsym $mod+Shift+u exec betterlockscreen -l -t $USER
-bindsym $mod+Shift+i exec --no-startup-id ~/.config/i3/scripts/prompt_menu.sh "logout?" "i3-msg exit"
-bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/prompt_menu.sh "reboot?" "systemctl reboot"
-bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/prompt_menu.sh "poweroff?" "systemctl poweroff"
+bindsym $mod+Shift+i exec --no-startup-id ~/.scripts/prompt_menu.sh "logout?" "i3-msg exit"
+bindsym $mod+Shift+o exec --no-startup-id ~/.scripts/prompt_menu.sh "reboot?" "systemctl reboot"
+bindsym $mod+Shift+p exec --no-startup-id ~/.scripts/prompt_menu.sh "poweroff?" "systemctl poweroff"
 
 # resize window
 bindsym $mod+r mode "resize"
@@ -125,10 +125,10 @@ bindsym $mod+i exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
 bindsym $mod+o exec ~/.config/polybar/scripts/audio.sh --mute_sink
 
 # configure screens
-bindsym $mod+comma exec ~/.config/i3/scripts/select_display.sh
+bindsym $mod+comma exec ~/.scripts/select_display.sh
 
 # show clipboard
-bindsym $mod+y exec ~/.config/i3/scripts/clipboard.sh
+bindsym $mod+y exec ~/.scripts/clipboard.sh
 
 # back and forth between workspaces
 bindsym $mod+t workspace back_and_forth

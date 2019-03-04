@@ -45,6 +45,8 @@ elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
 
     sudo ln -snf "$dir_file/systemd/logind.conf" "/etc/systemd/logind.conf"
 
+    sudo ln -snf "$dir_file/x11/"/* "/etc/X11/xorg.conf.d"
+
     sudo xdg-settings set default-web-browser google-chrome.desktop
 
     # set xbacklight to work in notebook

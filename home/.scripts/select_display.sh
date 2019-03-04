@@ -54,7 +54,7 @@ mirror_screen() {
 }
 
 function split_screen() {
-    direction="$(printf "left-of\nright-of\nabove\nbelow" | dmenu -i -p "which side of $primary should $secondary be on?")"
+    direction="$(printf "left-of\nright-of\nabove\nbelow" | rofi -dmenu -i -p "which side of $primary should $secondary be on?")"
     xrandr --output "$primary" --auto --scale 1.0x1.0 --output "$secondary" --"$direction" "$primary" --auto --scale 1.0x1.0
 }
 
@@ -63,12 +63,12 @@ two_screens() {
     connected="$1"
 
     local primary
-    primary=$(echo "$connected" | dmenu -i -p "which one is the primary?")
+    primary=$(echo "$connected" | rofi -dmenu -i -p "which one is the primary?")
     local secondary
     secondary=$(echo "$connected" | grep -v "$primary")
 
     local mirror
-    mirror=$(printf "yes\nno" | dmenu -i -p "mirror?")
+    mirror=$(printf "yes\nno" | rofi -dmenu -i -p "mirror?")
     case "$mirror" in
         yes) mirror_screen "$primary" "$secondary" ;;
         no) split_screen "$primary" "$secondary" ;;
@@ -110,7 +110,7 @@ main() {
     else
         local opt
         opt="$(printf '%s\nmulti_screen\nmanual' "$connected" \
-            | dmenu -i -p 'which screen arrangement?')"
+            | rofi -dmenu -i -p 'which screen arrangement?')"
         case "$opt" in
             'multi_screen') multi_screen "$screens" "$connected" ;;
             'manual') arandr & ;;

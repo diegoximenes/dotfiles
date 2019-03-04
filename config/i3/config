@@ -113,11 +113,16 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # print screen
 bindsym Print exec deepin-screenshot
 
+# rofi
+bindsym $mod+z exec rofi -show window
+bindsym $mod+x exec rofi -show run
+
 # softwares
-bindsym $mod+z exec zathura
-bindsym $mod+x exec vlc
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+v exec firefox
+bindsym $mod+period exec zathura
+bindsym $mod+semicolon exec terminator -T ranger -x ranger
+bindsym $mod+slach exec vlc
 
 # audio
 bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_down
@@ -146,9 +151,6 @@ bindsym $mod+p [class="Terminator" title="scratchpad_terminal"] scratchpad show;
 
 # set window title
 for_window [class=".*"] title_format "%class: %title"
-
-# keyboard layout
-exec_always setxkbmap br abnt2
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

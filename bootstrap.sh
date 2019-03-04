@@ -11,3 +11,6 @@ sudo ln -snf "$dir_file/systemd/"* "/etc/systemd/"
 sudo ln -snf "$dir_file/X11/xorg.conf.d"* "/etc/X11/xorg.conf.d/"
 
 sudo xdg-settings set default-web-browser google-chrome.desktop
+
+sudo systemctl start NetworkManager
+sudo systemctl enable NetworkManager

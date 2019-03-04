@@ -1,0 +1,6 @@
+betterlockscreen
+google-chrome
+i3lock-color
+polybar
+siji-git
+yay

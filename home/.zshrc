@@ -27,9 +27,9 @@ if [ -x "$(which yarn)" ]; then
 fi
 
 # virtualenvwrapper configs
-export WORKON_HOME=$HOME/Documents/python_virtualenvs
+export WORKON_HOME=$HOME/python_virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh
 
 function myps {
     local cmd=$1
@@ -76,10 +76,8 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="diegoximenes"
 
-plugins=(git vi-mode autojump extract fuck)
+plugins=(git vi-mode autojump extract fuck fzf)
 
 source $ZSH/oh-my-zsh.sh
 
 eval $(thefuck --alias)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

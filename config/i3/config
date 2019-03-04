@@ -152,6 +152,9 @@ bindsym $mod+p [class="Terminator" title="scratchpad_terminal"] scratchpad show;
 # set window title
 for_window [class=".*"] title_format "%class: %title"
 
+# keyboard layout
+exec_always setxkbmap br abnt2
+
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

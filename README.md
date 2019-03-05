@@ -1,14 +1,15 @@
 - (crontab -l 2>/dev/null; echo "*/10 * * * * ~/.config/i3/scripts/low_battery.sh") | crontab -  
 
 - install  
-    - git clone --recursive https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/dotfiles  
+    - git clone --recurse-submodules https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/dotfiles  
     - bash bootstrap.sh  
+    - reboot  
 
 - tmux  
     - don't include plugin directory on git since tpm doesn't add git submodules  
     - installing plugins: prefix + I  
     - uninstalling plugins: remove plugin line from tmux.conf && prefix + alt + u  
-    - to reset tmux configurations: tmux kill-server
+    - to reset tmux configurations: tmux kill-server  
 
 - pull  
     - git pull  

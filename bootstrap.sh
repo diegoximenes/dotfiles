@@ -9,7 +9,7 @@ set -e
 finish() {
     if [[ ! "$?" -eq 0 ]]; then
         echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
-    fi 
+    fi
 }
 trap finish EXIT
 
@@ -27,6 +27,9 @@ success() {
 }
 
 install_all() {
+    echo_step 'Installing pkglist.txt...'
+    sudo pacman -S --needed --noconfirm - < "$dir_file/packages/pkglist.txt"
+
     echo_step 'Installing yay...'
     if [[ ! "$(command -v yay)" ]]; then
 	git clone https://aur.archlinux.org/yay.git
@@ -36,9 +39,6 @@ install_all() {
 	rm -rf yay
     fi
 
-    echo_step 'Installing pkglist.txt...'
-    sudo pacman -S --needed --noconfirm - < "$dir_file/packages/pkglist.txt"
-
     echo_step 'Installing foreign_pkglist.txt...'
     yay -S --needed --noconfirm - < "$dir_file/packages/foreign_pkglist.txt"
 
@@ -47,7 +47,7 @@ install_all() {
 
     echo_step 'Installing oh-my-zsh...'
     if [[ ! -d "$dir_home/.oh_my_zsh" ]]; then
-        git clone https://github.com/robbyrussell/oh-my-zsh "$dir_home/.oh_my_zsh" 
+        git clone https://github.com/robbyrussell/oh-my-zsh "$dir_home/.oh-my-zsh"
     fi
 }
 
@@ -83,6 +83,6 @@ start_pulseaudio() {
 install_all
 symlink
 wallpaper
-start_pulseaudio
 network_manager
+start_pulseaudio
 success

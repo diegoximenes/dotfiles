@@ -1,0 +1,18 @@
+- create bootable usb:
+    - https://www.archlinux.org/download/  
+    - dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync  
+- connect wifi:  
+    - ip link set wlp3s0 up  
+    - wpa_supplicant -B -i wlp3s0 -c <(wpa_passphrase SSID PASSWD)  
+    - systemctl start dhcpcd@wlp3s0.service  
+- installing:  
+    - loadkeys br-abnt2  
+    - curl https://bitbucket.org/diegoximenes/dotfiles/raw/master/arch_install/install.sh --output install.sh  
+    - bash install.sh ARCH_PART SWAP_PART  
+- configuring   
+    - arch-chroot /mnt  
+    - cd /tmp  
+    - curl https://bitbucket.org/diegoximenes/dotfiles/raw/master/arch_install/configure.sh --output configure.sh  
+    - bash configure.sh GRUB_PART HOST_NAME USER  
+    - exit  
+    - systemctl poweroff  

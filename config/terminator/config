@@ -1,0 +1,95 @@
+[global_config]
+  title_font = sans 12
+[keybindings]
+  broadcast_all = None
+  broadcast_group = None
+  broadcast_off = None
+  close_term = None
+  close_window = None
+  copy = <Primary><Shift>c
+  cycle_next = None
+  cycle_prev = None
+  edit_tab_title = None
+  edit_terminal_title = None
+  edit_window_title = None
+  full_screen=F11
+  go_down = None
+  go_left = None
+  go_next = None
+  go_prev = None
+  go_right = None
+  go_up = None
+  group_all = None
+  group_all_toggle = None
+  group_tab = None
+  group_tab_toggle = None
+  help = None
+  hide_window = None
+  insert_number = None
+  insert_padded = None
+  layout_launcher = None
+  line_down = None
+  line_up = None
+  move_tab_left = None
+  move_tab_right = None
+  new_tab = None
+  new_terminator = None
+  new_window = None
+  next_profile = None
+  next_tab = None
+  page_down = None
+  page_down_half = None
+  page_up = None
+  page_up_half = None
+  paste = <Primary><Shift>v
+  previous_profile = None
+  prev_tab = None
+  reset = None
+  reset_clear = None
+  resize_down = None
+  resize_left = None
+  resize_right = None
+  resize_up = None
+  rotate_ccw = None
+  rotate_cw = None
+  scaled_zoom = None
+  search = None
+  split_horiz = None
+  split_vert = None
+  switch_to_tab_1 = None
+  switch_to_tab_10 = None
+  switch_to_tab_2 = None
+  switch_to_tab_3 = None
+  switch_to_tab_4 = None
+  switch_to_tab_5 = None
+  switch_to_tab_6 = None
+  switch_to_tab_7 = None
+  switch_to_tab_8 = None
+  switch_to_tab_9 = None
+  toggle_scrollbar = None
+  toggle_zoom = None
+  ungroup_all = None
+  ungroup_tab = None
+  zoom_in = <Primary>plus
+  zoom_normal = <Primary>0
+  zoom_out = <Primary>minus
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#1c1c1c"
+    cursor_color = "#dedede"
+    cursor_color_fg = False
+    font = sans 12
+    foreground_color = "#f3f3f3"
+    scrollbar_position = hidden
+    show_titlebar = False
+    urgent_bell = True

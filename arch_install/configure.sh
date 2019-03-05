@@ -67,7 +67,7 @@ set_time_zone() {
 }
 
 set_grub() {
-    grub-install --target=i386-pc "$arch_disk"
+    grub-install --target=i386-pc "$grub_disk"
     grub-mkconfig -o /boot/grub/grub.cfg
 }
 
@@ -89,11 +89,16 @@ configure() {
 
 ################################################################################
 
+clone_dotfiles() {
+    git clone --recurse-submodules https://bitbucket.org/diegoximenes/dotfiles "/home/$user/dotfiles"
+}
+
 post_install() {
     echo_step 'Post-installation...'
     useradd -m "$user"
     echo "$user ALL=(ALL) ALL" > /etc/sudoers.d/config
     set_passwd "$user"
+    clone_dotfiles 
 }
 
 ################################################################################

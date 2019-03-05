@@ -32,11 +32,11 @@ install_all() {
 
     echo_step 'Installing yay...'
     if [[ ! "$(command -v yay)" ]]; then
-	git clone https://aur.archlinux.org/yay.git
-	cd yay
-	makepkg -si --noconfirm
-	cd ..
-	rm -rf yay
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
+    cd ..
+    rm -rf yay
     fi
 
     echo_step 'Installing foreign_pkglist.txt...'
@@ -46,7 +46,7 @@ install_all() {
     sudo pip install -r "$dir_file/packages/pip.txt"
 
     echo_step 'Installing oh-my-zsh...'
-    if [[ ! -d "$dir_home/.oh_my_zsh" ]]; then
+    if [[ ! -d "$dir_home/.oh-my-zsh" ]]; then
         git clone https://github.com/robbyrussell/oh-my-zsh "$dir_home/.oh-my-zsh"
     fi
 }
@@ -61,6 +61,10 @@ symlink() {
 
     sudo ln -snf "$dir_file/etc/systemd/"* /etc/systemd/
     sudo ln -snf "$dir_file/etc/X11/xorg.conf.d"* /etc/X11/xorg.conf.d/
+}
+
+set_shell() {
+    chsh -s "$(command -v zsh)"
 }
 
 network_manager() {
@@ -82,6 +86,7 @@ start_pulseaudio() {
 
 install_all
 symlink
+set_shell
 wallpaper
 network_manager
 start_pulseaudio

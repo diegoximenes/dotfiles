@@ -1,5 +1,28 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+set -e
+finish() {
+    if [[ ! "$?" -eq 0 ]]; then
+        echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
+    else
+        echo -e "${GREEN}SUCCESS${NC}"
+    fi
+}
+trap finish EXIT
+
+echo_step() {
+    local step
+    step="$1"
+    echo -e "${BLUE}$step${NC}"
+}
+
+################################################################################
+
 if [[ ! $# -eq 3 ]]; then
     echo "usage: bash arch_install.sh GRUB_DISK HOST_NAME USER"
     exit
@@ -54,7 +77,7 @@ set_localization() {
 }
 
 configure() {
-    echo 'Configure the system...'
+    echo_step 'Configure the system...'
     set_time_zone
     set_localization
     set_host
@@ -65,7 +88,7 @@ configure() {
 ################################################################################
 
 post_install() {
-    echo 'Post-installation...'
+    echo_step 'Post-installation...'
     useradd -m "$user"
     echo "$user ALL=(ALL) ALL" > /etc/sudoers.d/config
     set_passwd "$user"

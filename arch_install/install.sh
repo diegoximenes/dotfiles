@@ -1,5 +1,28 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+set -e
+finish() {
+    if [[ ! "$?" -eq 0 ]]; then
+        echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
+    else
+        echo -e "${GREEN}SUCCESS${NC}"
+    fi
+}
+trap finish EXIT
+
+echo_step() {
+    local step
+    step="$1"
+    echo -e "${BLUE}$step${NC}"
+}
+
+################################################################################
+
 if [[ ! $# -eq 2 ]]; then
     echo "usage: bash arch_install.sh ARCH_PART SWAP_PART"
     exit
@@ -29,7 +52,7 @@ format_disk() {
 }
 
 pre_install() {
-    echo 'Pre-installation...'
+    echo_step 'Pre-installation...'
     loadkeys br-abnt2
     timedatectl set-ntp true
     format_disk
@@ -39,7 +62,7 @@ pre_install() {
 ################################################################################
 
 install() {
-    echo 'Installation...'
+    echo_step 'Installation...'
     pacstrap /mnt base wpa_supplicant grub git sudo
 }
 
@@ -50,7 +73,7 @@ set_fstab() {
 }
 
 configure() {
-    echo 'Configure the system...'
+    echo_step 'Configure the system...'
     set_fstab
     arch-chroot /mnt
 }
@@ -58,7 +81,7 @@ configure() {
 ################################################################################
 
 post_install() {
-    echo 'Post-installation...'
+    echo_step 'Post-installation...'
     useradd -m -G sudo "$user"
     passwd "$user"
 }

@@ -24,6 +24,13 @@ done
 
 ################################################################################
 
+set_passwd() {
+    local user_passwd
+    user_passwd="$1"
+    echo "Setting password for $user_passwd:"
+    passwd "$user_passwd"
+}
+
 set_host() {
     echo "$host_name" > /etc/hostname
     echo -e "127.0.0.1 localhost\n::1 localhost\n127.0.1.1 $host_name.localdomain $host_name" > /etc/hosts
@@ -51,7 +58,7 @@ configure() {
     set_time_zone
     set_localization
     set_host
-    passwd
+    set_passwd root
     set_grub
 }
 
@@ -59,12 +66,12 @@ configure() {
 
 post_install() {
     echo 'Post-installation...'
-    useradd -m -G sudo "$user"
-    passwd "$user"
+    useradd -m "$user"
+    echo "$diego ALL=(ALL) ALL" > /etc/sudoers.d/config
+    set_passwd "$user"
 }
 
 ################################################################################
 
 configure
 post_install
-reboot

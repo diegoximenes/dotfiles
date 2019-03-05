@@ -10,8 +10,6 @@ finish() {
     if [[ ! "$?" -eq 0 ]]; then
         echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
     else
-	echo -e "${GREEN}SUCCESS${NC}"
-    fi
 }
 trap finish EXIT
 
@@ -22,6 +20,10 @@ echo_step() {
     local step
     step="$1"
     echo -e "${BLUE}$step${NC}"
+}
+
+success() {
+    echo -e "${GREEN}SUCCESS${NC}"
 }
 
 install_all() {
@@ -83,3 +85,4 @@ symlink
 wallpaper
 start_pulseaudio
 network_manager
+success

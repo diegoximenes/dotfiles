@@ -9,7 +9,7 @@ set -e
 finish() {
     if [[ ! "$?" -eq 0 ]]; then
         echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
-    else
+    fi 
 }
 trap finish EXIT
 

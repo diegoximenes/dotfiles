@@ -1,2 +1,6 @@
 /home/.tmux/plugins/
 /home/.tmux/resurrect/
+
+config/yarn/global/*
+!config/yarn/global/yarn.lock
+!config/yarn/global/package.json

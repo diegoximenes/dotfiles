@@ -32,11 +32,11 @@ install_all() {
 
     echo_step 'Installing yay...'
     if [[ ! "$(command -v yay)" ]]; then
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si --noconfirm
-    cd ..
-    rm -rf yay
+        git clone https://aur.archlinux.org/yay.git
+        cd yay
+        makepkg -si --noconfirm
+        cd ..
+        rm -rf yay
     fi
 
     echo_step 'Installing foreign_pkglist.txt...'
@@ -84,10 +84,16 @@ start_pulseaudio() {
     fi
 }
 
+yarn_packages() {
+    echo_step 'Installing yarn packages...'
+    yarn global add
+}
+
 install_all
 symlink
-set_shell
+yarn_packages
 wallpaper
 network_manager
 start_pulseaudio
+set_shell
 success

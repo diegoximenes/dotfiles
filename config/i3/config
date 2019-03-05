@@ -20,9 +20,6 @@ bindsym $mod+Return exec terminator -x tmux new -A -s general
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu
-bindsym $mod+d exec dmenu_run
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down

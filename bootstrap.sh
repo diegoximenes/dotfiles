@@ -12,10 +12,10 @@ install_all() {
     fi
 
     echo "Installing pkglist.txt..."
-    sudo pacman -S --needed - < "$dir_file/packages/pkglist.txt"
+    sudo pacman -S --needed --noconfirm - < "$dir_file/packages/pkglist.txt"
 
     echo "Installing foreignpkglist.txt..."
-    yay -S --needed - < "$dir_file/packages/foreign_pkglist.txt"
+    yay -S --needed --noconfirm - < "$dir_file/packages/foreign_pkglist.txt"
 
     echo "Installing pip.txt..."
     sudo pip install -r "$dir_file/packages/pip.txt"
@@ -42,10 +42,17 @@ network_manager() {
 }
 
 wallpaper() {
-    "Configuring wallpaper..."
+    echo "Configuring wallpaper..."
     betterlockscreen -u ~/.wallpapers/tarantino.jpg
 }
 
+pulseaudio() {
+   echo "Starting pulseaudio..."
+   pulseaudio -D
+}
+
 install_all
+symlink
 wallpaper
 network_manager
+pulseaudio

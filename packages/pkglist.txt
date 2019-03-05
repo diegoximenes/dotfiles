@@ -4,8 +4,6 @@ autojump
 automake
 bash
 bat
-bdf-unifont
-betterlockscreen
 binutils
 bison
 bzip2
@@ -18,7 +16,6 @@ dhcpcd
 diffutils
 discount
 dmenu
-dolphin
 dunst
 e2fsprogs
 fakeroot
@@ -34,15 +31,12 @@ gcc-libs
 gettext
 git
 glibc
-google-chrome
 grep
-groff
 grub
 gucharmap
 gzip
 htop
 i3-wm
-i3lock-color
 inetutils
 intel-ucode
 iproute2
@@ -53,7 +47,6 @@ less
 libnotify
 libtool
 licenses
-lightdm
 linux
 linux-firmware
 logrotate
@@ -78,9 +71,9 @@ pavucontrol
 pciutils
 perl
 pkgconf
-polybar
 procps-ng
 psmisc
+pulseaudio
 python-pip
 ranger
 reiserfsprogs
@@ -89,16 +82,13 @@ s-nail
 sed
 shadow
 shellcheck
-siji-git
 sudo
 sysfsutils
-systemd
 systemd-sysvcompat
 tar
 terminator
 texinfo
 tmux
-ttf-ubuntu-font-family
 usbutils
 util-linux
 vi
@@ -109,7 +99,6 @@ wpa_supplicant
 xautolock
 xclip
 xdotool
-xf86-input-synaptics
 xf86-video-intel
 xfsprogs
 xorg-server
@@ -119,6 +108,5 @@ xorg-xinit
 xorg-xinput
 xsel
 yarn
-yay
 zathura
 zsh

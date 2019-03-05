@@ -89,16 +89,11 @@ configure() {
 
 ################################################################################
 
-clone_dotfiles() {
-    git clone --recurse-submodules https://bitbucket.org/diegoximenes/dotfiles "/home/$user/dotfiles"
-}
-
 post_install() {
     echo_step 'Post-installation...'
     useradd -m "$user"
     echo "$user ALL=(ALL) ALL" > /etc/sudoers.d/config
     set_passwd "$user"
-    clone_dotfiles 
 }
 
 ################################################################################

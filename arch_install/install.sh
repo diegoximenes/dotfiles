@@ -81,14 +81,6 @@ configure() {
 
 ################################################################################
 
-post_install() {
-    echo_step 'Post-installation...'
-    useradd -m -G sudo "$user"
-    passwd "$user"
-}
-
-################################################################################
-
 pre_install
 install
 configure

@@ -67,7 +67,7 @@ configure() {
 post_install() {
     echo 'Post-installation...'
     useradd -m "$user"
-    echo "$diego ALL=(ALL) ALL" > /etc/sudoers.d/config
+    echo "$user ALL=(ALL) ALL" > /etc/sudoers.d/config
     set_passwd "$user"
 }
 

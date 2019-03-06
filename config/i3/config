@@ -1,7 +1,7 @@
 set $mod Mod4
 
 # font for window titles
-font pango:mono 9
+font pango:monospace 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -15,7 +15,7 @@ focus_follows_mouse no
 workspace_layout tabbed
 
 # start a terminal
-bindsym $mod+Return exec terminator -x tmux new -A -s general
+bindsym $mod+Return exec termite -t "termite" -e "tmux new -A -s general"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -117,9 +117,9 @@ bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun#run" -modi com
 bindsym $mod+x exec zathura
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+v exec firefox
-bindsym $mod+period exec terminator -T ranger -x ranger
+bindsym $mod+meriod exec termite -t ranger -e ranger
 bindsym $mod+semicolon exec vlc
-bindsym $mod+slash exec terminator -T htop -x htop
+bindsym $mod+slash exec termite -t htop -e htop
 
 # audio
 bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_down
@@ -137,14 +137,14 @@ bindsym $mod+t workspace back_and_forth
 bindsym $mod+Shift+t move container to workspace back_and_forth
 
 # scratchpad terminal
-exec --no-startup-id terminator -T "scratchpad_terminal"
-bindsym $mod+Shift+d exec --no-startup-id terminator -T "scratchpad_terminal"
-for_window [class="Terminator" title="scratchpad_terminal"] floating enable
-for_window [class="Terminator" title="scratchpad_terminal"] sticky enable
-for_window [class="Terminator" title="scratchpad_terminal"] resize set 800 500
-for_window [class="Terminator" title="scratchpad_terminal"] move scratchpad
-for_window [class="Terminator" title="scratchpad_terminal"] border pixel 10
-bindsym $mod+p [class="Terminator" title="scratchpad_terminal"] scratchpad show; [instance="scratchpad_terminal"] move position center
+exec --no-startup-id termite --class "scratchpad_terminal"
+bindsym $mod+Shift+d exec --no-startup-id termite --class "scratchpad_terminal"
+for_window [class="scratchpad_terminal"] floating enable
+for_window [class="scratchpad_terminal"] sticky enable
+for_window [class="scratchpad_terminal"] resize set 800 500
+for_window [class="scratchpad_terminal"] move scratchpad
+for_window [class="scratchpad_terminal"] border pixel 10
+bindsym $mod+p [class="scratchpad_terminal"] scratchpad show; [class="scratchpad_terminal"] move position center
 
 # set window title
 for_window [class=".*"] title_format "%class: %title"

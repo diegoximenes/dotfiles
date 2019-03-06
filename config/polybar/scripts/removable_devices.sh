@@ -34,10 +34,10 @@ print_removable_parts() {
 main() {
     local unmounted_removable_parts
     unmounted_removable_parts="$(echo "$devices" \
-        | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == "1") | select(.mountpoint == null) | "\(.name) \(.size)"')"
+        | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == true) | select(.mountpoint == null) | "\(.name) \(.size)"')"
     local mounted_removable_parts
     mounted_removable_parts="$(echo "$devices" \
-        | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == "1") | select(.mountpoint != null) | "\(.name) \(.size)"')"
+        | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == true) | select(.mountpoint != null) | "\(.name) \(.size)"')"
 
     print_removable_parts "$unmounted_removable_parts" 'U'
     print_removable_parts "$mounted_removable_parts" 'M'

@@ -2,7 +2,6 @@
 export KEYTIMEOUT=1
 
 export EDITOR="nvim"
-export BROWSER="google-chrome"
 
 alias g="git"
 alias v="nvim -p"
@@ -21,7 +20,7 @@ alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias cal="cal -B 1 -A 1"
 
 # adds global yarn bin path to PATH
-if [ -x "$(which yarn)" ]; then
+if [[ -x "$(which yarn)" ]]; then
     path_to_yarn_bins=$(yarn global bin 2> /dev/null)
     export PATH=$PATH:$path_to_yarn_bins
 fi
@@ -31,7 +30,7 @@ export WORKON_HOME=$HOME/python_virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/bin/virtualenvwrapper.sh
 
-function myps {
+myps() {
     local cmd=$1
     local cols="ppid,stat,%cpu,%mem,etime,start,user,pid,cmd"
     if [[ "$cmd" == "" ]]; then
@@ -42,7 +41,7 @@ function myps {
     fi
 }
 
-function mytop {
+mytop() {
     local cmd=$1
     if [[ "$cmd" == "" ]]; then
         top
@@ -56,7 +55,7 @@ function mytop {
     fi
 }
 
-function clip () {
+clip() {
     xclip -selection clipboard && xclip -o -selection clipboard
 }
 

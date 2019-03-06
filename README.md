@@ -1,5 +1,3 @@
-- (crontab -l 2>/dev/null; echo "*/10 * * * * ~/.config/i3/scripts/low_battery.sh") | crontab -  
-
 - install  
     - git clone --recurse-submodules https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/dotfiles  
     - bash bootstrap.sh  

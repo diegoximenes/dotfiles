@@ -70,33 +70,40 @@ set_shell() {
     fi
 }
 
-network_manager() {
+set_network_manager() {
     echo_step 'Enabling NetworkManager...'
     sudo systemctl enable NetworkManager
 }
 
-wallpaper() {
+set_wallpaper() {
     echo_step 'Configuring wallpaper...'
     betterlockscreen -u "$dir_home/.wallpapers/tarantino.jpg"
 }
 
-start_pulseaudio() {
+set_pulseaudio() {
     echo_step 'Starting pulseaudio...'
     if ! pgrep -x 'pulseaudio' > /dev/null; then
         pulseaudio -D
     fi
 }
 
-yarn_packages() {
+set_cron() {
+    echo_step 'Setting cron...'
+    crontab "$dir_file/crontab.txt"
+    systemctl enable cronie.service
+}
+
+install_yarn_packages() {
     echo_step 'Installing yarn packages...'
     yarn global add
 }
 
 install_all
 symlink
-yarn_packages
-wallpaper
-network_manager
-start_pulseaudio
+install_yarn_packages
+set_wallpaper
+set_network_manager
+set_pulseaudio
+set_cron
 set_shell
 success

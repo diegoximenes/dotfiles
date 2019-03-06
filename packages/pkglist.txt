@@ -8,6 +8,7 @@ binutils
 bison
 bzip2
 coreutils
+cronie
 cryptsetup
 ctags
 deepin-screenshot

@@ -89,6 +89,7 @@ tar
 terminator
 texinfo
 tmux
+unzip
 usbutils
 util-linux
 vi

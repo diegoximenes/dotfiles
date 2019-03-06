@@ -34,7 +34,7 @@ font-1 = "Noto Color Emoji:scale=10"
 font-2 = "Noto Sans Symbols 2:size=12:antialias=true"
 
 modules-left = i3 i3_split_mode focused_window
-modules-right = removable_devices xbacklight audio_sink audio_source network battery date
+modules-right = removable_devices xbacklight arch_aur_updates audio_sink audio_source network battery date
 
 [settings]
 screenchange-reload = true
@@ -118,3 +118,8 @@ tail = true
 type = custom/script
 exec = python3 -u ~/.config/polybar/scripts/focused_window.py
 tail = true
+
+[module/arch_aur_updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/arch_aur_updates.sh
+interval = 600

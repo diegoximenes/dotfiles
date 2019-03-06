@@ -64,7 +64,10 @@ symlink() {
 }
 
 set_shell() {
-    chsh -s "$(command -v zsh)"
+    echo_step "Setting zsh as the default shell..."
+    if [[ "$(basename "$SHELL")" != "zsh" ]]; then
+        chsh -s "$(command -v zsh)"
+    fi
 }
 
 network_manager() {

@@ -75,8 +75,10 @@ procps-ng
 psmisc
 pulseaudio
 python-pip
+python2-pip
 ranger
 reiserfsprogs
+ripgrep
 rofi
 s-nail
 sed
@@ -86,7 +88,8 @@ sudo
 sysfsutils
 systemd-sysvcompat
 tar
-terminator
+termite
+termite-terminfo
 texinfo
 tmux
 unzip

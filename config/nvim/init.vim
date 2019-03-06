@@ -215,6 +215,13 @@ set runtimepath+=~/.fzf
 
 " airline
 set laststatus=2
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_symbols = {}
+let g:airline_symbols.branch = ''
+let g:airline_section_c='%<%{expand("%:p")}'
+let g:airline_section_z='L:%4l/%{line("$")} %3p%% | C:%3v'
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']

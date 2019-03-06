@@ -119,6 +119,7 @@ bindsym $mod+c exec google-chrome-stable
 bindsym $mod+v exec firefox
 bindsym $mod+period exec terminator -T ranger -x ranger
 bindsym $mod+semicolon exec vlc
+bindsym $mod+slash exec terminator -T htop -x htop
 
 # audio
 bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_down

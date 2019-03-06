@@ -111,15 +111,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym Print exec deepin-screenshot
 
 # rofi
-bindsym $mod+z exec rofi -show window
-bindsym $mod+x exec rofi -show run
+bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun#run" -modi combi
 
 # softwares
+bindsym $mod+x exec zathura
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+v exec firefox
-bindsym $mod+period exec zathura
-bindsym $mod+semicolon exec terminator -T ranger -x ranger
-bindsym $mod+slach exec vlc
+bindsym $mod+period exec terminator -T ranger -x ranger
+bindsym $mod+semicolon exec vlc
 
 # audio
 bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_down
@@ -127,7 +126,7 @@ bindsym $mod+i exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
 bindsym $mod+o exec ~/.config/polybar/scripts/audio.sh --mute_sink
 
 # configure screens
-bindsym $mod+comma exec ~/.scripts/select_display.sh
+bindsym $mod+z exec ~/.scripts/select_display.sh
 
 # show clipboard
 bindsym $mod+y exec ~/.scripts/clipboard.sh

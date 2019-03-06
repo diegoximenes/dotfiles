@@ -64,6 +64,7 @@ two_screens() {
 
     local primary
     primary=$(echo "$connected" | rofi -dmenu -i -p "which one is the primary?")
+    [[ "$primary" == "" ]] && exit
     local secondary
     secondary=$(echo "$connected" | grep -v "$primary")
 

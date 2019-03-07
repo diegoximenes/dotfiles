@@ -21,6 +21,25 @@ alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias cal="cal -B 1 -A 1"
 alias diff="diff --color=auto"
 
+bindkey "\e[1~" beginning-of-line # Home
+bindkey "\e[4~" end-of-line # End
+bindkey "\e[5~" beginning-of-history # PgUp
+bindkey "\e[6~" end-of-history # PgDn
+bindkey "\e[3~" delete-char # Delete
+bindkey "\e[2~" vi-cmd-mode # Insert
+# keypad
+bindkey "\eOM" "^M" # Enter
+bindkey "\eOE" vi-cmd-mode # 5
+bindkey -s "\eOo" "/" # /
+bindkey -s "\eOj" "*" # *
+bindkey -s "\eOm" "-" # -
+bindkey -s "\eOk" "+" # +
+# F*
+bindkey "\eOP" vi-cmd-mode # F1
+bindkey "\eOQ" vi-cmd-mode # F2
+bindkey "\eOR" vi-cmd-mode # F3
+bindkey "\eOS" vi-cmd-mode # F4
+
 # adds global yarn bin path to PATH
 if [[ -x "$(which yarn)" ]]; then
     path_to_yarn_bins=$(yarn global bin 2> /dev/null)

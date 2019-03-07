@@ -1,1 +1,1 @@
-set colored-stats on
+"\e[1~": beginning-of-line

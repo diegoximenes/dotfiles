@@ -34,6 +34,7 @@ Plug 'diepm/vim-rest-console'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe', {'do': ':!~/.local/share/nvim/plugged/YouCompleteMe/install.py --clang-completer'}
+Plug 'osyo-manga/vim-anzu'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,7 +227,9 @@ let g:airline_right_sep=''
 let g:airline_symbols = {}
 let g:airline_symbols.branch = ''
 let g:airline_section_c='%<%{expand("%:p")}'
-let g:airline_section_z='L:%4l/%{line("$")} %3p%% | C:%3v'
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_section_z='L:%4l/%{line("$")} | C:%3v/%3{col("$")}'
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']

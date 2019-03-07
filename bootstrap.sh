@@ -44,6 +44,8 @@ install_all() {
 
     echo_step 'Installing pip.txt...'
     sudo pip install -r "$dir_file/packages/pip.txt"
+    echo_step 'Installing pip2.txt...'
+    sudo pip2 install -r "$dir_file/packages/pip2.txt"
 
     echo_step 'Installing oh-my-zsh...'
     if [[ ! -d "$dir_home/.oh-my-zsh" ]]; then

@@ -3,6 +3,7 @@ appdirs==1.4.3
 attrs==18.2.0
 backcall==0.1.0
 black==18.9b0
+btrfsutil==1.1.0
 CacheControl==0.12.5
 chardet==3.0.4
 Click==7.0
@@ -43,6 +44,7 @@ pyparsing==2.3.1
 pyte==0.8.0
 python-jsonrpc-server==0.1.2
 python-language-server==0.24.0
+python-libtorrent==1.1.12
 pytoml==0.1.20
 PyYAML==3.13
 ranger-fm==1.9.2

@@ -1,4 +1,5 @@
 betterlockscreen
+dropbox
 google-chrome
 i3lock-color
 polybar

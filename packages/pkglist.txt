@@ -19,6 +19,7 @@ discount
 dmenu
 dunst
 e2fsprogs
+eog
 fakeroot
 file
 filesystem
@@ -46,6 +47,7 @@ jfsutils
 jq
 less
 libnotify
+libreoffice-still
 libtool
 licenses
 linux
@@ -94,6 +96,7 @@ termite
 termite-terminfo
 texinfo
 tmux
+transmission-gtk
 unzip
 usbutils
 util-linux

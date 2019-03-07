@@ -111,7 +111,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym Print exec deepin-screenshot
 
 # rofi
-bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun#run" -modi combi
+bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi
 
 # softwares
 bindsym $mod+x exec zathura

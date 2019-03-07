@@ -58,6 +58,7 @@ symlink() {
     find "$dir_file/home" -maxdepth 1 -name '.*' -exec ln -snf {} "$dir_home/" \;
     ln -snf "$dir_file/config/"* "$dir_home/.config/"
     ln -snf "$dir_file/oh-my-zsh/themes/"* "$dir_home/.oh-my-zsh/themes/"
+    ln -snf "$dir_file/local/share/applications/"* "$dir_home/.local/share/applications/"
 
     sudo ln -snf "$dir_file/etc/systemd/"* /etc/systemd/
     sudo ln -snf "$dir_file/etc/X11/xorg.conf.d"* /etc/X11/xorg.conf.d/

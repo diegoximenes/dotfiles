@@ -14,4 +14,3 @@ else
         echo "🛰 down"
     fi
 fi
-echo "default_route=$default_route"

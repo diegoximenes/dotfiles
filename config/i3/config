@@ -86,7 +86,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+r restart
 
 # power management
-bindsym $mod+Shift+u exec betterlockscreen -l -t $USER
+bindsym $mod+Shift+u exec i3lock -f
 bindsym $mod+Shift+i exec --no-startup-id ~/.scripts/prompt_menu.sh "logout?" "i3-msg exit"
 bindsym $mod+Shift+o exec --no-startup-id ~/.scripts/prompt_menu.sh "reboot?" "systemctl reboot"
 bindsym $mod+Shift+p exec --no-startup-id ~/.scripts/prompt_menu.sh "poweroff?" "systemctl poweroff"
@@ -161,4 +161,4 @@ exec nm-applet
 exec dunst
 
 # lock screen by inactivity
-# exec_always --no-startup-id xautolock -time 15 -locker "betterlockscreen -l -t $USER"
+# exec_always --no-startup-id xautolock -time 15 -locker "i3lock -f"

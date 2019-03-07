@@ -1,3 +1,4 @@
+android-file-transfer
 arandr
 autoconf
 autojump
@@ -39,12 +40,14 @@ gucharmap
 gzip
 htop
 i3-wm
+i3lock
 inetutils
 intel-ucode
 iproute2
 iputils
 jfsutils
 jq
+kdeconnect
 less
 libnotify
 libreoffice-still

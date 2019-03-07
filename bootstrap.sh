@@ -78,11 +78,6 @@ set_network_manager() {
     sudo systemctl enable NetworkManager
 }
 
-set_wallpaper() {
-    echo_step 'Configuring wallpaper...'
-    betterlockscreen -u "$dir_home/.wallpapers/tarantino.jpg"
-}
-
 set_pulseaudio() {
     echo_step 'Starting pulseaudio...'
     if ! pgrep -x 'pulseaudio' > /dev/null; then
@@ -104,7 +99,6 @@ install_yarn_packages() {
 install_all
 symlink
 install_yarn_packages
-set_wallpaper
 set_network_manager
 set_pulseaudio
 set_cron

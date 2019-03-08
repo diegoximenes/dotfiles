@@ -127,7 +127,8 @@ bindsym $mod+i exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
 bindsym $mod+o exec ~/.config/polybar/scripts/audio.sh --mute_sink
 
 # configure screens
-bindsym $mod+z exec ~/.scripts/select_display.sh
+bindsym $mod+Shift+z exec ~/.scripts/select_display.sh
+bindsym $mod+z exec ~/.scripts/select_display.sh --default_config
 
 # show clipboard
 bindsym $mod+y exec ~/.scripts/clipboard.sh

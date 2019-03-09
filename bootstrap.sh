@@ -85,15 +85,20 @@ set_pulseaudio() {
     fi
 }
 
+install_yarn_packages() {
+    echo_step 'Installing yarn packages...'
+    yarn global add
+}
+
+set_pkgfile() {
+    echo_step 'Setting pkgfile...'
+    sudo pkgfile --update
+}
+
 set_cron() {
     echo_step 'Setting cron...'
     crontab "$dir_file/crontab.txt"
     systemctl enable cronie.service
-}
-
-install_yarn_packages() {
-    echo_step 'Installing yarn packages...'
-    yarn global add
 }
 
 install_all
@@ -103,4 +108,5 @@ set_network_manager
 set_pulseaudio
 set_cron
 set_shell
+set_pkgfile
 success

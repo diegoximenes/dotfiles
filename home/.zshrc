@@ -87,6 +87,7 @@ plugins=(
     extract
     fuck
     fzf
+    command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh

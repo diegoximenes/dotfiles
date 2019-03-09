@@ -76,6 +76,7 @@ pavucontrol
 pciutils
 perl
 pkgconf
+pkgfile
 procps-ng
 psmisc
 pulseaudio

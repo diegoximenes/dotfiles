@@ -147,6 +147,10 @@ for_window [class="scratchpad_terminal"] move scratchpad
 for_window [class="scratchpad_terminal"] border pixel 10
 bindsym $mod+p [class="scratchpad_terminal"] scratchpad show; [class="scratchpad_terminal"] move position center
 
+# floating size
+floating_minimum_size 100 x 100
+floating_maximum_size 800 x 800
+
 # set window title
 for_window [class=".*"] title_format "%class: %title"
 

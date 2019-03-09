@@ -10,8 +10,7 @@
     l = log --graph --decorate
 
 [core]
-    editor = vim
+    editor = nvim
 
 [merge]
-    tool = vimdiff
     conflictstyle = diff3

@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug
+" plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -35,14 +35,9 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe', {'do': ':!~/.local/share/nvim/plugged/YouCompleteMe/install.py --clang-completer'}
 Plug 'osyo-manga/vim-anzu'
+Plug 'markonm/traces.vim'
+Plug 'tpope/vim-sleuth'
 call plug#end()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" general options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let max_line_length=80
-let use_space_instead_of_tabs=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " functions
@@ -85,6 +80,7 @@ endfunction
 " autocmd
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" set markdown filetype
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " remove trailing spaces of all files before saving except markdown
@@ -98,13 +94,9 @@ autocmd BufWritePre * call RemoveEndBlankLines()
 " general
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if max_line_length > 0
-    call SetLineLength()
-endif
-
-if use_space_instead_of_tabs
-    set expandtab
-endif
+" line length
+let max_line_length=80
+call SetLineLength()
 
 filetype plugin indent on
 
@@ -133,6 +125,11 @@ set nowrap " don't 'break' long lines
 set timeout timeoutlen=1500
 set updatetime=100
 set nomodeline
+set noshowmode " don't show the current mode (vim-airline.vim takes care of it)
+set autoread " set to auto read when a file is changed from the outside
+set clipboard=unnamedplus " yank and paste also goes to clipboard
+set nojoinspaces " only one space when joining lines
+set formatoptions=troqj " format comment leader when joining/creating line
 
 let mapleader=','
 
@@ -159,9 +156,6 @@ nmap <C-e> :echo expand('%:p')<CR>
 
 " fzf.vim
 nmap <C-s> :Files<CR>
-
-" gitv
-nmap <C-g> :Gitv<CR>
 
 " ale
 nmap <C-b> :ALEHover<CR>
@@ -266,7 +260,7 @@ let g:UltiSnipsEditSplit='vertical'
 let g:AutoPairs={'{':'}'}
 
 " easy motion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_do_mapping = 0 " disable default mappings
 let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)

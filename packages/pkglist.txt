@@ -1,5 +1,4 @@
 android-file-transfer
-arandr
 autoconf
 autojump
 automake
@@ -25,7 +24,6 @@ fakeroot
 file
 filesystem
 findutils
-firefox
 flex
 fzf
 gawk

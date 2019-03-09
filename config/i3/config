@@ -116,7 +116,6 @@ bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi
 # softwares
 bindsym $mod+x exec zathura
 bindsym $mod+c exec google-chrome-stable
-bindsym $mod+v exec firefox
 bindsym $mod+meriod exec termite -t ranger -e ranger
 bindsym $mod+semicolon exec vlc
 bindsym $mod+slash exec termite -t htop -e htop

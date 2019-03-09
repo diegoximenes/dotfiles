@@ -3,23 +3,7 @@ export KEYTIMEOUT=1
 
 export EDITOR="nvim"
 
-alias g="git"
-alias v="nvim -p"
-alias r="ranger"
-alias c="clear"
-alias f="fuck"
-alias s="sudo "
-alias z="zathura"
-alias p="sudo pacman"
-alias vim="nvim -p"
-alias sudo="sudo "
-alias cpp="rsync -ah --progress"
-alias mvp="rsync -ah --progress --remove-source-files"
-# avoid problems when opening ipython in virtualenvs
-alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-alias cal="cal -B 1 -A 1"
-alias diff="diff --color=auto"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[4~" end-of-line # End
@@ -96,8 +80,34 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="diegoximenes"
 
-plugins=(git vi-mode autojump extract fuck fzf)
+plugins=(
+    git
+    vi-mode
+    autojump
+    extract
+    fuck
+    fzf
+)
 
 source $ZSH/oh-my-zsh.sh
+
+alias g="git"
+alias v="nvim -p"
+alias r="ranger"
+alias c="clear"
+alias f="fuck"
+alias s="sudo "
+alias z="zathura"
+alias p="sudo pacman"
+alias vim="nvim -p"
+alias gl="nvim '' -c 'Gitv'"
+alias sudo="sudo "
+alias cpp="rsync -ah --progress"
+alias mvp="rsync -ah --progress --remove-source-files"
+# avoid problems when opening ipython in virtualenvs
+alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
+alias cal="cal -B 1 -A 1"
+alias diff="diff --color=auto"
 
 eval $(thefuck --alias)

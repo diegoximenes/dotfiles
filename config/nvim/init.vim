@@ -175,6 +175,7 @@ let g:UltiSnipsJumpForwardTrigger='<C-i>'
 " vim-markdown-preview
 let vim_markdown_preview_hotkey='<F2>'
 let vim_markdown_preview_use_xdg_open=1
+let vim_markdown_preview_pandoc=1
 
 " vim-rest-console
 let g:vrc_trigger = '<F3>'

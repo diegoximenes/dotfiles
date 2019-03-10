@@ -16,8 +16,6 @@ deepin-screenshot
 device-mapper
 dhcpcd
 diffutils
-discount
-dmenu
 dunst
 e2fsprogs
 eog

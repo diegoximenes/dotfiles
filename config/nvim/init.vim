@@ -37,6 +37,7 @@ Plug 'Valloric/YouCompleteMe', {'do': ':!~/.local/share/nvim/plugged/YouComplete
 Plug 'osyo-manga/vim-anzu'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-sleuth'
+Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,10 +173,7 @@ let g:UltiSnipsJumpForwardTrigger='<C-i>'
 " <F*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vim-markdown-preview
 let vim_markdown_preview_hotkey='<F2>'
-let vim_markdown_preview_use_xdg_open=1
-let vim_markdown_preview_pandoc=1
 
 " vim-rest-console
 let g:vrc_trigger = '<F3>'
@@ -187,11 +185,16 @@ set pastetoggle=<F4>
 nmap <F7> :GundoToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
+nmap <F10> :Ranger<CR>
 nmap <F12> :call HandleLineLength()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim-markdown-preview
+let vim_markdown_preview_use_xdg_open=1
+let vim_markdown_preview_pandoc=1
 
 " vim-gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
@@ -232,7 +235,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
 " ale
-let b:ale_fixers = {'typescript': ['tslint'], 'json': ['prettier'], 'python': ['black']}
+let b:ale_fixers = {'typescript': ['tslint'], 'json': ['jq'], 'python': ['black']}
 let b:ale_linters = {'python': ['pyls', 'pycodestyle'], 'json': ['jsonlint']}
 let g:ale_python_black_options='--line-length 80'
 

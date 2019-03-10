@@ -33,8 +33,8 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split mode
-bindsym $mod+m split h
-bindsym $mod+n split v
+bindsym $mod+Shift+n split h
+bindsym $mod+Shift+b split v
 
 # default windows splitter for 3 or 4 windows: move last two windows to the right
 bindsym $mod+g layout splitv; focus down; focus down; focus down; move right; layout splitv; focus left; move right; move up
@@ -59,6 +59,8 @@ bindsym $mod+q focus parent
 bindsym $mod+a focus child
 
 # switch to workspace
+bindsym $mod+o workspace prev
+bindsym $mod+p workspace next
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -114,22 +116,22 @@ bindsym Print exec deepin-screenshot
 bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi
 
 # softwares
-bindsym $mod+x exec zathura
+bindsym $mod+z exec zathura
+bindsym $mod+x exec termite -t htop -e htop
 bindsym $mod+c exec google-chrome-stable
-bindsym $mod+semicolon exec vlc
-bindsym $mod+slash exec termite -t htop -e htop
+bindsym $mod+v exec vlc
 
 # audio
-bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_down
-bindsym $mod+i exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
-bindsym $mod+o exec ~/.config/polybar/scripts/audio.sh --mute_sink
+bindsym $mod+m exec ~/.config/polybar/scripts/audio.sh --volume_sink_down
+bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
+bindsym $mod+n exec ~/.config/polybar/scripts/audio.sh --mute_sink
 
 # configure screens
-bindsym $mod+Shift+z exec ~/.scripts/select_display.sh
-bindsym $mod+z exec ~/.scripts/select_display.sh --default_config
+bindsym $mod+Shift+d exec ~/.scripts/select_display.sh
+bindsym $mod+d exec ~/.scripts/select_display.sh --default_config
 
 # show clipboard
-bindsym $mod+y exec ~/.scripts/clipboard.sh
+bindsym $mod+semicolon exec ~/.scripts/clipboard.sh
 
 # back and forth between workspaces
 bindsym $mod+t workspace back_and_forth
@@ -137,13 +139,13 @@ bindsym $mod+Shift+t move container to workspace back_and_forth
 
 # scratchpad terminal
 exec --no-startup-id termite --class "scratchpad_terminal"
-bindsym $mod+Shift+d exec --no-startup-id termite --class "scratchpad_terminal"
+bindsym $mod+Shift+period exec --no-startup-id termite --class "scratchpad_terminal"
 for_window [class="scratchpad_terminal"] floating enable
 for_window [class="scratchpad_terminal"] sticky enable
 for_window [class="scratchpad_terminal"] resize set 800 500
 for_window [class="scratchpad_terminal"] move scratchpad
 for_window [class="scratchpad_terminal"] border pixel 10
-bindsym $mod+p [class="scratchpad_terminal"] scratchpad show; [class="scratchpad_terminal"] move position center
+bindsym $mod+period [class="scratchpad_terminal"] scratchpad show; [class="scratchpad_terminal"] move position center
 
 # floating size
 floating_minimum_size 100 x 100

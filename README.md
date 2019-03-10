@@ -1,6 +1,6 @@
 - install  
     - git clone --recurse-submodules https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/dotfiles  
-    - bash bootstrap.sh  
+    - bash bootstrap.sh --install  
     - reboot  
 
 - microcode  

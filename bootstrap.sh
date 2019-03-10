@@ -46,11 +46,6 @@ install_all() {
     sudo pip install -r "$dir_file/packages/pip.txt"
     echo_step 'Installing pip2.txt...'
     sudo pip2 install -r "$dir_file/packages/pip2.txt"
-
-    echo_step 'Installing oh-my-zsh...'
-    if [[ ! -d "$dir_home/.oh-my-zsh" ]]; then
-        git clone https://github.com/robbyrussell/oh-my-zsh "$dir_home/.oh-my-zsh"
-    fi
 }
 
 symlink() {
@@ -102,9 +97,11 @@ set_cron() {
     systemctl enable cronie.service
 }
 
-install_all
+opt="$1"
+
+[[ "$opt" == '--install' ]] && install_all
 symlink
-install_yarn_packages
+[[ "$opt" == '--install' ]] && install_yarn_packages
 set_network_manager
 set_pulseaudio
 set_shell

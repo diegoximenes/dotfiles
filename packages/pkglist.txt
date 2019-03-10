@@ -21,6 +21,7 @@ dunst
 e2fsprogs
 eog
 fakeroot
+fd
 file
 filesystem
 findutils
@@ -97,7 +98,9 @@ tar
 termite
 termite-terminfo
 texinfo
+tig
 tmux
+translate-shell
 transmission-gtk
 unzip
 usbutils
@@ -120,4 +123,7 @@ xorg-xinput
 xsel
 yarn
 zathura
+zathura-djvu
+zathura-pdf-mupdf
+zathura-ps
 zsh

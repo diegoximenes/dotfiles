@@ -1,4 +1,5 @@
 android-file-transfer
+atool
 autoconf
 autojump
 automake
@@ -103,6 +104,7 @@ tig
 tmux
 translate-shell
 transmission-gtk
+unrar
 unzip
 usbutils
 util-linux
@@ -128,4 +130,5 @@ zathura
 zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
+zip
 zsh

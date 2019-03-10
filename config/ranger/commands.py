@@ -199,3 +199,62 @@ class j(Command):
         directory = directory.decode("utf-8", "ignore")
         directory = directory.rstrip('\n')
         self.fm.execute_console("cd " + directory)
+
+
+###############################################################################
+
+from ranger.core.loader import CommandLoader
+
+
+class apack(Command):
+    def execute(self):
+        """ Compress marked files to current directory """
+        cwd = self.fm.thisdir
+        marked_files = cwd.get_selection()
+
+        if not marked_files:
+            return
+
+        def refresh(_):
+            cwd = self.fm.get_directory(original_path)
+            cwd.load_content()
+
+        original_path = cwd.path
+        parts = self.line.split()
+        if len(parts) == 1:
+            self.fm.notify("usage: apack [flags]", bad=True)
+            return
+        au_flags = parts[1:]
+
+        descr = "compressing files in: " + os.path.basename(parts[1])
+        obj = CommandLoader(args=['apack'] + au_flags + \
+                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr)
+
+        obj.signal_bind('after', refresh)
+        self.fm.loader.add(obj)
+
+
+class aunpack(Command):
+    def execute(self):
+        """ Extract marked files to current directory """
+        cwd = self.fm.thisdir
+        marked_files = cwd.get_selection()
+
+        if not marked_files or len(marked_files) > 1:
+            self.fm.notify("mark a single file", bad=True)
+            return
+
+        def refresh(_):
+            cwd = self.fm.get_directory(original_path)
+            cwd.load_content()
+
+        original_path = cwd.path
+        parts = self.line.split()
+        au_flags = parts[1:] + ['-f']
+
+        descr = "extracting files"
+        obj = CommandLoader(args=['aunpack'] + au_flags + \
+                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr)
+
+        obj.signal_bind('after', refresh)
+        self.fm.loader.add(obj)

@@ -84,7 +84,6 @@ plugins=(
     git
     vi-mode
     autojump
-    extract
     fuck
     fzf
     command-not-found

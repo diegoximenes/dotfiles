@@ -3,6 +3,9 @@
     - bash bootstrap.sh  
     - reboot  
 
+- microcode  
+    - packages/pkglist.txt includes intel-ucode. If using an AMD process change to amd-ucode.  
+
 - tmux  
     - don't include plugin directory on git since tpm doesn't add git submodules  
     - installing plugins: prefix + I  

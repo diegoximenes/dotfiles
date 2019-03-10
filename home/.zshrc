@@ -111,5 +111,8 @@ alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_inst
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias cal="cal -B 1 -A 1"
 alias diff="diff --color=auto"
+trans_cmd=" trans -show-original n -show-original-phonetics n -show-translation-phonetics n -show-prompt-message n -show-languages n -show-original-dictionary n -show-dictionary n -show-alternatives y"
+alias trans_pt="$trans_cmd -s pt -t en"
+alias trans_en="$trans_cmd -s en -t pt"
 
 eval $(thefuck --alias)

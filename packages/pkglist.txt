@@ -37,6 +37,7 @@ grep
 grub
 gucharmap
 gzip
+highlight
 htop
 i3-wm
 i3lock
@@ -107,6 +108,7 @@ usbutils
 util-linux
 vi
 vlc
+w3m
 which
 wmctrl
 wpa_supplicant

@@ -1,9 +1,35 @@
-# default is bigger, in case of problems remove this line
-export KEYTIMEOUT=1
+################################################################################
+# exports
+################################################################################
 
+export KEYTIMEOUT=1 # default is bigger, in case of problems remove this line
 export EDITOR="nvim"
-
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export FZF_DEFAULT_COMMAND='find .' # includes hidden files on search
+export ZSH=$HOME/.oh-my-zsh
+
+# adds global yarn bin path to PATH
+if [[ -x "$(which yarn)" ]]; then
+    path_to_yarn_bins=$(yarn global bin 2> /dev/null)
+    export PATH=$PATH:$path_to_yarn_bins
+fi
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/python_virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+
+# color in man pages
+export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode - red
+export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode - bold, magenta
+export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
+export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode - yellow
+export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
+export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
+
+################################################################################
+# bindkey
+################################################################################
 
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[4~" end-of-line # End
@@ -24,16 +50,9 @@ bindkey "\eOQ" vi-cmd-mode # F2
 bindkey "\eOR" vi-cmd-mode # F3
 bindkey "\eOS" vi-cmd-mode # F4
 
-# adds global yarn bin path to PATH
-if [[ -x "$(which yarn)" ]]; then
-    path_to_yarn_bins=$(yarn global bin 2> /dev/null)
-    export PATH=$PATH:$path_to_yarn_bins
-fi
-
-# virtualenvwrapper configs
-export WORKON_HOME=$HOME/python_virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/bin/virtualenvwrapper.sh
+################################################################################
+# commands
+################################################################################
 
 myps() {
     local cmd=$1
@@ -64,19 +83,9 @@ clip() {
     xclip -selection clipboard && xclip -o -selection clipboard
 }
 
-# color in man pages
-export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode - red
-export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode - bold, magenta
-export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
-export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
-export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode - yellow
-export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
-export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
-
-# includes hidden files on search
-export FZF_DEFAULT_COMMAND='find .'
-
-export ZSH=$HOME/.oh-my-zsh
+################################################################################
+# oh-my-zsh
+################################################################################
 
 ZSH_THEME="diegoximenes"
 
@@ -90,9 +99,18 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+################################################################################
+# source
+################################################################################
 
-alias g="git"
+source $ZSH/oh-my-zsh.sh
+source /usr/bin/virtualenvwrapper.sh
+eval $(thefuck --alias)
+
+################################################################################
+# alias
+################################################################################
+
 alias v="nvim -p"
 alias r="ranger"
 alias c="clear"
@@ -105,6 +123,7 @@ alias gl="nvim '' -c 'Gitv'"
 alias sudo="sudo "
 alias cpp="rsync -ah --progress"
 alias mvp="rsync -ah --progress --remove-source-files"
+alias dev="lsblk -plo NAME,TYPE,RM,SIZE,MOUNTPOINT,VENDOR"
 # avoid problems when opening ipython in virtualenvs
 alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
@@ -113,5 +132,3 @@ alias diff="diff --color=auto"
 trans_cmd=" trans -show-original n -show-original-phonetics n -show-translation-phonetics n -show-prompt-message n -show-languages n -show-original-dictionary n -show-dictionary n -show-alternatives y"
 alias trans_pt="$trans_cmd -s pt -t en"
 alias trans_en="$trans_cmd -s en -t pt"
-
-eval $(thefuck --alias)

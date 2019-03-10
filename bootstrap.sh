@@ -59,7 +59,8 @@ symlink() {
     # ignores "." file
     find "$dir_file/home" -maxdepth 1 -name '.*' -exec ln -snf {} "$dir_home/" \;
     ln -snf "$dir_file/config/"* "$dir_home/.config/"
-    ln -snf "$dir_file/oh-my-zsh/themes/"* "$dir_home/.oh-my-zsh/themes/"
+    ln -snf "$dir_file/oh-my-zsh/custom/themes/"* "$dir_home/.oh-my-zsh/custom/themes/"
+    ln -snf "$dir_file/oh-my-zsh/custom/plugins/"* "$dir_home/.oh-my-zsh/custom/plugins/"
     ln -snf "$dir_file/local/share/applications/"* "$dir_home/.local/share/applications/"
 
     sudo ln -snf "$dir_file/etc/systemd/"* /etc/systemd/
@@ -106,7 +107,7 @@ symlink
 install_yarn_packages
 set_network_manager
 set_pulseaudio
-set_cron
 set_shell
 set_pkgfile
+set_cron
 success

@@ -12,7 +12,7 @@ bindkey "\e[6~" end-of-history # PgDn
 bindkey "\e[3~" delete-char # Delete
 bindkey "\e[2~" vi-cmd-mode # Insert
 # keypad
-bindkey "\eOM" "^M" # Enter
+bindkey "\eOM" accept-line # Enter
 bindkey "\eOE" vi-cmd-mode # 5
 bindkey -s "\eOo" "/" # /
 bindkey -s "\eOj" "*" # *
@@ -88,6 +88,7 @@ plugins=(
     fuck
     fzf
     command-not-found
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh

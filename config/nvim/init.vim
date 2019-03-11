@@ -17,7 +17,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/Tabmerge'
 Plug 'majutsushi/tagbar'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'leafgarland/typescript-vim'
 Plug 'SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'

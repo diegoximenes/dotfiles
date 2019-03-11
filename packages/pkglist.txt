@@ -5,6 +5,7 @@ autojump
 automake
 bash
 bat
+bc
 binutils
 bison
 bzip2
@@ -98,6 +99,9 @@ tar
 termite
 termite-terminfo
 texinfo
+texlive-bin
+texlive-core
+texlive-latexextra
 tig
 tmux
 translate-shell

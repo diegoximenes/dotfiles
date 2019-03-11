@@ -37,11 +37,6 @@ install_pip3() {
 
 install_pip2() {
     sudo pip2 install --upgrade pynvim # neovim
-    sudo pip2 install --upgrade vim-vint # ale vim
-    sudo pip2 install --upgrade flake8 python-language-server pycodestyle black # ale python
-    sudo pip2 install --upgrade virtualenvwrapper
-    sudo pip2 install --upgrade thefuck
-    sudo pip2 install --upgrade i3ipc # i3
 }
 
 install_all() {
@@ -60,10 +55,10 @@ install_all() {
     echo_step 'Installing foreign_pkglist.txt...'
     yay -S --needed --noconfirm - < "$dir_file/packages/foreign_pkglist.txt"
 
-    echo_step 'Installing pip3 packages...'
-    install_pip3
     echo_step 'Installing pip2 packages...'
     install_pip2
+    echo_step 'Installing pip3 packages...'
+    install_pip3
 }
 
 symlink() {
@@ -114,7 +109,6 @@ set_cron() {
     echo_step 'Setting cron...'
     systemctl enable cronie.service
     systemctl start cronie.service
-    crontab "$dir_file/crontab.txt"
 }
 
 opt="$1"

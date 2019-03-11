@@ -105,11 +105,6 @@ set_pkgfile() {
     sudo pkgfile --update
 }
 
-set_cron() {
-    echo_step 'Setting cron...'
-    systemctl enable cronie.service
-}
-
 opt="$1"
 
 [[ "$opt" == '--install' ]] && install_all
@@ -119,5 +114,4 @@ set_network_manager
 set_pulseaudio
 set_shell
 set_pkgfile
-set_cron
 success

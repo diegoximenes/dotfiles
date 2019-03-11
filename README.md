@@ -2,7 +2,7 @@
     - git clone --recurse-submodules https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/dotfiles  
     - bash bootstrap.sh --install  
     - reboot  
-    - crontab crontab.txt  
+    - bash bootstrap_after_reboot.sh  
 
 - microcode  
     - packages/pkglist.txt includes intel-ucode. If using an AMD process change to amd-ucode.  

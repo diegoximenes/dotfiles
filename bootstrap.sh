@@ -108,7 +108,6 @@ set_pkgfile() {
 set_cron() {
     echo_step 'Setting cron...'
     systemctl enable cronie.service
-    systemctl start cronie.service
 }
 
 opt="$1"

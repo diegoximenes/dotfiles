@@ -1,6 +1,6 @@
 #!/bin/bash
 
-default_route="$(ip route | awk '/^default/ {print $8}')"
+default_route="$(ip route | awk '/^default/' | awk '{print $5}')"
 if [[ "$default_route" =~ ^en(.+)$ ]]; then
     # ethernet
     echo "🖥 $default_route"

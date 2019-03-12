@@ -70,6 +70,7 @@ network-manager-applet
 networkmanager
 noto-fonts
 noto-fonts-emoji
+openssh
 pacman
 pacman-contrib
 pandoc

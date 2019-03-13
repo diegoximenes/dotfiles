@@ -95,11 +95,6 @@ set_pulseaudio() {
     fi
 }
 
-install_yarn_packages() {
-    echo_step 'Installing yarn packages...'
-    yarn global add
-}
-
 set_pkgfile() {
     echo_step 'Setting pkgfile...'
     sudo pkgfile --update
@@ -109,7 +104,6 @@ opt="$1"
 
 [[ "$opt" == '--install' ]] && install_all
 symlink
-[[ "$opt" == '--install' ]] && install_yarn_packages
 set_network_manager
 set_pulseaudio
 set_shell

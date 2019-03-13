@@ -107,6 +107,7 @@ tig
 tmux
 translate-shell
 transmission-gtk
+typescript
 unrar
 unzip
 usbutils

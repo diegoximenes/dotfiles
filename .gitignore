@@ -1,6 +1,2 @@
 /home/.tmux
 !/home/.tmux/plugins/tpm
-
-/config/yarn
-!/config/yarn/global/yarn.lock
-!/config/yarn/global/package.json

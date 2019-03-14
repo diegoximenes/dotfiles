@@ -89,6 +89,7 @@ ranger
 reiserfsprogs
 ripgrep
 rofi
+rsync
 s-nail
 sed
 shadow

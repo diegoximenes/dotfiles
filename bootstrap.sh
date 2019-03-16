@@ -101,10 +101,16 @@ set_pkgfile() {
     sudo pkgfile --update
 }
 
+install_yarn_packages() {
+    echo_step 'Installing yarn packages...'
+    yarn global add
+}
+
 opt="$1"
 
 [[ "$opt" == '--install' ]] && install_all
 symlink
+[[ "$opt" == '--install' ]] && install_yarn_packages
 set_network_manager
 set_pulseaudio
 set_shell

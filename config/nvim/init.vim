@@ -131,6 +131,10 @@ set autoread " set to auto read when a file is changed from the outside
 set clipboard=unnamedplus " yank and paste also goes to clipboard
 set nojoinspaces " only one space when joining lines
 set formatoptions=troqj " format comment leader when joining/creating line
+" default indent options, can be overrided by vim-sleuth
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 let mapleader=','
 

@@ -9,7 +9,7 @@ set -e
 finish() {
     if [[ ! "$?" -eq 0 ]]; then
         echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
-    fi 
+    fi
 }
 trap finish EXIT
 
@@ -26,7 +26,7 @@ success() {
 ################################################################################
 
 if [[ ! $# -eq 3 ]]; then
-    echo "usage: bash arch_install.sh GRUB_DISK HOST_NAME USER"
+    echo "usage: bash configure.sh GRUB_DISK HOST_NAME USER"
     exit
 fi
 

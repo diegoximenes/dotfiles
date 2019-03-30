@@ -26,7 +26,7 @@ success() {
 ################################################################################
 
 if [[ ! $# -eq 2 ]]; then
-    echo "usage: bash arch_install.sh ARCH_PART SWAP_PART"
+    echo "usage: bash install.sh ARCH_PART SWAP_PART"
     exit
 fi
 

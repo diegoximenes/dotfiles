@@ -1,5 +1,5 @@
 - install  
-    - git clone --recurse-submodules https://diegoximenes@bitbucket.org/diegoximenes/dotfiles.git ~/dotfiles  
+    - git clone --recurse-submodules https://github.com/diegoximenes/dotfiles.git ~/dotfiles  
     - bash bootstrap.sh --install  
     - reboot  
     - bash bootstrap_after_reboot.sh  

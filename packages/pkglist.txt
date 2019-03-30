@@ -6,6 +6,7 @@ automake
 bash
 bat
 bc
+bind-tools
 binutils
 bison
 bzip2
@@ -33,6 +34,7 @@ gcc-libs
 gettext
 git
 glibc
+gnome-sound-recorder
 grep
 grub
 gucharmap
@@ -62,12 +64,15 @@ make
 man-db
 man-pages
 mdadm
+mtr
 nano
 neofetch
 neovim
+net-tools
 netctl
 network-manager-applet
 networkmanager
+nmap
 noto-fonts
 noto-fonts-emoji
 openssh

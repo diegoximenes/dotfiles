@@ -97,7 +97,7 @@ autocmd BufWritePre * call RemoveEndBlankLines()
 
 " line length
 let max_line_length=80
-call SetLineLength()
+let use_max_line_length=0
 
 filetype plugin indent on
 
@@ -135,6 +135,7 @@ set formatoptions=troqj " format comment leader when joining/creating line
 set tabstop=4
 set shiftwidth=4
 set expandtab
+execute "set colorcolumn=".max_line_length
 
 let mapleader=','
 

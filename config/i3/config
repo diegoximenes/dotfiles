@@ -154,8 +154,9 @@ floating_maximum_size 800 x 800
 # set window title
 for_window [class=".*"] title_format "%class: %title"
 
-# keyboard layout
+# config keyboard
 exec_always setxkbmap br abnt2
+exec_always xmodmap ~/.Xmodmap
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

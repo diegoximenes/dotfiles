@@ -1,3 +1,7 @@
+# env varibles
+set_from_resource $DISPLAY echo "$DISPLAY"
+
+# set modifier
 set $mod Mod4
 
 # font for window titles
@@ -156,7 +160,7 @@ for_window [class=".*"] title_format "%class: %title"
 
 # config keyboard
 exec_always setxkbmap br abnt2
-exec_always xmodmap ~/.Xmodmap
+exec_always xkbcomp ~/.Xkeymap $DISPLAY
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

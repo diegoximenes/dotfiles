@@ -49,7 +49,6 @@ iproute2
 iputils
 jfsutils
 jq
-kdeconnect
 less
 libnotify
 libreoffice-still

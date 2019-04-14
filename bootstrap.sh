@@ -74,7 +74,7 @@ symlink() {
     ln -snf "$dir_file/local/share/applications/"* "$dir_home/.local/share/applications/"
 
     sudo ln -snf "$dir_file/etc/systemd/"* /etc/systemd/
-    sudo ln -snf "$dir_file/etc/X11/xorg.conf.d"* /etc/X11/xorg.conf.d/
+    sudo ln -snf "$dir_file/etc/X11/xorg.conf.d/"* /etc/X11/xorg.conf.d/
 }
 
 set_shell() {

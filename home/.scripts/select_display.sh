@@ -163,7 +163,15 @@ user_config() {
 }
 
 default_config() {
-    mirror_largest_screen
+    local cnt_connected
+    cnt_connected=$(echo "$connected" | wc -l)
+
+    if [[ "$cnt_connected" -eq "1" ]]; then
+        select_screen "$connected"
+        restart_dunst_i3
+    else
+        mirror_largest_screen
+    fi
 }
 
 case "$1" in

@@ -1296,14 +1296,17 @@ xkb_symbols "pc+us+inet(evdev)" {
         type= "CUSTOM_SUPER_SHIFT",
         symbols[Group1]= [               l,               L, Right, Right ]
     };
-    key <AC10> {         [       semicolon,           colon ] };
+    key <AC10> {
+        type="CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [       semicolon,           colon, ccedilla, Ccedilla ]
+    };
     key <AC11> {
         type= "CUSTOM_SUPER_SHIFT",
         symbols[GROUP1]= [      apostrophe,        quotedbl, dead_circumflex, dead_tilde ]
     };
     key <TLDE> {         [           grave,      asciitilde ] };
     key <LFSH> {         [         Shift_L ] };
-    key <BKSL> {         [       backslash,             bar ] };
+    key <BKSL> {         [ Return, Return ] };
     key <AB01> {
         type= "ALPHABETIC",
         symbols[Group1]= [               z,               Z ]
@@ -1335,6 +1338,7 @@ xkb_symbols "pc+us+inet(evdev)" {
     key <AB08> {         [           comma,            less ] };
     key <AB09> {         [          period,         greater ] };
     key <AB10> {         [           slash,        question ] };
+    key <AB11> {         [       backslash,             bar ] };
     key <RTSH> {         [         Shift_R ] };
     key <KPMU> {
         type= "CTRL+ALT",

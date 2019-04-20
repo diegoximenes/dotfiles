@@ -301,6 +301,16 @@ xkb_types "complete" {
 
     virtual_modifiers NumLock,Alt,LevelThree,LAlt,RAlt,RControl,LControl,ScrollLock,LevelFive,AltGr,Meta,Super,Hyper;
 
+    type "CUSTOM_SUPER_SHIFT" {
+        modifiers= Super+Shift;
+        map[Shift]= Level2;
+        map[Super]= Level3;
+        map[Shift+Super]= Level4;
+        level_name[Level1]= "Level1";
+        level_name[Level2]= "Level2";
+        level_name[Level3]= "Level3";
+        level_name[Level4]= "Level4";
+    };
     type "ONE_LEVEL" {
         modifiers= none;
         level_name[Level1]= "Any";
@@ -1186,13 +1196,19 @@ xkb_symbols "pc+us+inet(evdev)" {
     key <AE01> {         [               1,          exclam ] };
     key <AE02> {         [               2,              at ] };
     key <AE03> {         [               3,      numbersign ] };
-    key <AE04> {         [               4,          dollar ] };
+    key <AE04> {
+        type="CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               4,          dollar, End, End ]
+    };
     key <AE05> {         [               5,         percent ] };
     key <AE06> {         [               6,     asciicircum ] };
     key <AE07> {         [               7,       ampersand ] };
     key <AE08> {         [               8,        asterisk ] };
     key <AE09> {         [               9,       parenleft ] };
-    key <AE10> {         [               0,      parenright ] };
+    key <AE10> {
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               0,      parenright, Home, Home ]
+    };
     key <AE11> {         [           minus,      underscore ] };
     key <AE12> {         [           equal,            plus ] };
     key <BKSP> {         [       BackSpace,       BackSpace ] };
@@ -1222,8 +1238,8 @@ xkb_symbols "pc+us+inet(evdev)" {
         symbols[Group1]= [               y,               Y ]
     };
     key <AD07> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               u,               U ]
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               u,               U, Prior, Prior ]
     };
     key <AD08> {
         type= "ALPHABETIC",
@@ -1237,7 +1253,10 @@ xkb_symbols "pc+us+inet(evdev)" {
         type= "ALPHABETIC",
         symbols[Group1]= [               p,               P ]
     };
-    key <AD11> {         [     bracketleft,       braceleft ] };
+    key <AD11> {
+        type="CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [     bracketleft,       braceleft, dead_grave, dead_acute ]
+    };
     key <AD12> {         [    bracketright,      braceright ] };
     key <RTRN> {         [          Return ] };
     key <LCTL> {         [       Control_L ] };
@@ -1250,8 +1269,8 @@ xkb_symbols "pc+us+inet(evdev)" {
         symbols[Group1]= [               s,               S ]
     };
     key <AC03> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               d,               D ]
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               d,               D, Next, Next ]
     };
     key <AC04> {
         type= "ALPHABETIC",
@@ -1262,23 +1281,26 @@ xkb_symbols "pc+us+inet(evdev)" {
         symbols[Group1]= [               g,               G ]
     };
     key <AC06> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               h,               H ]
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               h,               H, Left, Left ]
     };
     key <AC07> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               j,               J ]
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               j,               J, Down, Down ]
     };
     key <AC08> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               k,               K ]
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               k,               K, Up, Up ]
     };
     key <AC09> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               l,               L ]
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               l,               L, Right, Right ]
     };
     key <AC10> {         [       semicolon,           colon ] };
-    key <AC11> {         [      apostrophe,        quotedbl ] };
+    key <AC11> {
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[GROUP1]= [      apostrophe,        quotedbl, dead_circumflex, dead_tilde ]
+    };
     key <TLDE> {         [           grave,      asciitilde ] };
     key <LFSH> {         [         Shift_L ] };
     key <BKSL> {         [       backslash,             bar ] };
@@ -1287,8 +1309,8 @@ xkb_symbols "pc+us+inet(evdev)" {
         symbols[Group1]= [               z,               Z ]
     };
     key <AB02> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               x,               X ]
+        type= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               x,               X, Delete, Delete ]
     };
     key <AB03> {
         type= "ALPHABETIC",

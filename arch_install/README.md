@@ -18,7 +18,6 @@
     - wpa_supplicant -B -i wlp3s0 -c <(wpa_passphrase SSID PASSWD)  
     - systemctl start dhcpcd@wlp3s0.service  
 - installing:  
-    - loadkeys br-abnt2  
     - curl https://raw.githubusercontent.com/diegoximenes/dotfiles/master/arch_install/install.sh --output install.sh  
     - bash install.sh ARCH_PART(e.g. /dev/sda1) SWAP_PART(e.g. /dev/sda2)  
 - configuring   

@@ -303,6 +303,7 @@ xkb_types "complete" {
 
     type "CUSTOM_SUPER_SHIFT" {
         modifiers= Super+Shift;
+        preserve[Shift+Super]= Shift;
         map[Shift]= Level2;
         map[Super]= Level3;
         map[Shift+Super]= Level4;

@@ -301,6 +301,16 @@ xkb_types "complete" {
 
     virtual_modifiers NumLock,Alt,LevelThree,LAlt,RAlt,RControl,LControl,ScrollLock,LevelFive,AltGr,Meta,Super,Hyper;
 
+    type "CUSTOM_SUPER_SHIFT" {
+        modifiers= Super+Shift;
+        map[Shift]= Level2;
+        map[Super]= Level3;
+        map[Shift+Super]= Level4;
+        level_name[Level1]= "Level1";
+        level_name[Level2]= "Level2";
+        level_name[Level3]= "Level3";
+        level_name[Level4]= "Level4";
+    };
     type "ONE_LEVEL" {
         modifiers= none;
         level_name[Level1]= "Any";
@@ -1198,8 +1208,8 @@ xkb_symbols "pc+br(abnt2)+inet(evdev)" {
         symbols[Group3]= [   threesuperior ]
     };
     key <AE04> {
-        type[group1]= "FOUR_LEVEL",
-        symbols[Group1]= [               4,          dollar,        sterling,      onequarter ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               4,          dollar,             End,             End ],
         symbols[Group2]= [               4,          dollar ],
         symbols[Group3]= [        sterling ]
     };
@@ -1234,8 +1244,8 @@ xkb_symbols "pc+br(abnt2)+inet(evdev)" {
         symbols[Group3]= [    bracketright ]
     };
     key <AE10> {
-        type[group1]= "FOUR_LEVEL",
-        symbols[Group1]= [               0,      parenright,      braceright,          degree ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               0,      parenright,            Home,            Home ],
         symbols[Group2]= [               0,      parenright ],
         symbols[Group3]= [      braceright ]
     };
@@ -1290,8 +1300,8 @@ xkb_symbols "pc+br(abnt2)+inet(evdev)" {
         symbols[Group3]= [       leftarrow ]
     };
     key <AD07> {
-        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               u,               U,       downarrow,         uparrow ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               u,               U,           Prior,           Prior ],
         symbols[Group2]= [               u,               U ],
         symbols[Group3]= [       downarrow ]
     };
@@ -1340,8 +1350,8 @@ xkb_symbols "pc+br(abnt2)+inet(evdev)" {
         symbols[Group3]= [          ssharp ]
     };
     key <AC03> {
-        type[group1]= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               d,               D,             eth,             ETH ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               d,               D,            Next,            Next ],
         symbols[Group2]= [               d,               D ],
         symbols[Group3]= [             eth,             ETH ]
     };
@@ -1358,31 +1368,31 @@ xkb_symbols "pc+br(abnt2)+inet(evdev)" {
         symbols[Group3]= [             eng,             ENG ]
     };
     key <AC06> {
-        type[group1]= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               h,               H,         hstroke,         Hstroke ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               h,               H,           Left,             Left ],
         symbols[Group2]= [               h,               H ],
         symbols[Group3]= [         hstroke,         Hstroke ]
     };
     key <AC07> {
-        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               j,               J,       dead_hook,       dead_horn ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               j,               J,           Down,             Down ],
         symbols[Group2]= [               j,               J ],
         symbols[Group3]= [       dead_hook ]
     };
     key <AC08> {
-        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               k,               K,             kra,       ampersand ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               k,               K,             Up,               Up ],
         symbols[Group2]= [               k,               K ],
         symbols[Group3]= [             kra ]
     };
     key <AC09> {
-        type[group1]= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               l,               L,         lstroke,         Lstroke ],
+        type[group1]= "CUSTOM_SUPER_SHIFT",
+        symbols[Group1]= [               l,               L,          Right,            Right ],
         symbols[Group2]= [               l,               L ],
         symbols[Group3]= [         lstroke,         Lstroke ]
     };
     key <AC10> {
-        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        type[group1]= "CUSTOM_SUPER_SHIFT",
         symbols[Group1]= [          Return,          Return,        ccedilla,        Ccedilla ],
         symbols[Group2]= [        ccedilla,        Ccedilla ],
         symbols[Group3]= [      dead_acute ]

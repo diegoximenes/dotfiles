@@ -6,7 +6,7 @@
     - bash bootstrap_after_reboot.sh  
 
 - microcode  
-    - packages/pkglist.txt includes intel-ucode. If using an AMD process change to amd-ucode.  
+    - packages/pkglist.txt includes intel-ucode. If using an AMD processor change to amd-ucode.  
 
 - tmux  
     - don't include plugin directory on git since tpm doesn't add git submodules  

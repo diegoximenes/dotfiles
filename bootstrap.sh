@@ -27,6 +27,7 @@ success() {
 }
 
 install_pip3() {
+    echo_step 'Installing pip3 packages...'
     sudo pip3 install --upgrade pynvim # neovim
     sudo pip3 install --upgrade vim-vint # ale vim
     sudo pip3 install --upgrade flake8 python-language-server pycodestyle black # ale python
@@ -37,6 +38,7 @@ install_pip3() {
 }
 
 install_pip2() {
+    echo_step 'Installing pip2 packages...'
     sudo pip2 install --upgrade pynvim # neovim
 }
 
@@ -56,9 +58,7 @@ install_all() {
     echo_step 'Installing foreign_pkglist.txt...'
     yay -S --needed --noconfirm - < "$dir_file/packages/foreign_pkglist.txt"
 
-    echo_step 'Installing pip2 packages...'
     install_pip2
-    echo_step 'Installing pip3 packages...'
     install_pip3
 }
 
@@ -107,6 +107,7 @@ install_yarn_packages() {
 }
 
 set_virtualbox() {
+    echo_step 'Setting virtualbox...'
     sudo modprobe --verbose --force-vermagic vboxdrv
 }
 

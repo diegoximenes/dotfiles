@@ -118,6 +118,8 @@ unzip
 usbutils
 util-linux
 vi
+virtualbox
+virtualbox-host-modules-arch
 vlc
 w3m
 which

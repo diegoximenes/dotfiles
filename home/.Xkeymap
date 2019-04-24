@@ -1256,7 +1256,7 @@ xkb_symbols "pc+us+inet(evdev)" {
     };
     key <AD11> {
         type="CUSTOM_SUPER_SHIFT",
-        symbols[Group1]= [     bracketleft,       braceleft, dead_grave, dead_acute ]
+        symbols[Group1]= [     bracketleft,       braceleft, dead_acute, dead_grave ]
     };
     key <AD12> {         [    bracketright,      braceright ] };
     key <RTRN> {         [          Return ] };
@@ -1303,7 +1303,7 @@ xkb_symbols "pc+us+inet(evdev)" {
     };
     key <AC11> {
         type= "CUSTOM_SUPER_SHIFT",
-        symbols[GROUP1]= [      apostrophe,        quotedbl, dead_circumflex, dead_tilde ]
+        symbols[GROUP1]= [      apostrophe,        quotedbl, dead_tilde, dead_circumflex ]
     };
     key <TLDE> {         [           grave,      asciitilde ] };
     key <LFSH> {         [         Shift_L ] };

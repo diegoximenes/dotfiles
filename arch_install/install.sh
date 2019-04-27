@@ -55,7 +55,6 @@ format_disk() {
 
 pre_install() {
     echo_step 'Pre-installation...'
-    loadkeys br-abnt2
     timedatectl set-ntp true
     format_disk
     mount "$arch_part" /mnt

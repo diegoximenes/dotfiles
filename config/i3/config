@@ -109,6 +109,22 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# mouse movement with keyboard
+set $large_mouse_delta 80
+set $small_mouse_delta 5
+bindsym $mod+Control+k exec xdotool mousemove_relative -- 0 -$large_mouse_delta
+bindsym $mod+Control+j exec xdotool mousemove_relative -- 0 +$large_mouse_delta
+bindsym $mod+Control+h exec xdotool mousemove_relative -- -$large_mouse_delta 0
+bindsym $mod+Control+l exec xdotool mousemove_relative -- +$large_mouse_delta 0
+bindsym $mod+Control+Shift+k exec xdotool mousemove_relative -- 0 -$small_mouse_delta
+bindsym $mod+Control+Shift+j exec xdotool mousemove_relative -- 0 +$small_mouse_delta
+bindsym $mod+Control+Shift+h exec xdotool mousemove_relative -- -$small_mouse_delta 0
+bindsym $mod+Control+Shift+l exec xdotool mousemove_relative -- +$small_mouse_delta 0
+
+# mouse click with keyboard
+bindsym $mod+Control+space exec xdotool click 1
+bindsym $mod+Control+Shift+space exec xdotool click 3
+
 # sreen brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
@@ -159,7 +175,6 @@ floating_maximum_size 800 x 800
 for_window [class=".*"] title_format "%class: %title"
 
 # config keyboard
-exec_always setxkbmap br abnt2
 exec_always xkbcomp ~/.Xkeymap $DISPLAY
 
 # polybar

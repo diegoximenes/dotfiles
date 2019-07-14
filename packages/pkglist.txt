@@ -10,6 +10,7 @@ bind-tools
 binutils
 bison
 bzip2
+cifs-utils
 coreutils
 cronie
 cryptsetup
@@ -31,10 +32,12 @@ fzf
 gawk
 gcc
 gcc-libs
+gdb
 gettext
 git
 glibc
 gnome-sound-recorder
+gparted
 grep
 grub
 gucharmap
@@ -122,6 +125,7 @@ virtualbox
 virtualbox-host-modules-arch
 vlc
 w3m
+wget
 which
 wmctrl
 wpa_supplicant

@@ -2,3 +2,4 @@ dropbox
 google-chrome
 polybar
 yay
+zoom

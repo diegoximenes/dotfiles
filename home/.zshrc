@@ -8,6 +8,8 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export FZF_DEFAULT_COMMAND='find .' # includes hidden files on search
 export ZSH=$HOME/.oh-my-zsh
 
+export GOPATH=$HOME/go
+
 # adds global yarn bin path to PATH
 if [[ -x "$(which yarn)" ]]; then
     path_to_yarn_bins=$(yarn global bin 2> /dev/null)

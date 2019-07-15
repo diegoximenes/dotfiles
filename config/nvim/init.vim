@@ -39,6 +39,7 @@ Plug 'markonm/traces.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'jremmen/vim-ripgrep'
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

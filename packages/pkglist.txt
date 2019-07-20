@@ -37,6 +37,7 @@ gettext
 git
 glibc
 gnome-sound-recorder
+go
 gparted
 grep
 grub

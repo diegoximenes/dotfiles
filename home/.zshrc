@@ -87,6 +87,22 @@ clip() {
     xclip -selection clipboard && xclip -o -selection clipboard
 }
 
+mkvirtualenv_jupyter() {
+    local env="$1"
+    mkvirtualenv -i ipykernel "$env"
+    workon "$env"
+    ipython kernel install --user --name="$env"
+}
+
+rmvirtualenv_jupyter() {
+    local env="$1"
+    if [[ "$VIRTUAL_ENV" == "$WORKON_HOME/$env" ]]; then
+        deactivate
+    fi
+    rmvirtualenv "$env"
+    jupyter kernelspec uninstall "$env"
+}
+
 ################################################################################
 # oh-my-zsh
 ################################################################################

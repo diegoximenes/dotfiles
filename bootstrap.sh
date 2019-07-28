@@ -34,7 +34,7 @@ install_pip3() {
     sudo pip3 install --upgrade virtualenvwrapper
     sudo pip3 install --upgrade thefuck
     sudo pip3 install --upgrade i3ipc # i3
-    sudo pip3 install --upgrade jupyter
+    sudo pip3 install --upgrade jupyterlab
 }
 
 install_pip2() {

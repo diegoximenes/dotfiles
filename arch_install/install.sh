@@ -64,7 +64,7 @@ pre_install() {
 
 install() {
     echo_step 'Installation...'
-    pacstrap /mnt base wpa_supplicant grub git sudo
+    pacstrap /mnt base wpa_supplicant git sudo
 }
 
 ################################################################################

@@ -26,16 +26,16 @@ success() {
 ################################################################################
 
 if [[ ! $# -eq 3 ]]; then
-    echo "usage: bash configure.sh GRUB_DISK HOST_NAME USER"
+    echo "usage: bash configure.sh EFI_PART HOST_NAME USER"
     exit
 fi
 
-grub_disk="$1"
+efi_part="$1"
 host_name="$2"
 user="$3"
 
 while true; do
-    echo "GRUB_DISK=$grub_disk"
+    echo "EFI_PART=$efi_part"
     echo "HOST_NAME=$host_name"
     echo "USER=$user"
     read -p 'Proceed? (y/n): ' yn
@@ -67,7 +67,10 @@ set_time_zone() {
 }
 
 set_grub() {
-    grub-install --target=i386-pc "$grub_disk"
+    pacman -S grub efibootmgr dosfstools os-prober mtools
+    mkdir /boot/EFI
+    mount "$efi_part" /boot/EFI
+    grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck
     grub-mkconfig -o /boot/grub/grub.cfg
 }
 

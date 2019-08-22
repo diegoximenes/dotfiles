@@ -1,20 +1,20 @@
 - create bootable usb:  
     - https://www.archlinux.org/download/  
     - dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync  
-- boot in legacy mode  
+- boot in UEFI mode. Disable secure boot.  
 - partition:  
-    - create a DOS partition table with fdisk:  
+    - create a GPT partition table with fdisk:  
         - fdisk DISK (e.g. /dev/sda)  
-        - fdisk> o # creates DOS partition table  
-        - fdisk> w # saves  
-        - fdisk> q # quits  
+        - fdisk> g # creates GPT partition table  
+        - fdisk> w # save and quit  
     - create the partitions:  
         - cfdisk DISK (e.g. /dev/sda)  
-            - create swap: Type: Linux swap / Solaris  
-            - create filesystem: Type: Linux  
+            - create EFI: 300M EFI System
+            - create swap: Type: Linux swap  
+            - create filesystem: Type: Linux filesystem  
         - check with lsblk  
 - connect wifi:  
-    - ip link set wlp3s0 up  
+    - ip link set wlp3s0 up # check cards with: ifconfig -a  
     - wpa_supplicant -B -i wlp3s0 -c <(wpa_passphrase SSID PASSWD)  
     - systemctl start dhcpcd@wlp3s0.service  
 - installing:  
@@ -24,6 +24,6 @@
     - arch-chroot /mnt  
     - cd /tmp  
     - curl https://raw.githubusercontent.com/diegoximenes/dotfiles/master/arch_install/configure.sh --output configure.sh  
-    - bash configure.sh GRUB_DISK(e.g. /dev/sda) HOST_NAME USER  
+    - bash configure.sh EFI_PART(e.g. /dev/sda1) HOST_NAME USER  
     - exit  
     - reboot  

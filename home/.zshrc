@@ -58,6 +58,20 @@ bindkey "\eOS" vi-cmd-mode # F4
 # commands
 ################################################################################
 
+wifi_list() {
+    nmcli device wifi list
+}
+
+wifi_connect() {
+    local ssid="$1"
+    local password="$2"
+    nmcli device wifi connect "$ssid" password "$password"
+}
+
+interface_list() {
+    nmcli device
+}
+
 myps() {
     local cmd=$1
     local cols="ppid,stat,%cpu,%mem,etime,start,user,pid,cmd"

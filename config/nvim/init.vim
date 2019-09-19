@@ -151,6 +151,10 @@ noremap <Right> <NOP>
 " <C-*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" tags navigation
+nmap <C-m> :pop<CR>
+nmap <C-q> :tags<CR>
+
 "copy/paste outsize vim
 vmap <C-c> "+y
 nmap <C-v> "+p
@@ -169,12 +173,12 @@ nmap <C-s> :Files<CR>
 nmap <C-b> :ALEHover<CR>
 nmap <C-t> :ALEFindReferences<CR>
 nmap <C-f> :ALEFix<CR>
-nmap <C-y> :ALEGoToDefinitionInTab<CR>
+nmap <C-i> :ALEGoToDefinition<CR>
 nmap <silent> <C-z> <Plug>(ale_detail)
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger='<C-i>'
-let g:UltiSnipsJumpForwardTrigger='<C-i>'
+let g:UltiSnipsExpandTrigger='<C-y>'
+let g:UltiSnipsJumpForwardTrigger='<C-y>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <F*> mappings

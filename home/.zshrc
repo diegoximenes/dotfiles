@@ -7,6 +7,7 @@ export EDITOR="nvim"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export FZF_DEFAULT_COMMAND='find .' # includes hidden files on search
 export ZSH=$HOME/.oh-my-zsh
+export PAGER=nvimpager
 
 # go
 export GOPATH="$HOME/go"

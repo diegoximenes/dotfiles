@@ -142,6 +142,42 @@ source $ZSH/oh-my-zsh.sh
 source /usr/bin/virtualenvwrapper.sh
 eval $(thefuck --alias)
 
+
+################################################################################
+# zle
+################################################################################
+
+normal_cursor='\e[1 q'
+insert_cursor='\e[5 q'
+
+# change cursor shape for different vi modes
+zle-keymap-select() {
+    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+        echo -ne "$normal_cursor"
+    elif [[ ${KEYMAP} == main ]] ||
+      [[ ${KEYMAP} == viins ]] ||
+      [[ ${KEYMAP} = '' ]] ||
+      [[ $1 = 'beam' ]]; then
+        echo -ne "$insert_cursor"
+    fi
+}
+zle -N zle-keymap-select
+
+zle-line-init() {
+    # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    zle -K viins
+    echo -ne "$insert_cursor"
+}
+zle -N zle-line-init
+
+# set startup cursor
+echo -ne "$insert_cursor"
+
+# set new prompt cursor
+preexec() {
+    echo -ne "$insert_cursor"
+}
+
 ################################################################################
 # alias
 ################################################################################

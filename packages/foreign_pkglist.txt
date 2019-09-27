@@ -2,5 +2,6 @@ dropbox
 google-chrome
 nvimpager-git
 polybar
+rofi-greenclip
 yay
 zoom

@@ -151,7 +151,7 @@ bindsym $mod+Shift+d exec ~/.scripts/select_display.sh
 bindsym $mod+d exec ~/.scripts/select_display.sh --default_config
 
 # show clipboard
-bindsym $mod+semicolon exec ~/.scripts/clipboard.sh
+bindsym $mod+semicolon exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command "{cmd}"
 
 # back and forth between workspaces
 bindsym $mod+t workspace back_and_forth

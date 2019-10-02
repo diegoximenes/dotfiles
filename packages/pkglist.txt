@@ -88,6 +88,7 @@ pciutils
 perl
 pkgconf
 pkgfile
+prettier
 procps-ng
 psmisc
 pulseaudio
@@ -141,6 +142,7 @@ xorg-xev
 xorg-xinit
 xorg-xinput
 xsel
+yamllint
 yarn
 zathura
 zathura-djvu

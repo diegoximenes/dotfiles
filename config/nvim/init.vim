@@ -246,8 +246,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
 " ale
-let b:ale_fixers = {'typescript': ['tslint'], 'json': ['jq'], 'python': ['black']}
-let b:ale_linters = {'python': ['pyls', 'pycodestyle'], 'json': ['jsonlint']}
+let b:ale_fixers = {'yaml': ['prettier'], 'typescript': ['tslint'], 'json': ['jq'], 'python': ['black']}
+let b:ale_linters = {'yaml': ['yamllint'], 'python': ['pyls', 'pycodestyle'], 'json': ['jsonlint']}
 let g:ale_python_black_options='--line-length 80'
 
 " semshi

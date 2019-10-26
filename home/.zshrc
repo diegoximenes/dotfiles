@@ -13,12 +13,6 @@ export PAGER=nvimpager
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-# yarn
-if [[ -x "$(which yarn)" ]]; then
-    path_to_yarn_bins=$(yarn global bin 2> /dev/null)
-    export PATH=$PATH:$path_to_yarn_bins
-fi
-
 # virtualenvwrapper
 export WORKON_HOME=$HOME/python_virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3

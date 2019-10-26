@@ -101,11 +101,6 @@ set_pkgfile() {
     sudo pkgfile --update
 }
 
-install_yarn_packages() {
-    echo_step 'Installing yarn packages...'
-    yarn global add
-}
-
 set_virtualbox() {
     echo_step 'Setting virtualbox...'
     sudo modprobe --verbose --force-vermagic vboxdrv
@@ -115,7 +110,6 @@ opt="$1"
 
 [[ "$opt" == '--install' ]] && install_all
 symlink
-[[ "$opt" == '--install' ]] && install_yarn_packages
 set_network_manager
 set_pulseaudio
 set_shell

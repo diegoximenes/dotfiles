@@ -1,5 +1,6 @@
 dropbox
 google-chrome
+nodejs-jsonlint
 nvimpager-git
 polybar
 rofi-greenclip

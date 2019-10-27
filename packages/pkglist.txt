@@ -27,6 +27,7 @@ fd
 file
 filesystem
 findutils
+flake8
 flex
 fzf
 gawk
@@ -53,6 +54,7 @@ iproute2
 iputils
 jfsutils
 jq
+jupyterlab
 less
 libnotify
 libreoffice-still
@@ -92,7 +94,11 @@ prettier
 procps-ng
 psmisc
 pulseaudio
+python-black
+python-language-server
 python-pip
+python-pynvim
+python-virtualenvwrapper
 python2-pip
 ranger
 reiserfsprogs
@@ -113,6 +119,7 @@ texinfo
 texlive-bin
 texlive-core
 texlive-latexextra
+thefuck
 tig
 tmux
 translate-shell
@@ -123,6 +130,7 @@ unzip
 usbutils
 util-linux
 vi
+vint
 virtualbox
 virtualbox-host-modules-arch
 vlc

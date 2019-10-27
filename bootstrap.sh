@@ -26,22 +26,6 @@ success() {
     echo -e "${GREEN}SUCCESS${NC}"
 }
 
-install_pip3() {
-    echo_step 'Installing pip3 packages...'
-    sudo pip3 install --upgrade pynvim # neovim
-    sudo pip3 install --upgrade vim-vint # ale vim
-    sudo pip3 install --upgrade flake8 python-language-server pycodestyle black # ale python
-    sudo pip3 install --upgrade virtualenvwrapper
-    sudo pip3 install --upgrade thefuck
-    sudo pip3 install --upgrade i3ipc # i3
-    sudo pip3 install --upgrade jupyterlab
-}
-
-install_pip2() {
-    echo_step 'Installing pip2 packages...'
-    sudo pip2 install --upgrade pynvim # neovim
-}
-
 install_all() {
     echo_step 'Installing pkglist.txt...'
     sudo pacman -S --needed --noconfirm - < "$dir_file/packages/pkglist.txt"
@@ -57,9 +41,6 @@ install_all() {
 
     echo_step 'Installing foreign_pkglist.txt...'
     yay -S --needed --noconfirm - < "$dir_file/packages/foreign_pkglist.txt"
-
-    install_pip2
-    install_pip3
 }
 
 symlink() {

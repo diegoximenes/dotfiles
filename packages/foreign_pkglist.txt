@@ -3,6 +3,6 @@ google-chrome
 nodejs-jsonlint
 nvimpager-git
 polybar
+python-i3ipc
 rofi-greenclip
 yay
-zoom

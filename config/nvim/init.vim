@@ -93,6 +93,9 @@ autocmd FileType markdown let b:noRemoveWhitespace=1
 " remove blank end lines before saving files
 autocmd BufWritePre * call RemoveEndBlankLines()
 
+" template for new .sh files
+autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

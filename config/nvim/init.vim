@@ -96,6 +96,9 @@ autocmd BufWritePre * call RemoveEndBlankLines()
 " template for new .sh files
 autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
 
+" build go package on load/save, useful to catch errors
+autocmd BufWritePost,BufReadPost *.go :GoBuild
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,12 +1,15 @@
 [user]
-    name = Diego Ximenes Mendes
+    name = Diego Ximenes
     email = dxmendes1@gmail.com
 
 [alias]
-    # stage deleted files
     stagedelete = "!git ls-files --deleted -z | xargs -0 git rm"
     undolastcommit = reset HEAD~
     deleteuselessbranches = "!f() { git branch | grep -v 'master' | grep -v '^*' | xargs git branch -d; }; f;"
+    pullhard = "!f() { \
+            git fetch; \
+            git status -sb | grep '##*' | cut -d'.' -f4 | cut -d' ' -f1 | xargs git reset --hard; \
+        }; f;"
     l = log --graph --decorate
 
 [core]

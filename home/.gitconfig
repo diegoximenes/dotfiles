@@ -10,7 +10,6 @@
             git fetch; \
             git status -sb | grep '##*' | cut -d'.' -f4 | cut -d' ' -f1 | xargs git reset --hard; \
         }; f;"
-    l = log --graph --decorate
 
 [core]
     editor = nvim

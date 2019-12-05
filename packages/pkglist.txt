@@ -1,7 +1,6 @@
 android-file-transfer
 atool
 autoconf
-autojump
 automake
 bash
 bat
@@ -11,6 +10,7 @@ binutils
 bison
 bzip2
 cifs-utils
+cmake
 coreutils
 cronie
 cryptsetup
@@ -96,6 +96,7 @@ procps-ng
 psmisc
 pulseaudio
 python-black
+python-i3ipc
 python-language-server
 python-pip
 python-pynvim

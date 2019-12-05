@@ -1,3 +1,4 @@
+autojump
 dropbox
 google-chrome
 nodejs-jsonlint

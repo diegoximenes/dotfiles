@@ -26,6 +26,10 @@ success() {
     echo -e "${GREEN}SUCCESS${NC}"
 }
 
+change_owner() {
+    sudo chown -R root:root "$dir_file/etc"
+}
+
 install_all() {
     echo_step 'Installing pkglist.txt...'
     sudo pacman -S --needed --noconfirm - < "$dir_file/packages/pkglist.txt"
@@ -91,6 +95,7 @@ set_virtualbox() {
 
 opt="$1"
 
+change_owner
 [[ "$opt" == '--install' ]] && install_all
 symlink
 set_network_manager

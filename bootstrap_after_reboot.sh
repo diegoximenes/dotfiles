@@ -13,8 +13,6 @@ finish() {
 }
 trap finish EXIT
 
-dir_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 echo_step() {
     local step
     step="$1"
@@ -24,7 +22,6 @@ echo_step() {
 success() {
     echo -e "${GREEN}SUCCESS${NC}"
 }
-
 
 set_cron() {
     echo_step 'Setting cron...'

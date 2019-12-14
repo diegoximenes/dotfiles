@@ -69,20 +69,6 @@ myps() {
     fi
 }
 
-mytop() {
-    local cmd=$1
-    if [[ "$cmd" == "" ]]; then
-        top
-    else
-        local pids=$(pgrep -d',' -f $cmd)
-        if [[ "$pids" == "" ]]; then
-            echo "command pattern not found."
-        else
-            top -p $pids
-        fi
-    fi
-}
-
 clip() {
     xclip -selection clipboard && xclip -o -selection clipboard
 }

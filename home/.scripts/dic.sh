@@ -15,6 +15,10 @@ dic() {
         curl -s "https://tuna.thesaurus.com/pageData/$word" | \
         jq -r '.data')"
 
+    if [[ "$response" == "" ]]; then
+        echo "offline"
+        return
+    fi
     if [[ "$response" == "null" ]]; then
         echo "not found"
         return

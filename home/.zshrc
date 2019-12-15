@@ -5,8 +5,8 @@
 export KEYTIMEOUT=1 # default is bigger, in case of problems remove this line
 export EDITOR="nvim"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-export FZF_DEFAULT_COMMAND='find .' # includes hidden files on search
 export FZF_DEFAULT_OPTS='-e'
+export FZF_CTRL_T_COMMAND='find .' # includes hidden files on search
 export ZSH=$HOME/.oh-my-zsh
 export PAGER=nvimpager
 

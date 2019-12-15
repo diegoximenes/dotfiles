@@ -10,6 +10,7 @@ binutils
 bison
 bzip2
 cifs-utils
+clang
 cmake
 coreutils
 cronie
@@ -99,6 +100,7 @@ python-black
 python-i3ipc
 python-language-server
 python-pip
+python-pipenv
 python-pynvim
 python-virtualenvwrapper
 python2-pip

@@ -76,8 +76,8 @@ clip() {
 
 mkvirtualenv_jupyter() {
     local env="$1"
-    mkvirtualenv -i ipykernel "$env"
-    workon "$env"
+    mkvirtualenv "$env"
+    pip install pynvim ipykernel pylint
     ipython kernel install --user --name="$env"
 }
 

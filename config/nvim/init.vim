@@ -33,13 +33,13 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'diepm/vim-rest-console'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe', {'do': ':!~/.local/share/nvim/plugged/YouCompleteMe/install.py --clang-completer'}
 Plug 'osyo-manga/vim-anzu'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,7 +140,9 @@ set formatoptions=troqj " format comment leader when joining/creating line
 set tabstop=4
 set shiftwidth=4
 set expandtab
-execute "set colorcolumn=".max_line_length
+set termguicolors
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
+execute 'set colorcolumn='.max_line_length
 
 let mapleader=','
 
@@ -256,16 +258,19 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
 " ale
-let b:ale_fixers = {'yaml': ['prettier'], 'typescript': ['tslint'], 'json': ['jq'], 'python': ['black']}
-let b:ale_linters = {'yaml': ['yamllint'], 'python': ['pyls', 'pycodestyle'], 'json': ['jsonlint']}
+let b:ale_fixers = {
+      \ 'yaml': ['prettier'],
+      \ 'typescript': ['tslint'],
+      \ 'json': ['jq'],
+      \ 'python': ['black']
+      \ }
+let b:ale_linters = {
+      \ 'python': ['pyls'],
+      \ }
 let g:ale_python_black_options='--line-length 80'
 
 " semshi
 let g:semshi#mark_selected_nodes=0
-
-" YouCompleteMe
-let g:ycm_register_as_syntastic_checker = 0
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
 " incsearch
 set hlsearch
@@ -297,6 +302,35 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 " integration of incsearch with easymotion
 map / <Plug>(incsearch-easymotion-stay)
 
-" nvim
-set termguicolors
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" coc.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" use <cr> to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" set python path based on 'which python'. Useful when working with virtualenv
+call coc#config('python', {
+      \   'pythonPath': split(execute('!which python'), '\n')[-1]
+      \ })
+
+" to uninstall remove an element of this array and :CocUninstall coc-extension
+let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-go',
+      \ 'coc-tsserver',
+      \ 'coc-yaml',
+      \ 'coc-python',
+      \ 'coc-marketplace',
+      \ 'coc-sh',
+      \ ]

@@ -175,3 +175,4 @@ trans_cmd=" trans -show-original n -show-original-phonetics n -show-translation-
 alias trans_pt="$trans_cmd -s pt -t en"
 alias trans_en="$trans_cmd -s en -t pt"
 alias jsonpp="python -m json.tool"
+alias dic="bash ~/.scripts/dic.sh"

@@ -1,2 +1,5 @@
 /home/.tmux
 !/home/.tmux/plugins/tpm
+/home/.newsboat/*
+!/home/.newsboat/config
+!/home/.newsboat/urls

@@ -3,6 +3,7 @@ atool
 autoconf
 automake
 bash
+bash-language-server
 bat
 bc
 bind-tools

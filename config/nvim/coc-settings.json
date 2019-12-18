@@ -1,6 +1,7 @@
 {
   "diagnostic.checkCurrentLine": true,
   "coc.preferences.extensionUpdateCheck": "never",
+  "suggest.enablePreselect": false,
   "languageserver": {
     "clangd": {
       "command": "clangd",

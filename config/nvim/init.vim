@@ -164,6 +164,7 @@ nmap <C-q> :tags<CR>
 vmap <C-c> "+y
 nmap <C-v> "+p
 imap <C-v> <C-r>+
+cnoremap <C-v> <C-r>"
 
 " visual-block mode
 noremap <C-a> <C-v>

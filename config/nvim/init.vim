@@ -50,7 +50,9 @@ fun! RemoveTrailingWhitespace()
     if exists('b:noRemoveWhitespace')
         return
     endif
-    %s/\s\+$//e
+    let save_cursor = getpos('.')
+    :silent! %s/\s\+$//e
+    call setpos('.', l:save_cursor)
 endfun
 
 function RemoveEndBlankLines()
@@ -114,7 +116,6 @@ colorscheme molokai
 set mouse=a
 set showcmd
 set smartindent
-set tabstop=4 shiftwidth=4
 set cursorline
 set incsearch
 set number

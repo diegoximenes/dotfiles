@@ -110,4 +110,5 @@ set_pulseaudio
 set_shell
 set_pkgfile
 set_virtualbox
+set_vnstat
 success

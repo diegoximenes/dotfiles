@@ -115,6 +115,7 @@ s-nail
 sed
 shadow
 shellcheck
+smem
 sudo
 sysfsutils
 systemd-sysvcompat

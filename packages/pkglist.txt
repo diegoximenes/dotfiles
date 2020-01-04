@@ -53,6 +53,7 @@ i3lock
 inetutils
 intel-ucode
 iproute2
+iptraf-ng
 iputils
 jfsutils
 jq

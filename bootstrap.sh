@@ -27,6 +27,7 @@ success() {
 }
 
 change_owner() {
+    echo_step 'Changing owner...'
     sudo chown -R root:root "$dir_file/etc"
 }
 
@@ -91,6 +92,12 @@ set_pkgfile() {
 set_virtualbox() {
     echo_step 'Setting virtualbox...'
     sudo modprobe --verbose --force-vermagic vboxdrv
+}
+
+set_vnstat() {
+    echo_step 'Setting vnstat...'
+    sudo systemctl enable vnstat.service
+    sudo systemctl start vnstat.service
 }
 
 opt="$1"

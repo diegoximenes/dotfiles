@@ -141,6 +141,7 @@ vint
 virtualbox
 virtualbox-host-modules-arch
 vlc
+vnstat
 w3m
 wget
 which

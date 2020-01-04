@@ -25,8 +25,8 @@ success() {
 
 set_cron() {
     echo_step 'Setting cron...'
-    systemctl enable cronie.service
-    systemctl start cronie.service
+    sudo systemctl enable cronie.service
+    sudo systemctl start cronie.service
     crontab crontab.txt
 }
 

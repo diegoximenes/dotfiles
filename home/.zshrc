@@ -100,7 +100,6 @@ plugins=(
     git
     vi-mode
     autojump
-    fuck
     fzf
     command-not-found
     zsh-syntax-highlighting

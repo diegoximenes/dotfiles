@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yay -Syu
+yay -Syu
 sudo pacman -Syu
 
 # remove orphan packages

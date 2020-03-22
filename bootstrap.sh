@@ -63,6 +63,7 @@ symlink() {
     sudo ln -snf "$dir_file/etc/systemd/"* /etc/systemd/
     sudo ln -snf "$dir_file/etc/X11/xorg.conf.d/"* /etc/X11/xorg.conf.d/
     sudo ln -snf "$dir_file/etc/NetworkManager/"* /etc/NetworkManager/
+    sudo ln -snf "$dir_file/etc/pacman.d/"* /etc/pacman.d/
 }
 
 set_shell() {

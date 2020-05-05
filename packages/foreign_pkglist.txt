@@ -1,5 +1,4 @@
 autojump
-dropbox
 google-chrome
 nodejs-jsonlint
 nvimpager-git

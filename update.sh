@@ -6,4 +6,5 @@ sudo pacman -Syu
 # remove orphan packages
 sudo pacman -Rns "$(pacman -Qtdq)"
 
-nvim +PlugUpdate +PlugClean +CocUpdate
+eval "$(ssh-agent)"
+ssh-add

@@ -329,7 +329,6 @@ call coc#config('python', {
 " to uninstall remove an element of this array and :CocUninstall coc-extension
 let g:coc_global_extensions = [
       \ 'coc-json',
-      \ 'coc-go',
       \ 'coc-tsserver',
       \ 'coc-yaml',
       \ 'coc-python',

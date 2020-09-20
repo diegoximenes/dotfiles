@@ -78,7 +78,7 @@ mkvirtualenv_jupyter() {
     local env="$1"
     mkvirtualenv "$env"
     pip install pynvim ipykernel pylint
-    ipython kernel install --user --name="$env"
+    python -m ipykernel install --user --name="$env"
 }
 
 rmvirtualenv_jupyter() {

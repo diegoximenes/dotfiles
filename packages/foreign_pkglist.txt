@@ -1,5 +1,6 @@
 autojump
 google-chrome
+jupyter_nbextensions_configurator
 nodejs-jsonlint
 nvimpager-git
 polybar

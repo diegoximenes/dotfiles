@@ -9,6 +9,7 @@ export FZF_DEFAULT_OPTS='-e'
 export FZF_CTRL_T_COMMAND='find .' # includes hidden files on search
 export ZSH=$HOME/.oh-my-zsh
 export PAGER=nvimpager
+export DISABLE_AUTO_UPDATE="true" # disable oh-my-zsh auto update
 
 # go
 export GOPATH="$HOME/go"

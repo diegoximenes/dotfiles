@@ -261,6 +261,7 @@ let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
 " ale
 let b:ale_fixers = {
+      \ 'html': ['prettier'],
       \ 'yaml': ['prettier'],
       \ 'typescript': ['tslint'],
       \ 'json': ['jq'],

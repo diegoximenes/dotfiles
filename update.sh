@@ -5,12 +5,13 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-set -e
 finish() {
     if [[ ! "$?" -eq 0 ]]; then
         echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
+        exit 1
     fi
 }
+set -e
 trap finish EXIT
 
 echo_step() {
@@ -41,7 +42,20 @@ update_arch_packages() {
 
 remove_orphan_arch_packages() {
     echo_step 'Removing orphan arch packages...'
-    sudo pacman -Rns "$(pacman -Qtdq)"
+
+    local packages_to_remove
+    set +e
+    trap "" EXIT
+    # this command exits with non zero code if the result is empty
+    packages_to_remove="$(pacman -Qtdq)"
+    set -e
+    trap finish EXIT
+    if [[ ! "$?" -eq 0 ]] && [[ "$packages_to_remove" != "" ]]; then
+        finish
+    fi
+    if [[ "$packages_to_remove" != "" ]]; then
+        sudo pacman -Rns $packages_to_remove
+    fi
 }
 
 update_nvim() {

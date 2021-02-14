@@ -1,5 +1,31 @@
 #!/bin/bash
 
+CONFIG_FILE_PATH="$HOME/.config/dotfiles/config.json"
+
+prepare_config_file() {
+    mkdir -p "${CONFIG_FILE_PATH%/*}"
+
+    local invalid
+    invalid=false
+
+    local config
+    # strip empty char
+    config=$(xargs < "$CONFIG_FILE_PATH")
+
+    if ! jq -e . > /dev/null 2>&1 <<< "$config"; then
+        # invalid json
+        invalid=true
+    fi
+    if [[ "$config" == "" ]]; then
+        # empty string
+        invalid=true
+    fi
+
+    if $invalid; then
+        echo "{}" > "$CONFIG_FILE_PATH"
+    fi
+}
+
 disconnected="$(xrandr -q | grep 'disconnected' | awk '{print $1}')"
 connected="$(xrandr -q | grep ' connected' | awk '{print $1}')"
 
@@ -10,7 +36,7 @@ restart_dunst_i3() {
     pgrep -x dunst >/dev/null && killall dunst
     setsid dunst 2>/dev/null &
 
-    # restart i3 to ensure proper location of polybar
+    # restart i3 to ensure polybar's proper location
     i3-msg restart
 }
 
@@ -57,6 +83,8 @@ mirror_screen() {
         fi
     done
     eval "$xrandr_cmd"
+
+    jq '. + {"screen": {"mode": "mirror"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
 }
 
 split_screen() {
@@ -66,6 +94,8 @@ split_screen() {
         | rofi -dmenu -i -p "which side of $primary should $secondary be on?")"
     xrandr --output "$primary" --auto --scale 1.0x1.0 \
         --output "$secondary" --"$direction" "$primary" --auto --scale 1.0x1.0
+
+    jq '. + {"screen": {"mode": "split", "primary": "'"$primary"'"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
 }
 
 select_screen() {
@@ -82,6 +112,8 @@ select_screen() {
         fi
     done
     eval "$xrandr_cmd"
+
+    jq '. + {"screen": {"mode": "single"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
 }
 
 select_primary() {
@@ -114,7 +146,6 @@ split_config() {
         exit_case_empty "$primary"
         split_screen "$primary" "$secondary"
     fi
-
 }
 
 mirror_largest_screen() {
@@ -173,6 +204,8 @@ default_config() {
         mirror_largest_screen
     fi
 }
+
+prepare_config_file
 
 case "$1" in
     --default_config)

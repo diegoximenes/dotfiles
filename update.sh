@@ -37,7 +37,7 @@ update_submodules() {
 
 update_arch_packages() {
     echo_step 'Updating arch packages...'
-    yay -Syu
+    yay -Syu --answerupgrade None --answerclean All --answerdiff None --removemake --noconfirm
 }
 
 remove_orphan_arch_packages() {
@@ -54,7 +54,7 @@ remove_orphan_arch_packages() {
         finish
     fi
     if [[ "$packages_to_remove" != "" ]]; then
-        sudo pacman -Rns $packages_to_remove
+        sudo pacman -Rns $packages_to_remove --noconfirm
     fi
 }
 

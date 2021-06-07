@@ -1,0 +1,14 @@
+[Unit]
+Description=Dropbox as a user service
+After=local-fs.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/dropbox
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=default.target

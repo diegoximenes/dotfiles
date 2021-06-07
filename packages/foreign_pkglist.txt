@@ -1,4 +1,5 @@
 autojump
+dropbox
 google-chrome
 jupyter_nbextensions_configurator
 nodejs-jsonlint

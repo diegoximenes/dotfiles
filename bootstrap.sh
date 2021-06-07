@@ -58,6 +58,8 @@ symlink() {
     ln -snf "$dir_file/oh-my-zsh/custom/plugins/"* "$dir_home/.oh-my-zsh/custom/plugins/"
     mkdir -p "$dir_home/.local/share/applications/"
     ln -snf "$dir_file/local/share/applications/"* "$dir_home/.local/share/applications/"
+    mkdir -p "$dir_home/.config/systemd/user/"
+    ln -snf "$dir_file/systemd/user/"* "$dir_home/.config/systemd/user/"
 
     sudo ln -snf "$dir_file/etc/resolv.conf" /etc/resolv.conf
     sudo ln -snf "$dir_file/etc/systemd/"* /etc/systemd/
@@ -98,7 +100,11 @@ set_virtualbox() {
 set_vnstat() {
     echo_step 'Setting vnstat...'
     sudo systemctl enable vnstat.service
-    sudo systemctl start vnstat.service
+}
+
+set_dropbox() {
+    echo_step 'Setting dropbox...'
+    systemctl --user enable dropbox
 }
 
 opt="$1"
@@ -112,4 +118,5 @@ set_shell
 set_pkgfile
 set_virtualbox
 set_vnstat
+set_dropbox
 success

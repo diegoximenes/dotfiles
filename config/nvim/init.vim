@@ -323,4 +323,5 @@ let g:coc_global_extensions = [
       \ 'coc-python',
       \ 'coc-marketplace',
       \ 'coc-sh',
+      \ 'coc-metals',
       \ ]

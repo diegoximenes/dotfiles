@@ -5,40 +5,36 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'brooth/far.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'gregsexton/gitv'
-Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-sleuth'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'tmhedberg/SimpylFold'
-Plug 'vim-scripts/Tabmerge'
+Plug 'easymotion/vim-easymotion'
+Plug 'markonm/traces.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
-Plug 'leafgarland/typescript-vim'
-Plug 'SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'jparise/vim-graphql'
 Plug 'farmergreg/vim-lastplace'
-Plug 'plasticboy/vim-markdown'
 Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'diepm/vim-rest-console'
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-surround'
-Plug 'osyo-manga/vim-anzu'
-Plug 'markonm/traces.vim'
-Plug 'tpope/vim-sleuth'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'leafgarland/typescript-vim'
+Plug 'jparise/vim-graphql'
+Plug 'plasticboy/vim-markdown'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'osyo-manga/vim-anzu'
+Plug 'scrooloose/nerdtree'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'sjl/gundo.vim'
+Plug 'brooth/far.vim'
+Plug 'junegunn/fzf.vim'
+" Plug 'tpope/vim-surround'
+" Plug 'gregsexton/gitv'
+" Plug 'tmhedberg/SimpylFold'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -184,18 +180,11 @@ nmap <silent> <C-r> <Plug>(coc-rename)
 nmap <silent> <C-q> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-w> <Plug>(coc-diagnostic-next)
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger='<C-,>'
-let g:UltiSnipsJumpForwardTrigger='<C-,>'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <F*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let vim_markdown_preview_hotkey='<F2>'
-
-" vim-rest-console
-let g:vrc_trigger = '<F3>'
 
 " reload file
 nmap <F5> :edit<CR>
@@ -227,22 +216,8 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
-" vim-fugitive
-set diffopt+=vertical
-
-" vim-rest-console
-let g:vrc_curl_opts = {
-    \ '-i': '',
-\}
-
 " nerdtree
 let NERDTreeShowHidden=1
-
-" eclim
-let g:EclimCompletionMethod = 'omnifunc'
-
-" fzf.vim
-set runtimepath+=~/.fzf
 
 " airline
 set laststatus=2
@@ -272,10 +247,6 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)))))))
-
-" UltiSnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/mysnippets']
-let g:UltiSnipsEditSplit='vertical'
 
 " auto-pairs
 let g:AutoPairs={'{':'}'}

@@ -3,7 +3,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'brooth/far.vim'
@@ -157,9 +156,8 @@ noremap <Right> <NOP>
 " <C-*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" tags navigation
-nmap <C-m> :pop<CR>
-nmap <C-q> :tags<CR>
+" previous location
+nnoremap <C-m> <C-o>
 
 "copy/paste outsize vim
 vmap <C-c> "+y
@@ -176,16 +174,19 @@ nmap <C-e> :echo expand('%:p')<CR>
 " fzf.vim
 nmap <C-s> :Files<CR>
 
-" ale
-nmap <C-b> :ALEHover<CR>
-nmap <C-t> :ALEFindReferences<CR>
-nmap <C-f> :ALEFix<CR>
-nmap <C-i> :ALEGoToDefinition<CR>
-nmap <silent> <C-z> <Plug>(ale_detail)
+" coc
+nmap <silent> <C-i> <Plug>(coc-definition)
+nmap <silent> <C-y> <Plug>(coc-implementation)
+nmap <silent> <C-t> <Plug>(coc-references)
+nmap <silent> <C-g> <Plug>(coc-type-definition)
+nmap <silent> <C-f> <Plug>(coc-format)
+nmap <silent> <C-r> <Plug>(coc-rename)
+nmap <silent> <C-q> <Plug>(coc-diagnostic-prev)
+nmap <silent> <C-w> <Plug>(coc-diagnostic-next)
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger='<C-y>'
-let g:UltiSnipsJumpForwardTrigger='<C-y>'
+let g:UltiSnipsExpandTrigger='<C-,>'
+let g:UltiSnipsJumpForwardTrigger='<C-,>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <F*> mappings
@@ -258,19 +259,6 @@ let g:airline_section_z='L:%4l/%{line("$")} | C:%3v/%3{col("$")}'
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
-
-" ale
-let b:ale_fixers = {
-      \ 'html': ['prettier'],
-      \ 'yaml': ['prettier'],
-      \ 'typescript': ['tslint'],
-      \ 'json': ['jq'],
-      \ 'python': ['black']
-      \ }
-let b:ale_linters = {
-      \ 'python': ['pyls'],
-      \ }
-let g:ale_python_black_options='--line-length 80'
 
 " semshi
 let g:semshi#mark_selected_nodes=0

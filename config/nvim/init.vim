@@ -179,6 +179,7 @@ nmap <silent> <C-f> <Plug>(coc-format)
 nmap <silent> <C-r> <Plug>(coc-rename)
 nmap <silent> <C-q> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-w> <Plug>(coc-diagnostic-next)
+nmap <silent> <C-b> :call <SID>show_coc_documentation()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <F*> mappings
@@ -285,6 +286,14 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 call coc#config('python', {
       \   'pythonPath': split(execute('!which python'), '\n')[-1]
       \ })
+
+function! s:show_coc_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " to uninstall remove an element of this array and :CocUninstall coc-extension
 let g:coc_global_extensions = [

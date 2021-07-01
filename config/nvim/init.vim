@@ -295,4 +295,5 @@ let g:coc_global_extensions = [
       \ 'coc-marketplace',
       \ 'coc-sh',
       \ 'coc-metals',
+      \ 'coc-markdownlint',
       \ ]

@@ -152,8 +152,11 @@ noremap <Right> <NOP>
 " <C-*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" previous location
-nnoremap <C-m> <C-o>
+" previous tag
+nmap <C-m> :pop<CR>
+
+" previous location, to be used when tags are not applied to file navigation
+nmap <C-]> <C-o>
 
 "copy/paste outsize vim
 vmap <C-c> "+y
@@ -170,8 +173,10 @@ nmap <C-e> :echo expand('%:p')<CR>
 " fzf.vim
 nmap <C-s> :Files<CR>
 
+" go to definition, can be used with tags
+nnoremap <C-i> <C-]>
+
 " coc
-nmap <silent> <C-i> <Plug>(coc-definition)
 nmap <silent> <C-y> <Plug>(coc-implementation)
 nmap <silent> <C-t> <Plug>(coc-references)
 nmap <silent> <C-g> <Plug>(coc-type-definition)
@@ -268,6 +273,8 @@ map / <Plug>(incsearch-easymotion-stay)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set tagfunc=CocTagFunc
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort

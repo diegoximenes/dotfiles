@@ -2,6 +2,8 @@
   "diagnostic.checkCurrentLine": true,
   "coc.preferences.extensionUpdateCheck": "never",
   "suggest.enablePreselect": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.banditEnabled": true,
   "languageserver": {
     "golang": {
       "command": "gopls",

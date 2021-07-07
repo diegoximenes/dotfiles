@@ -307,9 +307,9 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-tsserver',
       \ 'coc-yaml',
-      \ 'coc-python',
       \ 'coc-marketplace',
       \ 'coc-sh',
       \ 'coc-metals',
       \ 'coc-markdownlint',
+      \ 'coc-pyright',
       \ ]

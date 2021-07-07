@@ -156,7 +156,7 @@ noremap <Right> <NOP>
 nmap <C-m> :pop<CR>
 
 " previous location, to be used when tags are not applied to file navigation
-nmap <C-]> <C-o>
+nmap <C-z> <C-o>
 
 "copy/paste outsize vim
 vmap <C-c> "+y
@@ -182,8 +182,8 @@ nmap <silent> <C-t> <Plug>(coc-references)
 nmap <silent> <C-g> <Plug>(coc-type-definition)
 nmap <silent> <C-f> <Plug>(coc-format)
 nmap <silent> <C-r> <Plug>(coc-rename)
-nmap <silent> <C-q> <Plug>(coc-diagnostic-prev)
-nmap <silent> <C-w> <Plug>(coc-diagnostic-next)
+nmap <silent> <C-[> <Plug>(coc-diagnostic-prev)
+nmap <silent> <C-]> <Plug>(coc-diagnostic-next)
 nmap <silent> <C-b> :call <SID>show_coc_documentation()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

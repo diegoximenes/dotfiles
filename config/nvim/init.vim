@@ -173,6 +173,12 @@ nmap <C-e> :echo expand('%:p')<CR>
 
 " fzf.vim
 nmap <C-s> :Files<CR>
+let g:fzf_action = {
+  \ 'enter': 'tab split',
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ }
 
 " go to definition, can be used with tags
 nnoremap <C-i> <C-]>
@@ -210,9 +216,25 @@ nmap <F12> :call HandleLineLength()<CR>
 " change letter case
 nmap U ~
 
+" tab navigation
+nmap O :tabp<CR>
+nmap P :tabn<CR>
+
+" window navigation
+nmap J <C-w>j
+nmap K <C-w>k
+nmap H <C-w>h
+nmap L <C-w>l
+
+" move window into a new tab
+nmap T <C-w>T
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim-go
+let g:go_doc_keywordprg_enabled=0
 
 " vim-markdown-preview
 let vim_markdown_preview_use_xdg_open=1

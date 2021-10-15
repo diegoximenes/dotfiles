@@ -343,4 +343,5 @@ let g:coc_global_extensions = [
       \ 'coc-metals',
       \ 'coc-markdownlint',
       \ 'coc-pyright',
+      \ 'coc-diagnostic',
       \ ]

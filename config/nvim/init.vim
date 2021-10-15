@@ -31,6 +31,7 @@ Plug 'sjl/gundo.vim'
 Plug 'brooth/far.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'luochen1990/rainbow'
 " Plug 'tpope/vim-surround'
 " Plug 'gregsexton/gitv'
 " Plug 'tmhedberg/SimpylFold'
@@ -232,6 +233,13 @@ nmap T <C-w>T
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" rainbow
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+      \ 'operators': '',
+      \ 'guifgs': ['white', 'darkorange3', 'royalblue3', 'seagreen3', 'firebrick'],
+      \ }
 
 " vim-go
 let g:go_doc_keywordprg_enabled=0

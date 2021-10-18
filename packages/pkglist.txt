@@ -93,12 +93,12 @@ patch
 pavucontrol
 pciutils
 perl
+pipewire-pulse
 pkgconf
 pkgfile
 prettier
 procps-ng
 psmisc
-pulseaudio
 python-black
 python-i3ipc
 python-language-server

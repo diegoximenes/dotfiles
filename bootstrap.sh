@@ -80,13 +80,6 @@ set_network_manager() {
     sudo systemctl enable NetworkManager
 }
 
-set_pulseaudio() {
-    echo_step 'Starting pulseaudio...'
-    if ! pgrep -x 'pulseaudio' > /dev/null; then
-        pulseaudio -D &
-    fi
-}
-
 set_pkgfile() {
     echo_step 'Setting pkgfile...'
     sudo pkgfile --update
@@ -113,7 +106,6 @@ change_owner
 [[ "$opt" == '--install' ]] && install_all
 symlink
 set_network_manager
-set_pulseaudio
 set_shell
 set_pkgfile
 set_virtualbox

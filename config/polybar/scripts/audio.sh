@@ -45,17 +45,17 @@ get_info() {
 
     local active_port
     active_port=$(echo "$devices" | awk '
-        /name: / { is_default = ($2 == "<'"$default_device"'>") }
-        /active port: / { if (is_default) active_port = $3 }
-        END { print substr(active_port, 2, length(active_port) - 2) }')
+        /Name: / { is_default = ($2 == "'"$default_device"'") }
+        /Active Port: / { if (is_default) active_port = $3 }
+        END { print active_port }')
 
     local default_device_info
     default_device_info=$(echo "$devices" | awk '
-         /name: / { is_default = ($2 == "<'"$default_device"'>") }
-         /muted: / { if (is_default) muted = $2 }
-         /volume: front-left:/ { if (is_default) volume = $5 }
+         /Name: / { is_default = ($2 == "'"$default_device"'") }
+         /Mute: / { if (is_default) mute = $2 }
+         /Volume: front-left:/ { if (is_default) volume = $5 }
          /'"$active_port"': / { if (is_default) port = $2 }
-         END { if (muted == "no") printf "unmuted %s %s", volume, port; else printf "muted %s %s", volume, port }')
+         END { if (mute == "no") printf "unmute %s %s", volume, port; else printf "mute %s %s", volume, port }')
     echo "$default_device_info"
 }
 
@@ -72,7 +72,7 @@ print_info() {
     local port
     port="$(echo "$info" | awk '{print $3}')"
 
-    if [[ "$mute_state" == "muted" ]]; then
+    if [[ "$mute_state" == "mute" ]]; then
         echo "$device_tag 🗶 $port"
     else
         echo "$device_tag $volume $port"
@@ -81,10 +81,10 @@ print_info() {
 
 get_sink_info() {
     local sinks
-    sinks=$(pacmd list-sinks)
+    sinks=$(pactl list sinks)
 
     local default_sink
-    default_sink=$(pacmd stat | awk -F ": " '/^Default sink name: / { print $2 }')
+    default_sink=$(pactl get-default-sink)
 
     get_info "$sinks" "$default_sink"
 }
@@ -95,10 +95,10 @@ print_sink_info() {
 
 get_source_info() {
     local sources
-    sources=$(pacmd list-sources)
+    sources=$(pactl list sources)
 
     local default_source
-    default_source=$(pacmd stat | awk -F ": " '/^Default source name: / { print $2 }')
+    default_source=$(pactl get-default-source)
 
     get_info "$sources" "$default_source"
 }

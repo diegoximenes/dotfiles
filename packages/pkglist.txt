@@ -9,6 +9,8 @@ bc
 bind
 binutils
 bison
+bluez
+bluez-utils
 bzip2
 cifs-utils
 clang

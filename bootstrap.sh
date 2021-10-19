@@ -100,6 +100,11 @@ set_dropbox() {
     systemctl --user enable dropbox
 }
 
+set_bluetooth() {
+    echo_step 'Enabling bluetooth...'
+    sudo systemctl enable bluetooth.service
+}
+
 opt="$1"
 
 change_owner
@@ -111,4 +116,5 @@ set_pkgfile
 set_virtualbox
 set_vnstat
 set_dropbox
+set_bluetooth
 success

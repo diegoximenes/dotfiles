@@ -1,7 +1,9 @@
 autojump
 dropbox
+bluetooth-headset-battery-level-git
 google-chrome
 jupyter_nbextensions_configurator
+nerd-fonts-complete
 nodejs-jsonlint
 nvimpager-git
 polybar

@@ -33,9 +33,10 @@ cursor-scroll = ns-resize
 font-0 = "monospace:size=10:antialias=true"
 font-1 = "Noto Color Emoji:scale=10"
 font-2 = "Noto Sans Symbols 2:size=12:antialias=true"
+font-3 = "Fira Mono Nerd Font:size=12:antialias=true"
 
 modules-left = i3 i3_split_mode i3_focused_window
-modules-right = removable_devices xbacklight arch_aur_updates audio_sink audio_source network battery date
+modules-right = removable_devices bluetooth xbacklight arch_aur_updates audio_sink audio_source network battery date
 
 [settings]
 screenchange-reload = true
@@ -86,6 +87,12 @@ time-format = %H:%M
 label-charging = ⚡ %percentage%% %time%
 label-discharging = 🌗 %percentage%% %time%
 label-full= 🔋 %percentage%%
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/bluetooth.sh --print_info
+tail = true
+click-left = ~/.config/polybar/scripts/bluetooth.sh --power_toggle
 
 [module/audio_sink]
 type = custom/script

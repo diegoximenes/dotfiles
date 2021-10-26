@@ -11,12 +11,6 @@
     word_wrap = true
     icon_position = left
 
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+period
-    context = ctrl+shift+period
-
 [urgency_low]
     background = "#282828"
     foreground = "#928374"

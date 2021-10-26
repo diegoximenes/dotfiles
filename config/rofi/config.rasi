@@ -1,3 +1,5 @@
 configuration {
     theme: "glue_pro_blue";
+    icon-theme: "Papirus";
+    show-icons: true;
 }

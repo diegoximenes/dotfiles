@@ -58,8 +58,15 @@ remove_orphan_arch_packages() {
     fi
 }
 
+update_vim_plug() {
+    curl -fLo ~/.config/nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 update_nvim() {
     echo_step 'Updating nvim stuff...'
+
+    update_vim_plug
+
     nvim +PlugUpdate
     nvim +PlugClean
     nvim +CocUpdate

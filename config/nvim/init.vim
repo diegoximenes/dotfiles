@@ -15,7 +15,6 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'farmergreg/vim-lastplace'
-Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -32,6 +31,7 @@ Plug 'brooth/far.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
+Plug 'ellisonleao/glow.nvim'
 " Plug 'tpope/vim-surround'
 " Plug 'gregsexton/gitv'
 " Plug 'tmhedberg/SimpylFold'
@@ -198,8 +198,6 @@ nmap <silent> <C-b> :call <SID>show_coc_documentation()<CR>
 " <F*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let vim_markdown_preview_hotkey='<F2>'
-
 " reload file
 nmap <F5> :edit<CR>
 
@@ -243,10 +241,6 @@ let g:rainbow_conf = {
 
 " vim-go
 let g:go_doc_keywordprg_enabled=0
-
-" vim-markdown-preview
-let vim_markdown_preview_use_xdg_open=1
-let vim_markdown_preview_pandoc=1
 
 " vim-gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=2

@@ -9,6 +9,11 @@ export FZF_DEFAULT_OPTS='-e'
 export FZF_CTRL_T_COMMAND='find .' # includes hidden files on search
 export PAGER=nvimpager
 
+# zsh-nvm
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+export NVM_AUTO_USE=true
+
 # go
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -110,6 +115,7 @@ antigen bundle fzf
 antigen bundle command-not-found
 
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle lukechilds/zsh-nvm
 
 local theme=".diegoximenes.zsh-theme"
 local theme_path=$(realpath ~/$theme)

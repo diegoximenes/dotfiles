@@ -77,6 +77,11 @@ update_tmux_plugins() {
     ~/.tmux/plugins/tpm/bin/update_plugins all
 }
 
+update_nvm() {
+    echo_step 'Updating nvm...'
+    nvm upgrade
+}
+
 ssh_agent
 update_submodules
 update_arch_packages

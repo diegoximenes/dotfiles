@@ -231,12 +231,15 @@ nmap L <C-w>l
 " move window into a new tab
 nmap T <C-w>T
 
-" andymass/vim-matchup, go to begin/end of pair
+" vim-matchup, go to begin/end of pair
 nmap M g%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim-matchup
+let g:matchup_matchparen_enabled = 0
 
 " rainbow
 let g:rainbow_active = 1

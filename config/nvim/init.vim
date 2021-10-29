@@ -34,6 +34,7 @@ Plug 'luochen1990/rainbow'
 Plug 'ellisonleao/glow.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dstein64/nvim-scrollview'
+Plug 'andymass/vim-matchup'
 " Plug 'tpope/vim-surround'
 " Plug 'gregsexton/gitv'
 " Plug 'tmhedberg/SimpylFold'
@@ -229,6 +230,9 @@ nmap L <C-w>l
 
 " move window into a new tab
 nmap T <C-w>T
+
+" andymass/vim-matchup, go to begin/end of pair
+nmap M g%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs

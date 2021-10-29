@@ -54,8 +54,6 @@ symlink() {
     # ignores "." file
     find "$dir_file/home" -maxdepth 1 -name '.*' -exec ln -snf {} "$dir_home/" \;
     ln -snf "$dir_file/config/"* "$dir_home/.config/"
-    ln -snf "$dir_file/oh-my-zsh/custom/themes/"* "$dir_home/.oh-my-zsh/custom/themes/"
-    ln -snf "$dir_file/oh-my-zsh/custom/plugins/"* "$dir_home/.oh-my-zsh/custom/plugins/"
     mkdir -p "$dir_home/.local/share/applications/"
     ln -snf "$dir_file/local/share/applications/"* "$dir_home/.local/share/applications/"
     mkdir -p "$dir_home/.config/systemd/user/"

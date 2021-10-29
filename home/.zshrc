@@ -7,9 +7,7 @@ export EDITOR="nvim"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export FZF_DEFAULT_OPTS='-e'
 export FZF_CTRL_T_COMMAND='find .' # includes hidden files on search
-export ZSH=$HOME/.oh-my-zsh
 export PAGER=nvimpager
-export DISABLE_AUTO_UPDATE="true" # disable oh-my-zsh auto update
 
 # go
 export GOPATH="$HOME/go"
@@ -92,27 +90,33 @@ rmvirtualenv_jupyter() {
 }
 
 ################################################################################
-# oh-my-zsh
-################################################################################
-
-ZSH_THEME="diegoximenes"
-
-plugins=(
-    git
-    vi-mode
-    autojump
-    fzf
-    command-not-found
-    zsh-syntax-highlighting
-)
-
-################################################################################
 # source
 ################################################################################
 
-source $ZSH/oh-my-zsh.sh
 source /usr/bin/virtualenvwrapper.sh
+source /usr/share/zsh/share/antigen.zsh
 eval $(thefuck --alias)
+
+################################################################################
+# antigen
+################################################################################
+
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle vi-mode
+antigen bundle autojump
+antigen bundle fzf
+antigen bundle command-not-found
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+local theme=".diegoximenes.zsh-theme"
+local theme_path=$(realpath ~/$theme)
+local theme_dir=$(dirname $theme_path)
+antigen bundle $theme_dir $theme --no-local-clone
+
+antigen apply
 
 ################################################################################
 # zle

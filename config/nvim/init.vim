@@ -271,6 +271,10 @@ let g:airline_section_x=''
 let g:airline_section_y=''
 let g:airline_section_z='L:%4l/%{line("$")} | C:%3v/%3{col("$")}'
 
+" vim-devicons
+" this was blocking g:airline_section_y to be overriden
+let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
+
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']

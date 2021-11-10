@@ -239,7 +239,7 @@ nmap M g%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " vim-matchup
-let g:matchup_matchparen_enabled = 0
+let g:matchup_matchparen_offscreen = {}
 
 " rainbow
 let g:rainbow_active = 1

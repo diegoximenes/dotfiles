@@ -59,8 +59,11 @@ symlink() {
     mkdir -p "$dir_home/.config/systemd/user/"
     ln -snf "$dir_file/systemd/user/"* "$dir_home/.config/systemd/user/"
 
-    sudo ln -snf "$dir_file/etc/resolv.conf" /etc/resolv.conf
-    sudo ln -snf "$dir_file/etc/systemd/"* /etc/systemd/
+    sudo mkdir -p /etc/systemd/resolved.conf.d
+    # not sure why symlink don't work
+    sudo cp "$dir_file/etc/systemd/resolved.conf.d/resolved.conf" /etc/systemd/resolved.conf.d
+    sudo ln -snf "$dir_file/etc/systemd/logind.conf" /etc/systemd/
+
     sudo ln -snf "$dir_file/etc/X11/xorg.conf.d/"* /etc/X11/xorg.conf.d/
     sudo ln -snf "$dir_file/etc/NetworkManager/"* /etc/NetworkManager/
     sudo ln -snf "$dir_file/etc/pacman.d/"* /etc/pacman.d/
@@ -74,8 +77,14 @@ set_shell() {
 }
 
 set_network_manager() {
-    echo_step 'Enabling NetworkManager...'
+    echo_step 'Setting NetworkManager...'
     sudo systemctl enable NetworkManager
+}
+
+set_systemd_resolved() {
+    echo_step 'Setting systemd-resolved...'
+    sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+    sudo systemctl enable systemd-resolved.service
 }
 
 set_pkgfile() {
@@ -99,7 +108,7 @@ set_dropbox() {
 }
 
 set_bluetooth() {
-    echo_step 'Enabling bluetooth...'
+    echo_step 'Setting bluetooth...'
     sudo systemctl enable bluetooth.service
 }
 
@@ -109,6 +118,7 @@ change_owner
 [[ "$opt" == '--install' ]] && install_all
 symlink
 set_network_manager
+set_systemd_resolved
 set_shell
 set_pkgfile
 set_virtualbox

@@ -32,6 +32,9 @@ change_owner() {
 }
 
 install_all() {
+    echo_step "Syncing arch databases..."
+    sudo pacman -Syy
+
     echo_step 'Installing pkglist.txt...'
     sudo pacman -S --needed --noconfirm - < "$dir_file/packages/pkglist.txt"
 

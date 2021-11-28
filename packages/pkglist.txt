@@ -118,14 +118,12 @@ s-nail
 sed
 shadow
 shellcheck
-smem
 shfmt
+smem
 sudo
 sysfsutils
 systemd-sysvcompat
 tar
-termite
-termite-terminfo
 texinfo
 texlive-bin
 texlive-core

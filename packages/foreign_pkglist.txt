@@ -1,7 +1,7 @@
 antigen-git
 autojump
-dropbox
 bluetooth-headset-battery-level-git
+dropbox
 google-chrome
 jupyter_nbextensions_configurator
 nerd-fonts-complete
@@ -10,4 +10,6 @@ nvimpager-git
 polybar
 python2-pynvim
 rofi-greenclip
+termite
+termite-terminfo
 yay

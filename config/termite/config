@@ -1,5 +1,5 @@
 [options]
-font = monospace 12
+font = monospace 15
 scrollback_lines = 10000
 dynamic_title = true
 

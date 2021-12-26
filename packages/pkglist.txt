@@ -20,6 +20,7 @@ coreutils
 cronie
 cryptsetup
 ctags
+curlie
 deepin-screenshot
 device-mapper
 dfrs

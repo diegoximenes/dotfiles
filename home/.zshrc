@@ -163,6 +163,8 @@ preexec() {
 # alias
 ################################################################################
 
+alias ls="exa"
+alias l="exa -lah"
 alias v="nvim -p"
 alias vi="nvim -p"
 alias vim="nvim -p"

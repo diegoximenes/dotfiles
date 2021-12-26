@@ -26,6 +26,7 @@ diffutils
 dunst
 e2fsprogs
 eog
+exa
 fakeroot
 fd
 file

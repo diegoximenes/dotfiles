@@ -2,6 +2,7 @@ android-file-transfer
 atool
 autoconf
 automake
+bandwhich
 bash
 bash-language-server
 bat

@@ -21,6 +21,7 @@ cryptsetup
 ctags
 deepin-screenshot
 device-mapper
+dfrs
 dhcpcd
 diffutils
 dunst

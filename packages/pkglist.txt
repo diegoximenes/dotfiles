@@ -135,6 +135,7 @@ tig
 tmux
 translate-shell
 transmission-gtk
+tree
 typescript
 unrar
 unzip

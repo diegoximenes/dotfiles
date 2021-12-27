@@ -12,4 +12,5 @@ python2-pynvim
 rofi-greenclip
 termite
 termite-terminfo
+visidata
 yay

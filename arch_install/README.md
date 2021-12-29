@@ -14,7 +14,9 @@
             - create filesystem: Type: Linux filesystem  
         - check with lsblk  
 - connect wifi:  
-    - ip link set wlp3s0 up # check cards with: ifconfig -a  
+    - ip link # check cards, in this example using wlp3s0  
+    - ip link set wlp3s0 up  
+    - iwlist wlp3s0 scan | grep ESSID # list networks
     - wpa_supplicant -B -i wlp3s0 -c <(wpa_passphrase SSID PASSWD)  
     - systemctl start dhcpcd@wlp3s0.service  
 - installing:  

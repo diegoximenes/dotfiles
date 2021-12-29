@@ -8,9 +8,12 @@ nerd-fonts-complete
 nodejs-jsonlint
 nvimpager-git
 polybar
+python-language-server
+python2-pip
 python2-pynvim
 rofi-greenclip
 termite
 termite-terminfo
 visidata
 yay
+zoom

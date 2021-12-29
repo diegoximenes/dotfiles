@@ -27,8 +27,10 @@ device-mapper
 dfrs
 dhcpcd
 diffutils
+dosfstools
 dunst
 e2fsprogs
+efibootmgr
 eog
 exa
 fakeroot
@@ -85,7 +87,6 @@ nano
 ncdu
 neofetch
 neovim
-net-tools
 netctl
 network-manager-applet
 networkmanager
@@ -109,12 +110,10 @@ progress
 psmisc
 python-black
 python-i3ipc
-python-language-server
 python-pip
 python-pipenv
 python-pynvim
 python-virtualenvwrapper
-python2-pip
 ranger
 reiserfsprogs
 ripgrep

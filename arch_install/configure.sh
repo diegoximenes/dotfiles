@@ -25,20 +25,18 @@ success() {
 
 ################################################################################
 
-if [[ ! $# -eq 3 ]]; then
-    echo "usage: bash configure.sh EFI_PART HOST_NAME USER"
+if [[ ! $# -eq 2 ]]; then
+    echo "usage: bash configure.sh HOST_NAME USER"
     exit
 fi
 
-efi_part="$1"
-host_name="$2"
-user="$3"
+host_name="$1"
+user="$2"
 
 while true; do
-    echo "EFI_PART=$efi_part"
     echo "HOST_NAME=$host_name"
     echo "USER=$user"
-    read -p 'Proceed? (y/n): ' yn
+    read -r -p 'Proceed? (y/n): ' yn
     case "$yn" in
         y ) break;;
         n ) exit;;
@@ -69,8 +67,8 @@ set_time_zone() {
 set_grub() {
     pacman -S grub efibootmgr dosfstools os-prober mtools
     mkdir /boot/EFI
-    mount "$efi_part" /boot/EFI
-    grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck
+    grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+    echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
     grub-mkconfig -o /boot/grub/grub.cfg
 }
 

@@ -25,18 +25,22 @@ success() {
 
 ################################################################################
 
-if [[ ! $# -eq 2 ]]; then
-    echo "usage: bash install.sh ARCH_PART SWAP_PART"
+if [[ ! $# -eq 4 ]]; then
+    echo "usage: bash install.sh ARCH_PART SWAP_PART EFI_PART FORMAT_EFI_PART(y/n)"
     exit
 fi
 
 arch_part="$1"
 swap_part="$2"
+efi_part="$3"
+format_efi_part="$4"
 
 while true; do
     echo "ARCH_PART=$arch_part"
     echo "SWAP_PART=$swap_part"
-    read -p 'Proceed? (y/n): ' yn
+    echo "EFI_PART=$efi_part"
+    echo "FORMAT_EFI_PART=$format_efi_part (Warning: Only format the EFI system partition if you created it during the partitioning step. If there already was an EFI system partition on disk beforehand, reformatting it can destroy the boot loaders of other installed operating systems.)"
+    read -r -p 'Proceed? (y/n): ' yn
     case "$yn" in
         y ) break;;
         n ) exit;;
@@ -47,24 +51,33 @@ done
 
 ################################################################################
 
-format_disk() {
+format_partitions() {
     mkfs.ext4 "$arch_part"
     mkswap "$swap_part"
+    if [[ "$format_efi_part" == "y" ]]; then
+        mkfs.fat -F 32 "$efi_part"
+    fi
+}
+
+mount_partitions() {
+    mount "$arch_part" /mnt
+    mkdir /mnt/boot
+    mount "$efi_part" /mnt/boot
     swapon "$swap_part"
 }
 
 pre_install() {
     echo_step 'Pre-installation...'
     timedatectl set-ntp true
-    format_disk
-    mount "$arch_part" /mnt
+    format_partitions
+    mount_partitions
 }
 
 ################################################################################
 
 install() {
     echo_step 'Installation...'
-    pacstrap /mnt base wpa_supplicant git sudo
+    pacstrap /mnt base linux linux-firmware dhcpcd iwd git sudo
 }
 
 ################################################################################

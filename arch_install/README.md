@@ -14,18 +14,20 @@
             - create filesystem: Type: Linux filesystem  
         - check with lsblk  
 - connect wifi:  
-    - ip link # check cards, in this example using wlp3s0  
+    - ip link # check devices, in this example using wlp3s0  
     - ip link set wlp3s0 up  
-    - iwlist wlp3s0 scan | grep ESSID # list networks
-    - wpa_supplicant -B -i wlp3s0 -c <(wpa_passphrase SSID PASSWD)  
+    - if using wireless:  
+        - iwctl station wlp3s0 scan  
+        - iwctl station wlp3s0 get-networks  
+        - iwctl --passphrase PASSWD station wlp3s0 connect SSID  
     - systemctl start dhcpcd@wlp3s0.service  
 - installing:  
     - curl https://raw.githubusercontent.com/diegoximenes/dotfiles/master/arch_install/install.sh --output install.sh  
-    - bash install.sh ARCH_PART(e.g. /dev/sda1) SWAP_PART(e.g. /dev/sda2)  
+    - bash install.sh ARCH_PART(e.g. /dev/sda3) SWAP_PART(e.g. /dev/sda2) EFI_PART(e.g. /dev/sda1) FORMAT_EFI_PART(y/n)  
 - configuring   
     - arch-chroot /mnt  
     - cd /tmp  
     - curl https://raw.githubusercontent.com/diegoximenes/dotfiles/master/arch_install/configure.sh --output configure.sh  
-    - bash configure.sh EFI_PART(e.g. /dev/sda1) HOST_NAME USER  
+    - bash configure.sh HOST_NAME USER  
     - exit  
     - reboot  

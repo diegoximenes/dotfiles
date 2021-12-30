@@ -64,6 +64,7 @@ intel-ucode
 iproute2
 iptraf-ng
 iputils
+iwd
 jfsutils
 jq
 jupyterlab

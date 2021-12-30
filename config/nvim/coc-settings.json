@@ -54,5 +54,8 @@
         "objcpp"
       ]
     }
+  },
+  "markdownlint.config": {
+    "line-length": false
   }
 }

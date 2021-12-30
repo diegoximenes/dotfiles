@@ -5,7 +5,12 @@
   - git clone --recurse-submodules <https://github.com/diegoximenes/dotfiles.git> ~/Documents/dotfiles  
   - bash bootstrap.sh --install  
   - reboot  
+  - add ssh key to github  
   - bash bootstrap_after_reboot.sh  
+  - install tmux plugins: prefix + I  
+  - antigen reset  
+  - bash update.sh  
+  - git remote set-url origin git@github.com:diegoximenes/dotfiles.git  
 
 - microcode  
   - packages/pkglist.txt includes intel-ucode. If using an AMD processor change to amd-ucode.  

@@ -1,6 +1,6 @@
 - install  
     - mkdir -p ~/Documents  
-    - git clone --recurse-submodules git@github.com:diegoximenes/dotfiles.git ~/Documents/dotfiles  
+    - git clone --recurse-submodules https://github.com/diegoximenes/dotfiles.git ~/Documents/dotfiles  
     - bash bootstrap.sh --install  
     - reboot  
     - bash bootstrap_after_reboot.sh  

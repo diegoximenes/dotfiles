@@ -1,16 +1,12 @@
 # dotfiles
 
 - install  
-  - mkdir -p ~/Documents  
-  - git clone --recurse-submodules <https://github.com/diegoximenes/dotfiles.git> ~/Documents/dotfiles  
-  - bash bootstrap.sh --install  
-  - reboot  
-  - add ssh key to github  
-  - bash bootstrap_after_reboot.sh  
-  - install tmux plugins: prefix + I  
-  - antigen reset  
-  - bash update.sh  
-  - git remote set-url origin git@github.com:diegoximenes/dotfiles.git  
+  - cd /tmp
+  - curl <https://raw.githubusercontent.com/diegoximenes/dotfiles/master/install.sh> --output install.sh
+  - bash install.sh
+  - reboot
+  - add ssh key to github
+  - bash ~/Documents/dotfiles/bootstrap_after_reboot.sh
 
 - microcode  
   - packages/pkglist.txt includes intel-ucode. If using an AMD processor change to amd-ucode.  

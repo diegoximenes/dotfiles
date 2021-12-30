@@ -72,11 +72,13 @@ symlink() {
     sudo ln -snf "$dir_file/etc/pacman.d/"* /etc/pacman.d/
 }
 
-set_shell() {
-    echo_step "Setting zsh as the default shell..."
+set_zsh() {
+    echo_step "Setting zsh..."
     if [[ "$(basename "$SHELL")" != "zsh" ]]; then
         chsh -s "$(command -v zsh)"
     fi
+
+    zsh -i -c "antigen reset"
 }
 
 set_network_manager() {
@@ -110,16 +112,22 @@ set_bluetooth() {
     sudo systemctl enable bluetooth.service
 }
 
+set_tmux() {
+    echo_step 'Setting tmux...'
+    bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+}
+
 opt="$1"
 
 change_owner
 [[ "$opt" == '--install' ]] && install_all
 symlink
-set_shell
+set_zsh
 set_pkgfile
 set_virtualbox
 set_vnstat
 set_bluetooth
+set_tmux
 # should be the last ones
 set_network_manager
 set_systemd_resolved

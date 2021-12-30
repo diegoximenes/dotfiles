@@ -30,5 +30,11 @@ set_cron() {
     crontab crontab.txt
 }
 
+update_dotfiles() {
+    echo_step 'Updating dotfiles...'
+    bash ~/Documents/dotfiles/update.sh
+}
+
 set_cron
+update_dotfiles
 success

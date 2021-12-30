@@ -105,11 +105,6 @@ set_vnstat() {
     sudo systemctl enable vnstat.service
 }
 
-set_dropbox() {
-    echo_step 'Setting dropbox...'
-    systemctl --user enable dropbox
-}
-
 set_bluetooth() {
     echo_step 'Setting bluetooth...'
     sudo systemctl enable bluetooth.service
@@ -126,6 +121,5 @@ set_shell
 set_pkgfile
 set_virtualbox
 set_vnstat
-set_dropbox
 set_bluetooth
 success

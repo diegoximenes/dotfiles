@@ -115,11 +115,12 @@ opt="$1"
 change_owner
 [[ "$opt" == '--install' ]] && install_all
 symlink
-set_network_manager
-set_systemd_resolved
 set_shell
 set_pkgfile
 set_virtualbox
 set_vnstat
 set_bluetooth
+# should be the last ones
+set_network_manager
+set_systemd_resolved
 success

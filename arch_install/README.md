@@ -33,8 +33,7 @@
 
 - configuring  
   - arch-chroot /mnt  
-  - cd /tmp  
-  - curl <https://raw.githubusercontent.com/diegoximenes/dotfiles/master/arch_install/configure.sh> --output configure.sh  
-  - bash configure.sh HOST_NAME USER  
+  - curl <https://raw.githubusercontent.com/diegoximenes/dotfiles/master/arch_install/configure.sh> --output /tmp/configure.sh  
+  - bash /tmp/configure.sh HOST_NAME USER  
   - exit  
   - reboot  

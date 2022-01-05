@@ -88,4 +88,5 @@ update_arch_packages
 remove_orphan_arch_packages
 update_nvim
 update_tmux_plugins
+update_nvm
 success

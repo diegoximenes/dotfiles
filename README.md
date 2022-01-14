@@ -1,11 +1,11 @@
 # dotfiles
 
 - install
-  - curl <https://raw.githubusercontent.com/diegoximenes/dotfiles/master/install.sh> --output /tmp/install.sh
+  - curl <https://raw.githubusercontent.com/diegoximenes/dotfiles/master/install/install.sh> --output /tmp/install.sh
   - bash /tmp/install.sh
   - reboot
   - create ssh key and add to github
-  - bash ~/Documents/dotfiles/bootstrap_after_reboot.sh
+  - bash ~/Documents/dotfiles/install/bootstrap_after_reboot.sh
 
 - microcode
   - packages/pkglist.txt includes intel-ucode. If using an AMD processor change to amd-ucode

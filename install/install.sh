@@ -35,7 +35,7 @@ clone_git_repo() {
 
 bootstrap() {
     echo_step 'Bootstraping...'
-    bash "$DOTFILES_PATH/bootstrap.sh" --install
+    bash "$DOTFILES_PATH/install/bootstrap.sh" --install
 }
 
 clone_git_repo

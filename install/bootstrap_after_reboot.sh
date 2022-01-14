@@ -13,6 +13,9 @@ finish() {
 }
 trap finish EXIT
 
+path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+path_dotfiles="$path_current_file/.."
+
 echo_step() {
     local step
     step="$1"
@@ -27,12 +30,12 @@ set_cron() {
     echo_step 'Setting cron...'
     sudo systemctl enable cronie.service
     sudo systemctl start cronie.service
-    crontab crontab.txt
+    crontab "$path_dotfiles/install/crontab.txt"
 }
 
 update_dotfiles() {
     echo_step 'Updating dotfiles...'
-    bash ~/Documents/dotfiles/update.sh
+    bash "$path_dotfiles/install/update.sh"
 }
 
 set_cron

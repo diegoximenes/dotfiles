@@ -13,8 +13,9 @@ finish() {
 }
 trap finish EXIT
 
-dir_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-dir_home="$(realpath ~)"
+path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+path_dotfiles="$(realpath "$path_current_file/..")"
+path_home="$(realpath ~)"
 
 echo_step() {
     local step
@@ -28,7 +29,7 @@ success() {
 
 change_owner() {
     echo_step 'Changing owner...'
-    sudo chown -R root:root "$dir_file/etc"
+    sudo chown -R root:root "$path_dotfiles/etc"
 }
 
 install_all() {
@@ -36,7 +37,7 @@ install_all() {
     sudo pacman -Syy
 
     echo_step 'Installing pkglist.txt...'
-    sudo pacman -S --needed --noconfirm - < "$dir_file/packages/pkglist.txt"
+    sudo pacman -S --needed --noconfirm - < "$path_dotfiles/packages/pkglist.txt"
 
     echo_step 'Installing yay...'
     if [[ ! "$(command -v yay)" ]]; then
@@ -48,28 +49,28 @@ install_all() {
     fi
 
     echo_step 'Installing foreign_pkglist.txt...'
-    yay -S --needed --noconfirm - < "$dir_file/packages/foreign_pkglist.txt"
+    yay -S --needed --noconfirm - < "$path_dotfiles/packages/foreign_pkglist.txt"
 }
 
 symlink() {
     echo_step 'Symlinking...'
 
     # ignores "." file
-    find "$dir_file/home" -maxdepth 1 -name '.*' -exec ln -snf {} "$dir_home/" \;
-    ln -snf "$dir_file/config/"* "$dir_home/.config/"
-    mkdir -p "$dir_home/.local/share/applications/"
-    ln -snf "$dir_file/local/share/applications/"* "$dir_home/.local/share/applications/"
-    mkdir -p "$dir_home/.config/systemd/user/"
-    ln -snf "$dir_file/systemd/user/"* "$dir_home/.config/systemd/user/"
+    find "$path_dotfiles/home" -maxdepth 1 -name '.*' -exec ln -snf {} "$path_home/" \;
+    ln -snf "$path_dotfiles/config/"* "$path_home/.config/"
+    mkdir -p "$path_home/.local/share/applications/"
+    ln -snf "$path_dotfiles/local/share/applications/"* "$path_home/.local/share/applications/"
+    mkdir -p "$path_home/.config/systemd/user/"
+    ln -snf "$path_dotfiles/systemd/user/"* "$path_home/.config/systemd/user/"
 
     sudo mkdir -p /etc/systemd/resolved.conf.d
     # not sure why symlink don't work
-    sudo cp "$dir_file/etc/systemd/resolved.conf.d/resolved.conf" /etc/systemd/resolved.conf.d
-    sudo ln -snf "$dir_file/etc/systemd/logind.conf" /etc/systemd/
+    sudo cp "$path_dotfiles/etc/systemd/resolved.conf.d/resolved.conf" /etc/systemd/resolved.conf.d
+    sudo ln -snf "$path_dotfiles/etc/systemd/logind.conf" /etc/systemd/
 
-    sudo ln -snf "$dir_file/etc/X11/xorg.conf.d/"* /etc/X11/xorg.conf.d/
-    sudo ln -snf "$dir_file/etc/NetworkManager/"* /etc/NetworkManager/
-    sudo ln -snf "$dir_file/etc/pacman.d/"* /etc/pacman.d/
+    sudo ln -snf "$path_dotfiles/etc/X11/xorg.conf.d/"* /etc/X11/xorg.conf.d/
+    sudo ln -snf "$path_dotfiles/etc/NetworkManager/"* /etc/NetworkManager/
+    sudo ln -snf "$path_dotfiles/etc/pacman.d/"* /etc/pacman.d/
 }
 
 set_zsh() {
@@ -128,7 +129,7 @@ set_virtualbox
 set_vnstat
 set_bluetooth
 set_tmux
-# should be the last ones
+# set network stuff, should be the last ones
 set_network_manager
 set_systemd_resolved
 success

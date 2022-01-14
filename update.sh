@@ -69,7 +69,6 @@ update_nvim() {
 
     nvim +PlugUpdate
     nvim +PlugClean
-    nvim +CocUpdate
 }
 
 update_tmux_plugins() {

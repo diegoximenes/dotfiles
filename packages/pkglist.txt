@@ -109,10 +109,12 @@ prettier
 procps-ng
 progress
 psmisc
+pyright
 python-black
 python-i3ipc
 python-pip
 python-pipenv
+python-pylint
 python-pynvim
 python-virtualenvwrapper
 ranger
@@ -168,6 +170,7 @@ xorg-xev
 xorg-xinit
 xorg-xinput
 xsel
+yaml-language-server
 yamllint
 yarn
 zathura

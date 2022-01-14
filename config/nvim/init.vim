@@ -15,7 +15,6 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'farmergreg/vim-lastplace'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'leafgarland/typescript-vim'
@@ -35,6 +34,17 @@ Plug 'ellisonleao/glow.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dstein64/nvim-scrollview'
 Plug 'andymass/vim-matchup'
+
+" nvim-lspconfig stuff.
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'wbthomason/packer.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+
+" unseful at the moment but can be in the future
 " Plug 'tpope/vim-surround'
 " Plug 'gregsexton/gitv'
 " Plug 'tmhedberg/SimpylFold'
@@ -184,19 +194,6 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit',
   \ }
 
-" go to definition, can be used with tags
-nnoremap <C-i> <C-]>
-
-" coc
-nmap <silent> <C-y> <Plug>(coc-implementation)
-nmap <silent> <C-t> <Plug>(coc-references)
-nmap <silent> <C-g> <Plug>(coc-type-definition)
-nmap <silent> <C-f> <Plug>(coc-format)
-nmap <silent> <C-r> <Plug>(coc-rename)
-nmap <silent> <C-[> <Plug>(coc-diagnostic-prev)
-nmap <silent> <C-]> <Plug>(coc-diagnostic-next)
-nmap <silent> <C-b> :call <SID>show_coc_documentation()<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <F*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -309,46 +306,270 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 map / <Plug>(incsearch-easymotion-stay)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" coc.nvim
+" nvim-lspconfig
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set tagfunc=CocTagFunc
+lua << EOF
 
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+local lsp_signature_config = {
+  doc_lines = 0,
+}
+require'lsp_signature'.setup(lsp_signature_config)
 
-" use <cr> to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-" set python path based on 'which python'. Useful when working with virtualenv
-call coc#config('python', {
-      \   'pythonPath': split(execute('!which python'), '\n')[-1]
-      \ })
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-function! s:show_coc_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
 
-" to uninstall remove an element of this array and :CocUninstall coc-extension
-let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-tsserver',
-      \ 'coc-yaml',
-      \ 'coc-marketplace',
-      \ 'coc-sh',
-      \ 'coc-metals',
-      \ 'coc-markdownlint',
-      \ 'coc-pyright',
-      \ 'coc-diagnostic',
-      \ ]
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', '<C-i>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<C-y>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-g>', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<C-t>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<C-b>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<C-n>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '<C-[>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', '<C-]>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+end
+
+local use = require('packer').use
+require('packer').startup(function()
+  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+end)
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+local flags = {
+  debounce_text_changes = 150,
+}
+
+local lspconfig = require('lspconfig')
+
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local lsps_with_default_config = {
+  'gopls',
+  'jsonls',
+  'tsserver',
+  'metals',
+  'yamlls',
+  'pyright',
+  'clangd',
+}
+for _, lsp in ipairs(lsps_with_default_config) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    flags = flags,
+    capabilities = capabilities,
+  }
+end
+lspconfig['diagnosticls'].setup {
+  on_attach = on_attach,
+  flags = flags,
+  capabilities = capabilities,
+
+  filetypes = {
+    'sh',
+    'markdown',
+    'python',
+  },
+  init_options = {
+    filetypes = {
+      sh = 'shellcheck',
+      markdown = 'markdownlint',
+      python = {'flake8', 'pylint'},
+    },
+    formatFiletypes = {
+      sh = 'shfmt',
+      markdown = 'prettier',
+    },
+    linters = {
+      pylint = {
+        sourceName = 'pylint',
+        command = 'pylint',
+        args = {
+          '--output-format',
+          'text',
+          '--score',
+          "no",
+          '--msg-template',
+          "'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
+          '%file',
+        },
+        formatPattern = {
+          '^(\\d+?):(\\d+?):([a-z]+?):(.*)$',
+          {
+            line = 1,
+            column = 2,
+            security = 3,
+            message = 4,
+          }
+        },
+        securities ={
+          informational = 'hint',
+          refactor = 'info',
+          convention = 'info',
+          warning = 'warning',
+          error = 'error',
+          fatal = 'error',
+        },
+        offsetColumn = 1,
+        formatLines = 1,
+      },
+      flake8 = {
+        sourceName = 'flake8',
+        command = 'flake8',
+        debounce = 100,
+        args = {
+          '%file',
+        },
+        formatPattern = {
+          '^(.+\\.py):(\\d+):(\\d+): (I|W|E|F)\\d+ (.+)$',
+          {
+            line = 2,
+            column = 3,
+            security = 4,
+            message = 5,
+          }
+        },
+        securities = {
+          E = "error",
+          W = "warning",
+          I = "info",
+          F = "error"
+        },
+        offsetColumn = 0,
+        formatLines = 1,
+      },
+      markdownlint = {
+        command = 'markdownlint',
+        isStderr = true,
+        debounce = 100,
+        args = {
+          '--stdin',
+          '--disable',
+          'MD013',
+        },
+        offsetLine = 0,
+        offsetColumn = 0,
+        sourceName = 'markdownlint',
+        securities = {
+          undefined = 'warning',
+        },
+        formatLines = 1,
+        formatPattern = {
+          '^stdin:(\\d+)(?:\\s|:(\\d+)\\s)(.*)$',
+          {
+            line = 1,
+            column = 2,
+            message = 3,
+          },
+        },
+      },
+      shellcheck = {
+        command = 'shellcheck',
+        debounce = 100,
+        args = {
+          '--format=gcc',
+          '-',
+        },
+        offsetLine = 0,
+        offsetColumn = 0,
+        sourceName = 'shellcheck',
+        formatLines = 1,
+        formatPattern = {
+          '^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$',
+          {
+            line = 1,
+            column = 2,
+            message = 4,
+            security = 3,
+          }
+        },
+        securities = {
+          error = 'error',
+          warning = 'warning',
+          note = 'info',
+        },
+      },
+    },
+    formatters = {
+      prettier = {
+        command = 'prettier',
+        args = {
+          '--stdin-filepath',
+          '%filepath',
+        },
+      },
+      shfmt = {
+        command = 'shfmt',
+        args = {
+          '-i',
+          '2',
+          '-bn',
+          '-ci',
+          '-sr',
+        },
+      },
+    },
+  },
+}
+
+-- luasnip setup
+local luasnip = require 'luasnip'
+
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end,
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  },
+}
+
+EOF

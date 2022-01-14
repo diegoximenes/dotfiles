@@ -368,6 +368,7 @@ local lsps_with_default_config = {
   'yamlls',
   'pyright',
   'clangd',
+  'vimls',
 }
 for _, lsp in ipairs(lsps_with_default_config) do
   lspconfig[lsp].setup {

@@ -369,6 +369,7 @@ local lsps_with_default_config = {
   'pyright',
   'clangd',
   'vimls',
+  'dockerls',
 }
 for _, lsp in ipairs(lsps_with_default_config) do
   lspconfig[lsp].setup {

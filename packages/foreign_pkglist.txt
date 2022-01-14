@@ -2,6 +2,7 @@ antigen-git
 autojump
 bluetooth-headset-battery-level-git
 diagnostic-languageserver
+dockerfile-language-server
 google-chrome
 jupyter_nbextensions_configurator
 metals

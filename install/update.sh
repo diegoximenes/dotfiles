@@ -81,6 +81,11 @@ update_nvm() {
     nvm upgrade
 }
 
+update_yarn_packages() {
+    echo_step 'Updating yarn packages...'
+    yarn global upgrade
+}
+
 ssh_agent
 update_submodules
 update_arch_packages
@@ -88,4 +93,5 @@ remove_orphan_arch_packages
 update_nvim
 update_tmux_plugins
 update_nvm
+update_yarn_packages
 success

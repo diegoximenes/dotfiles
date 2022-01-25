@@ -73,6 +73,11 @@ symlink() {
     sudo ln -snf "$path_dotfiles/etc/pacman.d/"* /etc/pacman.d/
 }
 
+install_yarn_packages() {
+    echo_step 'Installing yarn packages...'
+    yarn global add
+}
+
 set_zsh() {
     echo_step "Setting zsh..."
     if [[ "$(basename "$SHELL")" != "zsh" ]]; then
@@ -123,6 +128,7 @@ opt="$1"
 change_owner
 [[ "$opt" == '--install' ]] && install_all
 symlink
+[[ "$opt" == '--install' ]] && install_yarn_packages
 set_zsh
 set_pkgfile
 set_virtualbox

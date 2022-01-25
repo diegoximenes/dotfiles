@@ -1,3 +1,7 @@
 /home/.tmux
 !/home/.tmux/plugins/tpm
+
 home/.diegoximenes.zsh-theme.antigen-compat
+
+config/yarn/global/*
+!config/yarn/global/package.json

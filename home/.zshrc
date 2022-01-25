@@ -18,6 +18,9 @@ export NVM_AUTO_USE=true
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# yarn
+export PATH="$PATH:$HOME/.yarn/bin"
+
 # virtualenvwrapper
 export WORKON_HOME=$HOME/python_virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3

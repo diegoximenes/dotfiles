@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "solidity-language-server": "^0.0.3"
+  }
 }

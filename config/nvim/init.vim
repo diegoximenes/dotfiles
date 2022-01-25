@@ -34,6 +34,7 @@ Plug 'ellisonleao/glow.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dstein64/nvim-scrollview'
 Plug 'andymass/vim-matchup'
+Plug 'tomlion/vim-solidity'
 
 " nvim-lspconfig stuff.
 Plug 'ray-x/lsp_signature.nvim'
@@ -370,6 +371,7 @@ local lsps_with_default_config = {
   'clangd',
   'vimls',
   'dockerls',
+  'solidity_ls',
 }
 for _, lsp in ipairs(lsps_with_default_config) do
   lspconfig[lsp].setup {

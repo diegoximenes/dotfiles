@@ -37,3 +37,5 @@
   - bash /tmp/configure.sh HOST_NAME USER
   - exit
   - reboot
+
+- in case installing another OS after arch, to update grub just run `set_grub` from `arch_install/configure.sh`

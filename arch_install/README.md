@@ -22,6 +22,7 @@
   - ip link # check devices, in this example using wlp3s0
   - ip link set wlp3s0 up
   - if using wireless:
+    - systemctl start iwd
     - iwctl station wlp3s0 scan
     - iwctl station wlp3s0 get-networks
     - iwctl --passphrase PASSWD station wlp3s0 connect SSID

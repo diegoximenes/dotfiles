@@ -1,4 +1,5 @@
 antigen-git
+atool
 autojump
 bluetooth-headset-battery-level-git
 diagnostic-languageserver

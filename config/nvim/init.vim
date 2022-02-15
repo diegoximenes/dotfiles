@@ -16,7 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'farmergreg/vim-lastplace'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'plasticboy/vim-markdown'

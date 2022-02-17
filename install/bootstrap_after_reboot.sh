@@ -35,7 +35,7 @@ set_cron() {
 
 update_dotfiles() {
     echo_step 'Updating dotfiles...'
-    bash "$path_dotfiles/install/update.sh"
+    zsh "$path_dotfiles/install/update.sh"
 }
 
 set_cron

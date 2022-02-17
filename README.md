@@ -7,6 +7,9 @@
   - create ssh key and add to github
   - bash ~/Documents/dotfiles/install/bootstrap_after_reboot.sh
 
+- update
+  - zsh ~/Documents/dotfiles/install/update.sh
+
 - microcode
   - packages/pkglist.txt includes intel-ucode. If using an AMD processor change to amd-ucode
 

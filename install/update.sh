@@ -88,6 +88,11 @@ update_yarn_packages() {
     yarn global upgrade
 }
 
+empty_trash() {
+    echo_step 'Emptying trash...'
+    trash-empty -f
+}
+
 ssh_agent
 update_submodules
 update_arch_packages
@@ -96,4 +101,5 @@ update_nvim
 update_tmux_plugins
 update_nvm
 update_yarn_packages
+empty_trash
 success

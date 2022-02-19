@@ -1,11 +1,17 @@
 #!/bin/bash
 
-source "$HOME/.zshrc"
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
+
+script_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
+if [[ "$script_shell" != "zsh" ]]; then
+    echo -e "${RED}FAILED: script must be run with zsh${NC}"
+    exit 1
+fi
+
+source "$HOME/.zshrc"
 
 finish() {
     if [[ ! "$?" -eq 0 ]]; then

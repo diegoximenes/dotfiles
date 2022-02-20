@@ -39,4 +39,4 @@
   - exit
   - reboot
 
-- in case installing another OS after arch, to update grub just run `set_grub` from `arch_install/configure.sh`
+- in case installing another OS after arch: sudo grub-mkconfig -o /boot/grub/grub.cfg

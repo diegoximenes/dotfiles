@@ -74,6 +74,7 @@ networkmanager
 nmap
 noto-fonts
 noto-fonts-emoji
+ntfs-3g
 openssh
 os-prober
 pacman-contrib

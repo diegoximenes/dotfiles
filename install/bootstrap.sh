@@ -137,6 +137,11 @@ set_docker() {
     sudo usermod -aG docker "$USER"
 }
 
+set_lightdm() {
+    echo_step 'Setting lightdm...'
+    sudo systemctl enable lightdm
+}
+
 opt="$1"
 
 change_owner
@@ -152,6 +157,7 @@ set_bluetooth
 set_timesyncd
 set_tmux
 set_docker
+set_lightdm
 # set network stuff, should be the last ones
 set_network_manager
 set_systemd_resolved

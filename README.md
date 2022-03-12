@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles with for a beginner's UI
 
 - install
   - curl <https://raw.githubusercontent.com/diegoximenes/dotfiles/master/install/install.sh> --output /tmp/install.sh
@@ -6,6 +6,10 @@
   - reboot
   - create ssh key and add to github
   - bash ~/Documents/dotfiles/install/bootstrap_after_reboot.sh
+
+- adding new user
+  - sudo useradd -m USER
+  - sudo passwd USER
 
 - update
   - zsh ~/Documents/dotfiles/install/update.sh

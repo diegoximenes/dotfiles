@@ -45,17 +45,55 @@ get_info() {
 
     local active_port
     active_port=$(echo "$devices" | awk '
-        /Name: / { is_default = ($2 == "'"$default_device"'") }
-        /Active Port: / { if (is_default) active_port = $3 }
-        END { print active_port }')
+        /Name:/ {
+            is_default = ($2 == "'"$default_device"'");
+        }
+        /Active Port:/ {
+            if (is_default) {
+                $1 = $2 = "";
+                active_port = $0;
+            }
+        }
+        END {
+            print active_port;
+        }
+    ')
+    # trim spaces, escape special characters except space
+    active_port=$(echo "$active_port" | xargs)
+    active_port=$(printf '%q' "$active_port")
+    active_port=${active_port//\\ / }
 
     local default_device_info
     default_device_info=$(echo "$devices" | awk '
-         /Name: / { is_default = ($2 == "'"$default_device"'") }
-         /Mute: / { if (is_default) mute = $2 }
-         /Volume: front-left:/ { if (is_default) volume = $5 }
-         /'"$active_port"': / { if (is_default) port = $2 }
-         END { if (mute == "no") printf "unmute %s %s", volume, port; else printf "mute %s %s", volume, port }')
+        /Name:/ {
+            is_default = ($2 == "'"$default_device"'");
+        }
+        /Mute:/ {
+            if (is_default) {
+                mute = $2;
+            }
+        }
+        /Volume: front-left:/ {
+            if (is_default) {
+                volume = $5;
+            }
+        }
+        /'"$active_port"':/ {
+            if (is_default) {
+                split_index = index($0, ":");
+                port_info = substr($0, split_index + 2);
+                space_index = index(port_info, " ");
+                port = substr(port_info, 1, space_index - 1)
+            }
+        }
+        END {
+            if (mute == "no") {
+                printf "unmute %s %s", volume, port;
+            } else {
+                printf "mute %s %s", volume, port;
+            }
+        }
+    ')
     echo "$default_device_info"
 }
 

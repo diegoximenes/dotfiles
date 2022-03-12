@@ -62,7 +62,7 @@ remove_orphan_arch_packages() {
         finish
     fi
     if [[ "$packages_to_remove" != "" ]]; then
-        sudo pacman -Rns $packages_to_remove --noconfirm
+        echo "$packages_to_remove" | sudo pacman -Rns --noconfirm -
     fi
 }
 

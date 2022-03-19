@@ -36,7 +36,7 @@ font-2 = "Noto Sans Symbols 2:size=17:antialias=true"
 font-3 = "Fira Mono Nerd Font:size=17:antialias=true"
 
 modules-left = i3 i3_split_mode i3_focused_window
-modules-right = removable_devices bluetooth xbacklight arch_aur_updates audio_sink audio_source openvpn network battery date
+modules-right = removable_devices bluetooth xbacklight arch_aur_updates audio_sink audio_source openvpn network cpu_temperature battery date
 
 [settings]
 screenchange-reload = true
@@ -121,6 +121,12 @@ scroll-down = ~/.config/polybar/scripts/audio.sh --volume_source_down
 type = custom/script
 exec = ~/.config/polybar/scripts/network.sh
 interval = 5
+
+[module/cpu_temperature]
+type = custom/script
+exec = python3 -u ~/.config/polybar/scripts/cpu_temperature.py
+tail = true
+interval = 20
 
 [module/i3_split_mode]
 type = custom/script

@@ -87,6 +87,7 @@ pkgfile
 polkit
 prettier
 progress
+psensor
 pyright
 python-black
 python-i3ipc

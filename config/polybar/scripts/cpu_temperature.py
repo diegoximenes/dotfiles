@@ -27,7 +27,7 @@ def print_cpu_temperature():
         lambda core: get_package_temperature(coretemp[core]),
         packages
     ))
-    print(f'🌡 {sum(temperatures) / len(temperatures) :.2f}°C')
+    print(f'🌡 {sum(temperatures) / len(temperatures) :.0f}°C')
 
 
 if __name__ == "__main__":

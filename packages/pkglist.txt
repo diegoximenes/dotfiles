@@ -138,6 +138,7 @@ sd
 shellcheck
 shfmt
 stylua
+sof-firmware
 sudo
 sysfsutils
 texinfo

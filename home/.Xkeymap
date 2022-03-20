@@ -1419,7 +1419,7 @@ xkb_symbols "pc+us+inet(evdev)" {
     key <HKTG> {         [ Hiragana_Katakana ] };
     key <MUHE> {         [        Muhenkan ] };
     key <KPEN> {         [        KP_Enter ] };
-    key <RCTL> {         [       Control_R ] };
+    key <RCTL> {         [       backslash,             bar ] };
     key <KPDV> {
         type= "CTRL+ALT",
         symbols[Group1]= [       KP_Divide,       KP_Divide,       KP_Divide,       KP_Divide,      XF86Ungrab ]
@@ -1567,7 +1567,6 @@ xkb_symbols "pc+us+inet(evdev)" {
     modifier_map Mod1 { <LALT> };
     modifier_map Mod2 { <NMLK> };
     modifier_map Mod5 { <LVL3> };
-    modifier_map Control { <RCTL> };
     modifier_map Mod1 { <RALT> };
     modifier_map Mod4 { <LWIN> };
     modifier_map Mod4 { <RWIN> };
@@ -1763,8 +1762,7 @@ xkb_geometry "pc(pc105)" {
                 { <SPCE>, "SPCE",   1 },
                 { <RALT>, "SMOD",   1, color="grey20" },
                 { <RWIN>, "SMOD",   1, color="grey20" },
-                { <MENU>, "SMOD",   1, color="grey20" },
-                { <RCTL>, "SMOD",   1, color="grey20" }
+                { <MENU>, "SMOD",   1, color="grey20" }
             };
         };
     }; // End of "Alpha" section

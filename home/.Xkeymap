@@ -1459,7 +1459,7 @@ xkb_symbols "pc+us+inet(evdev)" {
     key <HJCV> {         [    Hangul_Hanja ] };
     key <LWIN> {         [         Super_L ] };
     key <RWIN> {         [         Super_R ] };
-    key <COMP> {         [            Menu ] };
+    key <COMP> {         [       backslash,             bar ] };
     key <STOP> {         [          Cancel ] };
     key <AGAI> {         [            Redo ] };
     key <PROP> {         [        SunProps ] };
@@ -1761,8 +1761,7 @@ xkb_geometry "pc(pc105)" {
                 { <LALT>, "SMOD",   1, color="grey20" },
                 { <SPCE>, "SPCE",   1 },
                 { <RALT>, "SMOD",   1, color="grey20" },
-                { <RWIN>, "SMOD",   1, color="grey20" },
-                { <MENU>, "SMOD",   1, color="grey20" }
+                { <RWIN>, "SMOD",   1, color="grey20" }
             };
         };
     }; // End of "Alpha" section

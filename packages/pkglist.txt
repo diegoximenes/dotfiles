@@ -120,6 +120,7 @@ s-nail
 sd
 shellcheck
 shfmt
+sof-firmware
 sudo
 sysfsutils
 texinfo

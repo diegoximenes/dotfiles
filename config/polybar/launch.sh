@@ -3,13 +3,7 @@
 CONFIG_FILE_PATH="$HOME/.config/dotfiles/config.json"
 
 kill_polybars() {
-    killall -q polybar
-}
-
-wait_polybars_shutdown() {
-    while pgrep -u $UID -x polybar >/dev/null; do
-        sleep 1;
-    done
+    killall -q polybar --wait -e
 }
 
 start_polybars_split_screen_mode() {
@@ -36,7 +30,6 @@ start_polybar_default_screen_mode() {
 start_polybars() {
     local screen_mode
     screen_mode=$(jq '.screen.mode' "$CONFIG_FILE_PATH" 2> /dev/null)
-    echo "screen_mode=$screen_mode"
     case "$screen_mode" in
         "\"split\"") start_polybars_split_screen_mode ;;
         *) start_polybar_default_screen_mode ;;
@@ -44,5 +37,4 @@ start_polybars() {
 }
 
 kill_polybars
-wait_polybars_shutdown
 start_polybars

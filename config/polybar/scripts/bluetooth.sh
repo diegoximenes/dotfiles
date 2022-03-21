@@ -28,39 +28,53 @@ power_toggle() {
     fi
 }
 
+get_delimiter() {
+    local count=$1
+    if [[ $count -gt 0 ]]; then
+        echo ", "
+    else
+        echo ""
+    fi
+}
+
 print_info() {
     bluetoothctl | while read -r; do
         local out
         out=""
 
         if power_on; then
-            out="$out${BLUE}${NC}"
+            out="$out${BLUE} ${NC}"
 
+            local count_connected_devices=0
+            local count_paired_devices=0
             local paired_devices
             mapfile -t paired_devices < <(bluetoothctl paired-devices | cut -d ' ' -f 2)
             for i in "${!paired_devices[@]}"; do
+                count_paired_devices=$((count_paired_devices+1))
+
                 local device_alias
                 device_alias=$(bluetoothctl info "${paired_devices[$i]}" | \
                     grep "Alias" | \
                     cut -d ' ' -f 2-
                 )
 
-                local devices_delimiter
-                devices_delimiter=" "
-                if [[ $i -gt 0 ]]; then
-                    devices_delimiter=", "
-                fi
-
                 if device_connected "${paired_devices[$i]}"; then
-                    local battery
-                    battery=$(bluetooth-headset-battery-level "${paired_devices[$i]}")
-                    battery=${battery##* }
+                    local delimiter
+                    delimiter=$(get_delimiter $count_connected_devices)
+                    out="$out$delimiter${device_alias}"
 
-                    out="$out$devices_delimiter${BLUE}$device_alias ($battery)${NC}"
-                else
-                    out="$out$devices_delimiter$device_alias"
+                    count_connected_devices=$((count_connected_devices+1))
                 fi
             done
+
+            if [[ $count_paired_devices -gt 0 ]]; then
+                local delimiter
+                delimiter=$(get_delimiter $count_connected_devices)
+
+                local paired="P:$count_paired_devices"
+
+                out="$out$delimiter$paired"
+            fi
         else
             out="$out"
         fi

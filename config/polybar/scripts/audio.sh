@@ -3,6 +3,8 @@
 MAX_VOLUME=153
 DELTA_VOLUME=3
 
+NO_ACTIVE_PORT="no_active_port"
+
 volume_sink_up() {
     local volume
     volume="$(get_sink_info | awk '{print $2}' | tr -d '%')"
@@ -63,43 +65,47 @@ get_info() {
     active_port=$(printf '%q' "$active_port")
     active_port=${active_port//\\ / }
 
-    local default_device_info
-    default_device_info=$(echo "$devices" | awk '
-        /Name:/ {
-            is_default = ($2 == "'"$default_device"'");
-        }
-        /Mute:/ {
-            if (is_default) {
-                mute = $2;
+    if [[ "$active_port" == "''" ]]; then
+        echo "$NO_ACTIVE_PORT"
+    else
+        local default_device_info
+        default_device_info=$(echo "$devices" | awk '
+            /Name:/ {
+                is_default = ($2 == "'"$default_device"'");
             }
-        }
-        /Volume: front-left:/ {
-            if (is_default) {
-                volume = $5;
+            /Mute:/ {
+                if (is_default) {
+                    mute = $2;
+                }
             }
-        }
-        /Volume: mono:/ {
-            if (is_default) {
-                volume = $5;
+            /Volume: front-left:/ {
+                if (is_default) {
+                    volume = $5;
+                }
             }
-        }
-        /'"$active_port"':/ {
-            if (is_default) {
-                split_index = index($0, ":");
-                port_info = substr($0, split_index + 2);
-                space_index = index(port_info, " ");
-                port = substr(port_info, 1, space_index - 1)
+            /Volume: mono:/ {
+                if (is_default) {
+                    volume = $5;
+                }
             }
-        }
-        END {
-            if (mute == "no") {
-                printf "unmute %s %s", volume, port;
-            } else {
-                printf "mute %s %s", volume, port;
+            /'"$active_port"':/ {
+                if (is_default) {
+                    split_index = index($0, ":");
+                    port_info = substr($0, split_index + 2);
+                    space_index = index(port_info, " ");
+                    port = substr(port_info, 1, space_index - 1)
+                }
             }
-        }
-    ')
-    echo "$default_device_info"
+            END {
+                if (mute == "no") {
+                    printf "unmute %s %s", volume, port;
+                } else {
+                    printf "mute %s %s", volume, port;
+                }
+            }
+        ')
+        echo "$default_device_info"
+    fi
 }
 
 print_info() {
@@ -108,17 +114,21 @@ print_info() {
     local device_tag
     device_tag="$2"
 
-    local mute_state
-    mute_state="$(echo "$info" | awk '{print $1}')"
-    local volume
-    volume="$(echo "$info" | awk '{print $2}')"
-    local port
-    port="$(echo "$info" | awk '{print $3}')"
-
-    if [[ "$mute_state" == "mute" ]]; then
-        echo "$device_tag 🗶 $port"
+    if [[ "$info" == "$NO_ACTIVE_PORT" ]]; then
+        echo "$device_tag 🗶 "
     else
-        echo "$device_tag $volume $port"
+        local mute_state
+        mute_state="$(echo "$info" | awk '{print $1}')"
+        local volume
+        volume="$(echo "$info" | awk '{print $2}')"
+        local port
+        port="$(echo "$info" | awk '{print $3}')"
+
+        if [[ "$mute_state" == "mute" ]]; then
+            echo "$device_tag 🗶 $port"
+        else
+            echo "$device_tag $volume $port"
+        fi
     fi
 }
 

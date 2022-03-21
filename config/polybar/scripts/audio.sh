@@ -78,6 +78,11 @@ get_info() {
                 volume = $5;
             }
         }
+        /Volume: mono:/ {
+            if (is_default) {
+                volume = $5;
+            }
+        }
         /'"$active_port"':/ {
             if (is_default) {
                 split_index = index($0, ":");

@@ -36,7 +36,7 @@ font-2 = "Noto Sans Symbols 2:size=17:antialias=true"
 font-3 = "Fira Mono Nerd Font:size=17:antialias=true"
 
 modules-left = i3 i3_split_mode i3_focused_window
-modules-right = removable_devices bluetooth xbacklight arch_aur_updates audio_sink audio_source openvpn network cpu_temperature battery date
+modules-right = removable_devices bluetooth xbacklight audio_sink audio_source openvpn network cpu_temperature battery date
 
 [settings]
 screenchange-reload = true
@@ -137,8 +137,3 @@ tail = true
 type = custom/script
 exec = python3 -u ~/.config/polybar/scripts/i3_focused_window.py
 tail = true
-
-[module/arch_aur_updates]
-type = custom/script
-exec = ~/.config/polybar/scripts/arch_aur_updates.sh
-interval = 600

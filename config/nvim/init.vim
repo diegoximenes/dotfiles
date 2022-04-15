@@ -25,7 +25,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'osyo-manga/vim-anzu'
 Plug 'scrooloose/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'brooth/far.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -203,7 +203,7 @@ let g:fzf_action = {
 nnoremap <F5> :edit<CR>
 
 set pastetoggle=<F4>
-nnoremap <F7> :GundoToggle<CR>
+nnoremap <F7> :UndotreeToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 nnoremap <F10> :Ranger<CR>

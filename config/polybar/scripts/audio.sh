@@ -162,8 +162,9 @@ print_source_info() {
 
 sink_volume_listener() {
     pactl subscribe | while read -r event; do
-        match=$(echo "$event" | grep "'change' on sink")
-        if [ "$match" != "" ]; then
+        change_on_server=$(echo "$event" | grep "'change' on server")
+        change_on_sink=$(echo "$event" | grep "'change' on sink")
+        if [ "$change_on_server" != "" ] || [ "$change_on_sink" != "" ]; then
             print_sink_info
         fi
     done
@@ -171,8 +172,9 @@ sink_volume_listener() {
 
 source_volume_listener() {
     pactl subscribe | while read -r event; do
-        match=$(echo "$event" | grep "'change' on source")
-        if [ "$match" != "" ]; then
+        change_on_server=$(echo "$event" | grep "'change' on server")
+        change_on_source=$(echo "$event" | grep "'change' on source")
+        if [ "$change_on_server" != "" ] || [ "$change_on_source" != "" ]; then
             print_source_info
         fi
     done

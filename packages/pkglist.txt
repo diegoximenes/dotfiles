@@ -80,6 +80,7 @@ openssh
 os-prober
 pacman-contrib
 pandoc
+pasystray
 patch
 pavucontrol
 pipewire-pulse

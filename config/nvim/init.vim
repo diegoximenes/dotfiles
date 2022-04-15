@@ -169,25 +169,25 @@ noremap <Right> <NOP>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " previous tag
-nmap <C-m> :pop<CR>
+nnoremap <C-m> :pop<CR>
 
 " previous location, to be used when tags are not applied to file navigation
-nmap <C-z> <C-o>
+nnoremap <C-z> <C-o>
 
 "copy/paste outsize vim
-vmap <C-c> "+y
-nmap <C-v> "+p
-imap <C-v> <C-r>+
+vnoremap <C-c> "+y
+nnoremap <C-v> "+p
+inoremap <C-v> <C-r>+
 cnoremap <C-v> <C-r>+
 
 " visual-block mode
-noremap <C-a> <C-v>
+nnoremap <C-a> <C-v>
 
 " show full file path
-nmap <C-e> :echo expand('%:p')<CR>
+nnoremap <C-e> :echo expand('%:p')<CR>
 
 " fzf.vim
-nmap <C-s> :Files<CR>
+nnoremap <C-s> :Files<CR>
 let g:fzf_action = {
   \ 'enter': 'tab split',
   \ 'ctrl-t': 'tab split',
@@ -200,37 +200,37 @@ let g:fzf_action = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " reload file
-nmap <F5> :edit<CR>
+nnoremap <F5> :edit<CR>
 
 set pastetoggle=<F4>
-nmap <F7> :GundoToggle<CR>
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
-nmap <F10> :Ranger<CR>
-nmap <F12> :call HandleLineLength()<CR>
+nnoremap <F7> :GundoToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
+nnoremap <F9> :NERDTreeToggle<CR>
+nnoremap <F10> :Ranger<CR>
+nnoremap <F12> :call HandleLineLength()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " other mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " change letter case
-nmap U ~
+nnoremap U ~
 
 " tab navigation
-nmap O :tabp<CR>
-nmap P :tabn<CR>
+nnoremap O :tabp<CR>
+nnoremap P :tabn<CR>
 
 " window navigation
-nmap J <C-w>j
-nmap K <C-w>k
-nmap H <C-w>h
-nmap L <C-w>l
+nnoremap J <C-w>j
+nnoremap K <C-w>k
+nnoremap H <C-w>h
+nnoremap L <C-w>l
 
 " move window into a new tab
-nmap T <C-w>T
+nnoremap T <C-w>T
 
 " vim-matchup, go to begin/end of pair
-nmap M g%
+nnoremap M g%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs

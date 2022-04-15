@@ -1,7 +1,5 @@
 antigen-git
-atool
 autojump
-bluetooth-headset-battery-level-git
 diagnostic-languageserver
 dockerfile-language-server
 google-chrome
@@ -16,7 +14,6 @@ rofi-greenclip
 termite
 typescript-language-server
 vim-language-server
-visidata
 vscode-langservers-extracted
 yay
 zoom

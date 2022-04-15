@@ -1,5 +1,6 @@
 android-file-transfer
 arch-audit
+atool
 autoconf
 automake
 bandwhich
@@ -127,6 +128,7 @@ vi
 vint
 virtualbox
 virtualbox-host-modules-arch
+visidata
 vlc
 vnstat
 w3m

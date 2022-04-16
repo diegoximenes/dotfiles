@@ -18,7 +18,6 @@ kill_polybars() {
         # scripts again after they are killed
         killall polybar --quiet --wait --exact --signal SIGKILL
 
-        # add python3
         local pgrps_to_kill
         pgrps_to_kill="$(ps -e -o pgrp,cmd \
             | grep '\(/bin/bash\|python3\) .*/\.config/polybar/scripts' \

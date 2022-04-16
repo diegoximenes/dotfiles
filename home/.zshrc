@@ -68,7 +68,7 @@ interface_list() {
 
 myps() {
     local cmd=$1
-    local cols="ppid,stat,%cpu,%mem,etime,start,user,pid,cmd"
+    local cols="ppid,pid,pgrp,%cpu,%mem,etime,start,stat,user,cmd"
     if [[ "$cmd" == "" ]]; then
         ps -e -o $cols
     else

@@ -88,6 +88,7 @@ bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
+# workspace screen mapping
 set $primary_screen HDMI1
 set $secondary_screen eDP1
 workspace 1 output $primary_screen

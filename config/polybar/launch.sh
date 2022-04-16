@@ -53,4 +53,4 @@ start_polybars() {
 
 kill_polybars
 start_polybars
-notify-send "polybar started."
+notify-send -u low "polybar started."

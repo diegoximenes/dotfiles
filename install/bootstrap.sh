@@ -80,9 +80,7 @@ install_yarn_packages() {
 
 set_zsh() {
     echo_step "Setting zsh..."
-    if [[ "$(basename "$SHELL")" != "zsh" ]]; then
-        chsh -s "$(command -v zsh)"
-    fi
+    chsh -s "$(command -v zsh)"
 
     zsh -i -c "antigen reset"
 }

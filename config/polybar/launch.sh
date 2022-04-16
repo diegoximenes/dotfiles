@@ -3,7 +3,33 @@
 CONFIG_FILE_PATH="$HOME/.config/dotfiles/config.json"
 
 kill_polybars() {
-    killall -q polybar --wait -e
+    # soft kill
+    timeout 4 killall polybar --quiet --wait --exact
+    local timeout_exit_code=$?
+    if [[ $timeout_exit_code == 124 ]] ||
+            [[ $timeout_exit_code == 125 ]] ||
+            [[ $timeout_exit_code == 126 ]] ||
+            [[ $timeout_exit_code == 127 ]] ||
+            [[ $timeout_exit_code == 137 ]]; then
+        # timed out, do hard kill
+        notify-send -u critical "polybar soft kill failed, doing hard kill."
+
+        # wait before killing polybar scripts, since polybar could spawn those
+        # scripts again after they are killed
+        killall polybar --quiet --wait --exact --signal SIGKILL
+
+        # add python3
+        local pgrps_to_kill
+        pgrps_to_kill="$(ps -e -o pgrp,cmd \
+            | grep '\(/bin/bash\|python3\) .*/\.config/polybar/scripts' \
+            | awk '{print $1}' \
+            | sort \
+            | uniq
+        )"
+        for pgrp in ${pgrps_to_kill}; do
+            kill -SIGKILL "-$pgrp"
+        done
+    fi
 }
 
 start_polybars_split_screen_mode() {
@@ -38,3 +64,4 @@ start_polybars() {
 
 kill_polybars
 start_polybars
+notify-send "polybar started."

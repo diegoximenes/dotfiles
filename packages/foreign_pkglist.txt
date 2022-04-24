@@ -12,7 +12,6 @@ nvimpager-git
 polybar
 rofi-greenclip
 termite
-typescript-language-server
 vim-language-server
 vscode-langservers-extracted
 yay

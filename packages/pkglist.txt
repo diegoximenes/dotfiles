@@ -122,6 +122,7 @@ transmission-gtk
 trash-cli
 tree
 typescript
+typescript-language-server
 unrar
 unzip
 usbutils

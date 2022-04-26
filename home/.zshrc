@@ -194,3 +194,4 @@ alias greenclip_clear="pkill greenclip && greenclip clear && nohup greenclip dae
 alias sync_arch_databases="sudo pacman -Syy"
 alias myprogress="watch progress -q"
 alias json_format="bash ~/.scripts/json_format.sh"
+alias gsudo="sudo git -c include.path=$HOME/.gitconfig"

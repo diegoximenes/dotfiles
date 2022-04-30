@@ -100,9 +100,11 @@ endfunction
 " set filetypes
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.en_us set filetype=en_us
+autocmd BufNewFile,BufRead *.pt_br set filetype=pt_br
 
 " spell config
 autocmd FileType gitcommit,markdown,plaintext,tex,en_us set spell spelllang=en_us
+autocmd FileType pt_br set spell spelllang=pt_br
 
 " remove trailing spaces of all files before saving except markdown
 autocmd BufWritePre * call RemoveTrailingWhitespace()
@@ -421,6 +423,7 @@ lspconfig['ltex'].setup {
   },
   settings = {
     ltex = {
+      language = "en-US",
       dictionary = {
         ["en-US"] = readDictionaryFile(vim.env.HOME .. "/.config/nvim/spell/en.utf-8.add"),
       },

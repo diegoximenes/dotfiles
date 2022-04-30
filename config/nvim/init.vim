@@ -399,6 +399,35 @@ for _, lsp in ipairs(lsps_with_default_config) do
     capabilities = capabilities,
   }
 end
+
+local function readDictionaryFile(file)
+  local dict = {}
+  for line in io.lines(file) do
+    table.insert(dict, line)
+  end
+  return dict
+end
+
+lspconfig['ltex'].setup {
+  on_attach = on_attach,
+  flags = flags,
+  capabilities = capabilities,
+  filetypes = {
+    "gitcommit",
+    "markdown",
+    "plaintex",
+    "tex",
+    "en_us",
+  },
+  settings = {
+    ltex = {
+      dictionary = {
+        ["en-US"] = readDictionaryFile(vim.env.HOME .. "/.config/nvim/spell/en.utf-8.add"),
+      },
+    },
+  },
+}
+
 lspconfig['diagnosticls'].setup {
   on_attach = on_attach,
   flags = flags,

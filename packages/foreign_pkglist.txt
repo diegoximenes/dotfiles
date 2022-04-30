@@ -4,6 +4,7 @@ diagnostic-languageserver
 dockerfile-language-server
 google-chrome
 jupyter_nbextensions_configurator
+ltex-ls-bin
 metals
 nerd-fonts-complete
 nodejs-jsonlint

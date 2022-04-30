@@ -35,6 +35,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'dstein64/nvim-scrollview'
 Plug 'andymass/vim-matchup'
 Plug 'tomlion/vim-solidity'
+Plug 'kamykn/spelunker.vim'
 
 " nvim-lspconfig stuff.
 Plug 'ray-x/lsp_signature.nvim'
@@ -96,8 +97,12 @@ endfunction
 " autocmd
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set markdown filetype
+" set filetypes
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.en_us set filetype=en_us
+
+" spell config
+autocmd FileType gitcommit,markdown,plaintext,tex,en_us set spell spelllang=en_us
 
 " remove trailing spaces of all files before saving except markdown
 autocmd BufWritePre * call RemoveTrailingWhitespace()
@@ -232,9 +237,23 @@ nnoremap T <C-w>T
 " vim-matchup, go to begin/end of pair
 nnoremap M g%
 
+" spell
+nnoremap fa zg
+nnoremap fr zug
+nnoremap fo [s
+nnoremap fp ]s
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" spelunker
+let g:spelunker_check_type = 0
+let g:enable_spelunker_vim_on_readonly = 1
+let g:spelunker_target_min_char_len = 1
+let g:spelunker_disable_account_name_checking = 0
+let g:spelunker_disable_backquoted_checking = 0
+nmap ff <Plug>(spelunker-correct-from-list)
 
 " vim-matchup
 let g:matchup_matchparen_offscreen = {}

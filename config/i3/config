@@ -154,6 +154,7 @@ bindsym $mod+z exec zathura
 bindsym $mod+x exec termite -t htop -e htop
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+v exec vlc
+bindsym $mod+y exec rofi-bluetooth
 
 # audio
 bindsym $mod+m exec ~/.config/polybar/scripts/audio.sh --volume_sink_down

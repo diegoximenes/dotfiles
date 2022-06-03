@@ -176,7 +176,9 @@ noremap <Right> <NOP>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " previous tag
-nnoremap <C-m> :pop<CR>
+" workaround since <C-i> mapping stopped working with nvim v0.7.0
+" nnoremap <C-m> :pop<CR>
+nnoremap <cr> :pop<CR>
 
 " previous location, to be used when tags are not applied to file navigation
 nnoremap <C-z> <C-o>
@@ -353,7 +355,9 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.keymap.set('n', '<C-i>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  -- workaround since <C-i> mapping stopped working with nvim v0.7.0
+  -- vim.keymap.set('n', '<C-i>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.keymap.set('n', '<tab>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.keymap.set('n', '<C-y>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.keymap.set('n', '<C-g>', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.keymap.set('n', '<C-t>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)

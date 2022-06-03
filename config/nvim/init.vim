@@ -338,28 +338,27 @@ local lsp_signature_config = {
 }
 require'lsp_signature'.setup(lsp_signature_config)
 
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<C-n>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.keymap.set('n', '[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.keymap.set('n', ']', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', '<C-i>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<C-y>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-g>', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<C-t>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<C-b>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-n>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.keymap.set('n', '<C-i>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.keymap.set('n', '<C-y>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.keymap.set('n', '<C-g>', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.keymap.set('n', '<C-t>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.keymap.set('n', '<C-b>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.keymap.set('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 local use = require('packer').use

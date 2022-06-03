@@ -77,7 +77,7 @@ update_nvim() {
 
     nvim +PlugUpdate
     nvim +PlugClean
-    nvim +UpdateRemotePlugins
+    nvim /tmp/tmp.py +UpdateRemotePlugins
 }
 
 update_tmux_plugins() {

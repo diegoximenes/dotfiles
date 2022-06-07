@@ -341,7 +341,7 @@ local lsp_signature_config = {
 require'lsp_signature'.setup(lsp_signature_config)
 
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<C-n>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.keymap.set('n', '<C-q>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', '[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.keymap.set('n', ']', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 

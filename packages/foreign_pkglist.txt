@@ -10,7 +10,6 @@ nerd-fonts-complete
 nodejs-jsonlint
 nodejs-markdownlint-cli
 nvimpager-git
-polybar
 rofi-bluetooth-git
 rofi-greenclip
 termite

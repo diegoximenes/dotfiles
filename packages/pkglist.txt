@@ -21,6 +21,7 @@ curlie
 deepin-screenshot
 dfrs
 dhcpcd
+docker-compose
 dosfstools
 dunst
 efibootmgr
@@ -87,6 +88,7 @@ pipewire-pulse
 pkgconf
 pkgfile
 polkit
+polybar
 prettier
 progress
 psensor

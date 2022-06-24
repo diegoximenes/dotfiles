@@ -121,6 +121,12 @@ set_tmux() {
     bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 }
 
+set_docker() {
+    echo_step 'Setting docker...'
+    sudo groupadd docker
+    sudo usermod -aG docker "$USER"
+}
+
 opt="$1"
 
 change_owner
@@ -133,6 +139,7 @@ set_virtualbox
 set_vnstat
 set_bluetooth
 set_tmux
+set_docker
 # set network stuff, should be the last ones
 set_network_manager
 set_systemd_resolved

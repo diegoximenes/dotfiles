@@ -76,13 +76,15 @@ endfunction
 function SetLineLength()
     let g:use_max_line_length=1
     execute 'set textwidth='.(g:max_line_length - 1)
-    let w:m2=matchadd('ErrorMsg', '\%>'.g:max_line_length.'v.\+', -1)
+    let w:max_line_length_error=matchadd('ErrorMsg', '\%>'.g:max_line_length.'v.\+', -1)
 endfunction
 
 function UnsetLineLength()
     let g:use_max_line_length=0
     execute 'set textwidth=0'
-    call matchdelete(w:m2)
+    if exists("w:max_line_length_error")
+      call matchdelete(w:max_line_length_error)
+    endif
 endfunction
 
 function HandleLineLength()
@@ -91,6 +93,14 @@ function HandleLineLength()
     else
         call UnsetLineLength()
     endif
+endfunction
+
+function WrapFileLineLength(max_line_length)
+    execute 'set textwidth='.(a:max_line_length - 1)
+    let w:max_line_length_error=matchadd('ErrorMsg', '\%>'.a:max_line_length.'v.\+', -1)
+    let current_pos=getpos('.')
+    execute 'normal gggqG'
+    call setpos('.', current_pos)
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

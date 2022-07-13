@@ -45,6 +45,7 @@ update_submodules() {
 
 update_arch_packages() {
     echo_step 'Updating arch packages...'
+    sudo pacman -Sy archlinux-keyring --noconfirm
     yay -Syu --answerupgrade None --answerclean All --answerdiff None --removemake --noconfirm
 }
 

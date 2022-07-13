@@ -138,6 +138,7 @@ vnstat
 w3m
 wget
 which
+wireplumber
 wmctrl
 wpa_supplicant
 xautolock

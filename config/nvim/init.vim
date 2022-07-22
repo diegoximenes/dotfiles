@@ -104,29 +104,6 @@ function WrapFileLineLength(max_line_length)
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocmd
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" set filetypes
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd BufNewFile,BufRead *.en_us set filetype=en_us
-autocmd BufNewFile,BufRead *.pt_br set filetype=pt_br
-
-" spell config
-autocmd FileType gitcommit,markdown,plaintext,tex,en_us set spell spelllang=en_us
-autocmd FileType pt_br set spell spelllang=pt_br
-
-" remove trailing spaces of all files before saving except markdown
-autocmd BufWritePre * call RemoveTrailingWhitespace()
-autocmd FileType markdown let b:noRemoveWhitespace=1
-
-" remove blank end lines before saving files
-autocmd BufWritePre * call RemoveEndBlankLines()
-
-" template for new .sh files
-autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -180,6 +157,29 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" autocmd
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" set filetypes
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.en_us set filetype=en_us
+autocmd BufNewFile,BufRead *.pt_br set filetype=pt_br
+
+" spell config
+autocmd FileType gitcommit,markdown,plaintext,tex,en_us set spell spelllang=en_us
+autocmd FileType pt_br set spell spelllang=pt_br
+
+" remove trailing spaces of all files before saving except markdown
+autocmd BufWritePre * call RemoveTrailingWhitespace()
+autocmd FileType markdown let b:noRemoveWhitespace=1
+
+" remove blank end lines before saving files
+autocmd BufWritePre * call RemoveEndBlankLines()
+
+" template for new .sh files
+autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <C-*> mappings

@@ -167,6 +167,9 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.en_us set filetype=en_us
 autocmd BufNewFile,BufRead *.pt_br set filetype=pt_br
 
+" disable smartindent for some filetypes
+autocmd FileType en_us,pt_br set smartindent!
+
 " spell config
 autocmd FileType gitcommit,markdown,plaintext,tex,en_us set spell spelllang=en_us
 autocmd FileType pt_br set spell spelllang=pt_br

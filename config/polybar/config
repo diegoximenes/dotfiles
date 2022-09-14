@@ -33,7 +33,7 @@ cursor-scroll = ns-resize
 font-0 = "monospace:size=12:antialias=true"
 font-1 = "Noto Color Emoji:scale=8"
 font-2 = "Noto Sans Symbols 2:size=17:antialias=true"
-font-3 = "Fira Mono Nerd Font:size=17:antialias=true"
+font-3 = "Symbols Nerd Font:size=17:antialias=true"
 
 modules-left = i3 i3_split_mode i3_focused_window
 modules-right = removable_devices bluetooth xbacklight audio_sink audio_source openvpn network cpu_temperature battery date

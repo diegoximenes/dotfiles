@@ -12,6 +12,7 @@ bind
 bison
 bluez
 bluez-utils
+breeze-icons
 cifs-utils
 clang
 cmake
@@ -102,7 +103,6 @@ obconf-qt
 openbox
 openssh
 os-prober
-oxygen-icons
 pacman-contrib
 pandoc-cli
 pasystray

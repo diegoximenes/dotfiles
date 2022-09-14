@@ -71,6 +71,7 @@ symlink() {
     sudo ln -snf "$path_dotfiles/etc/X11/xorg.conf.d/"* /etc/X11/xorg.conf.d/
     sudo ln -snf "$path_dotfiles/etc/NetworkManager/"* /etc/NetworkManager/
     sudo ln -snf "$path_dotfiles/etc/pacman.d/"* /etc/pacman.d/
+    sudo ln -snf "$path_dotfiles/etc/bluetooth/"* /etc/bluetooth/
 }
 
 install_yarn_packages() {

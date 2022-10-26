@@ -117,6 +117,11 @@ set_bluetooth() {
     sudo systemctl enable bluetooth.service
 }
 
+set_timesyncd() {
+    echo_step 'Setting timesyncd...'
+    sudo systemctl enable systemd-timesyncd.service
+}
+
 set_tmux() {
     echo_step 'Setting tmux...'
     bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
@@ -139,6 +144,7 @@ set_pkgfile
 set_virtualbox
 set_vnstat
 set_bluetooth
+set_timesyncd
 set_tmux
 set_docker
 # set network stuff, should be the last ones

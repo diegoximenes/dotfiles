@@ -16,7 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'farmergreg/vim-lastplace'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'plasticboy/vim-markdown'
@@ -313,9 +313,6 @@ let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
-" semshi
-let g:semshi#mark_selected_nodes=0
-
 " incsearch
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
@@ -343,10 +340,40 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 map / <Plug>(incsearch-easymotion-stay)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim-lspconfig
+" lua configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 lua << EOF
+
+--------------------------------------------------------------------------------
+-- nvim-treesitter
+--------------------------------------------------------------------------------
+
+require'nvim-treesitter.configs'.setup {
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    disable = { "vim" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+--------------------------------------------------------------------------------
+-- nvim-lspconfig
+--------------------------------------------------------------------------------
 
 local lsp_signature_config = {
   doc_lines = 0,

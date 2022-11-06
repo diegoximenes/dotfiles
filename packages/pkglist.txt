@@ -21,6 +21,7 @@ curlie
 deepin-screenshot
 dfrs
 dhcpcd
+docker
 docker-compose
 dosfstools
 dunst

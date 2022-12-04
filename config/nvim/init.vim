@@ -402,7 +402,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<C-g>', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.keymap.set('n', '<C-t>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.keymap.set('n', '<C-b>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.keymap.set('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.keymap.set('n', '<C-f>', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
 end
 
 local use = require('packer').use

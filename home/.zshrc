@@ -104,7 +104,11 @@ ssh_agent() {
 
 go_get_private() {
     local repo="$1"
-    GOPRIVATE=$repo go get $repo
+    local version="$2"
+    if [[ "$version" != "" ]]; then
+        version="@$version"
+    fi
+    GOPRIVATE=$repo go get "$repo$version"
 }
 
 ################################################################################

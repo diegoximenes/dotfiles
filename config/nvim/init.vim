@@ -36,6 +36,7 @@ Plug 'dstein64/nvim-scrollview'
 Plug 'andymass/vim-matchup'
 Plug 'tomlion/vim-solidity'
 Plug 'kamykn/spelunker.vim'
+Plug 'hashivim/vim-terraform'
 
 " nvim-lspconfig stuff.
 Plug 'ray-x/lsp_signature.nvim'
@@ -167,6 +168,11 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.en_us set filetype=en_us
 autocmd BufNewFile,BufRead *.pt_br set filetype=pt_br
 
+" set terraform filetypes
+autocmd BufNewFile,BufRead *.hcl,.terraformrc,terraform.rc set filetype=hcl
+autocmd BufNewFile,BufRead *.tf,*.tfvars set filetype=terraform
+autocmd BufNewFile,BufRead *.tfstate,*.tfstate.backup set filetype=json
+
 " disable smartindent for some filetypes
 autocmd FileType en_us,pt_br set smartindent!
 
@@ -263,6 +269,10 @@ nnoremap fp ]s
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim-terraform
+let g:terraform_fmt_on_save = 1
+let g:terraform_align = 1
 
 " spelunker
 let g:spelunker_check_type = 0
@@ -435,6 +445,8 @@ local lsps_with_default_config = {
   'vimls',
   'dockerls',
   'solidity_ls',
+  'terraformls',
+  'tflint', -- it does not search for .tflint.hcl in parent directories
 }
 for _, lsp in ipairs(lsps_with_default_config) do
   lspconfig[lsp].setup {

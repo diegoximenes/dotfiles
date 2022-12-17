@@ -13,6 +13,8 @@ nvimpager-git
 rofi-bluetooth-git
 rofi-greenclip
 termite
+terraform-ls
+tflint
 vim-language-server
 vscode-langservers-extracted
 yay

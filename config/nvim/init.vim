@@ -37,6 +37,7 @@ Plug 'andymass/vim-matchup'
 Plug 'tomlion/vim-solidity'
 Plug 'kamykn/spelunker.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'kevinhwang91/nvim-bqf'
 
 " nvim-lspconfig stuff.
 Plug 'ray-x/lsp_signature.nvim'
@@ -354,6 +355,17 @@ map / <Plug>(incsearch-easymotion-stay)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 lua << EOF
+
+--------------------------------------------------------------------------------
+-- nvim-bqf
+--------------------------------------------------------------------------------
+
+require('bqf').setup({
+  func_map = {
+    open = 'o',
+    openc = '<CR>',
+  }
+})
 
 --------------------------------------------------------------------------------
 -- nvim-treesitter

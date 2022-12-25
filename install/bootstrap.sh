@@ -137,9 +137,9 @@ opt="$1"
 
 change_owner
 [[ "$opt" == '--install' ]] && install_all
+set_zsh
 symlink
 [[ "$opt" == '--install' ]] && install_yarn_packages
-set_zsh
 set_pkgfile
 set_virtualbox
 set_vnstat

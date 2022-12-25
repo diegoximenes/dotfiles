@@ -82,6 +82,8 @@ nmap
 noto-fonts
 noto-fonts-emoji
 ntfs-3g
+nvidia-open
+nvidia-settings
 openssh
 os-prober
 pacman-contrib

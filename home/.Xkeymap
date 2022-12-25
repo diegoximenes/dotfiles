@@ -1332,10 +1332,6 @@ xkb_symbols "pc+us+inet(evdev)" {
     key <AB10> {         [           slash,        question ] };
     key <AB11> {         [       backslash,             bar ] };
     key <RTSH> {         [         Shift_R ] };
-    key <KPMU> {
-        type= "CTRL+ALT",
-        symbols[Group1]= [     KP_Multiply,     KP_Multiply,     KP_Multiply,     KP_Multiply,   XF86ClearGrab ]
-    };
     key <LALT> {         [           Alt_L,          Meta_L ] };
     key <SPCE> {         [           space ] };
     key <CAPS> {         [          Escape ] };
@@ -1371,35 +1367,18 @@ xkb_symbols "pc+us+inet(evdev)" {
         type= "CTRL+ALT",
         symbols[Group1]= [              F8,              F8,              F8,              F8, XF86Switch_VT_8 ]
     };
-    key <FK09> {
-        type= "CTRL+ALT",
-        symbols[Group1]= [              F9,              F9,              F9,              F9, XF86Switch_VT_9 ]
-    };
     key <FK10> {
         type= "CTRL+ALT",
         symbols[Group1]= [             F10,             F10,             F10,             F10, XF86Switch_VT_10 ]
     };
-    key <NMLK> {         [        Num_Lock ] };
+    key <NMLK> {         [        BackSpace ] };
     key <SCLK> {         [     Scroll_Lock ] };
-    key  <KP7> {         [         KP_Home,            KP_7 ] };
-    key  <KP8> {         [           KP_Up,            KP_8 ] };
-    key  <KP9> {         [        KP_Prior,            KP_9 ] };
-    key <KPSU> {
-        type= "CTRL+ALT",
-        symbols[Group1]= [     KP_Subtract,     KP_Subtract,     KP_Subtract,     KP_Subtract,  XF86Prev_VMode ]
-    };
-    key  <KP4> {         [         KP_Left,            KP_4 ] };
-    key  <KP5> {         [        KP_Begin,            KP_5 ] };
-    key  <KP6> {         [        KP_Right,            KP_6 ] };
-    key <KPAD> {
-        type= "CTRL+ALT",
-        symbols[Group1]= [          KP_Add,          KP_Add,          KP_Add,          KP_Add,  XF86Next_VMode ]
-    };
-    key  <KP1> {         [          KP_End,            KP_1 ] };
-    key  <KP2> {         [         KP_Down,            KP_2 ] };
-    key  <KP3> {         [         KP_Next,            KP_3 ] };
-    key  <KP0> {         [       KP_Insert,            KP_0 ] };
-    key <KPDL> {         [       KP_Delete,      KP_Decimal ] };
+    key  <KP7> {         [         Return,           Return ] };
+    key  <KP4> {         [         Return,           Return ] };
+    key  <KP1> {         [         Shift_R,          Shift_R ] };
+    key  <KP3> {         [         Up,                   Up ] };
+    key  <KP0> {         [         Left,               Left ] };
+    key <KPDL> {         [         Down,               Down ] };
     key <LVL3> {         [ ISO_Level3_Shift ] };
     key <LSGT> {
         type= "FOUR_LEVEL",
@@ -1418,12 +1397,8 @@ xkb_symbols "pc+us+inet(evdev)" {
     key <HENK> {         [     Henkan_Mode ] };
     key <HKTG> {         [ Hiragana_Katakana ] };
     key <MUHE> {         [        Muhenkan ] };
-    key <KPEN> {         [        KP_Enter ] };
+    key <KPEN> {         [        Right    ] };
     key <RCTL> {         [       Control_R ] };
-    key <KPDV> {
-        type= "CTRL+ALT",
-        symbols[Group1]= [       KP_Divide,       KP_Divide,       KP_Divide,       KP_Divide,      XF86Ungrab ]
-    };
     key <PRSC> {
         type= "PC_ALT_LEVEL2",
         symbols[Group1]= [           Print,         Sys_Req ]
@@ -1472,7 +1447,7 @@ xkb_symbols "pc+us+inet(evdev)" {
     key  <CUT> {         [         XF86Cut ] };
     key <HELP> {         [            Help ] };
     key <I147> {         [      XF86MenuKB ] };
-    key <I148> {         [  XF86Calculator ] };
+    key <I148> {         [          Delete ] };
     key <I150> {         [       XF86Sleep ] };
     key <I151> {         [      XF86WakeUp ] };
     key <I152> {         [    XF86Explorer ] };

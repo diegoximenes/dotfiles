@@ -13,7 +13,7 @@
     - fdisk> w # save and quit
   - create the partitions:
     - cfdisk DISK (e.g. /dev/sda)
-      - create EFI: 300M EFI System
+      - create EFI: 550M EFI System
       - create swap: Type: Linux swap
       - create filesystem: Type: Linux filesystem
     - check with lsblk

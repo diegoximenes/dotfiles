@@ -102,15 +102,6 @@ ssh_agent() {
     ssh-add "$HOME/.ssh/id_ed25519"
 }
 
-go_get_private() {
-    local repo="$1"
-    local version="$2"
-    if [[ "$version" != "" ]]; then
-        version="@$version"
-    fi
-    GOPRIVATE=$repo go get "$repo$version"
-}
-
 ################################################################################
 # source
 ################################################################################

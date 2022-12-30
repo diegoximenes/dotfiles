@@ -18,6 +18,10 @@
   - uninstalling plugins: remove plugin line from tmux.conf && prefix + alt + u
   - to reset tmux configurations: tmux kill-server
 
+- virt-manager screen resolution
+  - After starting VM, go to "Video" tab and change to "Virtio"
+  - Open settings in guest OS and update display resolution
+
 - pull
   - git pull
   - git submodule update --init --remote

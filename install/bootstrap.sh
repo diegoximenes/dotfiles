@@ -102,11 +102,6 @@ set_pkgfile() {
     sudo pkgfile --update
 }
 
-set_virtualbox() {
-    echo_step 'Setting virtualbox...'
-    sudo modprobe --verbose --force-vermagic vboxdrv
-}
-
 set_vnstat() {
     echo_step 'Setting vnstat...'
     sudo systemctl enable vnstat.service
@@ -120,6 +115,11 @@ set_bluetooth() {
 set_timesyncd() {
     echo_step 'Setting timesyncd...'
     sudo systemctl enable systemd-timesyncd.service
+}
+
+set_libvirtd() {
+    echo_step 'Setting libvirtd...'
+    sudo systemctl enable libvirtd.service
 }
 
 set_tmux() {
@@ -141,7 +141,7 @@ set_zsh
 symlink
 [[ "$opt" == '--install' ]] && install_yarn_packages
 set_pkgfile
-set_virtualbox
+set_libvirtd
 set_vnstat
 set_bluetooth
 set_timesyncd

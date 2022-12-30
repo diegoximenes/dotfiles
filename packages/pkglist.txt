@@ -21,6 +21,7 @@ curlie
 deepin-screenshot
 dfrs
 dhcpcd
+dnsmasq
 docker
 docker-compose
 dosfstools
@@ -47,6 +48,7 @@ i3-wm
 i3lock
 inetutils
 intel-ucode
+iptables-nft
 iptraf-ng
 iwd
 jfsutils
@@ -101,6 +103,7 @@ python-pipenv
 python-pylint
 python-pynvim
 python-virtualenvwrapper
+qemu-desktop
 ranger
 reiserfsprogs
 ripgrep
@@ -131,8 +134,7 @@ unzip
 usbutils
 vi
 vint
-virtualbox
-virtualbox-host-modules-arch
+virt-manager
 visidata
 vlc
 vnstat

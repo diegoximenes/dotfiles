@@ -38,6 +38,7 @@ Plug 'tomlion/vim-solidity'
 Plug 'kamykn/spelunker.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'tanvirtin/monokai.nvim'
 
 " nvim-lspconfig stuff.
 Plug 'ray-x/lsp_signature.nvim'
@@ -118,7 +119,7 @@ filetype plugin indent on
 " colors
 syntax on
 set t_Co=256
-colorscheme molokai
+colorscheme monokai
 
 set mouse=a
 set showcmd
@@ -355,6 +356,19 @@ map / <Plug>(incsearch-easymotion-stay)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 lua << EOF
+
+--------------------------------------------------------------------------------
+-- monokai.nvim
+--------------------------------------------------------------------------------
+
+local monokai = require('monokai')
+local palette = monokai.classic
+
+monokai.setup {
+  palette = {
+    base2 = '#1c1c1c',
+  },
+}
 
 --------------------------------------------------------------------------------
 -- nvim-bqf

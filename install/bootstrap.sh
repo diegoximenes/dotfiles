@@ -120,6 +120,8 @@ set_timesyncd() {
 set_libvirtd() {
     echo_step 'Setting libvirtd...'
     sudo systemctl enable libvirtd.service
+
+    sudo virsh net-autostart default
 }
 
 set_tmux() {

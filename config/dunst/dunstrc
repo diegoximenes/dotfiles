@@ -1,10 +1,10 @@
 [global]
     follow = keyboard
-    geometry = "350x5-30+30"
+    width = 350
+    height = 200
     padding = 5
     horizontal_padding = 5
     notification_height = 0
-    frame_width = 3
     font = Monospace 14
     markup = full
     format = "%a:\n%s\n%b"

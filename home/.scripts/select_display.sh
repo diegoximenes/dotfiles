@@ -84,7 +84,7 @@ mirror_screen() {
     done
     eval "$xrandr_cmd"
 
-    jq '. + {"screen": {"mode": "mirror"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
+    jq '. + {"screen": {"mode": "mirror", "primary": "'"$primary"'"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
 }
 
 split_screen() {
@@ -113,7 +113,7 @@ select_screen() {
     done
     eval "$xrandr_cmd"
 
-    jq '. + {"screen": {"mode": "single"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
+    jq '. + {"screen": {"mode": "single", "primary": "'"$selected"'"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
 }
 
 select_primary() {

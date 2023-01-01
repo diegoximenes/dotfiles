@@ -5,7 +5,7 @@ set_from_resource $DISPLAY echo "$DISPLAY"
 set $mod Mod1
 
 # font for window titles
-font pango:monospace 15
+font pango:monospace ${I3_FONT_SIZE}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -152,7 +152,7 @@ bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi
 # softwares
 bindsym $mod+z exec zathura
 bindsym $mod+x exec termite -t htop -e htop
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec google-chrome-stable --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
 bindsym $mod+v exec vlc
 bindsym $mod+y exec rofi-bluetooth
 
@@ -182,14 +182,14 @@ exec --no-startup-id termite --class "scratchpad_terminal"
 bindsym $mod+Shift+period exec --no-startup-id termite --class "scratchpad_terminal"
 for_window [class="scratchpad_terminal"] floating enable
 for_window [class="scratchpad_terminal"] sticky enable
-for_window [class="scratchpad_terminal"] resize set 1200 700
+for_window [class="scratchpad_terminal"] resize set ${I3_SCRATCHPAD_TERMINAL_SIZE}
 for_window [class="scratchpad_terminal"] move scratchpad
 for_window [class="scratchpad_terminal"] border pixel 10
 bindsym $mod+period [class="scratchpad_terminal"] scratchpad show; [class="scratchpad_terminal"] move position center
 
 # floating size
 floating_minimum_size 100 x 100
-floating_maximum_size 1200 x 1200
+floating_maximum_size ${I3_SCRATCHPAD_MAXIMUM_FLOATING_SIZE}
 
 # set window title
 for_window [class=".*"] title_format "%class: %title"

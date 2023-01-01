@@ -8,3 +8,4 @@ config/yarn/global/*
 
 config/dunst/dunstrc
 config/termite/config
+config/i3/config

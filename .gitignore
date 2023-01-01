@@ -5,3 +5,5 @@ home/.diegoximenes.zsh-theme.antigen-compat
 
 config/yarn/global/*
 !config/yarn/global/package.json
+
+config/dunst/dunstrc

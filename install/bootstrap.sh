@@ -71,6 +71,11 @@ symlink() {
     sudo ln -snf "$path_dotfiles/etc/bluetooth/"* /etc/bluetooth/
 }
 
+generate_configs_dependent_on_screen() {
+    echo_step 'Generating configs depedent on screen...'
+    source "$HOME/.scripts/generate_configs_dependent_on_screen.sh"
+}
+
 install_yarn_packages() {
     echo_step 'Installing yarn packages...'
     yarn global add
@@ -138,6 +143,7 @@ change_owner
 [[ "$opt" == '--install' ]] && install_all
 set_zsh
 symlink
+generate_configs_dependent_on_screen
 [[ "$opt" == '--install' ]] && install_yarn_packages
 set_pkgfile
 set_libvirtd

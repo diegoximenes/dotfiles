@@ -1,11 +1,11 @@
 [global]
     follow = keyboard
-    width = 350
-    height = 200
-    padding = 5
-    horizontal_padding = 5
+    width = ${DUNST_WIDTH}
+    height = ${DUNST_HEIGHT}
+    padding = ${DUNST_PADDING}
+    horizontal_padding = ${DUNST_HORIZONTAL_PADDING}
     notification_height = 0
-    font = Monospace 14
+    font = Monospace ${DUNST_FONT_SIZE}
     markup = full
     format = "%a:\n%s\n%b"
     word_wrap = true

@@ -32,6 +32,8 @@ connected="$(xrandr -q | grep ' connected' | awk '{print $1}')"
 ################################################################################
 
 restart_dunst_i3() {
+    source "$HOME/.scripts/generate_configs_dependent_on_screen.sh"
+
     # restart dunst to ensure proper location on screen
     pgrep -x dunst >/dev/null && killall dunst
     setsid dunst 2>/dev/null &

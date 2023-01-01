@@ -15,7 +15,6 @@ trap finish EXIT
 
 path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 path_dotfiles="$(realpath "$path_current_file/..")"
-path_home="$(realpath ~)"
 
 echo_step() {
     local step
@@ -56,10 +55,10 @@ symlink() {
     echo_step 'Symlinking...'
 
     # ignores "." file
-    find "$path_dotfiles/home" -maxdepth 1 -name '.*' -exec ln -snf {} "$path_home/" \;
-    ln -snf "$path_dotfiles/config/"* "$path_home/.config/"
-    mkdir -p "$path_home/.local/share/applications/"
-    ln -snf "$path_dotfiles/local/share/applications/"* "$path_home/.local/share/applications/"
+    find "$path_dotfiles/home" -maxdepth 1 -name '.*' -exec ln -snf {} "$HOME/" \;
+    ln -snf "$path_dotfiles/config/"* "$HOME/.config/"
+    mkdir -p "$HOME/.local/share/applications/"
+    ln -snf "$path_dotfiles/local/share/applications/"* "$HOME/.local/share/applications/"
 
     sudo mkdir -p /etc/systemd/resolved.conf.d
     # not sure why symlink don't work

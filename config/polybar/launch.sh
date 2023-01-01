@@ -49,6 +49,16 @@ start_polybars() {
         "\"split\"") start_polybars_split_screen_mode ;;
         *) start_polybar_default_screen_mode ;;
     esac
+
+    # workaround to avoid polybar tray not showing up
+    sleep 1
+    local i3_current_workspace
+    i3_current_workspace=$(i3-msg -t get_workspaces \
+        | jq '.[] | select(.focused==true).name' \
+        | cut -d"\"" -f2 \
+    )
+    i3-msg workspace 0
+    i3-msg workspace "$i3_current_workspace"
 }
 
 kill_polybars

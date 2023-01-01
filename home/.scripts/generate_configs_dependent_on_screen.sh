@@ -18,6 +18,7 @@ source_env_vars() {
 
 envsubst_tpl() {
     envsubst < "$HOME/.config/dunst/dunstrc.tpl" > "$HOME/.config/dunst/dunstrc"
+    envsubst < "$HOME/.config/termite/config.tpl" > "$HOME/.config/termite/config"
 }
 
 source_env_vars

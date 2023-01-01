@@ -1,5 +1,5 @@
 [options]
-font = monospace 15
+font = monospace ${TERMITE_FONT_SIZE}
 scrollback_lines = 10000
 dynamic_title = true
 

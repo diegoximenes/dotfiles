@@ -12,7 +12,7 @@ monitor = ${env:SCREEN:}
 tray-position = ${env:TRAY_POSITION:}
 bottom = true
 width = 100%
-height = 45
+height = ${POLYBAR_BAR_HEIGHT}
 offset-x = 0%
 offset-y = 0%
 radius = 0.0
@@ -26,14 +26,14 @@ border-size = 4
 border-color = #00000000
 padding = 1
 module-margin = 1
-tray-maxsize = 23
+tray-maxsize = ${POLYBAR_BAR_TRAY_MAXSIZE}
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-font-0 = "monospace:size=12:antialias=true"
-font-1 = "Noto Color Emoji:scale=8"
-font-2 = "Noto Sans Symbols 2:size=17:antialias=true"
-font-3 = "Symbols Nerd Font:size=17:antialias=true"
+font-0 = "monospace:size=${POLYBAR_FONT_0_SIZE}:antialias=true"
+font-1 = "Noto Color Emoji:scale=${POLYBAR_FONT_1_SCALE}"
+font-2 = "Noto Sans Symbols 2:size=${POLYBAR_FONT_2_SIZE}:antialias=true"
+font-3 = "Symbols Nerd Font:size=${POLYBAR_FONT_3_SIZE}:antialias=true"
 
 modules-left = i3 i3_split_mode i3_focused_window
 modules-right = removable_devices bluetooth xbacklight audio_sink audio_source openvpn network cpu_temperature battery date

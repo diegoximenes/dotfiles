@@ -60,8 +60,6 @@ symlink() {
     ln -snf "$path_dotfiles/config/"* "$path_home/.config/"
     mkdir -p "$path_home/.local/share/applications/"
     ln -snf "$path_dotfiles/local/share/applications/"* "$path_home/.local/share/applications/"
-    mkdir -p "$path_home/.config/systemd/user/"
-    ln -snf "$path_dotfiles/systemd/user/"* "$path_home/.config/systemd/user/"
 
     sudo mkdir -p /etc/systemd/resolved.conf.d
     # not sure why symlink don't work

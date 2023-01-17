@@ -3,6 +3,7 @@ arch-audit
 atool
 autoconf
 automake
+aws-cli-v2
 bandwhich
 base
 bash-language-server
@@ -22,6 +23,7 @@ curlie
 deepin-screenshot
 dfrs
 dhcpcd
+discord
 dnsmasq
 docker
 docker-compose
@@ -38,12 +40,14 @@ flex
 fzf
 gcc
 gdb
+gimp
 git
 gnome-sound-recorder
 go
 gparted
 grub
 gucharmap
+helm
 highlight
 htop
 i3-wm
@@ -57,6 +61,8 @@ jfsutils
 jq
 jupyterlab
 ktorrent
+kubectl
+kubectx
 libnotify
 libreoffice-still
 libtool
@@ -97,6 +103,7 @@ pkgconf
 pkgfile
 polkit
 polybar
+postgresql
 prettier
 procs
 progress
@@ -120,13 +127,17 @@ s-nail
 sd
 shellcheck
 shfmt
+sops
 sudo
 sysfsutils
+tailscale
+terraform
 texinfo
 texlive-basic
 texlive-bin
 texlive-latexextra
 thefuck
+tidy
 tig
 tmux
 translate-shell
@@ -135,6 +146,7 @@ trash-cli
 tree
 typescript
 typescript-language-server
+unixodbc
 unrar
 unzip
 usbutils

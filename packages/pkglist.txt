@@ -83,7 +83,7 @@ ntfs-3g
 openssh
 os-prober
 pacman-contrib
-pandoc
+pandoc-cli
 pasystray
 patch
 pavucontrol

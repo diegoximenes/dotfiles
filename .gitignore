@@ -10,3 +10,5 @@ config/dunst/dunstrc
 config/termite/config
 config/i3/config
 config/polybar/config
+
+config/vlc/vlc-qt-interface.conf

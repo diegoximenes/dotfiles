@@ -191,6 +191,9 @@ autocmd BufWritePre * call RemoveEndBlankLines()
 " template for new .sh files
 autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
 
+" go
+autocmd FileType go nmap <C-n> :GoReferrers<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <C-*> mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -432,9 +435,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<tab>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.keymap.set('n', '<C-y>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.keymap.set('n', '<C-g>', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  vim.keymap.set('n', '<C-t>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.keymap.set('n', '<C-b>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.keymap.set('n', '<C-f>', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
+
+  if vim.bo.filetype ~= 'go' then
+    vim.keymap.set('n', '<C-n>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  end
 end
 
 local use = require('packer').use

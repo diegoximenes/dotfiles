@@ -38,6 +38,7 @@ Plug 'kamykn/spelunker.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'tanvirtin/monokai.nvim'
+Plug 'github/copilot.vim'
 
 " nvim-lspconfig stuff.
 Plug 'ray-x/lsp_signature.nvim'
@@ -349,6 +350,10 @@ map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" github/copilot.vim
+imap <silent><script><expr> <C-i> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lua configs

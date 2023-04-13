@@ -137,22 +137,28 @@ set_docker() {
     sudo usermod -aG docker "$USER"
 }
 
+change_owner
+
 opt="$1"
 
-change_owner
-[[ "$opt" == '--install' ]] && install_all
-set_zsh
-symlink
-generate_configs_dependent_on_screen
-[[ "$opt" == '--install' ]] && install_yarn_packages
-set_pkgfile
-set_libvirtd
-set_vnstat
-set_bluetooth
-set_timesyncd
-set_tmux
-set_docker
-# set network stuff, should be the last ones
-set_network_manager
-set_systemd_resolved
+if [[ "$opt" == '--symlink' ]]; then
+    symlink
+else
+    [[ "$opt" == '--install' ]] && install_all
+    set_zsh
+    symlink
+    generate_configs_dependent_on_screen
+    [[ "$opt" == '--install' ]] && install_yarn_packages
+    set_pkgfile
+    set_libvirtd
+    set_vnstat
+    set_bluetooth
+    set_timesyncd
+    set_tmux
+    set_docker
+    # set network stuff, should be the last ones
+    set_network_manager
+    set_systemd_resolved
+fi
+
 success

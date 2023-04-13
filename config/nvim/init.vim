@@ -487,6 +487,7 @@ local lsps_with_default_config = {
   'terraformls',
   'tflint', -- it does not search for .tflint.hcl in parent directories
   'golangci_lint_ls',
+  'sqlls',
 }
 for _, lsp in ipairs(lsps_with_default_config) do
   lspconfig[lsp].setup {

@@ -480,7 +480,6 @@ local lsps_with_default_config = {
   'metals',
   'yamlls',
   'pyright',
-  'clangd',
   'vimls',
   'dockerls',
   'solidity_ls',
@@ -504,6 +503,19 @@ local function readDictionaryFile(file)
   end
   return dict
 end
+
+lspconfig['clangd'].setup {
+  on_attach = on_attach,
+  flags = flags,
+  capabilities = capabilities,
+  filetypes = {
+    "c",
+    "cpp",
+    "objc",
+    "objcpp",
+    "cuda",
+  },
+}
 
 lspconfig['ltex'].setup {
   on_attach = on_attach,

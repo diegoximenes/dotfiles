@@ -354,6 +354,9 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 " github/copilot.vim
 imap <silent><script><expr> <C-w> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+imap <C-]> <Plug>(copilot-next)
+imap <C-[> <Plug>(copilot-previous)
+imap <C-\> <Plug>(copilot-suggest)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lua configs

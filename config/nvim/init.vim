@@ -352,7 +352,7 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " github/copilot.vim
-imap <silent><script><expr> <C-i> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-w> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

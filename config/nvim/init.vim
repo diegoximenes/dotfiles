@@ -352,11 +352,11 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " github/copilot.vim
-imap <silent><script><expr> <C-w> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
-imap <C-]> <Plug>(copilot-next)
-imap <C-[> <Plug>(copilot-previous)
-imap <C-\> <Plug>(copilot-suggest)
+imap <C-r> <Plug>(copilot-next)
+imap <C-e> <Plug>(copilot-previous)
+imap <C-w> <Plug>(copilot-suggest)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lua configs

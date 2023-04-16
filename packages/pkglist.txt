@@ -111,6 +111,7 @@ ripgrep
 rofi
 rsync
 s-nail
+sd
 shellcheck
 shfmt
 smem

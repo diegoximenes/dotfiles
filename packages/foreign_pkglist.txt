@@ -6,6 +6,7 @@ dockerfile-language-server
 golangci-lint
 golangci-lint-langserver-bin
 google-chrome
+grpcurl
 jupyter_nbextensions_configurator
 ltex-ls-bin
 metals

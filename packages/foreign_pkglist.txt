@@ -19,6 +19,7 @@ sql-language-server
 termite
 terraform-ls
 tflint
+usql
 vim-language-server
 vscode-langservers-extracted
 yay

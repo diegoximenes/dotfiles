@@ -115,8 +115,6 @@ s-nail
 sd
 shellcheck
 shfmt
-smem
-solidity
 sudo
 sysfsutils
 texinfo

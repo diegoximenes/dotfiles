@@ -93,6 +93,7 @@ pkgfile
 polkit
 polybar
 prettier
+procs
 progress
 protobuf
 psensor

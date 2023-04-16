@@ -66,17 +66,6 @@ interface_list() {
     nmcli device
 }
 
-myps() {
-    local cmd=$1
-    local cols="ppid,pid,pgrp,%cpu,%mem,etime,start,stat,user,cmd"
-    if [[ "$cmd" == "" ]]; then
-        ps -e -o $cols
-    else
-        ps -e -o $cols | head -n 1
-        ps -e -o $cols | grep $cmd
-    fi
-}
-
 clip() {
     xclip -selection clipboard && xclip -o -selection clipboard
 }

@@ -39,6 +39,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'tanvirtin/monokai.nvim'
 Plug 'github/copilot.vim'
+Plug 'mfussenegger/nvim-lint'
 
 " nvim-lspconfig stuff.
 Plug 'ray-x/lsp_signature.nvim'
@@ -49,7 +50,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
-" unseful at the moment but can be in the future
+" unuseful at the moment but can be in the future
 " Plug 'tpope/vim-surround'
 " Plug 'gregsexton/gitv'
 " Plug 'tmhedberg/SimpylFold'
@@ -363,6 +364,21 @@ imap <C-w> <Plug>(copilot-suggest)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 lua << EOF
+
+--------------------------------------------------------------------------------
+-- nvim-lint
+--------------------------------------------------------------------------------
+
+require('lint').linters_by_ft = {
+  proto = {
+    'buf_lint',
+  }
+}
+vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost", }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
 
 --------------------------------------------------------------------------------
 -- glow.nvim

@@ -94,6 +94,7 @@ polkit
 polybar
 prettier
 progress
+protobuf
 psensor
 pyright
 python-black

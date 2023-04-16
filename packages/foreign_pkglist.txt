@@ -1,5 +1,6 @@
 antigen-git
 autojump
+buf-bin
 diagnostic-languageserver
 dockerfile-language-server
 golangci-lint

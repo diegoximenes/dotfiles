@@ -106,6 +106,7 @@ eval $(thefuck --alias)
 antigen use oh-my-zsh
 
 antigen bundle git
+antigen bundle git-extras
 antigen bundle vi-mode
 antigen bundle autojump
 antigen bundle fzf

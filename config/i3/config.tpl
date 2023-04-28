@@ -19,7 +19,7 @@ focus_follows_mouse no
 workspace_layout tabbed
 
 # start a terminal
-bindsym $mod+Return exec termite -t "termite" -e "tmux new -A -s general"
+bindsym $mod+Return exec alacritty -T "alacritty" -e tmux new -A -s general
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -151,7 +151,7 @@ bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi
 
 # softwares
 bindsym $mod+z exec zathura
-bindsym $mod+x exec termite -t htop -e htop
+bindsym $mod+x exec alacritty -t htop -e htop
 bindsym $mod+c exec google-chrome-stable --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
 bindsym $mod+v exec vlc
 bindsym $mod+y exec rofi-bluetooth
@@ -178,8 +178,8 @@ bindsym Control+Shift+space exec dunstctl close-all
 bindsym Control+period exec dunstctl history-pop
 
 # scratchpad terminal
-exec --no-startup-id termite --class "scratchpad_terminal"
-bindsym $mod+Shift+period exec --no-startup-id termite --class "scratchpad_terminal"
+exec --no-startup-id "alacritty --class scratchpad_terminal,scratchpad_terminal"
+bindsym $mod+Shift+period exec --no-startup-id "alacritty --class scratchpad_terminal,scratchpad_terminal"
 for_window [class="scratchpad_terminal"] floating enable
 for_window [class="scratchpad_terminal"] sticky enable
 for_window [class="scratchpad_terminal"] resize set ${I3_SCRATCHPAD_TERMINAL_SIZE}

@@ -1,3 +1,4 @@
+alacritty
 android-file-transfer
 arch-audit
 atool

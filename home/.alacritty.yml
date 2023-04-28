@@ -1,0 +1,18 @@
+font:
+  size: 9
+colors:
+  primary:
+    background: '#1c1c1c'
+    foreground: '#f3f3f3'
+  normal:
+    black:   '#2e3436'
+    red:     '#cc0000'
+    green:   '#4e9a06'
+    yellow:  '#c4a000'
+    blue:    '#7aa6da'
+    magenta: '#75507b'
+    cyan:    '#06989a'
+    white:   '#d3d7cf'
+cursor:
+  style:
+    blinking: Always

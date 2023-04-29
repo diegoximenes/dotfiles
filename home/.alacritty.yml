@@ -16,3 +16,6 @@ colors:
 cursor:
   style:
     blinking: Always
+window:
+  padding:
+    x: 2

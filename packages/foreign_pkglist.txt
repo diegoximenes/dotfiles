@@ -19,6 +19,7 @@ rofi-greenclip
 smem
 solidity
 sql-language-server
+termite
 terraform-ls
 tflint
 usql

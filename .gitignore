@@ -7,6 +7,7 @@ config/yarn/global/*
 !config/yarn/global/package.json
 
 config/dunst/dunstrc
+config/termite/config
 config/i3/config
 config/polybar/config
 

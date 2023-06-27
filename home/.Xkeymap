@@ -1376,6 +1376,7 @@ xkb_symbols "pc+us+inet(evdev)" {
     key  <KP7> {         [         Return,           Return ] };
     key  <KP4> {         [         Return,           Return ] };
     key  <KP1> {         [         Shift_R,          Shift_R ] };
+    key  <KP2> {         [         Up,                   Up ] };
     key  <KP3> {         [         Up,                   Up ] };
     key  <KP0> {         [         Left,               Left ] };
     key <KPDL> {         [         Down,               Down ] };

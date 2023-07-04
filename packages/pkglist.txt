@@ -118,8 +118,8 @@ shfmt
 sudo
 sysfsutils
 texinfo
+texlive-basic
 texlive-bin
-texlive-core
 texlive-latexextra
 thefuck
 tig

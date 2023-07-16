@@ -5,5 +5,4 @@ disable=
     missing-module-docstring,
     missing-function-docstring,
     missing-class-docstring,
-    missing-method-docstring,
     consider-using-f-string

@@ -12,3 +12,11 @@ config/i3/config
 config/polybar/config
 
 config/vlc/vlc-qt-interface.conf
+
+home/.mozilla/*
+!home/.mozilla/firefox
+home/.mozilla/firefox/*
+!home/.mozilla/firefox/profiles.ini
+!home/.mozilla/firefox/profiles
+home/.mozilla/firefox/profiles/diego/*
+!home/.mozilla/firefox/profiles/diego/user.js.tpl

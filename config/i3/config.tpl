@@ -201,7 +201,7 @@ exec_always xkbcomp ~/.Xkeymap $DISPLAY
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # default programs startup
-exec google-chrome-stable
+exec firefox
 exec nm-applet
 exec pasystray
 exec dunst

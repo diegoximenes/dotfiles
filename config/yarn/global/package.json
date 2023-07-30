@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "hasura-cli": "^2.29.1",
     "solidity-language-server": "^0.0.3"
   }
 }

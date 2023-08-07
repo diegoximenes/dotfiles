@@ -69,6 +69,7 @@ symlink() {
     sudo ln -snf "$path_dotfiles/etc/NetworkManager/"* /etc/NetworkManager/
     sudo ln -snf "$path_dotfiles/etc/pacman.d/"* /etc/pacman.d/
     sudo ln -snf "$path_dotfiles/etc/bluetooth/"* /etc/bluetooth/
+    sudo ln -snf "$path_dotfiles/etc/bumblebee/xorg.conf.nvidia" /etc/bumblebee/
 }
 
 generate_configs_dependent_on_screen() {
@@ -136,6 +137,12 @@ set_docker() {
     sudo usermod -aG docker "$USER"
 }
 
+set_bumblebee() {
+    echo_step 'Setting bumblebee...'
+    sudo gpasswd -a "$USER" bumblebee
+    sudo systemctl enable bumblebeed.service
+}
+
 change_owner
 
 opt="$1"
@@ -155,6 +162,7 @@ else
     set_timesyncd
     set_tmux
     set_docker
+    set_bumblebee
     # set network stuff, should be the last ones
     set_network_manager
     set_systemd_resolved

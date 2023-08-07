@@ -83,6 +83,7 @@ install_yarn_packages() {
 
 install_go_binaries() {
     echo_step 'Installing go binaries...'
+    go install github.com/nao1215/gup@latest
     go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 }
 

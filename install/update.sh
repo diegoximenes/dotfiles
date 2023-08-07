@@ -96,6 +96,11 @@ update_yarn_packages() {
     yarn global upgrade
 }
 
+update_go_binaries() {
+    echo_step 'Updating go binaries...'
+    gup update
+}
+
 empty_trash() {
     echo_step 'Emptying trash...'
     trash-empty -f

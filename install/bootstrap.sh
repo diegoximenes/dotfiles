@@ -81,6 +81,11 @@ install_yarn_packages() {
     yarn global add
 }
 
+install_go_binaries() {
+    echo_step 'Installing go binaries...'
+    go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
+}
+
 set_zsh() {
     echo_step "Setting zsh..."
     chsh -s "$(command -v zsh)"

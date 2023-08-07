@@ -155,6 +155,7 @@ else
     symlink
     generate_configs_dependent_on_screen
     [[ "$opt" == '--install' ]] && install_yarn_packages
+    [[ "$opt" == '--install' ]] && install_go_binaries
     set_pkgfile
     set_libvirtd
     set_vnstat

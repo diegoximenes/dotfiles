@@ -114,5 +114,6 @@ update_nvim
 update_tmux_plugins
 update_nvm
 update_yarn_packages
+update_go_binaries
 empty_trash
 success

@@ -12,6 +12,7 @@ bind
 bison
 bluez
 bluez-utils
+bumblebee
 cifs-utils
 clang
 cmake

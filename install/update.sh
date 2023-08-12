@@ -98,7 +98,7 @@ update_yarn_packages() {
 
 update_go_binaries() {
     echo_step 'Updating go binaries...'
-    gup update
+    "$GOPATH/bin/gup" update
 }
 
 empty_trash() {

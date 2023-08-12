@@ -40,7 +40,6 @@ flex
 fzf
 gcc
 gdb
-gimp
 git
 gnome-sound-recorder
 go
@@ -137,7 +136,6 @@ texlive-basic
 texlive-bin
 texlive-latexextra
 thefuck
-tidy
 tig
 tmux
 translate-shell

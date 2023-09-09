@@ -201,7 +201,7 @@ exec_always xkbcomp ~/.Xkeymap $DISPLAY
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # default programs startup
-exec google-chrome-stable
+exec google-chrome-stable --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
 exec nm-applet
 exec pasystray
 exec dunst

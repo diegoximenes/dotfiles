@@ -300,6 +300,10 @@ let g:rainbow_conf = {
 
 " vim-go
 let g:go_doc_keywordprg_enabled=0
+let g:go_fmt_command = "golines"
+let g:go_fmt_options = {
+    \ 'golines': '-m 120',
+    \ }
 
 " vim-gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=2

@@ -6,6 +6,7 @@ diagnostic-languageserver
 dockerfile-language-server
 golangci-lint
 golangci-lint-langserver-bin
+golines
 google-chrome
 grpcurl
 jupyter_nbextensions_configurator

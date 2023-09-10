@@ -55,6 +55,7 @@ iwd
 jfsutils
 jq
 jupyterlab
+ktorrent
 libnotify
 libreoffice-still
 libtool

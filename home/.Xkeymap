@@ -1367,6 +1367,10 @@ xkb_symbols "pc+us+inet(evdev)" {
         type= "CTRL+ALT",
         symbols[Group1]= [              F8,              F8,              F8,              F8, XF86Switch_VT_8 ]
     };
+    key <FK09> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F9,              F9,              F9,              F9, XF86Switch_VT_9 ]
+    };
     key <FK10> {
         type= "CTRL+ALT",
         symbols[Group1]= [             F10,             F10,             F10,             F10, XF86Switch_VT_10 ]

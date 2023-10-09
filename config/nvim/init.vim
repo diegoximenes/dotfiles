@@ -302,7 +302,7 @@ let g:rainbow_conf = {
 let g:go_doc_keywordprg_enabled=0
 let g:go_fmt_command = "golines"
 let g:go_fmt_options = {
-    \ 'golines': '-m 120',
+    \ 'golines': '--base-formatter gofmt -m 120',
     \ }
 
 " vim-gitgutter

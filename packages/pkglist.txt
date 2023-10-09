@@ -28,7 +28,7 @@ dosfstools
 dunst
 efibootmgr
 eog
-exa
+eza
 fakeroot
 fd
 firefox

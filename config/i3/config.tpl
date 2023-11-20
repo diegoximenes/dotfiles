@@ -144,7 +144,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # print screen
-bindsym Print exec deepin-screenshot
+bindsym Print exec deepin-screen-recorder
 
 # rofi
 bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi

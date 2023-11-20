@@ -18,7 +18,7 @@ cmake
 cronie
 ctags
 curlie
-deepin-screenshot
+deepin-screen-recorder
 dfrs
 dhcpcd
 dnsmasq

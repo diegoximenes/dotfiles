@@ -1,6 +1,7 @@
 [MAIN]
 
 disable=
+    invalid-name,
     too-few-public-methods,
     missing-module-docstring,
     missing-function-docstring,

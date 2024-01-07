@@ -66,7 +66,7 @@ set_time_zone() {
 
 set_grub() {
     pacman -S grub efibootmgr dosfstools os-prober mtools
-    mkdir /boot/EFI
+    mkdir -p /boot/EFI
     grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
     echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
     grub-mkconfig -o /boot/grub/grub.cfg

@@ -151,8 +151,8 @@ if [[ "$opt" == '--symlink' ]]; then
     symlink
 else
     [[ "$opt" == '--install' ]] && install_all
-    set_zsh
     symlink
+    set_zsh
     generate_configs_dependent_on_screen
     [[ "$opt" == '--install' ]] && install_yarn_packages
     [[ "$opt" == '--install' ]] && install_go_binaries

@@ -87,13 +87,6 @@ install_go_binaries() {
     go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 }
 
-set_zsh() {
-    echo_step "Setting zsh..."
-    chsh -s "$(command -v zsh)"
-
-    zsh -i -c "antigen reset"
-}
-
 set_network_manager() {
     echo_step 'Setting NetworkManager...'
     sudo systemctl enable NetworkManager
@@ -152,7 +145,6 @@ if [[ "$opt" == '--symlink' ]]; then
 else
     [[ "$opt" == '--install' ]] && install_all
     symlink
-    set_zsh
     generate_configs_dependent_on_screen
     [[ "$opt" == '--install' ]] && install_yarn_packages
     [[ "$opt" == '--install' ]] && install_go_binaries

@@ -26,6 +26,11 @@ success() {
     echo -e "${GREEN}SUCCESS${NC}"
 }
 
+set_zsh() {
+    echo_step "Setting zsh..."
+    chsh -s "$(command -v zsh)"
+}
+
 set_cron() {
     echo_step 'Setting cron...'
     sudo systemctl enable cronie.service
@@ -38,6 +43,7 @@ update_dotfiles() {
     zsh "$path_dotfiles/install/update.sh"
 }
 
+set_zsh
 set_cron
 update_dotfiles
 success

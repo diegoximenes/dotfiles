@@ -101,6 +101,11 @@ update_go_binaries() {
     "$GOPATH/bin/gup" update
 }
 
+update_antigen() {
+    echo_step 'Updating antigen...'
+    antigen update
+}
+
 empty_trash() {
     echo_step 'Emptying trash...'
     trash-empty -f
@@ -115,5 +120,6 @@ update_tmux_plugins
 update_nvm
 update_yarn_packages
 update_go_binaries
+update_antigen
 empty_trash
 success

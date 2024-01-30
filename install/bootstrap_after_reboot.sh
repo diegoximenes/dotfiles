@@ -5,6 +5,11 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+if [[ ! -f "$HOME/.ssh/id_ed25519" ]]; then
+    echo -e "${RED}FAILED: ssh key not found${NC}"
+    exit 1
+fi
+
 set -e
 finish() {
     if [[ ! "$?" -eq 0 ]]; then

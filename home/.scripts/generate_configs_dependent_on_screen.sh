@@ -3,10 +3,13 @@
 CONFIG_FILE_PATH="$HOME/.config/dotfiles/config.json"
 
 source_env_vars() {
+    local use_default_config
+    use_default_config=$1
+
     local primary_screen
     primary_screen=$(jq '.screen.primary' "$CONFIG_FILE_PATH" 2> /dev/null)
 
-    if [[ "$primary_screen" == "\"eDP1\"" ]]; then
+    if [[ $use_default_config == true ]] || [[ "$primary_screen" == "\"eDP1\"" ]]; then
         source "$HOME/.scripts/env_vars/edp.sh"
     elif [[ "$primary_screen" == "\"HDMI1\"" ]]; then
         source "$HOME/.scripts/env_vars/hdmi.sh"
@@ -24,5 +27,13 @@ envsubst_tpl() {
     envsubst '$POLYBAR_BAR_HEIGHT $POLYBAR_BAR_TRAY_MAXSIZE $POLYBAR_FONT_0_SIZE $POLYBAR_FONT_1_SCALE $POLYBAR_FONT_2_SIZE $POLYBAR_FONT_3_SIZE' < "$HOME/.config/polybar/config.tpl" > "$HOME/.config/polybar/config"
 }
 
-source_env_vars
+case "$1" in
+    --default_config)
+        source_env_vars true
+        ;;
+    *)
+        source_env_vars false
+        ;;
+esac
+
 envsubst_tpl

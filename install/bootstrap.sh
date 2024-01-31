@@ -145,7 +145,7 @@ if [[ "$opt" == '--symlink' ]]; then
 else
     [[ "$opt" == '--install' ]] && install_all
     symlink
-    generate_configs_dependent_on_screen
+    generate_configs_dependent_on_screen --default_config
     [[ "$opt" == '--install' ]] && install_yarn_packages
     [[ "$opt" == '--install' ]] && install_go_binaries
     set_pkgfile

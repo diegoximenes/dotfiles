@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Drivers available for nvidia GPUs don't work with 4K resolution (3840x2160).
+# This flag caps the resolution to be used for a screen.
+CAP_IN_MAX_RESOLUTION=false
+MAX_X_RESOLUTION=2560
+MAX_Y_RESOLUTION=1440
+
+################################################################################
+
 CONFIG_FILE_PATH="$HOME/.config/dotfiles/config.json"
 
 prepare_config_file() {
@@ -57,6 +65,11 @@ get_resolution() {
     local y_res
     y_res="$(echo "$res" | sed 's/.*x//')"
 
+    if [[ $CAP_IN_MAX_RESOLUTION == true ]]; then
+        x_res=$(( x_res < MAX_X_RESOLUTION ? x_res : MAX_X_RESOLUTION ))
+        y_res=$(( y_res < MAX_Y_RESOLUTION ? y_res : MAX_Y_RESOLUTION ))
+    fi
+
     echo "$x_res $y_res"
 }
 
@@ -69,7 +82,7 @@ mirror_screen() {
     read -r x_res_primary y_res_primary < <(get_resolution "$primary")
 
     local xrandr_cmd
-    xrandr_cmd="xrandr --output $primary --auto --scale 1.0x1.0"
+    xrandr_cmd="xrandr --output $primary --mode ${x_res_primary}x${y_res_primary} --scale 1.0x1.0"
     for secondary in $connected; do
         if [[ "$secondary" != "$primary" ]]; then
             local x_res_secondary
@@ -81,7 +94,7 @@ mirror_screen() {
             local scale_y
             scale_y=$(echo "$y_res_primary / $y_res_secondary" | bc -l)
 
-            xrandr_cmd="$xrandr_cmd --output $secondary --auto --same-as $primary --scale ${scale_x}x${scale_y}"
+            xrandr_cmd="$xrandr_cmd --output $secondary --mode ${x_res_secondary}x${y_res_secondary} --same-as $primary --scale ${scale_x}x${scale_y}"
         fi
     done
     eval "$xrandr_cmd"
@@ -92,10 +105,22 @@ mirror_screen() {
 split_screen() {
     local primary
     primary="$1"
+    local secondary
+    secondary="$2"
+
     direction="$(printf "left-of\nright-of\nabove\nbelow" \
         | rofi -dmenu -i -p "which side of $primary should $secondary be on?")"
-    xrandr --output "$primary" --auto --scale 1.0x1.0 \
-        --output "$secondary" --"$direction" "$primary" --auto --scale 1.0x1.0
+
+    local x_res_primary
+    local y_res_primary
+    read -r x_res_primary y_res_primary < <(get_resolution "$primary")
+
+    local x_res_secondary
+    local y_res_secondary
+    read -r x_res_secondary y_res_secondary < <(get_resolution "$secondary")
+
+    xrandr --output "$primary" --mode ${x_res_primary}x${y_res_primary} --scale 1.0x1.0 \
+        --output "$secondary" --"$direction" "$primary" --mode ${x_res_secondary}x${y_res_secondary} --scale 1.0x1.0
 
     jq '. + {"screen": {"mode": "split", "primary": "'"$primary"'"}}' "$CONFIG_FILE_PATH" | sponge "$CONFIG_FILE_PATH"
 }
@@ -104,8 +129,12 @@ select_screen() {
     local selected
     selected="$1"
 
+    local x_res
+    local y_res
+    read -r x_res y_res < <(get_resolution "$selected")
+
     local xrandr_cmd
-    xrandr_cmd="xrandr --output $selected --auto --scale 1.0x1.0"
+    xrandr_cmd="xrandr --output $selected --mode ${x_res}x${y_res} --scale 1.0x1.0"
     local screens
     screens="$connected $disconnected"
     for screen in $screens; do

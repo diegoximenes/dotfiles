@@ -12,10 +12,9 @@ grpcurl
 jupyter_nbextensions_configurator
 jupyterlab-plotly
 ltex-ls-bin
+markdownlint-cli
 metals
-nerd-fonts-complete
 nodejs-jsonlint
-nodejs-markdownlint-cli
 nvimpager-git
 rofi-bluetooth-git
 rofi-greenclip

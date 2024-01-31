@@ -132,6 +132,7 @@ translate-shell
 transmission-gtk
 trash-cli
 tree
+ttf-nerd-fonts-symbols
 typescript
 typescript-language-server
 unrar

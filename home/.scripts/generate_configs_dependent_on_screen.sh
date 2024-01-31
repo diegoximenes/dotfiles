@@ -11,7 +11,7 @@ source_env_vars() {
 
     if [[ $use_default_config == true ]] || [[ "$primary_screen" == "\"eDP1\"" ]]; then
         source "$HOME/.scripts/env_vars/edp.sh"
-    elif [[ "$primary_screen" == "\"HDMI1\"" ]]; then
+    elif [[ "$primary_screen" =~ ^\"HDMI* ]]; then
         source "$HOME/.scripts/env_vars/hdmi.sh"
     else
         notify-send -u critical "Didn't find env vars for screen $primary_screen. Falling back to edp env vars."

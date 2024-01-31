@@ -68,6 +68,7 @@ m4
 make
 man-db
 man-pages
+marksman
 mdadm
 moreutils
 mtools

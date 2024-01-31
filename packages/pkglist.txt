@@ -84,6 +84,8 @@ nmap
 noto-fonts
 noto-fonts-emoji
 ntfs-3g
+nvidia
+nvidia-settings
 openssh
 os-prober
 p7zip

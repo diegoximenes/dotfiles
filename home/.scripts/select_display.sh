@@ -2,7 +2,7 @@
 
 # Drivers available for nvidia GPUs don't work with 4K resolution (3840x2160).
 # This flag caps the resolution to be used for a screen.
-CAP_IN_MAX_RESOLUTION=false
+CAP_IN_MAX_RESOLUTION=true
 MAX_X_RESOLUTION=2560
 MAX_Y_RESOLUTION=1440
 

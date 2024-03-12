@@ -16,6 +16,7 @@ markdownlint-cli
 metals
 nodejs-jsonlint
 nvimpager-git
+python-xlsx2csv
 rofi-bluetooth-git
 rofi-greenclip
 smem
@@ -27,5 +28,6 @@ tflint
 usql
 vim-language-server
 vscode-langservers-extracted
+woeusb
 yay
 zoom

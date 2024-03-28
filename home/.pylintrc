@@ -8,4 +8,5 @@ disable=
     missing-class-docstring,
     consider-using-f-string,
     too-many-arguments,
-    broad-exception-raised
+    broad-exception-raised,
+    too-many-instance-attributes

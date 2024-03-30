@@ -10,7 +10,6 @@ golines
 google-chrome
 grpcurl
 jupyter_nbextensions_configurator
-jupyterlab-plotly
 ltex-ls-bin
 markdownlint-cli
 metals

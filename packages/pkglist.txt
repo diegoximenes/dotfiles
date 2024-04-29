@@ -23,6 +23,7 @@ dfrs
 dhcpcd
 dnsmasq
 docker
+docker-buildx
 docker-compose
 dosfstools
 dunst
@@ -116,6 +117,7 @@ reiserfsprogs
 ripgrep
 rofi
 rsync
+rustup
 s-nail
 sd
 shellcheck
@@ -146,6 +148,7 @@ visidata
 vlc
 vnstat
 w3m
+websocat
 wget
 which
 wireplumber

@@ -140,8 +140,8 @@ bindsym $mod+Control+space exec xdotool click 1
 bindsym $mod+Control+Shift+space exec xdotool click 3
 
 # sreen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 1
+bindsym XF86MonBrightnessDown exec xbacklight -dec 1
 
 # print screen
 bindsym Print exec deepin-screen-recorder

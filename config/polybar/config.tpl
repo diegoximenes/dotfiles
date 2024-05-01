@@ -36,7 +36,7 @@ font-2 = "Noto Sans Symbols 2:size=${POLYBAR_FONT_2_SIZE}:antialias=true"
 font-3 = "Symbols Nerd Font:size=${POLYBAR_FONT_3_SIZE}:antialias=true"
 
 modules-left = i3 i3_split_mode i3_focused_window
-modules-right = removable_devices bluetooth xbacklight audio_sink audio_source openvpn network cpu_temperature battery date
+modules-right = removable_devices bluetooth light audio_sink audio_source openvpn network cpu_temperature battery date
 
 [settings]
 screenchange-reload = true
@@ -70,9 +70,12 @@ type = custom/script
 exec = ~/.config/polybar/scripts/removable_devices.sh
 interval = 2
 
-[module/xbacklight]
-type = internal/xbacklight
-label = 🔆 %percentage%%
+[module/light]
+type = custom/script
+exec = ~/.config/polybar/scripts/light.sh --info
+tail = true
+scroll-up =  ~/.config/polybar/scripts/light.sh --inc
+scroll-down = ~/.config/polybar/scripts/light.sh --dec
 
 [module/date]
 type = internal/date

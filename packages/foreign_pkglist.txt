@@ -18,6 +18,7 @@ nvimpager-git
 python-xlsx2csv
 rofi-bluetooth-git
 rofi-greenclip
+slack-desktop
 smem
 solidity
 sql-language-server

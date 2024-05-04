@@ -30,6 +30,10 @@ install_all() {
     yay -S --needed --noconfirm - < "$path_dotfiles/packages/foreign_pkglist.txt"
 }
 
+install_gvm() {
+    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+}
+
 symlink() {
     echo_step 'Symlinking...'
 
@@ -137,6 +141,7 @@ else
     generate_configs_dependent_on_screen --default_config
     [[ "$opt" == '--install' ]] && install_yarn_packages
     [[ "$opt" == '--install' ]] && install_go_binaries
+    [[ "$opt" == '--install' ]] && install_gvm
     set_pkgfile
     set_libvirtd
     set_vnstat

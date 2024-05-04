@@ -250,3 +250,5 @@ alias gchm="git checkout $(git_main_branch)"
 alias gpd="git pushdefault"
 alias gp="git pull"
 alias gr="git restore --staged"
+
+[[ -s "/home/diego/.gvm/scripts/gvm" ]] && source "/home/diego/.gvm/scripts/gvm"

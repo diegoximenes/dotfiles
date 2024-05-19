@@ -123,6 +123,7 @@ s-nail
 sd
 shellcheck
 shfmt
+stylua
 sudo
 sysfsutils
 texinfo

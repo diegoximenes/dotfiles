@@ -17,6 +17,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        "ckipp01/stylua-nvim",
+        config = function()
+          require("stylua-nvim").setup{}
+          vim.keymap.set('n', '<C-f>', ':lua require("stylua-nvim").format_file()<CR>', {silent = true})
+        end
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
@@ -409,7 +417,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<C-g>', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.keymap.set('n', '<C-b>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.keymap.set('n', '<C-f>', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
-  vim.keymap.set('n', '<C-n>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+
+  if vim.bo.filetype ~= 'lua' then
+    vim.keymap.set('n', '<C-n>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  end
 end
 
 local use = require('packer').use

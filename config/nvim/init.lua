@@ -307,11 +307,6 @@ vim.g.rainbow_conf = {
     guifgs = {"white", "darkorange3", "royalblue3", "seagreen3", "firebrick"},
 }
 
--- vim-gitgutter
-vim.cmd("highlight GitGutterAdd guifg=#009900 ctermfg=2")
-vim.cmd("highlight GitGutterChange guifg=#bbbb00 ctermfg=3")
-vim.cmd("highlight GitGutterDelete guifg=#ff2222 ctermfg=1")
-
 -- editorconfig-vim
 vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 vim.g.EditorConfig_disable_rules = { "trim_trailing_whitespace" }

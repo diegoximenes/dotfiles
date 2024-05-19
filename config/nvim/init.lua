@@ -16,7 +16,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "jiangmiao/auto-pairs",
+    {
+      'windwp/nvim-autopairs',
+      event = "InsertEnter",
+      config = true,
+    },
+
     "editorconfig/editorconfig-vim",
     "tpope/vim-sleuth",
     "tpope/vim-commentary",

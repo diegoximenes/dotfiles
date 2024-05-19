@@ -85,7 +85,7 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
         if vim.bo.filetype == "markdown" then
             return
         end
-        save_cursor = vim.fn.getpos(".")
+        local save_cursor = vim.fn.getpos(".")
         vim.cmd([[silent! %s/\s\+$//e]])
         vim.fn.setpos(".", save_cursor)
     end,
@@ -95,7 +95,7 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
     pattern = {"*"},
     callback = function()
-        save_cursor = vim.fn.getpos(".")
+        local save_cursor = vim.fn.getpos(".")
         vim.cmd([[silent! %s#\($\n\s*\)\+\%$##]])
         vim.fn.setpos(".", save_cursor)
     end,
@@ -180,12 +180,9 @@ vim.keymap.set('n', '<C-]>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.keymap.set('n', '<C-i>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)

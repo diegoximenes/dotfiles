@@ -17,13 +17,38 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup {
+              -- Install parsers synchronously (only applied to `ensure_installed`)
+              sync_install = false,
+
+              -- Automatically install missing parsers when entering buffer
+              -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+              auto_install = true,
+
+              highlight = {
+                -- `false` will disable the whole extension
+                enable = true,
+
+                disable = { "vim" },
+
+                -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+                -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+                -- Using this option may slow down your editor, and you may see some duplicate highlights.
+                -- Instead of true it can also be a list of languages
+                additional_vim_regex_highlighting = false,
+              },
+            }
+        end,
+    },
+
+    {
       'windwp/nvim-autopairs',
       event = "InsertEnter",
       config = true,
     },
-
-    "editorconfig/editorconfig-vim",
-    "tpope/vim-sleuth",
 
     {
       'numToStr/Comment.nvim',
@@ -105,25 +130,99 @@ require("lazy").setup({
       build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
     },
 
+
+    {
+        "ellisonleao/glow.nvim",
+        config = true,
+        cmd = "Glow",
+    },
+
+    {
+        "kevinhwang91/nvim-bqf",
+        config = function()
+            require("bqf").setup({
+                func_map = {
+                    open = "o",
+                    openc = "<CR>",
+                }
+            })
+        end,
+    },
+
+    {
+        "mfussenegger/nvim-lint",
+        config = function()
+            require("lint").linters_by_ft = {
+                proto = {
+                    "buf_lint",
+                }
+            }
+            vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost", }, {
+              callback = function()
+                require("lint").try_lint()
+              end,
+            })
+        end,
+    },
+
+    {
+        "kamykn/spelunker.vim",
+        config = function()
+            vim.g.spelunker_check_type = 0
+            vim.g.enable_spelunker_vim_on_readonly = 1
+            vim.g.spelunker_target_min_char_len = 1
+            vim.g.spelunker_disable_account_name_checking = 0
+            vim.g.spelunker_disable_backquoted_checking = 0
+            vim.api.nvim_set_keymap("n", "ff", "<Plug>(spelunker-correct-from-list)", {})
+        end,
+    },
+
+    {
+        "hashivim/vim-terraform",
+        config = function()
+            vim.g.terraform_fmt_on_save = 1
+            vim.g.terraform_align = 1
+        end,
+    },
+
+    {
+        "andymass/vim-matchup",
+        config = function()
+            vim.g.matchup_matchparen_offscreen = {}
+        end,
+    },
+
+    {
+        "luochen1990/rainbow",
+        config = function()
+            vim.g.rainbow_active = 1
+            vim.g.rainbow_conf = {
+                operators = "",
+                guifgs = {"white", "darkorange3", "royalblue3", "seagreen3", "firebrick"},
+            }
+        end,
+    },
+
+    {
+        "editorconfig/editorconfig-vim",
+        config = function()
+            vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
+            vim.g.EditorConfig_disable_rules = { "trim_trailing_whitespace" }
+        end,
+    },
+
+    "tpope/vim-sleuth",
     "airblade/vim-gitgutter",
     "farmergreg/vim-lastplace",
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "leafgarland/typescript-vim",
     "jparise/vim-graphql",
     "plasticboy/vim-markdown",
     "Vimjas/vim-python-pep8-indent",
     "tpope/vim-fugitive",
     "mbbill/undotree",
-    "luochen1990/rainbow",
     "ryanoasis/vim-devicons",
     "dstein64/nvim-scrollview",
-    "andymass/vim-matchup",
     "tomlion/vim-solidity",
-    "kamykn/spelunker.vim",
-    "hashivim/vim-terraform",
-    "kevinhwang91/nvim-bqf",
-    "mfussenegger/nvim-lint",
-    "ellisonleao/glow.nvim",
 
     -- nvim-lspconfig related
     "ray-x/lsp_signature.nvim",
@@ -280,82 +379,6 @@ vim.api.nvim_set_keymap("n", "fa", "zg", { noremap = true })
 vim.api.nvim_set_keymap("n", "fr", "zug", { noremap = true })
 vim.api.nvim_set_keymap("n", "fo", "[s", { noremap = true })
 vim.api.nvim_set_keymap("n", "fp", "]s", { noremap = true })
-
---------------------------------------------------------------------------------
---- plugins
---------------------------------------------------------------------------------
-
--- vim-terraform
-vim.g.terraform_fmt_on_save = 1
-vim.g.terraform_align = 1
-
--- spelunker
-vim.g.spelunker_check_type = 0
-vim.g.enable_spelunker_vim_on_readonly = 1
-vim.g.spelunker_target_min_char_len = 1
-vim.g.spelunker_disable_account_name_checking = 0
-vim.g.spelunker_disable_backquoted_checking = 0
-vim.api.nvim_set_keymap("n", "ff", "<Plug>(spelunker-correct-from-list)", {})
-
--- vim-matchup
-vim.g.matchup_matchparen_offscreen = {}
-
--- rainbow
-vim.g.rainbow_active = 1
-vim.g.rainbow_conf = {
-    operators = "",
-    guifgs = {"white", "darkorange3", "royalblue3", "seagreen3", "firebrick"},
-}
-
--- editorconfig-vim
-vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
-vim.g.EditorConfig_disable_rules = { "trim_trailing_whitespace" }
-
--- glow.nvim
-require("glow").setup()
-
--- nvim-bqf
-require("bqf").setup({
-    func_map = {
-        open = "o",
-        openc = "<CR>",
-    }
-})
-
--- nvim-lint
-require("lint").linters_by_ft = {
-    proto = {
-        "buf_lint",
-    }
-}
-vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost", }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
-
--- nvim-treesitter
-require("nvim-treesitter.configs").setup {
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    disable = { "vim" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
 
 --------------------------------------------------------------------------------
 --- nvim-lspconfig

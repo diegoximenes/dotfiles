@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- plugins manager: lazy.nvim
+--- plugins manager: lazy.nvim
 --------------------------------------------------------------------------------
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -53,7 +53,37 @@ require("lazy").setup({
       end,
     },
 
-    "vim-airline/vim-airline",
+    {
+        "loctvl842/monokai-pro.nvim",
+        config = function()
+            require("monokai-pro").setup({
+                filter = "classic",
+                overridePalette = function(filter)
+                  return {
+                    background = "#1c1c1c",
+                    dimmed3 = "#7c8287", -- related to comments
+                  }
+                end
+            })
+            vim.cmd([[colorscheme monokai-pro]])
+        end,
+    },
+
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require('lualine').setup({
+                options = {
+                    theme = "powerline",
+                },
+                sections = {
+                    lualine_x = {'filetype'},
+                },
+            })
+        end,
+    },
+
     "airblade/vim-gitgutter",
     "farmergreg/vim-lastplace",
     {"fatih/vim-go", build = ":GoUpdateBinaries" },
@@ -72,7 +102,6 @@ require("lazy").setup({
     "kamykn/spelunker.vim",
     "hashivim/vim-terraform",
     "kevinhwang91/nvim-bqf",
-    "tanvirtin/monokai.nvim",
     "mfussenegger/nvim-lint",
     "ellisonleao/glow.nvim",
 
@@ -87,7 +116,7 @@ require("lazy").setup({
 })
 
 --------------------------------------------------------------------------------
--- general
+--- general
 --------------------------------------------------------------------------------
 
 vim.g.mapleader = ","
@@ -122,7 +151,7 @@ vim.keymap.set({"n", "v"}, "<Left>", "<NOP>", { noremap = true, silent = true })
 vim.keymap.set({"n", "v"}, "<Right>", "<NOP>", { noremap = true, silent = true })
 
 --------------------------------------------------------------------------------
--- general autocmds
+--- general autocmds
 --------------------------------------------------------------------------------
 
 -- set filetypes
@@ -186,7 +215,7 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 })
 
 --------------------------------------------------------------------------------
--- general mappings
+--- general mappings
 --------------------------------------------------------------------------------
 
 -- previous tag
@@ -233,7 +262,7 @@ vim.api.nvim_set_keymap("n", "fo", "[s", { noremap = true })
 vim.api.nvim_set_keymap("n", "fp", "]s", { noremap = true })
 
 --------------------------------------------------------------------------------
--- plugins
+--- plugins
 --------------------------------------------------------------------------------
 
 -- vim-terraform
@@ -270,36 +299,12 @@ vim.cmd("highlight GitGutterAdd guifg=#009900 ctermfg=2")
 vim.cmd("highlight GitGutterChange guifg=#bbbb00 ctermfg=3")
 vim.cmd("highlight GitGutterDelete guifg=#ff2222 ctermfg=1")
 
--- airline
-vim.opt.laststatus = 2
-vim.g.airline_powerline_fonts = 0
-vim.g.airline_left_sep = ""
-vim.g.airline_right_sep = ""
--- TODO: not working, arline will be replaced soon
--- let g:airline_symbols = {}
--- let g:airline_symbols.branch = ''
-vim.g.airline_section_c = "%<%{expand('%:p')}"
-vim.g.airline_section_x = ""
-vim.g.airline_section_y = ""
-vim.g.airline_section_z = "L:%4l/%{line('$')} | C:%3v/%3{col('$')}"
-
--- vim-devicons
--- this was blocking g:airline_section_y to be overriden
-vim.g.webdevicons_enable_airline_statusline_fileformat_symbols = 0
-
 -- editorconfig-vim
 vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 vim.g.EditorConfig_disable_rules = { "trim_trailing_whitespace" }
 
 -- glow.nvim
 require("glow").setup()
-
--- monokai.nvim
-require("monokai").setup{
-    palette = {
-        base2 = "#1c1c1c",
-    },
-}
 
 -- nvim-bqf
 require("bqf").setup({
@@ -345,7 +350,7 @@ require("nvim-treesitter.configs").setup {
 }
 
 --------------------------------------------------------------------------------
--- nvim-lspconfig
+--- nvim-lspconfig
 --------------------------------------------------------------------------------
 
 local lsp_signature_config = {
@@ -355,8 +360,8 @@ require'lsp_signature'.setup(lsp_signature_config)
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<C-q>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.keymap.set('n', '[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.keymap.set('n', ']', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+vim.keymap.set('n', '<C-[>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.keymap.set('n', '<C-]>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

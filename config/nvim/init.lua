@@ -84,9 +84,29 @@ require("lazy").setup({
         end,
     },
 
+    {
+      "ray-x/go.nvim",
+      dependencies = {  -- optional packages
+        "ray-x/guihua.lua",
+        "neovim/nvim-lspconfig",
+        "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+        require("go").setup()
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = "*.go",
+                callback = function()
+                    require('go.format').goimports()
+                end,
+            })
+        end,
+      event = {"CmdlineEnter"},
+      ft = {"go", 'gomod'},
+      build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    },
+
     "airblade/vim-gitgutter",
     "farmergreg/vim-lastplace",
-    {"fatih/vim-go", build = ":GoUpdateBinaries" },
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "leafgarland/typescript-vim",
     "jparise/vim-graphql",
@@ -285,13 +305,6 @@ vim.g.rainbow_active = 1
 vim.g.rainbow_conf = {
     operators = "",
     guifgs = {"white", "darkorange3", "royalblue3", "seagreen3", "firebrick"},
-}
-
--- vim-go
-vim.g.go_doc_keywordprg_enabled = 0
-vim.g.go_fmt_command = "golines"
-vim.g.go_fmt_options = {
-    golines = "--base-formatter gofmt -m 120",
 }
 
 -- vim-gitgutter

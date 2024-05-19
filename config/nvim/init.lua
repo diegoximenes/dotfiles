@@ -33,6 +33,26 @@ require("lazy").setup({
       end,
     },
 
+    {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = "InsertEnter",
+      config = function()
+        require("copilot").setup({
+          suggestion = {
+            auto_trigger = true,
+            keymap = {
+                accept = "<C-f>",
+                next = "<C-r>",
+                previous = "<C-e>", -- not working
+                suggest = "<C-w>", -- not working
+                dismiss = "<C-d>",
+            },
+          },
+        })
+      end,
+    },
+
     "vim-airline/vim-airline",
     "airblade/vim-gitgutter",
     "farmergreg/vim-lastplace",
@@ -53,7 +73,6 @@ require("lazy").setup({
     "hashivim/vim-terraform",
     "kevinhwang91/nvim-bqf",
     "tanvirtin/monokai.nvim",
-    "github/copilot.vim",
     "mfussenegger/nvim-lint",
     "ellisonleao/glow.nvim",
 
@@ -271,13 +290,6 @@ vim.g.webdevicons_enable_airline_statusline_fileformat_symbols = 0
 -- editorconfig-vim
 vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 vim.g.EditorConfig_disable_rules = { "trim_trailing_whitespace" }
-
--- github/copilot.vim
-vim.api.nvim_set_keymap("i", "<C-f>", "copilot#Accept('<CR>')", { noremap = true, expr = true, silent = true})
-vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<C-r>", "<Plug>(copilot-next)", { noremap = true })
-vim.api.nvim_set_keymap("i", "<C-e>", "<Plug>(copilot-previous)", { noremap = true })
-vim.api.nvim_set_keymap("i", "<C-w>", "<Plug>(copilot-suggest)", { noremap = true })
 
 -- glow.nvim
 require("glow").setup()

@@ -24,7 +24,15 @@ require("lazy").setup({
 
     "editorconfig/editorconfig-vim",
     "tpope/vim-sleuth",
-    "tpope/vim-commentary",
+
+    {
+      'numToStr/Comment.nvim',
+      lazy = false,
+      config = function()
+        require('Comment').setup()
+      end,
+    },
+
     "vim-airline/vim-airline",
     "airblade/vim-gitgutter",
     "farmergreg/vim-lastplace",
@@ -94,9 +102,8 @@ vim.keymap.set({"n", "v"}, "<Down>", "<NOP>", { noremap = true, silent = true })
 vim.keymap.set({"n", "v"}, "<Left>", "<NOP>", { noremap = true, silent = true })
 vim.keymap.set({"n", "v"}, "<Right>", "<NOP>", { noremap = true, silent = true })
 
-
 --------------------------------------------------------------------------------
--- autocmd
+-- general autocmds
 --------------------------------------------------------------------------------
 
 -- set filetypes
@@ -160,7 +167,7 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 })
 
 --------------------------------------------------------------------------------
--- mappings
+-- general mappings
 --------------------------------------------------------------------------------
 
 -- previous tag

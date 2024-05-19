@@ -64,6 +64,7 @@ libtool
 linux
 linux-firmware
 logrotate
+lua-language-server
 lvm2
 m4
 make

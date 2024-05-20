@@ -11,11 +11,4 @@ return {
 	"ryanoasis/vim-devicons",
 	"dstein64/nvim-scrollview",
 	"tomlion/vim-solidity",
-
-	-- nvim-lspconfig related
-	"ray-x/lsp_signature.nvim",
-	"neovim/nvim-lspconfig",
-	"wbthomason/packer.nvim",
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
 }

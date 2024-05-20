@@ -136,9 +136,6 @@ vim.api.nvim_set_keymap("n", "<C-e>", ":echo expand('%:p')<CR>", { noremap = tru
 -- reload file
 vim.api.nvim_set_keymap("n", "<F5>", ":edit<CR>", { noremap = true })
 
--- undo
-vim.api.nvim_set_keymap("n", "<F7>", ":UndotreeToggle<CR>", { noremap = true })
-
 -- change letter case
 vim.api.nvim_set_keymap("n", "U", "~", { noremap = true })
 

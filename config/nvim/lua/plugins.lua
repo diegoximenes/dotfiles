@@ -7,7 +7,6 @@ return {
 	"plasticboy/vim-markdown",
 	"Vimjas/vim-python-pep8-indent",
 	"tpope/vim-fugitive",
-	"mbbill/undotree",
 	"ryanoasis/vim-devicons",
 	"dstein64/nvim-scrollview",
 	"tomlion/vim-solidity",

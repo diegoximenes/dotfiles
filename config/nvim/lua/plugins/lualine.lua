@@ -7,6 +7,13 @@ return {
 				theme = "powerline",
 			},
 			sections = {
+				lualine_b = { "diff", "diagnostics" },
+				lualine_c = {
+					{
+						"filename",
+						path = 3,
+					},
+				},
 				lualine_x = { "filetype" },
 			},
 		})

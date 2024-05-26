@@ -22,12 +22,8 @@ return {
 			-- Enable completion triggered by <c-x><c-o>
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-			vim.keymap.set("n", "<C-i>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-			vim.keymap.set("n", "<C-y>", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-			vim.keymap.set("n", "<C-g>", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 			vim.keymap.set("n", "<C-b>", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 			vim.keymap.set("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", opts)
-			vim.keymap.set("n", "<C-n>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 		end
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()

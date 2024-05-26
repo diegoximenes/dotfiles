@@ -45,9 +45,6 @@ bindsym $mod+g layout splitv; focus down; focus down; focus down; move right; la
 # inverse of default windows splitter for 3 or 4 windows
 bindsym $mod+b focus right; focus up; move left; focus right; move left; layout tabbed
 
-# enter fullscreen mode
-bindsym $mod+f fullscreen toggle
-
 # change container layout
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -153,6 +150,7 @@ bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi
 bindsym $mod+z exec zathura
 bindsym $mod+x exec termite -t htop -e htop
 bindsym $mod+c exec google-chrome-stable --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
+bindsym $mod+f exec firefox
 bindsym $mod+v exec vlc
 bindsym $mod+y exec rofi-bluetooth
 

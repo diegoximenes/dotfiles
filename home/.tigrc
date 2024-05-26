@@ -1,0 +1,9 @@
+set wrap-lines = yes
+
+# copy commit hash to clipboard
+bind generic x @sh -c "echo -n %(commit) | xclip -selection c"
+
+# copy current line to clipboard
+bind generic z @sh -c "echo -n %(text) | xclip -selection c"
+
+bind status + !git commit --amend

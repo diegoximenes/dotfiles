@@ -158,7 +158,7 @@ bindsym $mod+y exec rofi-bluetooth
 
 # audio
 bindsym $mod+m exec ~/.config/polybar/scripts/audio.sh --volume_sink_down
-bindsym $mod+u exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
+bindsym $mod+i exec ~/.config/polybar/scripts/audio.sh --volume_sink_up
 bindsym $mod+n exec ~/.config/polybar/scripts/audio.sh --mute_sink
 
 # configure screens

@@ -118,6 +118,7 @@ reiserfsprogs
 ripgrep
 rofi
 rsync
+ruby
 rustup
 s-nail
 sd

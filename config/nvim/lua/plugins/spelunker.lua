@@ -1,5 +1,6 @@
 return {
 	"kamykn/spelunker.vim",
+	ft = { "gitcommit", "markdown", "plaintext", "tex", "en_us", "pt_br" },
 	config = function()
 		vim.g.spelunker_check_type = 0
 		vim.g.enable_spelunker_vim_on_readonly = 1

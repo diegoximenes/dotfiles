@@ -160,3 +160,5 @@ vim.api.nvim_set_keymap("n", "fa", "zg", { noremap = true })
 vim.api.nvim_set_keymap("n", "fr", "zug", { noremap = true })
 vim.api.nvim_set_keymap("n", "fo", "[s", { noremap = true })
 vim.api.nvim_set_keymap("n", "fp", "]s", { noremap = true })
+
+vim.api.nvim_set_keymap("n", "dl", ":t.<CR>", { noremap = true })

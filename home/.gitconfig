@@ -11,6 +11,7 @@
             git status -sb | grep '##*' | cut -d'.' -f4 | cut -d' ' -f1 | xargs git reset --hard; \
         }; f;"
     pushdefault = push -u origin HEAD
+    autorebase = "!f() { git rebase -i HEAD~\"$1\"; }; f"
 
 [core]
     editor = nvim

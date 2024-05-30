@@ -27,12 +27,36 @@ return {
 				bufnr = 0,
 			})
 		end
+		local definitions = function()
+			-- only shows file path, do not show file content in results pane
+			return builtin.lsp_definitions({
+				show_line = false,
+			})
+		end
+		local type_definitions = function()
+			-- only shows file path, do not show file content in results pane
+			return builtin.lsp_type_definitions({
+				show_line = false,
+			})
+		end
+		local references = function()
+			-- only shows file path, do not show file content in results pane
+			return builtin.lsp_references({
+				show_line = false,
+			})
+		end
+		local implementations = function()
+			-- only shows file path, do not show file content in results pane
+			return builtin.lsp_implementations({
+				show_line = false,
+			})
+		end
 
-		vim.keymap.set("n", "<C-i>", builtin.lsp_definitions, { noremap = true, silent = true })
-		vim.keymap.set("n", "<C-g>", builtin.lsp_type_definitions, { noremap = true, silent = true })
-		vim.keymap.set("n", "<C-n>", builtin.lsp_references, { noremap = true, silent = true })
-		vim.keymap.set("n", "<C-y>", builtin.lsp_implementations, { noremap = true, silent = true })
-		vim.keymap.set("n", "<C-s>", telescope.extensions.aerial.aerial, { noremap = true, silent = true })
+		vim.keymap.set("n", "<C-i>", definitions, { noremap = true, silent = true })
+		vim.keymap.set("n", "<C-g>", type_definitions, { noremap = true, silent = true })
+		vim.keymap.set("n", "<C-n>", references, { noremap = true, silent = true })
+		vim.keymap.set("n", "<C-y>", implementations, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-q>", diagnostics, { noremap = true, silent = true })
+		vim.keymap.set("n", "<C-s>", telescope.extensions.aerial.aerial, { noremap = true, silent = true })
 	end,
 }

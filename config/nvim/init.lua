@@ -1,6 +1,10 @@
 -- mapleader must be set before lazy.nvim is loaded
 vim.g.mapleader = ","
 
+-- disable netrw since a different file explorer is used
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 --------------------------------------------------------------------------------
 --- plugins manager: lazy.nvim
 --------------------------------------------------------------------------------

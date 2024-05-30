@@ -115,6 +115,7 @@ screen_always_on() {
 source /usr/bin/virtualenvwrapper.sh
 source /usr/share/zsh/share/antigen.zsh
 eval $(thefuck --alias)
+eval "$(zoxide init zsh --cmd j)"
 
 ################################################################################
 # antigen
@@ -125,7 +126,6 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle git-extras
 antigen bundle vi-mode
-antigen bundle autojump
 antigen bundle fzf
 antigen bundle command-not-found
 antigen bundle hlissner/zsh-autopair

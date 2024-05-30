@@ -13,7 +13,7 @@ export EDITOR="nvim"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export FZF_DEFAULT_OPTS='-e'
 export FZF_CTRL_T_COMMAND='find .' # includes hidden files on search
-export PAGER=nvimpager
+export PAGER=bat
 
 # zsh-nvm
 export NVM_LAZY_LOAD=true

@@ -27,6 +27,7 @@ docker
 docker-buildx
 docker-compose
 dosfstools
+duf
 dunst
 efibootmgr
 eog

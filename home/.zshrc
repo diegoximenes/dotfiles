@@ -128,6 +128,7 @@ antigen bundle vi-mode
 antigen bundle autojump
 antigen bundle fzf
 antigen bundle command-not-found
+antigen bundle hlissner/zsh-autopair
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle lukechilds/zsh-nvm

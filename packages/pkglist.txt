@@ -39,6 +39,7 @@ fzf
 gcc
 gdb
 git
+git-delta
 gnome-sound-recorder
 go
 gparted

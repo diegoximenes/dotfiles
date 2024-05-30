@@ -179,8 +179,8 @@ preexec() {
 ################################################################################
 
 alias t="tig"
-alias ls="exa"
-alias l="exa -lah --git"
+alias ls="eza"
+alias l="eza -lah --git"
 alias v="nvim -p"
 alias vi="nvim -p"
 alias vim="nvim -p"

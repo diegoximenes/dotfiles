@@ -2,7 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
 	dependencies = { "nvim-lua/plenary.nvim", "stevearc/aerial.nvim" },
-	event = 'LspAttach',
+	event = "LspAttach",
 	config = function()
 		local telescope = require("telescope")
 
@@ -26,5 +26,6 @@ return {
 		vim.keymap.set("n", "<C-n>", builtin.lsp_references, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-y>", builtin.lsp_implementations, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-s>", telescope.extensions.aerial.aerial, { noremap = true, silent = true })
+		vim.keymap.set("n", "<C-q>", builtin.diagnostics, { noremap = true, silent = true })
 	end,
 }

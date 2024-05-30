@@ -31,6 +31,7 @@ efibootmgr
 eog
 eza
 fakeroot
+fastfetch
 fd
 firefox
 flake8
@@ -78,7 +79,6 @@ mtools
 mtr
 nano
 ncdu
-neofetch
 neovim
 netctl
 network-manager-applet

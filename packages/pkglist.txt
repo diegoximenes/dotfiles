@@ -21,6 +21,7 @@ curlie
 deepin-screen-recorder
 dfrs
 dhcpcd
+difftastic
 dnsmasq
 docker
 docker-buildx

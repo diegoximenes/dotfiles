@@ -104,6 +104,21 @@ empty_trash() {
     trash-empty -f
 }
 
+docker_prune() {
+    echo_step 'Starting dockerd...'
+    sudo -b dockerd &> /dev/null
+    sleep 3
+
+    echo_step 'Pruning docker...'
+    docker system prune -f --filter "until=120h" # 5 days
+
+    echo_step 'Pruning docker volumes...'
+    docker volume prune -f
+
+    sudo pkill dockerd
+}
+
+docker_prune
 ssh_agent
 update_submodules
 update_arch_packages

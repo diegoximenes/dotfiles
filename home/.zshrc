@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ################################################################################
 # general
 ################################################################################
@@ -122,20 +129,17 @@ eval "$(zoxide init zsh --cmd j)"
 
 antigen use oh-my-zsh
 
+# oh-my-zsh
 antigen bundle git
 antigen bundle git-extras
 antigen bundle vi-mode
 antigen bundle fzf
 antigen bundle command-not-found
-antigen bundle hlissner/zsh-autopair
 
+antigen theme romkatv/powerlevel10k
+antigen bundle hlissner/zsh-autopair
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle lukechilds/zsh-nvm
-
-local theme=".diegoximenes.zsh-theme"
-local theme_path=$(realpath ~/$theme)
-local theme_dir=$(dirname $theme_path)
-antigen bundle $theme_dir $theme --no-local-clone
 
 antigen apply
 
@@ -220,3 +224,6 @@ alias gpd="git pushdefault"
 alias gp="git pull"
 alias gph="git pullhard"
 alias gr="git restore --staged"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

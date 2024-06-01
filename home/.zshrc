@@ -25,6 +25,7 @@ antigen bundle git-extras
 antigen bundle vi-mode
 antigen bundle fzf
 antigen bundle command-not-found
+antigen bundle autojump
 
 export WORKON_HOME=$HOME/python_virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -162,12 +163,6 @@ fuck () {
     export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
     test -n "$TF_CMD" && print -s $TF_CMD
 }
-
-################################################################################
-# evals
-################################################################################
-
-eval "$(zoxide init zsh --cmd j)"
 
 ################################################################################
 # zle

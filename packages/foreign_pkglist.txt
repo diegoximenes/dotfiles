@@ -1,4 +1,5 @@
 antigen-git
+autojump
 buf-bin
 curl-impersonate-bin
 diagnostic-languageserver

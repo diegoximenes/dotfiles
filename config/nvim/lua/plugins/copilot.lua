@@ -8,10 +8,10 @@ return {
 				auto_trigger = true,
 				keymap = {
 					accept = "<C-f>",
+					prev = "<C-e>",
 					next = "<C-r>",
-					previous = "<C-e>", -- not working
-					suggest = "<C-w>", -- not working
-					dismiss = "<C-d>",
+					accept_word = "<C-w>",
+					accept_line = "<C-d>",
 				},
 			},
 		})

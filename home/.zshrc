@@ -12,7 +12,42 @@ fi
 setopt PROMPT_SUBST
 
 ################################################################################
-# exports
+# antigen
+################################################################################
+
+source /usr/share/zsh/share/antigen.zsh
+
+antigen use oh-my-zsh
+
+# oh-my-zsh plugins
+antigen bundle git
+antigen bundle git-extras
+antigen bundle vi-mode
+antigen bundle fzf
+antigen bundle command-not-found
+
+export WORKON_HOME=$HOME/python_virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+antigen bundle virtualenvwrapper
+
+# other plugins
+antigen theme romkatv/powerlevel10k
+
+antigen bundle hlissner/zsh-autopair
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+export NVM_AUTO_USE=true
+antigen bundle lukechilds/zsh-nvm
+
+antigen apply
+
+# source powerlevel10k config after sourcing it with antigen
+source ~/.p10k.zsh
+
+################################################################################
+# general exports
 ################################################################################
 
 export KEYTIMEOUT=1 # default is bigger, in case of problems remove this line
@@ -21,21 +56,12 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export FZF_CTRL_T_COMMAND='find .' # includes hidden files on search
 export PAGER=bat
 
-# zsh-nvm
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
-export NVM_AUTO_USE=true
-
 # go
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # yarn
 export PATH="$PATH:$HOME/.yarn/bin"
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/python_virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 ################################################################################
 # bindkey
@@ -115,33 +141,11 @@ screen_always_on() {
 }
 
 ################################################################################
-# source
+# evals
 ################################################################################
 
-source /usr/bin/virtualenvwrapper.sh
-source /usr/share/zsh/share/antigen.zsh
 eval $(thefuck --alias)
 eval "$(zoxide init zsh --cmd j)"
-
-################################################################################
-# antigen
-################################################################################
-
-antigen use oh-my-zsh
-
-# oh-my-zsh
-antigen bundle git
-antigen bundle git-extras
-antigen bundle vi-mode
-antigen bundle fzf
-antigen bundle command-not-found
-
-antigen theme romkatv/powerlevel10k
-antigen bundle hlissner/zsh-autopair
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle lukechilds/zsh-nvm
-
-antigen apply
 
 ################################################################################
 # zle
@@ -179,7 +183,7 @@ preexec() {
 }
 
 ################################################################################
-# alias
+# aliases
 ################################################################################
 
 alias t="tig"
@@ -224,6 +228,3 @@ alias gpd="git pushdefault"
 alias gp="git pull"
 alias gph="git pullhard"
 alias gr="git restore --staged"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

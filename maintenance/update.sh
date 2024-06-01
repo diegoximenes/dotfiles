@@ -5,6 +5,8 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+DOTFILES_PATH="$HOME/Documents/dotfiles"
+
 script_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
 if [[ "$script_shell" != "zsh" ]]; then
     echo -e "${RED}FAILED: script must be run with zsh${NC}"
@@ -99,26 +101,11 @@ update_antigen() {
     antigen update
 }
 
-empty_trash() {
-    echo_step 'Emptying trash...'
-    trash-empty -f
+prune_disk() {
+    echo_step 'Pruning disk...'
+    bash "$DOTFILES_PATH/maintenance/prune_disk.sh"
 }
 
-docker_prune() {
-    echo_step 'Starting dockerd...'
-    sudo -b dockerd &> /dev/null
-    sleep 3
-
-    echo_step 'Pruning docker...'
-    docker system prune -f --filter "until=120h" # 5 days
-
-    echo_step 'Pruning docker volumes...'
-    docker volume prune -f
-
-    sudo pkill dockerd
-}
-
-docker_prune
 ssh_agent
 update_submodules
 update_arch_packages
@@ -129,5 +116,5 @@ update_nvm
 update_yarn_packages
 update_go_binaries
 update_antigen
-empty_trash
+prune_disk
 success

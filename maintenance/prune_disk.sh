@@ -43,6 +43,12 @@ empty_trash() {
     trash-empty -f
 }
 
+go_clean() {
+    echo_step 'Cleaning go cache...'
+    go clean -cache -modcache
+}
+
 docker_prune
+go_clean
 empty_trash
 success

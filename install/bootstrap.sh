@@ -127,7 +127,7 @@ set_libvirtd() {
 
 set_tmux() {
     echo_step 'Setting tmux...'
-    bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+    /usr/share/tmux-plugin-manager/bin/install_plugins
 }
 
 set_docker() {

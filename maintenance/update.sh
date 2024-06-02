@@ -78,7 +78,7 @@ update_nvim() {
 
 update_tmux_plugins() {
     echo_step 'Updating tmux plugins...'
-    ~/.tmux/plugins/tpm/bin/update_plugins all
+    /usr/share/tmux-plugin-manager/bin/update_plugins all
 }
 
 update_nvm() {

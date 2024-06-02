@@ -21,8 +21,3 @@
 - virt-manager screen resolution
   - After starting VM, go to "Video" tab and change to "Virtio"
   - Open settings in guest OS and update display resolution
-
-- pull
-  - git pull
-  - git submodule update --init --remote
-  - git submodule foreach 'git submodule update --init --recursive'

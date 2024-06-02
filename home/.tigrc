@@ -1,5 +1,3 @@
-set wrap-lines = yes
-
 # copy commit hash to clipboard
 bind generic x @sh -c "echo -n %(commit) | xclip -selection c"
 

@@ -1,35 +1,14 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+path_dotfiles="$path_current_file/.."
+
+source "$path_dotfiles/common.sh"
 
 if [[ ! -f "$HOME/.ssh/id_ed25519" ]]; then
     echo -e "${RED}FAILED: ssh key not found${NC}"
     exit 1
 fi
-
-set -e
-finish() {
-    if [[ ! "$?" -eq 0 ]]; then
-        echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
-    fi
-}
-trap finish EXIT
-
-path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-path_dotfiles="$path_current_file/.."
-
-echo_step() {
-    local step
-    step="$1"
-    echo -e "${BLUE}$step${NC}"
-}
-
-success() {
-    echo -e "${GREEN}SUCCESS${NC}"
-}
 
 set_zsh() {
     echo_step "Setting zsh..."

@@ -1,11 +1,9 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+path_dotfiles="$path_current_file/.."
 
-DOTFILES_PATH="$HOME/Documents/dotfiles"
+source "$path_dotfiles/common.sh"
 
 script_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
 if [[ "$script_shell" != "zsh" ]]; then
@@ -14,25 +12,6 @@ if [[ "$script_shell" != "zsh" ]]; then
 fi
 
 source "$HOME/.zshrc"
-
-finish() {
-    if [[ ! "$?" -eq 0 ]]; then
-        echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
-        exit 1
-    fi
-}
-set -e
-trap finish EXIT
-
-echo_step() {
-    local step
-    step="$1"
-    echo -e "${BLUE}$step${NC}"
-}
-
-success() {
-    echo -e "${GREEN}SUCCESS${NC}"
-}
 
 ssh_agent() {
     eval "$(ssh-agent)"
@@ -103,7 +82,7 @@ update_antigen() {
 
 prune_disk() {
     echo_step 'Pruning disk...'
-    bash "$DOTFILES_PATH/maintenance/prune_disk.sh"
+    bash "$path_dotfiles/maintenance/prune_disk.sh"
 }
 
 ssh_agent

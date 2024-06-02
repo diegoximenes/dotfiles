@@ -1,28 +1,9 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+path_dotfiles="$path_current_file/.."
 
-finish() {
-    if [[ ! "$?" -eq 0 ]]; then
-        echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
-        exit 1
-    fi
-}
-set -e
-trap finish EXIT
-
-echo_step() {
-    local step
-    step="$1"
-    echo -e "${BLUE}$step${NC}"
-}
-
-success() {
-    echo -e "${GREEN}SUCCESS${NC}"
-}
+source "$path_dotfiles/common.sh"
 
 docker_prune() {
     echo_step 'Starting dockerd...'

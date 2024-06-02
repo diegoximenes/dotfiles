@@ -41,7 +41,6 @@ return {
 			"tsserver",
 			"metals",
 			"yamlls",
-			"vimls",
 			"dockerls",
 			"solidity_ls",
 			"terraformls",

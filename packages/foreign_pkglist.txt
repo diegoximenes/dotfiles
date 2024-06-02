@@ -27,7 +27,6 @@ terraform-ls
 tflint
 tmux-plugin-manager
 usql
-vim-language-server
 vscode-langservers-extracted
 woeusb
 yay

@@ -41,7 +41,6 @@ return {
 			"tsserver",
 			"metals",
 			"yamlls",
-			"pyright",
 			"vimls",
 			"dockerls",
 			"solidity_ls",
@@ -51,6 +50,7 @@ return {
 			"sqlls",
 			"bufls",
 			"marksman",
+			"ruff_lsp", -- when it is fixed use "ruff" instead of "ruff_lsp" in the future
 		}
 		for _, lsp in ipairs(lsps_with_default_config) do
 			lspconfig[lsp].setup({
@@ -134,76 +134,17 @@ return {
 			filetypes = {
 				"sh",
 				"markdown",
-				"python",
 			},
 			init_options = {
 				filetypes = {
 					sh = "shellcheck",
 					markdown = "markdownlint",
-					python = { "flake8", "pylint" },
 				},
 				formatFiletypes = {
 					sh = "shfmt",
 					markdown = "prettier",
 				},
 				linters = {
-					pylint = {
-						sourceName = "pylint",
-						command = "pylint",
-						args = {
-							"--output-format",
-							"text",
-							"--score",
-							"no",
-							"--msg-template",
-							"'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
-							"%file",
-						},
-						formatPattern = {
-							"^(\\d+?):(\\d+?):([a-z]+?):(.*)$",
-							{
-								line = 1,
-								column = 2,
-								security = 3,
-								message = 4,
-							},
-						},
-						securities = {
-							informational = "hint",
-							refactor = "info",
-							convention = "info",
-							warning = "warning",
-							error = "error",
-							fatal = "error",
-						},
-						offsetColumn = 1,
-						formatLines = 1,
-					},
-					flake8 = {
-						sourceName = "flake8",
-						command = "flake8",
-						debounce = 100,
-						args = {
-							"%file",
-						},
-						formatPattern = {
-							"^(.+\\.py):(\\d+):(\\d+): (I|W|E|F)\\d+ (.+)$",
-							{
-								line = 2,
-								column = 3,
-								security = 4,
-								message = 5,
-							},
-						},
-						securities = {
-							E = "error",
-							W = "warning",
-							I = "info",
-							F = "error",
-						},
-						offsetColumn = 0,
-						formatLines = 1,
-					},
 					markdownlint = {
 						command = "markdownlint",
 						isStderr = true,

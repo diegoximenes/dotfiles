@@ -36,7 +36,6 @@ fakeroot
 fastfetch
 fd
 firefox
-flake8
 flex
 fzf
 gcc
@@ -112,7 +111,6 @@ python-black
 python-i3ipc
 python-pip
 python-pipenv
-python-pylint
 python-pynvim
 python-virtualenvwrapper
 qemu-desktop
@@ -122,6 +120,7 @@ ripgrep
 rofi
 rsync
 ruby
+ruff-lsp
 rustup
 s-nail
 sd

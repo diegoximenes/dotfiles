@@ -7,11 +7,15 @@
     undolastcommit = reset HEAD~
     deleteuselessbranches = "!f() { git branch | grep -v 'master' | grep -v '^*' | xargs git branch -d; }; f;"
     pullhard = "!f() { \
-            git fetch; \
-            git status -sb | grep '##*' | cut -d'.' -f4 | cut -d' ' -f1 | xargs git reset --hard; \
-        }; f;"
+        git fetch; \
+        git status -sb | grep '##*' | cut -d'.' -f4 | cut -d' ' -f1 | xargs git reset --hard; \
+    }; f;"
     pushdefault = push -u origin HEAD
     autorebase = "!f() { git rebase -i HEAD~\"$1\"; }; f"
+    resetsubmodules = "!f() { \
+        git submodule deinit -f .; \
+        git submodule update --init --recursive --force; \
+    }; f;"
 
 [core]
     editor = nvim

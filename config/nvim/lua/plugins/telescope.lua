@@ -56,7 +56,7 @@ return {
 		vim.keymap.set("n", "<C-g>", type_definitions, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-n>", references, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-y>", implementations, { noremap = true, silent = true })
-		vim.keymap.set("n", "<C-q>", diagnostics, { noremap = true, silent = true })
+		vim.keymap.set("n", "<C-w>", diagnostics, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-s>", telescope.extensions.aerial.aerial, { noremap = true, silent = true })
 	end,
 }

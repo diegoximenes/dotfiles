@@ -23,7 +23,10 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle git-extras
 antigen bundle vi-mode
+
+export FZF_DEFAULT_OPTS='-e'
 antigen bundle fzf
+
 antigen bundle command-not-found
 antigen bundle autojump
 

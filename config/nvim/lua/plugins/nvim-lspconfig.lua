@@ -50,6 +50,7 @@ return {
 			"bufls",
 			"marksman",
 			"ruff_lsp", -- when it is fixed use "ruff" instead of "ruff_lsp" in the future
+			"bashls",
 		}
 		for _, lsp in ipairs(lsps_with_default_config) do
 			lspconfig[lsp].setup({

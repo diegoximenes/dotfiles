@@ -1,2 +1,0 @@
-- GitHub Copilot:  
-    - run `:Copilot setup` when installing in a new device  

@@ -37,6 +37,7 @@ vim.opt.guicursor =
 	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175" -- blinking cursor
 vim.opt.showmode = false -- don"t show the current mode, status line takes cares of it
 vim.opt.completeopt = "longest,menuone" -- change rules in autocomplete
+vim.opt.formatoptions = "troqj" -- add comment when creating line and current line is commented
 -- scroll
 vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 5

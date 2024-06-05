@@ -166,4 +166,9 @@ vim.api.nvim_set_keymap("n", "fr", "zug", { noremap = true })
 vim.api.nvim_set_keymap("n", "fo", "[s", { noremap = true })
 vim.api.nvim_set_keymap("n", "fp", "]s", { noremap = true })
 
+-- duplicate line
 vim.api.nvim_set_keymap("n", "dl", ":t.<CR>", { noremap = true })
+
+-- go to end of line
+vim.api.nvim_set_keymap("n", "E", "g_", { noremap = true })
+vim.api.nvim_set_keymap("v", "E", "g_", { noremap = true })

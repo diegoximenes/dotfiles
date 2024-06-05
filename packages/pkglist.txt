@@ -51,6 +51,7 @@ highlight
 htop
 i3-wm
 i3lock
+imagemagick
 inetutils
 intel-ucode
 iptables-nft

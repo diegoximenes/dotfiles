@@ -235,6 +235,7 @@ alias trans_en="$trans_cmd -s en -t pt"
 alias dic="bash ~/.scripts/dic.sh"
 alias smem="smem -a -k -r -s pss -c 'pid name user vss rss pss swap'"
 alias iptraf="sudo iptraf-ng"
+alias images_to_pdf="convert" # images_to_pdf image1.png image2.png ... file.pdf
 alias greenclip_clear="pkill greenclip && greenclip clear && nohup greenclip daemon > /dev/null 2>&1 &"
 alias sync_arch_databases="sudo pacman -Syy"
 alias myprogress="watch progress -q"

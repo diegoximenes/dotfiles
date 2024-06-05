@@ -58,5 +58,13 @@ return {
 		vim.keymap.set("n", "<C-y>", implementations, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-w>", diagnostics, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-s>", telescope.extensions.aerial.aerial, { noremap = true, silent = true })
+
+		-- show line number in preview
+		vim.api.nvim_create_autocmd({ "User" }, {
+			pattern = { "TelescopePreviewerLoaded" },
+			callback = function()
+				vim.opt_local.number = true
+			end,
+		})
 	end,
 }

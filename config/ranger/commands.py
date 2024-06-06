@@ -1,210 +1,144 @@
 import os
 from ranger.api.commands import Command
 
-###############################################################################
-
-
-class mkcd(Command):
-    """
-    :mkcd <dirname>
-
-    Creates a directory with the name <dirname> and enters it.
-    """
-
-    def execute(self):
-        from os.path import join, expanduser, lexists
-        from os import makedirs
-        import re
-
-        dirname = join(self.fm.thisdir.path, expanduser(self.rest(1)))
-        if not lexists(dirname):
-            makedirs(dirname)
-
-            match = re.search('^/|^~[^/]*/', dirname)
-            if match:
-                self.fm.cd(match.group(0))
-                dirname = dirname[match.end(0):]
-
-            for m in re.finditer('[^/]+', dirname):
-                s = m.group(0)
-                if s == '..' or (s.startswith('.') and not self.fm.settings['show_hidden']):
-                    self.fm.cd(s)
-                else:
-                    ## We force ranger to load content before calling `scout`.
-                    self.fm.thisdir.load_content(schedule=False)
-                    self.fm.execute_console('scout -ae ^{}$'.format(s))
-        else:
-            self.fm.notify("file/directory exists!", bad=True)
-
-
-###############################################################################
-
-
-class toggle_flat(Command):
-    """
-    :toggle_flat
-
-    Flattens or unflattens the directory view.
-    """
-
-    def execute(self):
-        if self.fm.thisdir.flat == 0:
-            self.fm.thisdir.unload()
-            self.fm.thisdir.flat = -1
-            self.fm.thisdir.load_content()
-        else:
-            self.fm.thisdir.unload()
-            self.fm.thisdir.flat = 0
-            self.fm.thisdir.load_content()
-
-###############################################################################
-
+################################################################################
+### search commands
+################################################################################
 
 class fzf_select(Command):
     """
     :fzf_select
-
     Find a file using fzf.
-
-    With a prefix argument select only directories.
+    With a prefix argument to select only directories.
 
     See: https://github.com/junegunn/fzf
     """
-    def execute(self):
-        import subprocess
-        import os.path
-        if self.quantifier:
-            # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
-        else:
-            # match files and directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
-        fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
-        stdout, stderr = fzf.communicate()
-        if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.rstrip('\n'))
-            if os.path.isdir(fzf_file):
-                self.fm.cd(fzf_file)
-            else:
-                self.fm.select_file(fzf_file)
-
-###############################################################################
-
-
-from collections import deque
-fd_deq = deque()
-
-
-class fd_search(Command):
-    """:fd_search [-d<depth>] <query>
-
-    Executes "fd -d<depth> <query>" in the current directory and focuses the
-    first match. <depth> defaults to 1, i.e. only the contents of the current
-    directory.
-    """
 
     def execute(self):
         import subprocess
+        import os
         from ranger.ext.get_executables import get_executables
-        if not 'fd' in get_executables():
-            self.fm.notify("Couldn't find fd on the PATH.", bad=True)
+
+        if 'fzf' not in get_executables():
+            self.fm.notify('Could not find fzf in the PATH.', bad=True)
             return
-        if self.arg(1):
-            if self.arg(1)[:2] == '-d':
-                depth = self.arg(1)
-                target = self.rest(2)
-            else:
-                depth = '-d1'
-                target = self.rest(1)
+
+        fd = None
+        if 'fdfind' in get_executables():
+            fd = 'fdfind'
+        elif 'fd' in get_executables():
+            fd = 'fd'
+
+        if fd is not None:
+            hidden = ('--hidden' if self.fm.settings.show_hidden else '')
+            exclude = "--no-ignore-vcs --exclude '.git' --exclude '*.py[co]' --exclude '__pycache__'"
+            only_directories = ('--type directory' if self.quantifier else '')
+            fzf_default_command = '{} --follow {} {} {} --color=always'.format(
+                fd, hidden, exclude, only_directories
+            )
         else:
-            self.fm.notify(":fd_search needs a query.", bad=True)
+            hidden = ('-false' if self.fm.settings.show_hidden else r"-path '*/\.*' -prune")
+            exclude = r"\( -name '\.git' -o -name '*.py[co]' -o -fstype 'dev' -o -fstype 'proc' \) -prune"
+            only_directories = ('-type d' if self.quantifier else '')
+            fzf_default_command = 'find -L . -mindepth 1 {} -o {} -o {} -print | cut -b3-'.format(
+                hidden, exclude, only_directories
+            )
+
+        env = os.environ.copy()
+        env['FZF_DEFAULT_COMMAND'] = fzf_default_command
+        env['FZF_DEFAULT_OPTS'] = '--height=40% --layout=reverse --ansi --preview="{}"'.format('''
+            (
+                batcat --color=always {} ||
+                bat --color=always {} ||
+                cat {} ||
+                tree -ahpCL 3 -I '.git' -I '*.py[co]' -I '__pycache__' {}
+            ) 2>/dev/null | head -n 100
+        ''')
+
+        fzf = self.fm.execute_command('fzf --no-multi', env=env,
+                                      universal_newlines=True, stdout=subprocess.PIPE)
+        stdout, _ = fzf.communicate()
+        if fzf.returncode == 0:
+            selected = os.path.abspath(stdout.strip())
+            if os.path.isdir(selected):
+                self.fm.cd(selected)
+            else:
+                self.fm.select_file(selected)
+
+class fzf_content_open(Command):
+    """
+    :fzf_content_open
+    Pre-requisites: fzf, rg, bat, awk, vim or neovim
+    Using `rg` to search file content recursively in current directory.
+    Filtering with `fzf` and preview with `bat`.
+    Pressing `Enter` on target will open at line in (neo)vim.
+    """
+
+    def execute(self):
+        import subprocess
+        import os
+        from ranger.ext.get_executables import get_executables
+
+        if 'rg' in get_executables():
+            rg = 'rg'
+        else:
+            self.fm.notify("Couldn't find rg in the PATH.", bad=True)
             return
 
-        # For convenience, change which dict is used as result_sep to change
-        # fd's behavior from splitting results by \0, which allows for newlines
-        # in your filenames to splitting results by \n, which allows for \0 in
-        # filenames.
-        null_sep = {'arg': '-0', 'split': '\0'}
-        nl_sep = {'arg': '', 'split': '\n'}
-        result_sep = null_sep
+        if 'fzf' in get_executables():
+            fzf = 'fzf'
+        else:
+            self.fm.notify("Couldn't find fzf in the PATH.", bad=True)
+            return
 
-        process = subprocess.Popen(['fd', result_sep['arg'], depth, target],
-                    universal_newlines=True, stdout=subprocess.PIPE)
-        (search_results, _err) = process.communicate()
-        global fd_deq
-        fd_deq = deque((self.fm.thisdir.path + os.sep + rel for rel in
-            sorted(search_results.split(result_sep['split']), key=str.lower)
-            if rel != ''))
-        if len(fd_deq) > 0:
-            self.fm.select_file(fd_deq[0])
+        if 'bat' in get_executables():
+            bat = 'bat'
+        else:
+            self.fm.notify("Couldn't find bat in the PATH.", bad=True)
+            return
 
+        editor = None
+        if 'nvim' in get_executables():
+            editor = 'nvim'
+        elif 'vim' in get_executables():
+            editor = 'vim'
 
-class fd_next(Command):
-    """:fd_next
+        if rg is not None and fzf is not None and bat is not None and editor is not None:
+            # we should not recursively search through all file content from home directory
+            if (self.fm.thisdir.path == self.fm.home_path):
+                self.fm.notify("Searching from home directory is not allowed", bad=True)
+                return
+            fzf = self.fm.execute_command(
+                'rg --line-number "${1:-.}" | fzf --delimiter \':\' \
+                    --preview \'bat --color=always --highlight-line {2} {1}\' \
+                    | awk -F \':\' \'{print "+"$2" "$1}\'',
+                universal_newlines=True,stdout=subprocess.PIPE)
 
-    Selects the next match from the last :fd_search.
-    """
+            stdout, _ = fzf.communicate()
+            if fzf.returncode == 0:
+                if len(stdout) < 2:
+                    return
 
-    def execute(self):
-        if len(fd_deq) > 1:
-            fd_deq.rotate(-1) # rotate left
-            self.fm.select_file(fd_deq[0])
-        elif len(fd_deq) == 1:
-            self.fm.select_file(fd_deq[0])
+                selected_line = stdout.split()[0]
+                full_path = stdout.split()[1].strip()
 
+                file_fullpath = os.path.abspath(full_path)
+                file_basename = os.path.basename(full_path)
 
-class fd_prev(Command):
-    """:fd_prev
+                if os.path.isdir(file_fullpath):
+                    self.fm.cd(file_fullpath)
+                else:
+                    self.fm.select_file(file_fullpath)
 
-    Selects the next match from the last :fd_search.
-    """
-
-    def execute(self):
-        if len(fd_deq) > 1:
-            fd_deq.rotate(1) # rotate right
-            self.fm.select_file(fd_deq[0])
-        elif len(fd_deq) == 1:
-            self.fm.select_file(fd_deq[0])
-
-
-###############################################################################
+                self.fm.execute_command(editor + " " + selected_line + " " + file_basename)
 
 
-import ranger.api
-import subprocess
+################################################################################
+### compress and decompress commands
+################################################################################
 
-HOOK_INIT_OLD = ranger.api.hook_init
-
-
-def hook_init(fm):
-    def update_autojump(signal):
-        subprocess.Popen(["autojump", "--add", signal.new.path])
-
-    fm.signal_bind('cd', update_autojump)
-    HOOK_INIT_OLD(fm)
-
-
-ranger.api.hook_init = hook_init
-
-
-class j(Command):
-    """:j
-    Uses autojump to set the current directory.
-    """
-
-    def execute(self):
-        directory = subprocess.check_output(["autojump", self.arg(1)])
-        directory = directory.decode("utf-8", "ignore")
-        directory = directory.rstrip('\n')
-        self.fm.execute_console("cd " + directory)
-
-
-###############################################################################
-
+# ruff: noqa: E402
 from ranger.core.loader import CommandLoader
-
 
 class apack(Command):
     def execute(self):

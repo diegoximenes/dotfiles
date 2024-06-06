@@ -171,6 +171,7 @@ vim.api.nvim_set_keymap("n", "dl", ":t.<CR>", { noremap = true })
 
 -- go to end of line
 vim.api.nvim_set_keymap("n", "E", "g_", { noremap = true })
+vim.api.nvim_set_keymap("o", "E", "g_", { noremap = true })
 vim.api.nvim_set_keymap("v", "E", "g_", { noremap = true })
 
 -- enter no op, without it enter is poping the tag stack

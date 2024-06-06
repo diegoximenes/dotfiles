@@ -16,6 +16,7 @@
         git submodule deinit -f .; \
         git submodule update --init --recursive --force; \
     }; f;"
+    updatesubmodules = submodule update --remote --merge
 
 [core]
     editor = nvim

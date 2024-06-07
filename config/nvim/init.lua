@@ -127,7 +127,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --------------------------------------------------------------------------------
 
 -- previous tag
-vim.api.nvim_set_keymap("n", "<C-m>", ":pop<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-c>", ":pop<CR>", { noremap = true })
 
 -- previous location, to be used when tags are not applied to file navigation
 vim.api.nvim_set_keymap("n", "<C-z>", "<C-o>", { noremap = true })
@@ -173,6 +173,3 @@ vim.api.nvim_set_keymap("n", "dl", ":t.<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "E", "g_", { noremap = true })
 vim.api.nvim_set_keymap("o", "E", "g_", { noremap = true })
 vim.api.nvim_set_keymap("v", "E", "g_", { noremap = true })
-
--- enter no op, without it enter is poping the tag stack
-vim.api.nvim_set_keymap("n", "<CR>", "<Nop>", { noremap = true })

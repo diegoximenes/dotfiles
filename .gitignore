@@ -5,6 +5,7 @@ home/.diegoximenes.zsh-theme.antigen-compat
 
 config/yarn/global/*
 !config/yarn/global/package.json
+!config/yarn/global/yarn.lock
 
 config/dunst/dunstrc
 config/termite/config

@@ -1,15 +1,40 @@
 #!/bin/bash
 
-path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+check_zsh() {
+    local script_shell
+    script_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
+    if [[ "$script_shell" != "zsh" ]]; then
+        echo -e "${RED}FAILED: script must be run with zsh${NC}"
+        exit 1
+    fi
+}
+check_zsh
+
+echo_step() {
+    local step
+    step="$1"
+    echo -e "${BLUE}$step${NC}"
+}
+
+success() {
+    echo -e "${GREEN}SUCCESS${NC}"
+}
+
+# specific for zsh
+TRAPEXIT() {
+    if [[ ! "$?" -eq 0 ]]; then
+        echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
+    fi
+}
+
+# specific for zsh
+path_current_file="$(cd "$(dirname "${0:a}")" && pwd)"
 path_dotfiles="$path_current_file/.."
-
-source "$path_dotfiles/common.sh"
-
-script_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
-if [[ "$script_shell" != "zsh" ]]; then
-    echo -e "${RED}FAILED: script must be run with zsh${NC}"
-    exit 1
-fi
 
 source "$HOME/.zshrc"
 

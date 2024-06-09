@@ -1,42 +1,9 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m'
-
-check_zsh() {
-    local script_shell
-    script_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
-    if [[ "$script_shell" != "zsh" ]]; then
-        echo -e "${RED}FAILED: script must be run with zsh${NC}"
-        exit 1
-    fi
-}
-check_zsh
-
-echo_step() {
-    local step
-    step="$1"
-    echo -e "${BLUE}$step${NC}"
-}
-
-success() {
-    echo -e "${GREEN}SUCCESS${NC}"
-}
-
-# specific for zsh
-TRAPEXIT() {
-    if [[ ! "$?" -eq 0 ]]; then
-        echo -e "${RED}FAILED${NC}"
-    fi
-}
-
-# specific for zsh
-path_current_file="$(cd "$(dirname "${0:a}")" && pwd)"
+path_current_file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 path_dotfiles="$path_current_file/.."
 
-source "$HOME/.zshrc"
+source "$path_dotfiles/common.sh"
 
 ssh_agent() {
     eval "$(ssh-agent)"
@@ -84,11 +51,6 @@ update_tmux_plugins() {
     /usr/share/tmux-plugin-manager/bin/update_plugins all
 }
 
-update_nvm() {
-    echo_step 'Updating nvm...'
-    nvm upgrade
-}
-
 update_yarn_packages() {
     echo_step 'Updating yarn packages...'
     yarn global upgrade
@@ -99,25 +61,23 @@ update_go_binaries() {
     "$GOPATH/bin/gup" update
 }
 
-update_antigen() {
-    echo_step 'Updating antigen...'
-    antigen update
-}
-
 prune_disk() {
     echo_step 'Pruning disk...'
     bash "$path_dotfiles/maintenance/prune_disk.sh"
+}
+
+update_zsh() {
+    zsh "$path_dotfiles/maintenance/update_zsh.sh"
 }
 
 ssh_agent
 update_submodules
 update_arch_packages
 remove_orphan_arch_packages
+update_zsh
 update_nvim
 update_tmux_plugins
-update_nvm
 update_yarn_packages
 update_go_binaries
-update_antigen
 prune_disk
 success

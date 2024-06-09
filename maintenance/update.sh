@@ -28,7 +28,7 @@ success() {
 # specific for zsh
 TRAPEXIT() {
     if [[ ! "$?" -eq 0 ]]; then
-        echo -e "${RED}FAILED: ${BASH_COMMAND}${NC}"
+        echo -e "${RED}FAILED${NC}"
     fi
 }
 

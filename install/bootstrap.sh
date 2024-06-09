@@ -48,6 +48,7 @@ symlink() {
     sudo ln -snf "$path_dotfiles/etc/NetworkManager/"* /etc/NetworkManager/
     sudo ln -snf "$path_dotfiles/etc/pacman.d/"* /etc/pacman.d/
     sudo ln -snf "$path_dotfiles/etc/bluetooth/"* /etc/bluetooth/
+    sudo ln -snf "$path_dotfiles/etc/makepkg.conf" /etc/makepkg.conf
 }
 
 generate_configs_dependent_on_screen() {

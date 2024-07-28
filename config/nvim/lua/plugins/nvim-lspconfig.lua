@@ -36,7 +36,6 @@ return {
 		local lspconfig = require("lspconfig")
 
 		local lsps_with_default_config = {
-			"gopls",
 			"jsonls",
 			"tsserver",
 			"metals",
@@ -59,6 +58,18 @@ return {
 				capabilities = capabilities,
 			})
 		end
+
+		lspconfig["gopls"].setup({
+			on_attach = on_attach,
+			flags = flags,
+			capabilities = capabilities,
+			settings = {
+				gopls = {
+					buildFlags = { "-tags=integration !race cionly toxiproxy ipfs challengetest benchmarks block_validator_bench validatorreorgtest" },
+					-- buildFlags = { "-tags=integration race cionly toxiproxy ipfs challengetest benchmarks block_validator_bench validatorreorgtest" },
+				},
+			},
+		})
 
 		lspconfig["clangd"].setup({
 			on_attach = on_attach,

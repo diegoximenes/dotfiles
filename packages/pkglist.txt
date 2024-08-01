@@ -75,8 +75,10 @@ m4
 make
 man-db
 man-pages
+markdownlint-cli
 marksman
 mdadm
+mesa-utils
 moreutils
 mtools
 mtr
@@ -122,7 +124,6 @@ ripgrep
 rofi
 rsync
 ruby
-ruff-lsp
 rustup
 s-nail
 sd

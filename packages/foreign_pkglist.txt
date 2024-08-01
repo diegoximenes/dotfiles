@@ -12,11 +12,11 @@ grpcurl
 jupyter_nbextensions_configurator
 lazydocker
 ltex-ls-bin
-markdownlint-cli
 nodejs-jsonlint
 python-xlsx2csv
 rofi-bluetooth-git
 rofi-greenclip
+ruff-lsp
 slack-desktop
 smem
 sql-language-server

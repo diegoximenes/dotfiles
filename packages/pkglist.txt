@@ -12,6 +12,7 @@ bind
 bison
 bluez
 bluez-utils
+brightnessctl
 cifs-utils
 clang
 cmake
@@ -166,7 +167,6 @@ xdotool
 xf86-video-intel
 xfsprogs
 xorg-server
-xorg-xbacklight
 xorg-xev
 xorg-xinit
 xorg-xinput

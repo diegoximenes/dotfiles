@@ -1,18 +1,20 @@
 #!/bin/bash
 
 info() {
-    local l
-    l=$(xbacklight)
-    l=${l%.*}
-    echo "🔆 ${l}%"
+    local info
+    info="$(brightnessctl -m)"
+    # split comma separated string into array
+    local info_array
+    IFS=',' read -r -a info_array <<< "$info"
+    echo "🔆 ${info_array[3]}"
 }
 
 inc() {
-    xbacklight -inc 2
+    brightnessctl set +1%
 }
 
 dec() {
-    xbacklight -dec 2
+    brightnessctl set 1%-
 }
 
 case "$1" in

@@ -101,6 +101,8 @@ nmap
 noto-fonts
 noto-fonts-emoji
 ntfs-3g
+nvidia-open
+nvidia-prime
 openssh
 os-prober
 pacman-contrib

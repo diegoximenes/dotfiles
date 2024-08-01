@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=slack
-Exec=slack --disable-gpu %u

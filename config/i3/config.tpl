@@ -148,7 +148,7 @@ bindsym $mod+comma exec rofi -show combi -combi-modi "window#drun" -modi combi
 # softwares
 bindsym $mod+z exec zathura
 bindsym $mod+x exec alacritty -t htop -e htop
-bindsym $mod+c exec google-chrome-stable --disable-gpu --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
+bindsym $mod+c exec google-chrome-stable --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
 bindsym $mod+f exec firefox
 bindsym $mod+v exec vlc
 bindsym $mod+y exec rofi-bluetooth
@@ -195,7 +195,7 @@ for_window [class=".*"] title_format "%class: %title"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # default programs startup
-exec google-chrome-stable --disable-gpu --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
+exec google-chrome-stable --high-dpi-support=1 --force-device-scale-factor=${I3_GOOGLE_CHROME_SCALE_FACTOR}
 exec nm-applet
 exec pasystray
 exec dunst

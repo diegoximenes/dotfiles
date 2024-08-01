@@ -64,6 +64,9 @@ export PAGER=bat
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# cargo
+export PATH="$PATH:$HOME/.cargo/bin"
+
 # yarn
 export PATH="$PATH:$HOME/.yarn/bin"
 

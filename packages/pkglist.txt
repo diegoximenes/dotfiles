@@ -165,7 +165,6 @@ wpa_supplicant
 xautolock
 xclip
 xdotool
-xf86-video-intel
 xfsprogs
 xorg-server
 xorg-xev

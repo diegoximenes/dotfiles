@@ -9,7 +9,7 @@ source_env_vars() {
     local primary_screen
     primary_screen=$(jq '.screen.primary' "$CONFIG_FILE_PATH" 2> /dev/null)
 
-    if [[ $use_default_config == true ]] || [[ "$primary_screen" == "\"eDP1\"" ]]; then
+    if [[ $use_default_config == true ]] || [[ "$primary_screen" == "\"eDP-1\"" ]]; then
         source "$HOME/.scripts/env_vars/edp.sh"
     elif [[ "$primary_screen" =~ ^\"HDMI* ]] || [[ "$primary_screen" =~ ^\"DP* ]]; then
         source "$HOME/.scripts/env_vars/external.sh"

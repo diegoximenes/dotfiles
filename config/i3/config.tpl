@@ -192,9 +192,6 @@ floating_maximum_size ${I3_SCRATCHPAD_MAXIMUM_FLOATING_SIZE}
 # set window title
 for_window [class=".*"] title_format "%class: %title"
 
-# config keyboard
-exec_always xkbcomp ~/.Xkeymap $DISPLAY
-
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

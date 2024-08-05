@@ -49,6 +49,7 @@ symlink() {
     sudo ln -snf "$path_dotfiles/etc/pacman.d/"* /etc/pacman.d/
     sudo ln -snf "$path_dotfiles/etc/bluetooth/"* /etc/bluetooth/
     sudo ln -snf "$path_dotfiles/etc/makepkg.conf" /etc/makepkg.conf
+    sudo ln -snf "$path_dotfiles/etc/keyd/"* /etc/keyd/
 }
 
 generate_configs_dependent_on_screen() {
@@ -116,6 +117,11 @@ set_docker() {
     sudo usermod -aG docker "$USER"
 }
 
+set_keyd() {
+    echo_step 'Setting keyd...'
+    sudo systemctl enable keyd
+}
+
 change_owner
 
 opt="$1"
@@ -135,6 +141,7 @@ else
     set_timesyncd
     set_tmux
     set_docker
+    set_keyd
     # set network stuff, should be the last ones
     set_network_manager
     set_systemd_resolved

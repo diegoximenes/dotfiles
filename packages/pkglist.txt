@@ -62,6 +62,7 @@ jfsutils
 jq
 jupyterlab
 jupyterlab-widgets
+keyd
 ktorrent
 libnotify
 libreoffice-still

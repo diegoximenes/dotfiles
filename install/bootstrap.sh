@@ -40,14 +40,17 @@ symlink() {
     ln -snf "$path_dotfiles/local/share/applications/"* "$HOME/.local/share/applications/"
 
     sudo mkdir -p /etc/systemd/resolved.conf.d
-    # not sure why symlink don't work
+    # not sure why symlink doesn't work
     sudo cp "$path_dotfiles/etc/systemd/resolved.conf.d/resolved.conf" /etc/systemd/resolved.conf.d
     sudo ln -snf "$path_dotfiles/etc/systemd/logind.conf" /etc/systemd/
+
+    # not sure why symlink doesn't work
+    sudo mkdir -p /etc/bluetooth
+    sudo cp "$path_dotfiles/etc/bluetooth/main.conf" /etc/bluetooth
 
     sudo ln -snf "$path_dotfiles/etc/X11/xorg.conf.d/"* /etc/X11/xorg.conf.d/
     sudo ln -snf "$path_dotfiles/etc/NetworkManager/"* /etc/NetworkManager/
     sudo ln -snf "$path_dotfiles/etc/pacman.d/"* /etc/pacman.d/
-    sudo ln -snf "$path_dotfiles/etc/bluetooth/"* /etc/bluetooth/
     sudo ln -snf "$path_dotfiles/etc/makepkg.conf" /etc/makepkg.conf
     sudo ln -snf "$path_dotfiles/etc/keyd/"* /etc/keyd/
 }

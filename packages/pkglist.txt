@@ -72,6 +72,7 @@ libreoffice-still
 libtool
 linux
 linux-firmware
+lld
 logrotate
 lua-language-server
 lvm2
@@ -163,6 +164,7 @@ visidata
 vlc
 vnstat
 w3m
+wabt
 websocat
 wget
 which

@@ -60,6 +60,13 @@ return {
 			})
 		end
 
+		local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
+		lspconfig["rust_analyzer"].setup({
+			on_attach = on_attach,
+			flags = flags,
+			capabilities = default_capabilities,
+		})
+
 		lspconfig["clangd"].setup({
 			on_attach = on_attach,
 			flags = flags,

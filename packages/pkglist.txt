@@ -42,6 +42,7 @@ flex
 fzf
 gcc
 gdb
+gimp
 git
 git-delta
 gnome-sound-recorder

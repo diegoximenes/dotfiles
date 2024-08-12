@@ -25,6 +25,7 @@ deepin-screen-recorder
 dfrs
 dhcpcd
 difftastic
+discord
 dnsmasq
 docker
 docker-buildx

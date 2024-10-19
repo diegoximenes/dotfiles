@@ -15,7 +15,7 @@ setopt PROMPT_SUBST
 # antigen
 ################################################################################
 
-source /usr/share/zsh/share/antigen.zsh
+source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -250,3 +250,9 @@ alias gchm="git checkout $(git_main_branch)"
 alias gpd="git pushdefault"
 alias gp="git pull"
 alias gr="git restore --staged"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -s "/Users/diego/.gvm/scripts/gvm" ]] && source "/Users/diego/.gvm/scripts/gvm"

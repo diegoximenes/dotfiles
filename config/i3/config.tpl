@@ -46,8 +46,7 @@ bindsym $mod+g layout splitv; focus down; focus down; focus down; move right; la
 bindsym $mod+b focus right; focus up; move left; focus right; move left; layout tabbed
 
 # change container layout
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+s layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating

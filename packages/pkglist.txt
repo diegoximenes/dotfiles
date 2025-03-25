@@ -1,3 +1,4 @@
+7zip
 alacritty
 android-file-transfer
 arch-audit
@@ -97,7 +98,6 @@ noto-fonts-emoji
 ntfs-3g
 openssh
 os-prober
-p7zip
 pacman-contrib
 pandoc-cli
 pasystray
@@ -122,7 +122,6 @@ python-pynvim
 python-virtualenvwrapper
 qemu-desktop
 ranger
-reiserfsprogs
 ripgrep
 rofi
 rsync
@@ -140,6 +139,7 @@ texinfo
 texlive-basic
 texlive-bin
 texlive-latexextra
+tflint
 thefuck
 tig
 tmux

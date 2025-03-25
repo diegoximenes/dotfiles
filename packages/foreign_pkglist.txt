@@ -16,12 +16,10 @@ nodejs-jsonlint
 python-xlsx2csv
 rofi-bluetooth-git
 rofi-greenclip
-ruff-lsp
 slack-desktop
 smem
 sql-language-server
 terraform-ls
-tflint
 tmux-plugin-manager
 usql
 vscode-langservers-extracted

@@ -43,6 +43,7 @@ update_nvim() {
     echo_step 'Updating nvim stuff...'
 
     nvim --headless "+Lazy! sync" +qa
+    nvim --headless "+TSUpdateSync" +qa
     nvim /tmp/tmp.py +UpdateRemotePlugins
 }
 

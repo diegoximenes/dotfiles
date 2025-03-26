@@ -114,7 +114,6 @@ progress
 protobuf
 psensor
 pyright
-python-black
 python-i3ipc
 python-pip
 python-pipenv

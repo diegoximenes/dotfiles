@@ -51,6 +51,7 @@ return {
 			"ruff",
 			"pyright",
 			"bashls",
+			"rust_analyzer",
 		}
 		for _, lsp in ipairs(lsps_with_default_config) do
 			lspconfig[lsp].setup({
@@ -59,13 +60,6 @@ return {
 				capabilities = capabilities,
 			})
 		end
-
-		local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
-		lspconfig["rust_analyzer"].setup({
-			on_attach = on_attach,
-			flags = flags,
-			capabilities = default_capabilities,
-		})
 
 		lspconfig["clangd"].setup({
 			on_attach = on_attach,

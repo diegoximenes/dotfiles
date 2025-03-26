@@ -27,7 +27,6 @@ return {
 		end
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		capabilities["offsetEncoding"] = "utf-16"
 
 		local flags = {
 			debounce_text_changes = 150,
@@ -38,7 +37,7 @@ return {
 		local lsps_with_default_config = {
 			"gopls",
 			"jsonls",
-			"tsserver",
+			"ts_ls",
 			"metals",
 			"yamlls",
 			"dockerls",
@@ -47,9 +46,10 @@ return {
 			"tflint", -- it does not search for .tflint.hcl in parent directories
 			"golangci_lint_ls",
 			"sqlls",
-			"bufls",
+			"buf_ls",
 			"marksman",
-			"ruff_lsp", -- when it is fixed use "ruff" instead of "ruff_lsp" in the future
+			"ruff",
+			"pyright",
 			"bashls",
 		}
 		for _, lsp in ipairs(lsps_with_default_config) do

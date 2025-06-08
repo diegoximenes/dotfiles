@@ -137,8 +137,8 @@ s-nail
 sd
 shellcheck
 shfmt
-stylua
 sof-firmware
+stylua
 sudo
 sysfsutils
 texinfo

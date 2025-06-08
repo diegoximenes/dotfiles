@@ -48,6 +48,7 @@ git
 git-delta
 gnome-sound-recorder
 go
+golangci-lint
 gparted
 grub
 gucharmap
@@ -165,7 +166,6 @@ which
 wireplumber
 wmctrl
 wpa_supplicant
-xautolock
 xclip
 xdotool
 xfsprogs

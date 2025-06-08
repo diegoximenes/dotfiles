@@ -4,7 +4,6 @@ buf-bin
 curl-impersonate-bin
 diagnostic-languageserver
 dockerfile-language-server
-golangci-lint
 golangci-lint-langserver-bin
 golines
 google-chrome
@@ -24,5 +23,6 @@ tmux-plugin-manager
 usql
 vscode-langservers-extracted
 woeusb
+xautolock
 yay
 zoom

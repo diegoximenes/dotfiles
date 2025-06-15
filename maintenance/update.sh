@@ -71,6 +71,11 @@ update_zsh() {
     zsh "$path_dotfiles/maintenance/update_zsh.sh"
 }
 
+update_github() {
+    echo_step 'Updating GitHub CLI...'
+    gh extension upgrade --all
+}
+
 ssh_agent
 update_submodules
 update_arch_packages
@@ -80,5 +85,6 @@ update_nvim
 update_tmux_plugins
 update_yarn_packages
 update_go_binaries
+update_github
 prune_disk
 success

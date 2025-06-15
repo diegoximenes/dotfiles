@@ -125,6 +125,11 @@ set_keyd() {
     sudo systemctl enable keyd
 }
 
+set_github() {
+    echo_step 'Setting GitHub...'
+    gh extension install github/gh-copilot
+}
+
 change_owner
 
 opt="$1"
@@ -145,6 +150,7 @@ else
     set_tmux
     set_docker
     set_keyd
+    set_github
     # set network stuff, should be the last ones
     set_network_manager
     set_systemd_resolved

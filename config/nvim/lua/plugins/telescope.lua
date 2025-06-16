@@ -19,6 +19,7 @@ return {
 		})
 
 		telescope.load_extension("aerial")
+		telescope.load_extension("ui-select")
 
 		local builtin = require("telescope.builtin")
 		local diagnostics = function()

@@ -1,4 +1,5 @@
 7zip
+aichat
 alacritty
 android-file-transfer
 arch-audit

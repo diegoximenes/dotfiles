@@ -2,6 +2,7 @@ antigen-git
 autojump
 buf-bin
 curl-impersonate-bin
+cursor-bin
 diagnostic-languageserver
 dockerfile-language-server
 golangci-lint-langserver-bin

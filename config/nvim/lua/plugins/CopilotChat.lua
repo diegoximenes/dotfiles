@@ -8,6 +8,7 @@ return {
 	build = "make tiktoken", -- Only on MacOS or Linux
 	opts = {
 		model = "claude-3.7-sonnet",
+		sticky = "#buffer",
 	},
 	keys = {
 		{ "<leader>c", "<cmd>CopilotChatOpen<cr>", mode = "n", desc = "Open Copilot Chat" },

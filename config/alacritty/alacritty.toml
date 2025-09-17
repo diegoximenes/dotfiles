@@ -1,5 +1,5 @@
 [font]
-size = ${ALACRITTY_FONT_SIZE}
+size = 10
 
 [window]
 padding = { x = 4, y = 4 }

@@ -8,7 +8,6 @@ config/yarn/global/*
 !config/yarn/global/yarn.lock
 
 config/dunst/dunstrc
-config/alacritty/alacritty.toml
 config/i3/config
 config/polybar/config
 

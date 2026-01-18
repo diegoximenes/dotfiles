@@ -18,6 +18,25 @@ return {
 		vim.keymap.set("n", "<C-[>", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 		vim.keymap.set("n", "<C-]>", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
+		-- Copy diagnostic to clipboard
+		vim.keymap.set("n", "<leader>yd", function()
+			local line = vim.fn.line(".") - 1
+			local diags = vim.diagnostic.get(0, { lnum = line })
+
+			if vim.tbl_isempty(diags) then
+				print("No diagnostics on current line")
+				return
+			end
+
+			local lines = {}
+			for _, d in ipairs(diags) do
+				table.insert(lines, d.message)
+			end
+
+			vim.fn.setreg("+", table.concat(lines, "\n"))
+			print("Line diagnostics copied to clipboard")
+		end, { desc = "Yank diagnostics on current line" })
+
 		local on_attach = function(_, bufnr)
 			-- Enable completion triggered by <c-x><c-o>
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")

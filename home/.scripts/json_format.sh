@@ -2,7 +2,7 @@
 
 json_file="$1"
 if [[ "$json_file" == "" ]] || [[ "$#" -ne 1 ]]; then
-    echo "usage: format_json json_file"
+    echo "usage: json_format json_file"
     exit
 fi
 
@@ -13,7 +13,7 @@ format_json() {
     local tmp_file
     tmp_file=$(mktemp "/tmp/$file_name.XXXXXXXXX")
 
-    json_pp < "$json_file" > "$tmp_file"
+    jq . < "$json_file" > "$tmp_file"
 
     mv "$tmp_file" "$json_file"
 }

@@ -51,8 +51,6 @@ return {
 			debounce_text_changes = 150,
 		}
 
-		local lspconfig = require("lspconfig")
-
 		local lsps_with_default_config = {
 			"gopls",
 			"jsonls",
@@ -73,14 +71,14 @@ return {
 			"rust_analyzer",
 		}
 		for _, lsp in ipairs(lsps_with_default_config) do
-			lspconfig[lsp].setup({
+			vim.lsp.config(lsp, {
 				on_attach = on_attach,
 				flags = flags,
 				capabilities = capabilities,
 			})
 		end
 
-		lspconfig["clangd"].setup({
+		vim.lsp.config("clangd", {
 			on_attach = on_attach,
 			flags = flags,
 			capabilities = capabilities,
@@ -93,7 +91,7 @@ return {
 			},
 		})
 
-		lspconfig["ltex"].setup({
+		vim.lsp.config("ltex", {
 			on_attach = on_attach,
 			flags = flags,
 			capabilities = capabilities,
@@ -114,7 +112,7 @@ return {
 			},
 		})
 
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			on_init = function(client)
 				local path = client.workspace_folders[1].name
 				if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
@@ -146,7 +144,7 @@ return {
 			},
 		})
 
-		lspconfig["diagnosticls"].setup({
+		vim.lsp.config("diagnosticls", {
 			on_attach = on_attach,
 			flags = flags,
 			capabilities = capabilities,

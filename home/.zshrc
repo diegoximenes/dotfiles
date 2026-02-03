@@ -29,7 +29,8 @@ export FZF_DEFAULT_OPTS='-e'
 antigen bundle fzf
 
 antigen bundle command-not-found
-antigen bundle autojump
+
+antigen bundle zoxide
 
 export WORKON_HOME=$HOME/python_virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -206,6 +207,7 @@ preexec() {
 # aliases
 ################################################################################
 
+alias j='z'
 alias t="tig"
 alias ls="eza"
 alias l="eza -lah --git"
@@ -219,7 +221,6 @@ alias sudo="sudo "
 alias r="ranger"
 alias c="clear"
 alias f="fuck"
-alias z="zathura"
 alias p="sudo pacman"
 alias p_overwrite='sudo pacman --overwrite "*"'
 alias yay_overwrite='yay --overwrite "*"'

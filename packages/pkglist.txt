@@ -187,4 +187,5 @@ zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
 zip
+zoxide
 zsh

@@ -35,6 +35,7 @@ duf
 dunst
 efibootmgr
 eog
+ex-vi-compat
 eza
 fakeroot
 fastfetch
@@ -157,11 +158,11 @@ typescript-language-server
 unrar
 unzip
 usbutils
-vi
 vint
 virt-manager
 visidata
 vlc
+vlc-plugins-all
 vnstat
 w3m
 websocat

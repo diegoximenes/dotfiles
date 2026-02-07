@@ -76,6 +76,7 @@ return {
 				flags = flags,
 				capabilities = capabilities,
 			})
+			vim.lsp.enable(lsp)
 		end
 
 		vim.lsp.config("clangd", {
@@ -90,6 +91,7 @@ return {
 				"cuda",
 			},
 		})
+		vim.lsp.enable("clangd")
 
 		vim.lsp.config("ltex", {
 			on_attach = on_attach,
@@ -111,6 +113,7 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("ltex")
 
 		vim.lsp.config("lua_ls", {
 			on_init = function(client)
@@ -143,6 +146,7 @@ return {
 				Lua = {},
 			},
 		})
+		vim.lsp.enable("lua_ls")
 
 		vim.lsp.config("diagnosticls", {
 			on_attach = on_attach,
@@ -236,5 +240,6 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("diagnosticls")
 	end,
 }

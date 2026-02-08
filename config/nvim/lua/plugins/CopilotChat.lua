@@ -7,7 +7,7 @@ return {
 	},
 	build = "make tiktoken", -- Only on MacOS or Linux
 	opts = {
-		model = "claude-sonnet-4",
+		model = "claude-sonnet-4.5",
 		sticky = "#buffer",
 	},
 	keys = {

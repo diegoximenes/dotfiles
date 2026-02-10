@@ -47,6 +47,10 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+		vim.lsp.util._get_offset_encoding = function(bufnr)
+			return "utf-16"
+		end
+
 		local flags = {
 			debounce_text_changes = 150,
 		}

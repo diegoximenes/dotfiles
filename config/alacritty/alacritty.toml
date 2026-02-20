@@ -1,5 +1,6 @@
 [font]
-size = 10
+size = 19
+normal = { family = "Hack Nerd Font Mono", style = "Regular" }  # Default for Linux/BSD: "monospace", Regular
 
 [window]
 padding = { x = 4, y = 4 }
@@ -31,3 +32,13 @@ blue = "#729FCF"
 magenta = "#AD7FA8"
 cyan = "#34E2E2"
 white = "#EEEEEC"
+
+[shell]
+program = "/opt/homebrew/bin/tmux"
+args = ["new", "-A", "-s", "general"]
+
+[keyboard]
+bindings = [
+    { key = "V", mods = "Control|Shift", action = "Paste" },
+    { key = "C", mods = "Control|Shift", action = "Copy" }
+]

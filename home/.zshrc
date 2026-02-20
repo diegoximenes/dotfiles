@@ -15,7 +15,7 @@ setopt PROMPT_SUBST
 # antigen
 ################################################################################
 
-source /usr/share/zsh/share/antigen.zsh
+source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -252,3 +252,21 @@ alias gpd="git pushdefault"
 alias gp="git pull"
 alias gr="git restore --staged"
 alias cop="gh copilot"
+
+################################################################################
+# macos specific
+################################################################################
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# avoids nitro warnings
+export MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion)
+export CGO_LDFLAGS=-Wl,-no_warn_duplicate_libraries
+
+export CC=/usr/bin/clang
+
+eval "$(zoxide init zsh)"
+
+[[ -s "/Users/diego/.gvm/scripts/gvm" ]] && source "/Users/diego/.gvm/scripts/gvm"

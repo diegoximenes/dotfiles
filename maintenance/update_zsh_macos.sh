@@ -8,7 +8,9 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 check_zsh() {
-    if [[ "$(basename "$SHELL")" != "zsh" ]] || [[ -z "$ZSH_VERSION" ]]; then
+    local script_shell
+    script_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
+    if [[ "$script_shell" != "zsh" ]]; then
         echo -e "${RED}FAILED: script must be run with zsh${NC}"
         exit 1
     fi

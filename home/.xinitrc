@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# required by xdg-desktop-portal-gtk
+systemctl --user import-environment DISPLAY XAUTHORITY
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
+
 # needed by keyd
 setxkbmap -option compose:menu
 

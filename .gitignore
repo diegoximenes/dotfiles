@@ -20,3 +20,7 @@ home/.mozilla/firefox/*
 !home/.mozilla/firefox/profiles
 home/.mozilla/firefox/profiles/diego/*
 !home/.mozilla/firefox/profiles/diego/user.js.tpl
+
+home/.claude/*
+!home/.claude/settings.json
+!home/.claude/CLAUDE.md

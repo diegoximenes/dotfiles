@@ -8,3 +8,11 @@
 - Do write comments for context that cannot be derived from the code:
   decision rationale (why this approach instead of alternatives), external
   constraints, workarounds for third-party bugs (with a link), gotchas.
+
+# Git and GitHub
+
+- Never create a git commit, push, or publish anything to GitHub (pull
+  requests, releases, comments) without explicit authorization from the
+  user in the current conversation.
+- One authorization covers one action; it does not extend to later
+  commits or pushes.

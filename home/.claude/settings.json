@@ -1,0 +1,40 @@
+{
+  "model": "claude-fable-5[1m]",
+  "permissions": {
+    "ask": [
+      "Bash(git commit)",
+      "Bash(git commit *)",
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(gh pr create*)",
+      "Bash(gh pr merge*)",
+      "Bash(gh release *)",
+      "Bash(gh repo create*)",
+      "Bash(gh api *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -c 'if ((.tool_input.command // \"\") | test(\"\\\\bgit\\\\b[^;&|]*\\\\b(commit|push)\\\\b|\\\\bgh\\\\b[^;&|]*\\\\b(create|merge|edit|close|comment|review|release|api)\\\\b\")) then {hookSpecificOutput:{hookEventName:\"PreToolUse\",permissionDecision:\"ask\",permissionDecisionReason:\"Committing or publishing to GitHub requires explicit user approval\"}} else empty end'"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "code-review@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  }
+}

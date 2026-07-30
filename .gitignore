@@ -24,3 +24,4 @@ home/.mozilla/firefox/profiles/diego/*
 home/.claude/*
 !home/.claude/settings.json
 !home/.claude/CLAUDE.md
+!home/.claude/skills

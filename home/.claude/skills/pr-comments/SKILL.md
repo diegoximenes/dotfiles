@@ -48,21 +48,45 @@ For each unresolved thread, in file/position order:
 
 1. Read the referenced file and surrounding code (note if the thread is
    outdated relative to the current code).
-2. Present: reviewer, file:line, the comment (quoted or condensed), your
-   analysis, and a concrete proposed change.
-3. Ask with AskUserQuestion: "Address" or "Skip for now".
-4. Skip: record it and move on.
-5. Address: implement the change, show the diff, then ask: "Commit",
-   "Rework" (take feedback and iterate), or "Discard and skip" (revert).
-6. On commit approval: commit only the files changed for this thread,
+2. End your turn with the analysis message and wait for the user's
+   reply. This is the core deliverable of the skill. It must be the
+   final text of your turn, with no tool call after it — do NOT use
+   AskUserQuestion. Your extended thinking is invisible to the user;
+   analysis that happens only in thinking has not been presented.
+   Template:
+
+   ### Thread N/M — `path:line` — @reviewer
+   > The comment, quoted (condensed only if very long; note if the
+   > thread is outdated).
+
+   **Problem:** What issue the reviewer is raising, what the current
+   code actually does, whether the concern is valid (and why), and its
+   impact. A few sentences minimum.
+
+   **Proposed change:** The concrete fix you would make.
+
+   Address or skip?
+
+3. Skip: record it and move on to the next thread's analysis.
+4. Address: implement the change, then end your turn showing the diff
+   and asking: commit, rework (tell me what to change), or discard and
+   skip?
+5. On commit approval: commit only the files changed for this thread,
    with a short imperative message describing the fix.
-7. Move to the next thread.
+6. Move to the next thread.
 
 ## Rules
 
 - Never reply to threads, resolve threads, or comment on GitHub.
 - Never push during the loop.
-- One thread at a time; do not batch analyses or fixes.
+- Never use AskUserQuestion in this skill; every question is plain text
+  ending your turn.
+- One thread at a time; do not batch analyses, questions, or fixes. Even
+  when one fix would cover several threads, present each thread's
+  analysis separately and ask about each separately (you may note the
+  overlap in the Proposed change section).
+- Do not track the loop with a todo list; the analysis messages are the
+  progress display.
 
 ## Wrap-up
 

@@ -37,7 +37,6 @@
       "Bash(gh pr merge*)",
       "Bash(gh release *)",
       "Bash(gh repo create*)",
-      "Bash(gh api *)"
     ]
   },
   "hooks": {

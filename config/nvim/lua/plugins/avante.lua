@@ -22,6 +22,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
+		"ColinKennedy/mega.cmdparse",
+		"ColinKennedy/mega.logging",
 		--- The below dependencies are optional,
 		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
 		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
